@@ -1,0 +1,16 @@
+[
+  {
+    "name": "DL Penalty (Flow D) — discretionary up-to-10× outputs a RANGE",
+    "source_note": "ISA s.40. Conveyance 2024 male >25L = 7% → dutyThen 7,00,000; paid 4,00,000; deficit 3,00,000; up to 10× → [0, 30,00,000]; total payable [3,00,000, 33,00,000]. Regime auto-resolved.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" }, "duty_paid": "400000" },
+    "expect": {
+      "penalty": {
+        "deficit": "300000",
+        "penalty_point": null,
+        "penalty_range": { "min": "0", "max": "3000000" },
+        "total_payable_point": null,
+        "total_payable_range": { "min": "300000", "max": "3300000" }
+      }
+    }
+  }
+]

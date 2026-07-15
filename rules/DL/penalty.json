@@ -1,0 +1,19 @@
+{
+  "regime_id": "DL-penalty",
+  "jurisdiction": "DL",
+  "penalty": { "type": "discretionary_range", "min_multiple": 0, "max_multiple": 10 },
+  "adjudication_path": "Indian Stamp Act 1899 (Delhi) s.31/s.32 (adjudication) & s.40 (impounded instruments — duty + penalty up to 10×); s.35 inadmissibility",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), s.40(1)(b)",
+      "quoted_text": "Indian Stamp Act 1899 s.40(1)(b): where an instrument is impounded and not duly stamped, the Collector 'may require the payment of the proper duty or the amount required to make up the same, together with a penalty of five rupees, or, if he thinks fit, an amount not exceeding ten times the amount of the proper duty or of the deficient portion thereof.' Discretionary 'up to ten times' → modelled as a range (PRD §5.6). NOTE: verify the exact Delhi-applicable text/any local amendment of s.40 — encoded as the ISA standard pending founder confirmation."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH (ISA s.40 standard 'up to ten times'; Delhi applies the ISA directly). Discretionary up-to-10× → RANGE [0, 10× deficiency], never a false point estimate. PENDING_VERIFICATION: confirm no Delhi-specific amendment altered the s.40 penalty and the practical minimum the Collector imposes (min_multiple 0 reflects full discretion)."
+}

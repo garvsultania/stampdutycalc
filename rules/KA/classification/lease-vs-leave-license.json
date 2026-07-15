@@ -1,0 +1,45 @@
+{
+  "tree_id": "KA-lease-vs-leave-license",
+  "jurisdiction": "KA",
+  "instrument_class": "lease_vs_leave_and_license",
+  "root": "q_occupation",
+  "nodes": {
+    "q_occupation": {
+      "type": "question",
+      "text": "Does the arrangement grant occupation/use of premises for a term against rent, licence fee, premium or deposit (as opposed to a bare personal permission with no occupation)?",
+      "legal_test": "Karnataka Stamp Act Art 30 covers 'Lease of immoveable property including an under-lease or sub-lease and any AGREEMENT TO LET or sub-let'. Karnataka has NO separate leave & licence article (unlike Maharashtra's 36A); an occupation-conferring licence is charged as a lease/agreement-to-let under Art 30.",
+      "edges": [
+        { "answer": "yes", "to": "q_exclusive" },
+        { "answer": "no", "to": "grey_bare_licence" }
+      ]
+    },
+    "q_exclusive": {
+      "type": "question",
+      "text": "Is exclusive possession granted (right to exclude the grantor), indicating a true lease rather than a licence?",
+      "legal_test": "Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262. In Karnataka both a lease and an occupation licence are charged under Art 30, so the duty is the same; the distinction still matters for other legal consequences and for s.6 where a competing description exists.",
+      "edges": [
+        { "answer": "yes", "to": "t_lease" },
+        { "answer": "no", "to": "t_lease_as_agreement_to_let" }
+      ]
+    },
+    "t_lease": { "type": "terminal", "instrument": "lease", "article": "30", "rule_id": "KA-ART30-lease" },
+    "t_lease_as_agreement_to_let": { "type": "terminal", "instrument": "leave_and_license", "article": "30", "rule_id": "KA-ART30-lease" },
+    "grey_bare_licence": {
+      "type": "escalate",
+      "reason": "A bare licence conferring no occupation may fall outside Art 30 (potentially an Art 5 agreement). Classification is uncertain and duty-affecting — escalate and recommend adjudication rather than defaulting to the lease article."
+    }
+  },
+  "version": {
+    "effective_from": "2016-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act 1957 Art 30 ('any agreement to let'); Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262; s.6",
+      "quoted_text": "Art 30 charges a lease 'including ... any agreement to let or sub-let'. Karnataka has no distinct leave & licence article; an occupation licence is charged as a lease under Art 30. Both terminals resolve to KA-ART30-lease — the duty is identical, so the classification here is confirmatory rather than duty-splitting (contrast Maharashtra Art 36 vs 36A)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH. Documents that Karnataka charges L&L as a lease (Art 30) — both terminals point to KA-ART30-lease. The meaningful escalation is the bare-licence-no-occupation grey zone. Contrast the MH tree, where the split is duty-determinative (Art 36 vs 36A)."
+}

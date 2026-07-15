@@ -81,12 +81,17 @@ export function runCase(ruleSet: RuleSet, c: GoldenCase): CaseResult {
 }
 
 function resolvePenaltyOpts(ruleSet: RuleSet, c: GoldenCase) {
-  if (!c.penalty_regime_id) return {};
-  const regime = ruleSet.penaltyRegimes.find(
-    (p) => p.jurisdiction === c.input.jurisdiction && p.regime_id === c.penalty_regime_id,
-  );
-  if (!regime) throw new EngineError(`golden case "${c.name}" references unknown penalty regime "${c.penalty_regime_id}"`);
-  return { penaltyRegime: regime, penaltyMonths: c.penalty_months };
+  const opts: { penaltyRegime?: (typeof ruleSet.penaltyRegimes)[number]; penaltyMonths?: number } = {};
+  if (c.penalty_months !== undefined) opts.penaltyMonths = c.penalty_months;
+  // Only override the auto-resolved regime when a specific id is named.
+  if (c.penalty_regime_id) {
+    const regime = ruleSet.penaltyRegimes.find(
+      (p) => p.jurisdiction === c.input.jurisdiction && p.regime_id === c.penalty_regime_id,
+    );
+    if (!regime) throw new EngineError(`golden case "${c.name}" references unknown penalty regime "${c.penalty_regime_id}"`);
+    opts.penaltyRegime = regime;
+  }
+  return opts;
 }
 
 function diffBreakup(expected: Partial<LineItem>[], actual: LineItem[], failures: string[]): void {

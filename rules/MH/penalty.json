@@ -1,0 +1,20 @@
+{
+  "regime_id": "MH-penalty",
+  "jurisdiction": "MH",
+  "penalty": { "type": "per_month", "pct_per_month": 2, "cap_multiple": 4, "min_penalty": null },
+  "adjudication_path": "Maharashtra Stamp Act 1958 s.31/s.32 (adjudication) & s.34 (admission on payment of duty + penalty); s.53A revision",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act, 1958, s.34 proviso & s.31(4) proviso",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/22026/1/the_maharashtra_stamp_act,_1958.pdf",
+      "quoted_text": "MSA s.34 (verbatim, India Code text): '... (ii) a penalty at the rate of 2 per cent. of the deficient portion of the stamp duty for every month or part thereof, from the date of execution of such instrument: Provided that, in no case, the amount of the penalty shall exceed [four times] the deficient portion of the stamp duty.' The identical 2%/month, max four-times cap appears in the s.31(4) adjudication proviso. RESOLVES the earlier 200%-vs-400% source conflict: the current statutory cap is FOUR TIMES (400%), verified from the primary Act text."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (primary Act text; resolved the source conflict). 2% per month of the deficient duty, from the date of execution, capped at 4× the deficiency. Requires penalty_months input (whole months elapsed) — the engine takes it as an argument, not a clock read, for determinism. Discretionary reductions are separate (s.34 mandatory-rate vs Collector adjudication)."
+}
