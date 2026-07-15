@@ -1,0 +1,46 @@
+[
+  {
+    "modifier_id": "KA-infra-cess",
+    "jurisdiction": "KA",
+    "kind": "surcharge_cess",
+    "applies_when": { "always": true },
+    "effect": { "op": "pct_add", "pct": 10, "of": "duty", "label": "Infrastructure additional duty (KSA s.3B, 10% of stamp duty)" },
+    "order": 20,
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, s.3B(1) (subst. by Act 2 of 2004 w.e.f. 1-2-2004)",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "s.3B(1) (verbatim, official DPAL text): 'Any instrument of conveyance, exchange, settlement, gift or lease in perpetuity of immovable property chargeable with duty under section 3 read with articles of the schedule shall be chargeable with additional duty at the rate of ten percent, on such duty chargeable on such instrument ... for the purpose of various infrastructure projects across the State, equity investment in the Bangalore Mass Rapid Transport Limited and for Mukhya Manthri Grameena Rasthe Abhivrudhi Nidhi in the proportion of 57:28:15.' (2) 'in addition to any duty chargeable under section 3.' s.3C caps total additional duty at the maximum duty under the Act."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "HIGH confidence (primary statutory text). 10% of the STAMP DUTY (not of value) — so on a 5% conveyance it adds 0.5% of value → 5.5% effective. Applies to conveyance/exchange/settlement/gift/lease-in-perpetuity of IMMOVABLE property. Attached to conveyance (always). For gift, the not-family variant KA-infra-cess-gift is used (fixed family-gift duty and whether it attracts s.3B is a modelling question — see gift notes)."
+  },
+  {
+    "modifier_id": "KA-infra-cess-gift",
+    "jurisdiction": "KA",
+    "kind": "surcharge_cess",
+    "applies_when": { "not": { "eq": { "field": "gift_relation_ka", "value": "family" } } },
+    "effect": { "op": "pct_add", "pct": 10, "of": "duty", "label": "Infrastructure additional duty (KSA s.3B, 10% of stamp duty)" },
+    "order": 20,
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, s.3B(1)",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "s.3B(1) applies the 10% additional duty to 'gift ... of immovable property'. Applied here only to NON-family gifts (which are charged ad valorem as a conveyance). PENDING_VERIFICATION: whether the 10% additional duty also rides on the FIXED family-gift duties (Rs 5,000/3,000/1,000) — the statute's 'ten percent on such duty chargeable' is literal but practitioners often quote the fixed family figure as the all-in total. Excluded here pending confirmation; family-gift golden asserts the bare fixed amount."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Variant of KA-infra-cess gated to non-family gifts (condition: gift_relation_ka != family)."
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "KA Conveyance — general 5% + s.3B cess (10% of duty) = 5.5%",
+    "source_note": "Art 20(1) 5% + s.3B 10%-of-duty cess. 1,00,00,000 × 5% = 5,00,000; cess 50,000; total 5,50,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" } },
+    "expect": {
+      "total_duty": "550000",
+      "breakup": [
+        { "kind": "base_duty", "amount": "500000" },
+        { "kind": "surcharge_cess", "label": "Infrastructure additional duty (KSA s.3B, 10% of stamp duty)", "amount": "50000" }
+      ]
+    }
+  },
+  {
+    "name": "KA Conveyance — first sale of flat ≤ Rs 20L: 2% + cess",
+    "source_note": "Art 20(2A)(i): 2%. 15,00,000 × 2% = 30,000; cess 3,000; total 33,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "1500000" }, "facts": { "first_sale_flat": "yes" } },
+    "expect": { "total_duty": "33000" }
+  },
+  {
+    "name": "KA Conveyance — first sale Rs 20-35L: 3% + cess",
+    "source_note": "Art 20(2A)(ii): 3%. 30,00,000 × 3% = 90,000; cess 9,000; total 99,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "3000000" }, "facts": { "first_sale_flat": "yes" } },
+    "expect": { "total_duty": "99000" }
+  },
+  {
+    "name": "KA Conveyance — first sale > Rs 35L: falls to general 5% + cess",
+    "source_note": "Above the concession band → 5%. 50,00,000 × 5% = 2,50,000; cess 25,000; total 2,75,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "first_sale_flat": "yes" } },
+    "expect": { "total_duty": "275000" }
+  },
+  {
+    "name": "KA Gift — non-family: conveyance rate (5%) + cess",
+    "source_note": "Art 28(a): same as Conveyance Art 20 on market value. 50,00,000 × 5% = 2,50,000; s.3B cess 25,000; total 2,75,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART28-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation_ka": "other" } },
+    "expect": { "total_duty": "275000" }
+  },
+  {
+    "name": "KA Gift — to family, BBMP/City Corp: flat Rs 5,000 (no cess)",
+    "source_note": "Art 28(b)(i): Rs 5,000 within BBMP/BMRDA/City Corporation. Family fixed amount, cess excluded (see modifier note).",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART28-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation_ka": "family", "area_type": "bbmp_bmrda_city_corp" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "KA Gift — to family, Town Municipal/Panchayat: Rs 3,000",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART28-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation_ka": "family", "area_type": "town_municipal_town_panchayat" } },
+    "expect": { "total_duty": "3000" }
+  },
+  {
+    "name": "KA Gift — to family, other area: Rs 1,000",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART28-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation_ka": "family", "area_type": "rural" } },
+    "expect": { "total_duty": "1000" }
+  }
+]

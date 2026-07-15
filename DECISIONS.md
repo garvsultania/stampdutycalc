@@ -55,6 +55,17 @@ File: `packages/engine/src/charge.ts`.
 `compute()` does not stamp a timestamp; that would make output non-reproducible. The
 audit layer (M3) records the timestamp alongside the deterministic output.
 
+### D14 — Karnataka from its own statute; two per-state relative lists proven [M2]
+KSA 1957 encoded from the official DPAL Act PDF. Conveyance 5% + the s.3B 10%-of-duty
+infrastructure cess (primary text) + first-sale flat concession (2%/3%). A bare rate
+rule (`KA-ART20-rate`) is the rebaseable cross-ref target for gift/lease(vi)/exchange —
+mirroring Delhi's stamp-only pattern (a `select`/`switch` target cannot be rebased, so
+the plain-rate indirection is required). KA gift (Art 28) is area-based FIXED amounts
+(Rs 5,000/3,000/1,000) with KA's own family list (incl. daughter-in-law, grand children)
+— deliberately different from MH's 3%/Rs 200 list, demonstrating why §5.5 forbids a
+generalized "family" list. Penalty (s.34/s.39) is discretionary up-to-10× → range.
+Local surcharge + perpetuity-lease cess deferred (PENDING). Files: `rules/KA/*`, `sources/KA/*`.
+
 ### D13 — `select` charge: categorical sub-charge selection [M2]
 Maharashtra gift (Art 34) selects between different charge KINDS by relation — Rs 200
 flat (close family, residential/agri), 3% ad valorem (family), or full conveyance rate
