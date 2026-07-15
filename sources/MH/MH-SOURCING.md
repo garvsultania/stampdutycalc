@@ -25,23 +25,24 @@ Code MSA text, not this Schedule PDF.)
 
 Status: **6 rule versions + 1 modifier + MH golden 20/20.**
 
-## Deferred to MH wave 2 / M2 back-catalogue
+## Wave 2 additions (done)
 
-1. **Metro Cess (1%) + Local Body Tax** — separate surcharges on conveyance/lease in
-   MMR, Pune, Nagpur, Nashik etc.; the effective Mumbai rate is ~6–7%, not 5%. Need
-   the specific surcharge notifications + area lists. Model as modifiers (Delhi
-   transfer-duty pattern). **Until then, MH conveyance/lease totals are STAMP DUTY
-   ONLY — do not treat as the all-in figure.**
-2. **Penalty regime (MSA s.34)** — 2%/month agreed across sources, but the CAP is
-   genuinely conflicting (one primary-text-citing source says "double" = 200%; several
-   practitioner sources say "four times" = 400%). NOT encoded pending a read of the
-   actual s.34 text — never guess a penalty cap. The penalty ENGINE is built/tested;
-   only the MH regime datum is pending.
-3. **Mortgage (Art 40)** — (a) with possession = conveyance on amount secured; (b)
-   without possession shows BOTH "0.1% min Rs 100" and "0.3% max Rs 20 lakh (consortium
-   Rs 50 lakh)" lines in the OCR (Mah 3 of 2021 substitution) — AMBIGUOUS which is the
-   operative structure; flagged per the two-column guardrail, not guessed.
-4. **Back-catalogue versions (M2, batched-by-year to 2015):** pre-2017 conveyance
+- **Metro cess (1%)** — encoded as `MH-metro-cess`: 1% of market value on conveyance in
+  the six metro cities (Mumbai/Thane/Navi Mumbai/Pune/Nagpur/Nashik) from 1-Apr-2022
+  (was in abeyance 2020–2022). MEDIUM confidence (well-corroborated incl. a law firm, not
+  a .gov PDF). Makes a metro-city Municipal-Corp conveyance 6%. Still attach to gift/
+  mortgage (PENDING). **LBT, where separate, may be additional (PENDING).**
+- **Penalty regime (MSA s.34)** — RESOLVED from the primary Act text (India Code):
+  2%/month, cap **four times (400%)**. The "200%/double" source was outdated.
+- **Mortgage (Art 40)** — (a) with possession = area conveyance rate on amount secured
+  (encoded); (b) without possession = 0.3%, min Rs 100, max Rs 20 lakh (encoded, with the
+  0.1%-line ambiguity + consortium Rs 50 lakh cap flagged PENDING).
+
+## Deferred to MH wave 3 / M2 back-catalogue
+
+1. Metro cess attachment to gift & mortgage; LBT; consortium-of-banks Rs 50 lakh mortgage
+   cap (fact-gated); the exact metro-cess notification number.
+2. **Back-catalogue versions (M2, batched-by-year to 2015):** pre-2017 conveyance
    (council 4% / gram 3%); pre-2015 POA (Rs 100); 2013–2017 L&L (0.25% formula existed
    from 1-May-2013 but its >60-month tail needs the pre-2017 conveyance rate). Current
    MH floor is set at 2017-09-07 (the conveyance-rate amendment) so the cross-ref chain

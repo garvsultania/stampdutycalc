@@ -1,0 +1,26 @@
+[
+  {
+    "name": "MH Mortgage with possession — area conveyance rate (5%) on amount secured",
+    "source_note": "Art 40(a) = Conveyance Art 25 on amount secured; Municipal Corp 5%. 50,00,000 × 5% = 2,50,000 (no women/metro modifiers via cross-ref).",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40a-mortgage-with-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" }, "facts": { "area_type": "municipal_corporation" } },
+    "expect": { "total_duty": "250000" }
+  },
+  {
+    "name": "MH Mortgage without possession — 0.3% (below the cap)",
+    "source_note": "Art 40(b) post-Mah 3/2021: 0.3%, max Rs 20 lakh. 50,00,000 × 0.3% = 15,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
+    "expect": { "total_duty": "15000" }
+  },
+  {
+    "name": "MH Mortgage without possession — cap binds at Rs 20 lakh",
+    "source_note": "100,00,00,000 × 0.3% = 30,00,000 → capped at Rs 20,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000000" } },
+    "expect": { "total_duty": "2000000" }
+  },
+  {
+    "name": "MH Mortgage without possession — minimum Rs 100 binds",
+    "source_note": "10,000 × 0.3% = 30 → floored at Rs 100.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "10000" } },
+    "expect": { "total_duty": "100" }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "modifier_id": "MH-metro-cess",
+  "jurisdiction": "MH",
+  "kind": "surcharge_cess",
+  "applies_when": {
+    "all": [
+      { "date_within": { "from": "2022-04-01" } },
+      { "eq": { "field": "metro_cess_city", "value": "yes" } }
+    ]
+  },
+  "effect": { "op": "pct_add", "pct": 1, "of": { "var": "market_value" }, "label": "Metro cess / transport surcharge (1%)" },
+  "order": 15,
+  "version": {
+    "effective_from": "2022-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "notification",
+      "ref": "Maharashtra transport/metro surcharge on stamp duty (in abeyance to 31-Mar-2022 per MRD-3320/C.No.24/UD-7; effective 1-Apr-2022)",
+      "gazette_date": "2022-04-01",
+      "quoted_text": "Widely reported (AZB Partners; Free Press Journal, Mar 2022): a 1% Metro Cess / transport surcharge applies, in addition to stamp duty, on SALE, GIFT and MORTGAGE documents executed from 1 April 2022 in the six metro-project cities — Mumbai, Thane, Navi Mumbai, Pune, Nagpur and Nashik. The cess had been kept in abeyance from 1-Apr-2020 (notification MRD-3320/C.No.24/UD-7) until 31-Mar-2022. Computed as 1% of the market value (same base as stamp duty)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (multiple corroborating sources incl. a law firm + the abeyance-notification reference, but NOT read from a .gov primary PDF — PENDING the exact notification number/text). 1% of market value, in the six metro cities, from 1-Apr-2022 → makes a Municipal-Corporation conveyance 5%+1% = 6%. fact metro_cess_city='yes' (property in Mumbai/Thane/Navi Mumbai/Pune/Nagpur/Nashik). Currently attached to CONVEYANCE only; the cess also applies to GIFT and MORTGAGE (attach when those are metro-city-tested — note it should NOT inflate a fixed family-gift stamp figure but IS charged on the property value, a modelling point to confirm). LBT, where separately levied, may be additional — PENDING."
+}

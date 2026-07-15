@@ -1,0 +1,81 @@
+[
+  {
+    "rule_id": "KA-ART34a-mortgage-with-possession",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "34(a)",
+    "instrument": "mortgage_with_possession",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 34(a)",
+        "article": "34",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 34 (both columns): '(a) When possession of the property or any part of the property comprised in such deed is given by the mortgagor or agreed to be given — The same duty as conveyance (No. 20) for a market value equal to the amount secured by such deed.' Explanation: a mortgagor giving the mortgagee a POA to collect rents or a lease of the mortgaged property is deemed to give possession."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "cross_ref", "rule_id": "KA-ART20-rate", "on": { "var": "amount_secured" } },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Same duty as Conveyance Art 20(1) = 5% of the amount secured. Mortgage is NOT in the s.3B cess list (conveyance/exchange/settlement/gift/lease-in-perpetuity only), so NO 10% infra cess — correct. Deemed-possession (POA to collect rents / lease) is a classification question."
+  },
+  {
+    "rule_id": "KA-ART34b-mortgage-without-possession",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "34(b)",
+    "instrument": "mortgage_without_possession",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 34(b) (subst. by Act 8 of 2003)",
+        "article": "34",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 34(b) (both columns): 'When possession is not given or agreed to be given as aforesaid and not being a hypothecation — Fifty paise for every hundred rupees or part thereof for the amount secured by such deed.' = 0.5% of the amount secured, no cap."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5 },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). 0.5% of amount secured, no cap. 'Not being a hypothecation' — hypothecation of movables is clause (d), a separate rule (KA-ART34d-hypothecation)."
+  },
+  {
+    "rule_id": "KA-ART34d-hypothecation",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "34(d)",
+    "instrument": "loan_hypothecation_agreement",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 34(d) (subst. by Act 16 of 2015 w.e.f. 1-4-2015)",
+        "article": "34",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 34(d) (both columns): 'for hypothecation of movable property — If the loan or debt is repayable on demand — (i) where the loan amount does not exceed rupees ten lakhs — rupees ten for every rupees ten thousands or part thereof [= 0.1%]; (ii) where the loan amount exceeds rupees ten lakhs — rupees twenty for every rupees ten thousands or part thereof [= 0.2%], subject to a maximum of rupees ten lakhs.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "amount_secured" },
+      "cases": [
+        { "upto": 1000000, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.1 } },
+        { "upto": null, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.2, "cap": "1000000" } }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Hypothecation of movable property, demand loan: ≤Rs 10L → 0.1%; >Rs 10L → 0.2% capped at Rs 10,00,000. PENDING: the Schedule text quotes only the 'repayable on demand' limb; term-loan hypothecation may differ — confirm whether Art 34(d) has a non-demand sub-clause (not shown in the source extract)."
+  }
+]
