@@ -10,6 +10,7 @@ import {
   classify,
   compute,
   computePenalty,
+  computeInterStateDifferential,
   EngineError,
   num,
   canonical,
@@ -208,6 +209,75 @@ describe("classification tree walk (Flow B, PRD §6.2)", () => {
   it("treats an unmatched answer as an escalation", () => {
     const r = classify(tree, { q_possession: "maybe" });
     expect(r.status).toBe("escalate");
+  });
+});
+
+describe("inter-state differential duty (PRD §5.4)", () => {
+  const conv = (jur: "DL" | "MH", pct: number) =>
+    RuleSchema.parse({
+      rule_id: `${jur}-conv`,
+      jurisdiction: jur,
+      act: "Test",
+      article: "23",
+      instrument: "conveyance_sale_deed",
+      version: { effective_from: "2015-01-01", effective_to: null, source: { type: "act", ref: "x", quoted_text: "y" } },
+      charge: { kind: "ad_valorem", base: { var: "consideration" }, pct },
+      rounding: { mode: "none", nearest: 1 },
+    });
+  const ruleSet: RuleSet = { rules: [conv("DL", 3), conv("MH", 5)], modifiers: [], penaltyRegimes: [] };
+  const inp = (jur: "DL" | "MH") => ({
+    jurisdiction: jur,
+    rule_id: `${jur}-conv`,
+    execution_date: "2021-01-01",
+    values: { consideration: "10000000" },
+    facts: {},
+  });
+
+  it("charges the differential in the property state (executed low, property high)", () => {
+    const r = computeInterStateDifferential(ruleSet, inp("DL"), inp("MH"));
+    expect(r.duty_execution_state).toBe("300000");
+    expect(r.duty_property_state).toBe("500000");
+    expect(r.differential_payable).toBe("200000");
+    expect(r.excess_note).toBeNull();
+  });
+
+  it("does not refund when execution-state duty exceeds property-state duty", () => {
+    const r = computeInterStateDifferential(ruleSet, inp("MH"), inp("DL"));
+    expect(r.differential_payable).toBe("0");
+    expect(r.excess_note).toContain("does not refund");
+  });
+});
+
+describe("penalty regime auto-resolution from the ruleset (PRD §5.6)", () => {
+  const regime = {
+    regime_id: "DL-penalty",
+    jurisdiction: "DL" as const,
+    penalty: { type: "per_month" as const, pct_per_month: 2, cap_multiple: 4, min_penalty: null },
+    adjudication_path: "S.31",
+    version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
+    notes_for_reviewer: "",
+  };
+  const ruleSet: RuleSet = {
+    rules: [makeRule({ rule_id: "R", charge: { kind: "ad_valorem", base: { var: "consideration" }, pct: 5 } })],
+    modifiers: [],
+    penaltyRegimes: [regime],
+  };
+
+  it("attaches the active regime automatically when duty_paid is present", () => {
+    const out = compute(
+      ruleSet,
+      { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { consideration: "1000000" }, facts: {}, duty_paid: "30000" },
+      { penaltyMonths: 5 },
+    );
+    // dutyThen 50000, paid 30000, deficit 20000; 2%/mo × 5 = 2000.
+    expect(out.penalty?.deficit).toBe("20000");
+    expect(out.penalty?.penalty_point).toBe("2000");
+    expect(out.penalty?.total_payable_point).toBe("22000");
+  });
+
+  it("leaves penalty null when no duty_paid is given", () => {
+    const out = compute(ruleSet, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { consideration: "1000000" }, facts: {} });
+    expect(out.penalty).toBeNull();
   });
 });
 

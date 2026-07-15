@@ -10,12 +10,17 @@ export { classify, type ClassifyResult } from "./classify.js";
 export {
   buildSnapshot,
   resolveRule,
+  resolvePenaltyRegime,
   hashSnapshot,
   canonicalJson,
   type RuleSet,
   type Snapshot,
 } from "./snapshot.js";
 export { compute, type ComputeOptions } from "./compute.js";
+export {
+  computeInterStateDifferential,
+  type DifferentialResult,
+} from "./differential.js";
 export { validateRuleSet, collectCrossRefs, type ValidationIssue } from "./validators.js";
 export { loadStateDir, mergeLoads, type LoadResult } from "./loader.js";
 export {

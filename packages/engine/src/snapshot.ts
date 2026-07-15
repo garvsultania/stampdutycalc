@@ -76,6 +76,21 @@ export function buildSnapshot(ruleSet: RuleSet, jurisdiction: Jurisdiction, date
   return { jurisdiction, date, rulesById, modifiersById, hash };
 }
 
+/** Resolve the penalty regime active on a date for a jurisdiction, or undefined.
+ * If a regime_id is given, resolve that specific regime's version; otherwise the
+ * single active regime for the state (append-only, so at most one). */
+export function resolvePenaltyRegime(
+  ruleSet: RuleSet,
+  jurisdiction: Jurisdiction,
+  date: ISODate,
+  regimeId?: string,
+): PenaltyRegime | undefined {
+  const candidates = ruleSet.penaltyRegimes.filter(
+    (p) => p.jurisdiction === jurisdiction && (regimeId === undefined || p.regime_id === regimeId),
+  );
+  return resolveLatestActive(candidates, date);
+}
+
 /** Resolve one rule version active on a date, or throw if none. */
 export function resolveRule(ruleSet: RuleSet, jurisdiction: Jurisdiction, ruleId: string, date: ISODate): Rule {
   const versions = ruleSet.rules.filter((r) => r.jurisdiction === jurisdiction && r.rule_id === ruleId);

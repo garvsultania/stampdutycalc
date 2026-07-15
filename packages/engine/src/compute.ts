@@ -8,14 +8,15 @@ import {
   type PenaltyResult,
 } from "@stampdraft/schema";
 import { canonical, num, type Num } from "./money.js";
-import { buildSnapshot, resolveRule, type RuleSet } from "./snapshot.js";
+import { buildSnapshot, resolvePenaltyRegime, resolveRule, type RuleSet } from "./snapshot.js";
 import { evalCharge, type ChargeCtx } from "./charge.js";
 import { applyModifiers } from "./modifiers.js";
 import { applyRounding } from "./rounding.js";
 import { computePenalty } from "./penalty.js";
 
 export interface ComputeOptions {
-  /** Per-state penalty regime — supply with input.duty_paid to run Flow D. */
+  /** Per-state penalty regime override. If omitted and input.duty_paid is set,
+   * the active regime for the jurisdiction/date is resolved from the ruleset. */
   penaltyRegime?: PenaltyRegime;
   /** Whole months elapsed, for per_month penalty regimes. */
   penaltyMonths?: number;
@@ -66,12 +67,16 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
   const citations = dedupeCitations([rule.version.source, ...mod.citations]);
 
   let penalty: PenaltyResult | null = null;
-  if (opts.penaltyRegime && input.duty_paid !== undefined) {
-    penalty = computePenalty(opts.penaltyRegime, {
-      dutyThen: rounded,
-      dutyPaid: num(input.duty_paid),
-      months: opts.penaltyMonths,
-    });
+  if (input.duty_paid !== undefined) {
+    const regime =
+      opts.penaltyRegime ?? resolvePenaltyRegime(ruleSet, input.jurisdiction, input.execution_date);
+    if (regime) {
+      penalty = computePenalty(regime, {
+        dutyThen: rounded,
+        dutyPaid: num(input.duty_paid),
+        months: opts.penaltyMonths,
+      });
+    }
   }
 
   return {
