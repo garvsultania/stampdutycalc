@@ -85,6 +85,12 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
         `value ${on.toFixed()} matches no switch case (add a terminal case with upto: null, or this is a deliberate escalate-by-error boundary)`,
       );
     }
+
+    case "select": {
+      const value = ctx.facts[charge.by];
+      const hit = charge.cases.find((c) => c.when === value);
+      return evalCharge(hit ? hit.charge : charge.default, ctx);
+    }
   }
 }
 

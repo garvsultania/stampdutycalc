@@ -62,6 +62,7 @@ export const KNOWN_INSTRUMENTS = [
   "guarantee_bond",
   "partnership_deed",
   "llp_agreement",
+  "memorandum_of_association",
   "affidavit",
   "works_contract",
   "service_agreement",

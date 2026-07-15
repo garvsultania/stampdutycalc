@@ -62,6 +62,10 @@ export const SlabSchema = z
  *                  (Delhi lease: term band determines WHICH cross-ref
  *                  applies, Bond vs Conveyance, not just a multiple). A value
  *                  beyond every case throws (escalate-by-error, PRD §15).
+ *  - select      : categorical sub-charges — selects a Charge by a fact value
+ *                  (Maharashtra gift: Rs 200 flat to close family vs 3% to
+ *                  family vs full conveyance rate — different charge KINDS, not
+ *                  just rates). Unmatched → `default`.
  *
  * min_duty (floor) and cap (ceiling) are load-bearing — several Maharashtra
  * articles cap duty (PRD §5.2). They clamp the sub-total of the charge they sit on.
@@ -85,7 +89,8 @@ export type Charge =
       cap?: string | number;
     }
   | { kind: "cross_ref"; rule_id: string; on?: ValueExpr; scale?: number }
-  | { kind: "switch"; on: ValueExpr; cases: Array<{ upto: number | null; charge: Charge }> };
+  | { kind: "switch"; on: ValueExpr; cases: Array<{ upto: number | null; charge: Charge }> }
+  | { kind: "select"; by: string; cases: Array<{ when: string | number; charge: Charge }>; default: Charge };
 
 export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
   z.discriminatedUnion("kind", [
@@ -141,6 +146,20 @@ export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
               .strict(),
           )
           .min(1),
+      })
+      .strict(),
+    z
+      .object({
+        kind: z.literal("select"),
+        by: z.string().min(1),
+        cases: z
+          .array(
+            z
+              .object({ when: z.union([z.string(), z.number()]), charge: ChargeSchema })
+              .strict(),
+          )
+          .min(1),
+        default: ChargeSchema,
       })
       .strict(),
   ]),

@@ -1,0 +1,32 @@
+{
+  "rule_id": "MH-ART34-gift",
+  "jurisdiction": "MH",
+  "act": "Maharashtra Stamp Act, 1958, Schedule I",
+  "article": "34",
+  "instrument": "gift_deed",
+  "version": {
+    "effective_from": "2017-09-07",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 34 (provisos: Mah. 20 of 2002 s.8(d); Mah. 20 of 2015 s.20(18); Mah. 59 of 2017)",
+      "article": "34",
+      "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+      "quoted_text": "Sch I Art. 34 (both columns, IGR text): 'GIFT, Instrument of — not being a Settlement (Article 55) or Will or Transfer (Article 59) — The same duty as is leviable on a Conveyance under clause (a), (b) or (c), as the case may be, of Article 25, on the market value of the property which is the subject matter of the gift. Provided that, if the property is gifted to a family member being the husband, wife, brother or sister of the donor or any lineal ascendant or descendant of the donor, then the amount of duty chargeable shall be at the rate of 3 percent [subst. by Mah. 59 of 2017 w.e.f. 7-9-2017] on the market value ... Provided further that, if the residential and agricultural property is gifted to husband, wife, son, daughter, grandson, grand-daughter, wife of deceased son, the amount of duty chargeable shall be rupees two hundred [subst. for Two Hundred by Mah. 20 of 2015].'"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "select",
+    "by": "gift_relation",
+    "cases": [
+      { "when": "close_family_residential_agri", "charge": { "kind": "fixed", "amount": "200" } },
+      { "when": "family", "charge": { "kind": "ad_valorem", "base": { "var": "market_value" }, "pct": 3 } }
+    ],
+    "default": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "var": "market_value" } }
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; both provisos quoted). This is the PRD §5.5 per-state relative-list showcase — encoded as an explicit enumerated list, NEVER generalized. gift_relation (set by the questionnaire from relation + property type): 'close_family_residential_agri' → Rs 200 (Proviso 2: residential/agricultural to husband/wife/son/daughter/grandson/granddaughter/wife-of-deceased-son); 'family' → 3% (Proviso 1: husband/wife/brother/sister/lineal ascendant/descendant, ANY property); default → full area-based Conveyance rate (cross-ref Art 25, no transfer/cess imported). PRECEDENCE: Proviso 2 (Rs 200) is more specific and more beneficial than Proviso 1 (3%) for the overlapping spouse/child + residential/agri case — the questionnaire must pick 'close_family_residential_agri' there. Metro cess/LBT (PENDING) would ride on the default and 3% cases via Art 25's future surcharge modifiers; the Rs 200 fixed case is not ad valorem."
+}

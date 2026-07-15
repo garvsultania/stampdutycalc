@@ -55,6 +55,22 @@ File: `packages/engine/src/charge.ts`.
 `compute()` does not stamp a timestamp; that would make output non-reproducible. The
 audit layer (M3) records the timestamp alongside the deterministic output.
 
+### D13 — `select` charge: categorical sub-charge selection [M2]
+Maharashtra gift (Art 34) selects between different charge KINDS by relation — Rs 200
+flat (close family, residential/agri), 3% ad valorem (family), or full conveyance rate
+(else). The numeric `switch` couldn't express this, so `select` (the categorical analog,
+keyed on a fact) was added. Also serves MOA (accompanied-by-AoA) and future POA forks.
+Deterministic, no eval. Files: `packages/schema/src/charge.ts`, `packages/engine/src/{charge,validators}.ts`.
+
+### D12 — MH modelled from its own statute; caps and area-rates are first-class [M2]
+Maharashtra Stamp Act 1958 is encoded from the official IGR Schedule I as a distinct Act
+(the `act` field is load-bearing). Area-based conveyance (RateSpec by `area_type`),
+term-% leases (switch → cross_ref conveyance on a fraction of market value), the 0.25%
+Leave & License formula (Art 36A), and the Rs 50 lakh MOA cap all fall out of existing
+primitives. Metro cess / LBT surcharges and the s.34 penalty cap are deferred
+(PENDING_VERIFICATION) rather than guessed — MH conveyance/lease totals are stamp-duty-only
+until the surcharge notifications are sourced.
+
 ### D10 — Transfer duty as an independent modifier layer (founder ruling Q1) [M1]
 Delhi municipal transfer duty (DMC Act 1957 s.147) is NOT part of Sch I-A Art 23: it
 attaches only to the s.147 instrument list, sometimes on a DIFFERENT base than the

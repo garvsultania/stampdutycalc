@@ -1,0 +1,61 @@
+[
+  {
+    "rule_id": "MH-ART39-moa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "39",
+    "instrument": "memorandum_of_association",
+    "version": {
+      "effective_from": "2015-05-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 39 (amended by Mah. Act 20 of 2015)",
+        "article": "39",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 39 (both columns, IGR text): 'MEMORANDUM OF ASSOCIATION OF A COMPANY — (a) if accompanied by articles of association under section 26 of the Companies Act, 1956 — One thousand rupees; (b) if not so accompanied — 0.2 per cent according to the share capital of the company, subject to minimum of rupees one thousand and maximum of rupees 50,00,000.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "accompanied_by_aoa",
+      "cases": [{ "when": "yes", "charge": { "kind": "fixed", "amount": "1000" } }],
+      "default": {
+        "kind": "ad_valorem",
+        "base": { "var": "share_capital" },
+        "pct": 0.2,
+        "min_duty": "1000",
+        "cap": "5000000"
+      }
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). The Maharashtra CAP showcase (PRD §5.2 — caps are load-bearing and a differentiator): MOA not accompanied by AoA → 0.2% of share_capital, floor Rs 1,000, CAP Rs 50,00,000. accompanied_by_aoa='yes' → flat Rs 1,000. Instrument key memorandum_of_association is outside the MVP-15 but encoded to exercise the cap primitive; harmless (validator warns, non-blocking). Could be dropped if the founder prefers strict MVP-15 scope."
+  },
+  {
+    "rule_id": "MH-ART48-poa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "48",
+    "instrument": "general_poa",
+    "version": {
+      "effective_from": "2015-05-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 48(a)-(e),(h) (Rs 500 subst. for Rs 100 by Mah. 20 of 2015)",
+        "article": "48",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 48 (both columns, IGR text): 'POWER OF ATTORNEY not being a Proxy — (a) sole purpose of procuring registration ... single transaction — Five hundred rupees; (b) suits under Presidency Small Cause Courts Act — Five hundred rupees; (c) authorising one or more persons to act in a single transaction other than (a) — Five hundred rupees; (d) authorising one person to act in more than one transaction or generally — Five hundred rupees; (e) authorising more than one person ... jointly or severally or generally — Five hundred rupees; (h) in any other case — Five hundred rupees for each person authorised.' [All Rs 100 → Rs 500 by Mah. 20 of 2015 w.e.f. 24-5-2015.] Clause (f)(i): for consideration authorising sale of immovable property — same duty as Conveyance (Art 25) on market value. Clause (f)(ii)(a): to sell/transfer without consideration to father/mother/brother/sister/wife/husband/daughter/son/grandson/granddaughter or spouse's such relatives — Rs 500; else (f)(ii)(b) — Conveyance rate. Clause (g): to a promoter/developer for construction/development/sale/transfer — Conveyance rate (s.32A applies; Rs 100 if proper duty paid under Art 5(g-a) agreement between same parties)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "500" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH for clauses (a)-(e),(h) = Rs 500 (official IGR). ESCALATIONS for the questionnaire (NOT this flat rule): clause (f) POA for consideration to sell immovable → Conveyance rate on market value (the GPA-for-sale avoidance pattern); (f)(ii)(a) family gift-POA → Rs 500; (g) developer/promoter POA → Conveyance rate (with the s.32A market-value provisions and the Rs 100 set-off where Art 5(g-a) agreement duty paid). These forks belong in Flow B. effective_from 2015-05-24 = the Rs 100→Rs 500 change; the pre-2015 Rs 100 version is a back-catalogue item (M2)."
+  }
+]

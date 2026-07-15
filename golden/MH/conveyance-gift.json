@@ -1,0 +1,55 @@
+[
+  {
+    "name": "MH Conveyance — Municipal Corporation (5%) on Rs 1 cr market value",
+    "source_note": "Art 25(b)(i): 5% within a Municipal Corporation. 1,00,00,000 × 5% = 5,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — Gram Panchayat (4%) on Rs 1 cr",
+    "source_note": "Art 25(b)(iii): 4% (subst. from 3% by Mah 59/2017). 1,00,00,000 × 4% = 4,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "gram_panchayat" } },
+    "expect": { "total_duty": "400000" }
+  },
+  {
+    "name": "MH Conveyance — movable property (3%)",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "movable" } },
+    "expect": { "total_duty": "300000" }
+  },
+  {
+    "name": "MH Conveyance — women residential concession (−1%) applies post-1-Apr-2021",
+    "source_note": "5% − 1% (women residential, Order 31-Mar-2021) = 4% effective. 1,00,00,000 × 4% = 4,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation", "buyer_all_women": "yes", "property_use": "residential" } },
+    "expect": { "total_duty": "400000" }
+  },
+  {
+    "name": "MH Conveyance — women concession does NOT apply before 1-Apr-2021",
+    "source_note": "Same facts, execution 2020: concession not yet in force → full 5% = 5,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2020-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation", "buyer_all_women": "yes", "property_use": "residential" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — women concession NOT applied to non-residential",
+    "source_note": "Order is residential-only; commercial property gets full 5%.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation", "buyer_all_women": "yes", "property_use": "commercial" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Gift — to a stranger: full area-based conveyance rate (5%)",
+    "source_note": "Art 34 default: same duty as Conveyance on market value. 50,00,000 × 5% = 2,50,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "area_type": "municipal_corporation", "gift_relation": "other" } },
+    "expect": { "total_duty": "250000" }
+  },
+  {
+    "name": "MH Gift — to a family member (proviso 1): 3%",
+    "source_note": "Proviso 1 (husband/wife/brother/sister/lineal ascendant/descendant): 3% of market value. 50,00,000 × 3% = 1,50,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "family" } },
+    "expect": { "total_duty": "150000" }
+  },
+  {
+    "name": "MH Gift — residential/agri to close family (proviso 2): flat Rs 200",
+    "source_note": "Proviso 2 (residential/agri to husband/wife/son/daughter/grandson/granddaughter/wife-of-deceased-son): Rs 200.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "close_family_residential_agri" } },
+    "expect": { "total_duty": "200" }
+  }
+]

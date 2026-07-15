@@ -349,6 +349,33 @@ describe("D9 extensions: switch, cross_ref scale, expr-based cess, cmp condition
     expect(out.total_duty).toBe("135000"); // 90% of 3% of 50L
   });
 
+  it("select picks a sub-charge by a categorical fact (MH gift: Rs 200 / 3% / conveyance)", () => {
+    const gift = makeRule({
+      rule_id: "GIFT",
+      charge: {
+        kind: "select",
+        by: "gift_relation",
+        cases: [
+          { when: "close_family", charge: { kind: "fixed", amount: "200" } },
+          { when: "family", charge: { kind: "ad_valorem", base: { var: "market_value" }, pct: 3 } },
+        ],
+        default: { kind: "ad_valorem", base: { var: "market_value" }, pct: 5 },
+      },
+    });
+    const rs: RuleSet = { rules: [gift], modifiers: [], penaltyRegimes: [] };
+    const at = (gift_relation?: string) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "GIFT",
+        execution_date: "2021-01-01",
+        values: { market_value: "5000000" },
+        facts: gift_relation ? { gift_relation } : {},
+      }).total_duty;
+    expect(at("close_family")).toBe("200");
+    expect(at("family")).toBe("150000");
+    expect(at()).toBe("250000"); // default
+  });
+
   it("category-selected rate resolves from facts (female 2%)", () => {
     const rs: RuleSet = { rules: [conveyance], modifiers: [], penaltyRegimes: [] };
     const out = compute(rs, {

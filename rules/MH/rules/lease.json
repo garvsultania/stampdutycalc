@@ -1,0 +1,35 @@
+[
+  {
+    "rule_id": "MH-ART36-lease",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "36",
+    "instrument": "lease",
+    "version": {
+      "effective_from": "2017-09-07",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 36 (subst. by Mah. 32 of 2005 s.5(11) w.e.f. 7-5-2005; conveyance rates per Mah. 59 of 2017)",
+        "article": "36",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 36 (both columns, IGR text): 'LEASE, including under lease or sub-lease and any agreement to let or sub-let or any renewal of lease — Where such lease purports to be — (i) for a period not exceeding five years — the same duty as is leviable on a conveyance under clause (a),(b) or (c) of article 25, on 10 per centum of the market value of the property; (ii) for a period exceeding five years but not exceeding ten years, with a renewal clause contingent or otherwise — ... on 25 per centum of the market value; (iii) for a period exceeding ten years but not exceeding twenty-nine years ... — ... on 50 per centum of the market value; (iv) for a period exceeding twenty-nine years or in perpetuity, or does not purport for any definite period ... — ... on 90 per centum of the market value.' Explanation I — premium/money advanced/security deposit, by whatever name, is treated as consideration passed on. Explanation II — a specified renewal period is treated as part of the present lease."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "term_months" },
+      "cases": [
+        { "upto": 60, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.10" }] } } },
+        { "upto": 120, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.25" }] } } },
+        { "upto": 348, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.50" }] } } },
+        { "upto": null, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.90" }] } } }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). Duty = area-based Conveyance rate (Art 25) applied to a term-dependent PERCENTAGE of market value: ≤5y → 10%; >5≤10y → 25%; >10≤29y → 50%; >29y/perpetuity/no-definite → 90%. Boundaries in months: 60 / 120 / 348 (29y=348mo) / else. IMPORTANT: 'market_value' here must be the Explanation-I market value = property market value INCLUDING premium/deposit/security treated as consideration passed on — the questionnaire/Tier-2 must compute it; the cross-ref carries area_type through for the Art 25 rate. No perpetuity escalation needed (clause iv is the catch-all at 90%). Metro cess/LBT PENDING as for conveyance."
+  }
+]

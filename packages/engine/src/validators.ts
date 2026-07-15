@@ -94,5 +94,8 @@ export function collectCrossRefs(charge: Charge): string[] {
   if (charge.kind === "cross_ref") return [charge.rule_id];
   if (charge.kind === "formula") return charge.components.flatMap(collectCrossRefs);
   if (charge.kind === "switch") return charge.cases.flatMap((c) => collectCrossRefs(c.charge));
+  if (charge.kind === "select") {
+    return [...charge.cases.flatMap((c) => collectCrossRefs(c.charge)), ...collectCrossRefs(charge.default)];
+  }
   return [];
 }
