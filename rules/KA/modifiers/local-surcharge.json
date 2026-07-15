@@ -1,0 +1,26 @@
+{
+  "modifier_id": "KA-local-surcharge",
+  "jurisdiction": "KA",
+  "kind": "surcharge_cess",
+  "applies_when": { "always": true },
+  "effect": {
+    "op": "pct_add",
+    "pct": { "by": "ka_area", "cases": [{ "when": "rural", "pct": 3 }], "default": 2 },
+    "of": "duty",
+    "label": "Local body surcharge (of stamp duty)"
+  },
+  "order": 25,
+  "version": {
+    "effective_from": "2016-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Municipal Corporations Act / Karnataka Municipalities Act 1964 — surcharge on stamp duty for local bodies",
+      "quoted_text": "Widely and consistently reported (ClearTax, Godrej Capital, NoBroker, Homefirst, 2024-26): in addition to the 10% s.3B cess, a LOCAL-BODY SURCHARGE on the stamp duty applies — approximately 2% of the stamp duty in urban/BBMP areas and 3% in rural areas. Levied under the Karnataka municipal/panchayat framework (Karnataka Municipalities Act 1964 and the Municipal Corporations Act). Reconciliation: 5% stamp + 0.5% cess (10% of 5%) + 0.1% surcharge (2% of 5%) = 5.6% — the universally-quoted Bangalore effective rate."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (secondary sources, but strongly corroborated across many and it reconciles exactly to the cited 5.6% Bangalore total) — PENDING the primary municipal-law provision/section number. 2% of stamp duty (urban/BBMP, default) or 3% (rural) — fact ka_area='rural' for rural/panchayat, else urban. Computed on the base stamp duty (not compounded with the s.3B cess). NOTE the rural>urban direction is counterintuitive but consistently reported. Attached to conveyance; extend to other s.3B-cess instruments (gift etc.) once confirmed."
+}

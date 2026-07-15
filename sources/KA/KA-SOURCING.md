@@ -34,12 +34,28 @@ Status: **5 rule versions + 2 cess modifiers + 1 penalty regime; KA golden 17/17
 Generalizing a single "family" list across states would be a silent correctness bug —
 exactly what §5.5 warns against. Each is encoded as an explicit enumerated list.
 
-## Deferred to KA wave 2 / M2 back-catalogue
+## Wave 2 additions (done)
 
-1. **Local-body surcharge (2% urban / 3% rural OF stamp duty)** — commonly cited but
-   sourced only secondarily (it sits in municipal/panchayat law, not the KSA). NOT
-   encoded pending the primary provision; **KA conveyance totals are 5% + s.3B cess
-   (5.5%) ONLY** — the effective urban figure (~5.6%) awaits the surcharge.
+- **Local-body surcharge** — ENCODED (`KA-local-surcharge`): 2% (urban/BBMP, default) /
+  3% (rural) of the stamp duty, on conveyance. MEDIUM confidence (secondary but strongly
+  corroborated; reconciles exactly to the cited 5.6% Bangalore total). KA conveyance is
+  now 5% + 0.5% cess + 0.1/0.15% surcharge = **5.6% urban / 5.65% rural**. PENDING: the
+  primary municipal-law section; extension to gift.
+- **Mortgage (Art 34)** — a=5% (conveyance), b=0.5%, hypothecation(d)=0.1/0.2% cap Rs 10L.
+- **Bonds/affidavit/agreement** — affidavit (Art 4, Rs 20), security/guarantee bond
+  (Art 47: ≤1k 0.5% / else Rs 200), indemnity (Art 29 → 47), works/service (Art 5(j) Rs 200).
+- **Penalty (s.34/s.39)** — discretionary up-to-10× range (auto-resolves).
+- **Classification tree** — lease-vs-L&L (both resolve to Art 30 lease; documents contrast with MH).
+
+### DISCREPANCY logged (primary followed)
+Some secondary sources describe KA conveyance as a GENERAL value slab (2% <20L / 3% 20-45L
+/ 5% >45L). The PRIMARY Act text (Art 20(1) + 20(2A)) makes the general rate a flat 5% and
+confines the 2%/3% concession to the FIRST SALE of a flat, capped at Rs 35L (not 45L).
+Encoded per primary; flagged for founder confirmation of current registrar practice.
+
+## Deferred to KA wave 3 / M2 back-catalogue
+
+1. Surcharge extension to gift; the surcharge primary-law section.
 2. **s.3B cess on the >30y (perpetuity) lease branch and on fixed family-gift duties**
    — modelling questions flagged (the statute's "10% on such duty" is literal but
    practitioners quote fixed family figures as all-in); excluded pending confirmation,

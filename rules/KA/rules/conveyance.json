@@ -62,8 +62,8 @@
       ],
       "default": { "kind": "cross_ref", "rule_id": "KA-ART20-rate" }
     },
-    "modifiers": ["KA-infra-cess"],
+    "modifiers": ["KA-infra-cess", "KA-local-surcharge"],
     "rounding": { "mode": "none", "nearest": 1 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). General conveyance = 5% (via KA-ART20-rate) + s.3B 10%-of-duty cess = 5.5% effective. FIRST-SALE flat (fact first_sale_flat=yes): ≤Rs 20L → 2%; >20L≤35L → 3%; >35L → 5%. PENDING_VERIFICATION (surcharge): local-body surcharge (commonly 2% urban / 3% rural OF stamp duty) not yet encoded — need the primary provision; effective urban rate ~5.6%. Registration fee (1%) is a separate adjunct (M3)."
+    "notes_for_reviewer": "CONFIDENCE: HIGH for the stamp rate (official DPAL); MEDIUM for the surcharge (secondary, corroborated). Conveyance = 5% + s.3B 10%-of-duty cess (0.5%) + local surcharge (2% urban / 3% rural of duty) = 5.6% urban / 5.65% rural. FIRST-SALE flat (fact first_sale_flat=yes): ≤Rs 20L → 2%; >20L≤35L → 3%; >35L → 5%. DISCREPANCY (primary followed): some secondary sources call 2/3/5 a general value slab capped at Rs 45L, but Art 20(2A) confines 2%/3% to FIRST SALE of a flat, capped at Rs 35L. Reg fee (1%) is a separate adjunct (M3)."
   }
 ]

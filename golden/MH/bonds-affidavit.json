@@ -1,0 +1,24 @@
+[
+  {
+    "name": "MH Affidavit — Rs 100",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART4-affidavit", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "MH Indemnity bond — flat Rs 500",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART35-indemnity-bond", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Security/guarantee bond — 0.5% below the Rs 10L cap",
+    "source_note": "50,00,000 × 0.5% = 25,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART54-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
+    "expect": { "total_duty": "25000" }
+  },
+  {
+    "name": "MH Security/guarantee bond — cap binds at Rs 10 lakh",
+    "source_note": "50,00,00,000 × 0.5% = 25,00,000 → capped at Rs 10,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART54-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "500000000" } },
+    "expect": { "total_duty": "1000000" }
+  }
+]

@@ -1,0 +1,129 @@
+[
+  {
+    "rule_id": "KA-ART4-affidavit",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "4",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 4 (Rs 20, subst. by Act 7 of 2000)",
+        "article": "4",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 4 (both columns): 'Affidavit — including an affirmation or declaration in the case of persons by law allowed to affirm or declare instead of swearing — Twenty rupees.' Exemptions: enlistment to the Armed Forces; immediate purpose of being filed/used in any Court; sole purpose of receiving a pension/charitable allowance."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "20" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Rs 20 (contrast DL Rs 10, MH Rs 100 — a clean three-state fixed-duty contrast)."
+  },
+  {
+    "rule_id": "KA-ART47-security-bond",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "47",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 47 (subst. by Act 16 of 2015 w.e.f. 1-4-2015)",
+        "article": "47",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 47 (both columns): 'Security bond or mortgage-deed, executed by way of security for the due execution of an office, or to account for money or other property received by virtue thereof, or execution by a surety to secure the due performance of a contract — (a) when the amount secured does not exceed rupees one thousand — Fifty paise for every rupees one hundred or part thereof [0.5%]; (b) in any other case — Rupees two hundred.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "amount_secured" },
+      "cases": [
+        { "upto": 1000, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5 } },
+        { "upto": null, "charge": { "kind": "fixed", "amount": "200" } }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). ≤ Rs 1,000 → 0.5%; above → flat Rs 200. Serves both the guarantee/surety-bond case and (via cross-ref) indemnity."
+  },
+  {
+    "rule_id": "KA-ART29-indemnity-bond",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "29",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 29",
+        "article": "29",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 29 (both columns): 'Indemnity Bond — The same duty as a Security Bond (No. 47) for the same amount.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "cross_ref", "rule_id": "KA-ART47-security-bond" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Pure cross-ref to Art 47: ≤ Rs 1,000 → 0.5%; else Rs 200."
+  },
+  {
+    "rule_id": "KA-ART5j-works-contract",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "5(j)",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 5(j) (Rs 200, 'if not otherwise provided for')",
+        "article": "5",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 5 (Agreement or its records or Memorandum of an Agreement): '(j) if not otherwise provided for — Two hundred rupees.' A works contract / service agreement not otherwise specified in the Karnataka Schedule is chargeable under Art 5(j)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "200" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5(j) residual agreement rate (Rs 200). PENDING: Karnataka Art 5 has many specific sub-clauses (construction/JDA agreements under 5(e)/(f) can be ad valorem) — confirm no specific works-contract entry applies before using 5(j). Same rule serves service_agreement (see note)."
+  },
+  {
+    "rule_id": "KA-ART5j-service-agreement",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "5(j)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 5(j)",
+        "article": "5",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 5(j): 'if not otherwise provided for — Two hundred rupees.' A service agreement is chargeable under Art 5(j)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "200" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5(j) Rs 200. The works-vs-service distinction carries no duty difference in Karnataka (both Rs 200 under 5(j)) — unlike Maharashtra (works = Art 63 ad valorem); still matters for S.6 and multi-state execution."
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "KA Affidavit — Rs 20",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART4-affidavit", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "20" }
+  },
+  {
+    "name": "KA Security/guarantee bond — ≤ Rs 1,000: 0.5%",
+    "source_note": "800 × 0.5% = 4.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART47-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "800" } },
+    "expect": { "total_duty": "4" }
+  },
+  {
+    "name": "KA Security/guarantee bond — > Rs 1,000: flat Rs 200",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART47-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "500000" } },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "KA Indemnity bond (Art 29 → 47) — ≤ Rs 1,000: 0.5%",
+    "source_note": "900 × 0.5% = 4.5.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART29-indemnity-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "900" } },
+    "expect": { "total_duty": "4.5" }
+  },
+  {
+    "name": "KA Indemnity bond — > Rs 1,000: Rs 200",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART29-indemnity-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000" } },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "KA Works contract — Art 5(j) Rs 200",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART5j-works-contract", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "KA Service agreement — Art 5(j) Rs 200",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART5j-service-agreement", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "200" }
+  }
+]

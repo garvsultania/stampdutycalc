@@ -1,0 +1,13 @@
+[
+  {
+    "name": "KA Conveyance — rural: 5% + 0.5% cess + 3% surcharge = 5.65%",
+    "source_note": "Rural surcharge 3% of duty. 1cr: 5,00,000 + 50,000 + 15,000 = 5,65,000.",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "ka_area": "rural" } },
+    "expect": { "total_duty": "565000" }
+  },
+  {
+    "name": "KA Conveyance — urban (default): 2% surcharge = 5.6%",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "ka_area": "urban" } },
+    "expect": { "total_duty": "560000" }
+  }
+]

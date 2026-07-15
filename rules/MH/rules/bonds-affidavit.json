@@ -1,0 +1,74 @@
+[
+  {
+    "rule_id": "MH-ART4-affidavit",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "4",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 4",
+        "article": "4",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 4 (both columns): 'AFFIDAVIT, that is to say, a statement in writing purporting to be a statement of facts, signed by the person making it and confirmed by him on oath or ... by affirmation — One hundred rupees.' Exemptions: enrolment under the Air Force/Army/Navy Act; for immediate purpose of being filed/used in any Court; or solely to enable receipt of a pension or charitable allowance."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "100" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Rs 100. Court/enrolment/pension affidavits are exempt (classification flag, not modelled)."
+  },
+  {
+    "rule_id": "MH-ART35-indemnity-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "35",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2015-05-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 35 (Rs 500, subst. by Mah. 20 of 2015)",
+        "article": "35",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 35 (both columns): 'INDEMNITY BOND — Five hundred rupees.' [subst. for 'Two Hundred rupees' by Mah. Act 20 of 2015, s.20(19), w.e.f. 24-4-2015]."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "500" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Flat Rs 500. Unlike Delhi (Art 34 → security bond → Bond 15 ad valorem) and Karnataka (Art 29 → security bond 47), Maharashtra fixes indemnity at Rs 500 — a good three-state contrast."
+  },
+  {
+    "rule_id": "MH-ART54-security-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "54",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 54",
+        "article": "54",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 54 (both columns): 'SECURITY BOND OR MORTGAGE DEED, where such security bond or mortgage deed is executed by way of security for the due execution of an office, or to account for money or other property received by virtue thereof, or by a surety to secure the due performance of a contract ... — 0.5 per cent for the amount secured by such deed subject to the maximum of ten lakh rupees: Provided that, where ... duty has been paid under article 40, then the duty payable shall be one hundred rupees.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5, "cap": "1000000" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Surety/security/guarantee bond = 0.5% of amount secured, cap Rs 10 lakh. PENDING: the Rs 100 proviso (where the surety's principal already paid duty under Art 40 mortgage) is a fact-gated special case, not modelled."
+  }
+]

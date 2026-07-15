@@ -46,15 +46,15 @@
   },
   {
     "name": "KA Penalty (Flow D) — discretionary up-to-10x outputs a RANGE",
-    "source_note": "s.34/s.39. dutyThen 5,50,000 (5%+cess), paid 3,00,000, deficit 2,50,000; up to 10× → [0, 25,00,000]; total payable [2,50,000, 27,50,000]. Regime auto-resolved from ruleset.",
+    "source_note": "s.34/s.39. dutyThen 5,60,000 (5% + cess + 2% surcharge), paid 3,00,000, deficit 2,60,000; up to 10× → [0, 26,00,000]; total payable [2,60,000, 28,60,000]. Regime auto-resolved from ruleset.",
     "input": { "jurisdiction": "KA", "rule_id": "KA-ART20-conveyance", "execution_date": "2020-06-01", "values": { "market_value": "10000000" }, "duty_paid": "300000" },
     "expect": {
       "penalty": {
-        "deficit": "250000",
+        "deficit": "260000",
         "penalty_point": null,
-        "penalty_range": { "min": "0", "max": "2500000" },
+        "penalty_range": { "min": "0", "max": "2600000" },
         "total_payable_point": null,
-        "total_payable_range": { "min": "250000", "max": "2750000" }
+        "total_payable_range": { "min": "260000", "max": "2860000" }
       }
     }
   }
