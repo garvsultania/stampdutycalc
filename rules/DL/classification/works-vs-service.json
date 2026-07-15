@@ -1,0 +1,55 @@
+{
+  "tree_id": "DL-works-vs-service",
+  "jurisdiction": "DL",
+  "instrument_class": "works_vs_service",
+  "root": "q_goods_transfer",
+  "nodes": {
+    "q_goods_transfer": {
+      "type": "question",
+      "text": "Does the contract involve execution of work together with transfer of property in goods (materials incorporated into the work), rather than the supply of skill/labour alone?",
+      "legal_test": "State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560 and Art. 366(29A) Constitution: a works contract is a composite contract for work-and-materials involving transfer of property in goods; a pure service contract transfers no goods.",
+      "edges": [
+        { "answer": "yes", "to": "q_deliverable" },
+        { "answer": "no", "to": "t_service" }
+      ]
+    },
+    "q_deliverable": {
+      "type": "question",
+      "text": "Is the deliverable the worked-upon/fabricated property itself (e.g. construction, fabrication, installation on immovable property), as opposed to an incidental use of materials during a predominantly-service engagement?",
+      "legal_test": "Dominant-intention / predominant-nature test: where the substance is execution of works with materials, the instrument is a works contract; where materials are merely incidental to a service, it is a service agreement.",
+      "edges": [
+        { "answer": "yes", "to": "t_works" },
+        { "answer": "no", "to": "grey_mixed" }
+      ]
+    },
+    "t_works": {
+      "type": "terminal",
+      "instrument": "works_contract",
+      "article": "5",
+      "rule_id": "DL-works-contract"
+    },
+    "t_service": {
+      "type": "terminal",
+      "instrument": "service_agreement",
+      "article": "5",
+      "rule_id": "DL-service-agreement"
+    },
+    "grey_mixed": {
+      "type": "escalate",
+      "reason": "Materials are present but the predominant nature (works vs service) is genuinely mixed. Classification affects duty — apply S.6 highest-duty and recommend adjudication (S.31) rather than guessing."
+    }
+  },
+  "version": {
+    "effective_from": "2020-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560; Constitution Art. 366(29A); Indian Stamp Act 1899 Sch. I-A Art. 5 & s.6",
+      "quoted_text": "A works contract is a composite work-and-materials contract involving transfer of property in goods; a service agreement supplies skill/labour without transfer of goods. Where the predominant nature is unclear, s.6 charges the highest of the competing duties."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH on the legal tests. Terminal rule_ids DL-works-contract and DL-service-agreement are POINTERS — both are charged under Art. 5 (Agreement) in Delhi (typically the Rs 50 'not otherwise provided' rate unless a specific higher entry applies); the exact operative treatment needs founder confirmation before those rate rules are encoded. Confirm question wording and whether a value-threshold node is needed."
+}

@@ -1,0 +1,68 @@
+{
+  "tree_id": "DL-lease-vs-leave-license",
+  "jurisdiction": "DL",
+  "instrument_class": "lease_vs_leave_and_license",
+  "root": "q_exclusive_possession",
+  "nodes": {
+    "q_exclusive_possession": {
+      "type": "question",
+      "text": "Is exclusive possession of the premises granted to the grantee — i.e. the right to exclude all others, including the grantor?",
+      "legal_test": "Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262: the decisive test between lease and licence is whether exclusive possession is transferred. A lease transfers an interest in the property; a licence is a bare permission to use.",
+      "edges": [
+        { "answer": "yes", "to": "q_interest" },
+        { "answer": "no", "to": "q_indicia" }
+      ]
+    },
+    "q_interest": {
+      "type": "question",
+      "text": "Is the grant for a term or periodic tenancy intended to create an interest in the property (heritable/transferable), rather than a purely personal permission?",
+      "legal_test": "Section 105, Transfer of Property Act, 1882 — a lease is a transfer of a right to enjoy immovable property for a term in consideration of rent/premium. Intention to create an interest distinguishes lease from licence even where possession is exclusive.",
+      "edges": [
+        { "answer": "yes", "to": "t_lease" },
+        { "answer": "no", "to": "grey_possession_no_interest" }
+      ]
+    },
+    "q_indicia": {
+      "type": "question",
+      "text": "Despite being labelled a licence, does the arrangement show indicia of exclusive possession (grantor effectively excluded, grantee controls access, long fixed term, permission for permanent structures)?",
+      "legal_test": "Substance over form (Associated Hotels): the label is not decisive; the court looks at the substance of the rights conferred. Exclusive-possession indicia in a 'licence' pull it toward a lease.",
+      "edges": [
+        { "answer": "yes", "to": "grey_indicia" },
+        { "answer": "no", "to": "t_leave_license" }
+      ]
+    },
+    "t_lease": {
+      "type": "terminal",
+      "instrument": "lease",
+      "article": "35",
+      "rule_id": "DL-ART35-lease"
+    },
+    "t_leave_license": {
+      "type": "terminal",
+      "instrument": "leave_and_license",
+      "article": "35",
+      "rule_id": "DL-leave-and-license"
+    },
+    "grey_possession_no_interest": {
+      "type": "escalate",
+      "reason": "Exclusive possession granted but intention to create an interest is unclear. Genuine grey zone — classification affects duty materially. Apply S.6 (highest duty of the competing descriptions) and recommend adjudication (S.31) rather than guessing."
+    },
+    "grey_indicia": {
+      "type": "escalate",
+      "reason": "A document labelled 'leave & licence' carries exclusive-possession indicia (the classic under-stamping grey zone). Substance may make it a lease. Apply S.6 highest-duty and recommend adjudication (S.31)."
+    }
+  },
+  "version": {
+    "effective_from": "2020-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Transfer of Property Act 1882 s.105; Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262; Indian Stamp Act 1899 s.6",
+      "quoted_text": "The distinction turns on transfer of exclusive possession and intention to create an interest in property (lease) versus a bare personal permission to use (licence). Where indicia conflict, s.6 charges the instrument with the highest of the competing duties."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH on the legal tests (settled law). Terminal rule_ids DL-ART35-lease and DL-leave-and-license are POINTERS — those rate rules are not yet encoded (lease cross-ref-rate question open; leave & licence has no distinct Sch I-A article and is charged as a lease/agreement — needs founder direction). Confirm the exact question wording and whether additional nodes (fixed term? rent vs licence fee? refundable deposit vs premium?) should be added."
+}

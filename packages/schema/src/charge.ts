@@ -3,6 +3,29 @@ import { MoneySchema } from "./primitives.js";
 import { ValueExprSchema, type ValueExpr } from "./value-expr.js";
 
 /**
+ * RateSpec — an ad valorem percentage that may be a plain number OR selected by a
+ * categorical fact. Delhi conveyance is the motivating case: 6% (male) / 4%
+ * (female) / 5% (joint) are three EXACT statutory rates, not percentage-off
+ * concessions (6% × ⅔ would not be a clean 4%). The selector reads a named fact
+ * (e.g. buyer_category) and picks the matching rate, else `default`. Data-driven,
+ * deterministic, no eval. See DECISIONS D8.
+ */
+export type RateSpec =
+  | number
+  | { by: string; cases: Array<{ when: string | number; pct: number }>; default: number };
+
+export const RateSpecSchema = z.union([
+  z.number(),
+  z
+    .object({
+      by: z.string().min(1),
+      cases: z.array(z.object({ when: z.union([z.string(), z.number()]), pct: z.number() }).strict()).min(1),
+      default: z.number(),
+    })
+    .strict(),
+]);
+
+/**
  * A single slab row. Exactly one of `pct` or `fixed` must be present.
  * `upto` is the inclusive upper bound of the slab; null = the top (open) slab.
  */
@@ -39,7 +62,7 @@ export const SlabSchema = z
  */
 export type Charge =
   | { kind: "fixed"; amount: string | number }
-  | { kind: "ad_valorem"; base: ValueExpr; pct: number; min_duty?: string | number; cap?: string | number }
+  | { kind: "ad_valorem"; base: ValueExpr; pct: RateSpec; min_duty?: string | number; cap?: string | number }
   | {
       kind: "slab";
       base: ValueExpr;
@@ -64,7 +87,7 @@ export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
       .object({
         kind: z.literal("ad_valorem"),
         base: ValueExprSchema,
-        pct: z.number(),
+        pct: RateSpecSchema,
         min_duty: MoneySchema.optional(),
         cap: MoneySchema.optional(),
       })

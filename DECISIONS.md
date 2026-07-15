@@ -55,6 +55,15 @@ File: `packages/engine/src/charge.ts`.
 `compute()` does not stamp a timestamp; that would make output non-reproducible. The
 audit layer (M3) records the timestamp alongside the deterministic output.
 
+### D8 — Category-selected ad valorem rate (`RateSpec`) [M1]
+Delhi conveyance has three EXACT statutory rates by buyer category (6% male / 4%
+female / 5% joint). Modelling female/joint as a percentage-off concession is
+non-exact (6% × ⅔ ≠ a clean 4% under fixed-precision arithmetic). So `ad_valorem.pct`
+now accepts either a number or a data-driven selector `{ by: <fact>, cases: [{when,
+pct}], default }`, resolved against the caller's categorical `facts`. Deterministic,
+exact, no eval. Threaded `facts` into `ChargeCtx`. Files: `packages/schema/src/charge.ts`,
+`packages/engine/src/charge.ts`, `compute.ts`.
+
 ### D7 — M0 has zero DB / UI / LLM
 Engine is a pure standalone library + CLI. Postgres enters at M3; UI at M3; there is no
 LLM anywhere in the computation path (handoff law #2). Synthetic fixtures live under

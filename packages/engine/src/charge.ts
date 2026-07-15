@@ -1,4 +1,4 @@
-import type { Charge, Slab } from "@stampdraft/schema";
+import type { Charge, RateSpec, Slab } from "@stampdraft/schema";
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { evalExpr } from "./value-expr.js";
 import { EngineError } from "./errors.js";
@@ -7,10 +7,20 @@ import type { Snapshot } from "./snapshot.js";
 export interface ChargeCtx {
   /** Named numeric inputs + any `let` bindings introduced by enclosing formulas. */
   values: Record<string, Num>;
+  /** Named categorical facts — read by category-selected rates (RateSpec). */
+  facts: Record<string, string | number>;
   /** The active snapshot — cross-refs resolve ONLY here (PRD §5.3). */
   snapshot: Snapshot;
   /** rule_ids currently being resolved, for cross-ref cycle detection. */
   resolving: Set<string>;
+}
+
+/** Resolve an ad valorem rate: a plain number, or a category-selected rate. */
+function resolveRate(pct: RateSpec, facts: Record<string, string | number>): number {
+  if (typeof pct === "number") return pct;
+  const value = facts[pct.by];
+  const hit = pct.cases.find((c) => c.when === value);
+  return hit ? hit.pct : pct.default;
 }
 
 /** Clamp a computed duty to its optional [min_duty, cap] window. */
@@ -35,7 +45,7 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
 
     case "ad_valorem": {
       const base = evalExpr(charge.base, ctx.values);
-      const raw = base.times(charge.pct).div(100);
+      const raw = base.times(resolveRate(charge.pct, ctx.facts)).div(100);
       return clamp(raw, charge.min_duty, charge.cap);
     }
 

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Gift — male donee, 6% of property value",
+    "source_note": "Delhi Dept. of Revenue: gift 6% male donee. 50,00,000 × 6% = 3,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "donee_category": "male" } },
+    "expect": { "total_duty": "300000" }
+  },
+  {
+    "name": "Gift — female donee, 4% of property value",
+    "source_note": "Delhi: gift 4% female donee. 50,00,000 × 4% = 2,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "donee_category": "female" } },
+    "expect": { "total_duty": "200000" }
+  },
+  {
+    "name": "Affidavit — fixed Rs 10",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART4-affidavit", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "10" }
+  },
+  {
+    "name": "General POA — fixed Rs 50",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART48-gpa", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "50" }
+  },
+  {
+    "name": "Special POA — fixed Rs 50 (single transaction)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART48-spa", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "50" }
+  },
+  {
+    "name": "Mortgage without possession — 2% below the Rs 2 lakh ceiling",
+    "source_note": "50,00,000 × 2% = 1,00,000 (< Rs 2,00,000 cap).",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
+    "expect": { "total_duty": "100000" }
+  },
+  {
+    "name": "Mortgage without possession — 2% capped at Rs 2 lakh",
+    "source_note": "2,00,00,000 × 2% = 4,00,000 → capped at Rs 2,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "20000000" } },
+    "expect": { "total_duty": "200000" }
+  }
+]

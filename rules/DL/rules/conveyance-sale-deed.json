@@ -1,0 +1,35 @@
+{
+  "rule_id": "DL-ART23-conveyance",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "23",
+  "instrument": "conveyance_sale_deed",
+  "version": {
+    "effective_from": "2020-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "notification",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 23 (Delhi) + Delhi Dept. of Revenue operative rate",
+      "article": "23",
+      "url": "https://revenue.delhi.gov.in/revenue/property-registration",
+      "quoted_text": "Delhi Dept. of Revenue (official) — Sale Deed: 'Stamp & Transfer Duty @ 4% if the vendee is a woman and @ 6% if the vendee is a man'. Schedule I-A Art. 23 (Conveyance): '5% of the consideration amount set forth in the instrument', with note 'Further reduced from 5% to 3% in respect of conveyance, sale and Agreement to sale in cases of the purchase of immovable property by women, either individually or severally.' Operative combined stamp+transfer duty as published by the Department of Revenue: 6% (male vendee) / 4% (female vendee) / 5% (joint male+female). Base = higher of consideration or circle-rate (market value); the user supplies market value (circle-rate DB is out of scope, PRD §3)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "ad_valorem",
+    "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
+    "pct": {
+      "by": "buyer_category",
+      "cases": [
+        { "when": "female", "pct": 4 },
+        { "when": "joint", "pct": 5 }
+      ],
+      "default": 6
+    }
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: HIGH for the operative total (official Delhi Dept. of Revenue). Rate = 6% male / 4% female / 5% joint on higher-of(consideration, market value). COMPOSITION (reviewer info): this operative rate = Schedule I-A stamp duty (5% general / 3% women / 4% joint) + MCD transfer duty (~1%); encoded here as the combined operative figure to match the official published number the buyer pays. OPEN QUESTIONS FOR FOUNDER: (1) confirm exact effective_from — the underlying women-concession & transfer-duty notification dates (needed for historical mode, M2); set 2020-01-01 as a conservative current-law floor. (2) Confirm whether to split stamp vs transfer duty as separate breakup lines (and the exact transfer-duty rate/threshold, some sources cite 1% above Rs 25 lakh). (3) Confirm the Delhi rounding rule for stamp duty (encoded as none pending confirmation). (4) 'joint' assumes one male + one female co-vendee; confirm multi-owner / primary-holder logic."
+}

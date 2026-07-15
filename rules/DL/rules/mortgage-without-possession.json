@@ -1,0 +1,28 @@
+{
+  "rule_id": "DL-ART40b-mortgage-without-possession",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "40",
+  "instrument": "mortgage_without_possession",
+  "version": {
+    "effective_from": "2020-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 40(b) (Delhi)",
+      "article": "40",
+      "quoted_text": "Schedule I-A Art. 40 (Mortgage Deed), clause (b): 'when possession is not given or agreed to be given as aforesaid — 2% with a monetary ceiling of Rs. 2 lacs [Rs 2,00,000].' (Clause (a), where possession IS given, is charged as a Conveyance No.23 on the amount secured; clause (c) collateral security is Rs 2 per Rs 1,000.)"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "ad_valorem",
+    "base": { "var": "amount_secured" },
+    "pct": 2,
+    "cap": "200000"
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). 2% of the amount secured, capped at Rs 2,00,000. Self-contained (no cross-ref). The companion 'mortgage WITH possession' (clause a = same duty as Conveyance on amount secured) is a SEPARATE instrument — deferred pending resolution of which conveyance rate a non-sale cross-ref should use (stamp-only 5% vs transfer-inclusive 6%); see DELHI-SOURCING.md open question Q1. Confirm effective_from and rounding."
+}

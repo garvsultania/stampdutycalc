@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Conveyance — male vendee, 6% of Rs 1 crore",
+    "source_note": "Delhi Dept. of Revenue: 6% for male vendee. 1,00,00,000 × 6% = 6,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "male" } },
+    "expect": { "total_duty": "600000" }
+  },
+  {
+    "name": "Conveyance — female vendee, 4% of Rs 1 crore",
+    "source_note": "Delhi Dept. of Revenue: 4% for female vendee. 1,00,00,000 × 4% = 4,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "female" } },
+    "expect": { "total_duty": "400000" }
+  },
+  {
+    "name": "Conveyance — joint (male+female) vendees, 5% of Rs 1 crore",
+    "source_note": "Delhi: 5% for joint male+female. 1,00,00,000 × 5% = 5,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "joint" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "Conveyance — higher-of: circle rate (market value) exceeds consideration",
+    "source_note": "Duty on higher of consideration/market value. Male 6% × 1,20,00,000 = 7,20,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "8000000", "market_value": "12000000" }, "facts": { "buyer_category": "male" } },
+    "expect": { "total_duty": "720000" }
+  },
+  {
+    "name": "Conveyance — higher-of with female rate",
+    "source_note": "Female 4% × higher-of(1,00,00,000; 1,20,00,000) = 4% × 1,20,00,000 = 4,80,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "12000000" }, "facts": { "buyer_category": "female" } },
+    "expect": { "total_duty": "480000" }
+  },
+  {
+    "name": "Conveyance — unspecified buyer_category defaults to general (male) 6%",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "5000000", "market_value": "5000000" } },
+    "expect": { "total_duty": "300000" }
+  }
+]

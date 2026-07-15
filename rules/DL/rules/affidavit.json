@@ -1,0 +1,23 @@
+{
+  "rule_id": "DL-ART4-affidavit",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "4",
+  "instrument": "affidavit",
+  "version": {
+    "effective_from": "2020-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 4 (Delhi)",
+      "article": "4",
+      "quoted_text": "Schedule I-A Art. 4 (Affidavit): 'AFFIDAVIT including an affirmation or Declaration in the case of persons by law allowed to affirm or declare instead of Swearing — Ten rupees.' Exemptions: affidavit for enrolment under the Army/Air Force Act; for the immediate purpose of being filed or used in any court; or solely to enable receipt of a pension or charitable allowance."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": { "kind": "fixed", "amount": "10" },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; figure Rs 10 is consistent with the official affidavit figure and widely cited). Fixed Rs 10. Court/enrolment/pension affidavits are EXEMPT — not modelled here (would be a classification/eligibility flag); confirm whether to add an exemption path. Confirm effective_from."
+}

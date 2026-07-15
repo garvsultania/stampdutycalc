@@ -38,7 +38,7 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
   const values: Record<string, Num> = {};
   for (const [k, v] of Object.entries(input.values)) values[k] = num(v);
 
-  const ctx: ChargeCtx = { values, snapshot, resolving: new Set<string>() };
+  const ctx: ChargeCtx = { values, facts: input.facts, snapshot, resolving: new Set<string>() };
   const baseDuty = evalCharge(rule.charge, ctx);
 
   const baseLine: LineItem = {
