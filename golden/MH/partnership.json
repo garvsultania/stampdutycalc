@@ -1,0 +1,24 @@
+[
+  {
+    "name": "MH Partnership — contribution ≤ Rs 50k: Rs 500",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-partnership", "execution_date": "2024-06-01", "values": { "share_contribution": "50000" } },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Partnership — contribution Rs 5L: 1% = Rs 5,000 (below cap)",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-partnership", "execution_date": "2024-06-01", "values": { "share_contribution": "500000" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "MH Partnership — contribution Rs 50L: 1% capped at Rs 15,000",
+    "source_note": "50,00,000 × 1% = 50,000 → cap Rs 15,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-partnership", "execution_date": "2024-06-01", "values": { "share_contribution": "5000000" } },
+    "expect": { "total_duty": "15000" }
+  },
+  {
+    "name": "MH LLP agreement — charged as Art 47 partnership (Rs 5L → Rs 5,000)",
+    "source_note": "Art 47 expressly includes LLP. Cross-ref → 1% of 5,00,000 = 5,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-llp", "execution_date": "2024-06-01", "values": { "share_contribution": "500000" } },
+    "expect": { "total_duty": "5000" }
+  }
+]

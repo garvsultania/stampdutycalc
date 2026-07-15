@@ -1,0 +1,31 @@
+{
+  "rule_id": "KA-ART40-partnership",
+  "jurisdiction": "KA",
+  "act": "Karnataka Stamp Act, 1957, Schedule",
+  "article": "40",
+  "instrument": "partnership_deed",
+  "version": {
+    "effective_from": "2016-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, Sch. Art. 40-A (Constitution) (amounts subst. by Act 15 of 2012 / Act 8 of 2003)",
+      "article": "40",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "Sch Art. 40 (both columns): 'Partnership — A. Instrument of Constitution — (a) Where the capital of the partnership does not exceed rupees fifty thousand — five hundred rupees; (b) In any other case — two thousand rupees. B. Reconstitution — (a) where immovable property contributed as share ... remains with the firm at outgoing — 3% on the market value ...; (b) in any other case — one thousand rupees. C. Dissolution — (a) where property ... is distributed/alloted to another partner — 3% on the market value ...; (b) in any other case — one thousand rupees.'"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "switch",
+    "on": { "var": "capital" },
+    "cases": [
+      { "upto": 50000, "charge": { "kind": "fixed", "amount": "500" } },
+      { "upto": null, "charge": { "kind": "fixed", "amount": "2000" } }
+    ]
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Constitution of partnership: capital ≤ Rs 50,000 → Rs 500; else → Rs 2,000. Karnataka has a SEPARATE LLP article (40A: constitution Rs 1,000 ≤Rs 10L, then Rs 500 per Rs 5L slab above, max Rs 10L) — NOT encoded here: the 'Rs 500 for every Rs 5 lakh or part thereof' step needs a ceil/slab-count value primitive (wave 3). Reconstitution (B) and Dissolution (C) 3%-on-property cases also deferred (need the property-value base + the 'in addition to' dissolution rule)."
+}

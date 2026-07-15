@@ -1,0 +1,57 @@
+[
+  {
+    "rule_id": "MH-ART47-partnership",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "47",
+    "instrument": "partnership_deed",
+    "version": {
+      "effective_from": "2015-04-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 47(1) (subst. by Mah. Act 20 of 2015 s.20(24))",
+        "article": "47",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 47 (both columns): '(1) Instrument of any partnership INCLUSIVE OF Limited Liability Partnership and Joint Venture to run a business, earn profits and to share — (a) where there is no share of contribution in partnership, or where such share contribution brought in by way of cash does not exceed rupees 50,000 — Five hundred rupees; (b) where such share contribution brought in by way of cash is in excess of rupees 50,000 or part thereof — One per cent of the amount of share contribution subject to maximum of rupees fifteen thousand. (2) Dissolution of partnership or retirement of partner ... (b) in any other case — Five hundred rupees.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "share_contribution" },
+      "cases": [
+        { "upto": 50000, "charge": { "kind": "fixed", "amount": "500" } },
+        { "upto": null, "charge": { "kind": "ad_valorem", "base": { "var": "share_contribution" }, "pct": 1, "cap": "15000" } }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Constitution: cash share_contribution ≤ Rs 50,000 (or none) → Rs 500; above → 1% of contribution, cap Rs 15,000. NOTE: Art 47 EXPRESSLY includes LLP and Joint Venture — so MH LLP agreements use this rule (see MH-ART47-llp cross-ref). Contrast Karnataka, which has SEPARATE partnership (Art 40) and LLP (Art 40A) articles. Dissolution (Art 47(2)(b) = Rs 500) not separately encoded yet."
+  },
+  {
+    "rule_id": "MH-ART47-llp",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "47",
+    "instrument": "llp_agreement",
+    "version": {
+      "effective_from": "2015-04-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 47(1) ('inclusive of Limited Liability Partnership')",
+        "article": "47",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Art 47(1) charges 'Instrument of any partnership INCLUSIVE OF Limited Liability Partnership and Joint Venture' — so an LLP agreement is charged identically to a partnership instrument under Art 47."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "cross_ref", "rule_id": "MH-ART47-partnership" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (statute expressly includes LLP). Cross-ref to Art 47 partnership: contribution ≤ Rs 50k → Rs 500; else 1% cap Rs 15,000. Input: share_contribution."
+  }
+]
