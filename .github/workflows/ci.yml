@@ -1,0 +1,33 @@
+name: ci
+
+# The merge gate (PRD §6.3, §9): a PR cannot merge unless typecheck, the citation
+# + integrity validator, every state golden suite, and the unit/synthetic suites
+# all pass. Configure branch protection on the default branch to require this job.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # typecheck also emits dist/ that the validate + golden scripts import.
+      - run: pnpm typecheck
+      - run: pnpm validate:rules
+      - run: pnpm golden
+      - run: pnpm test

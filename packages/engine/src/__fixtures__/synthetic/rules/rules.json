@@ -1,0 +1,314 @@
+[
+  {
+    "rule_id": "SYN-fixed",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "F1",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-F1", "quoted_text": "A fixed duty of one hundred rupees is chargeable (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "fixed", "amount": "100" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: fixed base type."
+  },
+  {
+    "rule_id": "SYN-advalorem-consideration",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "A1",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-A1", "quoted_text": "Six per cent on the consideration (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 6 },
+    "rounding": { "mode": "ceil", "nearest": 100 },
+    "notes_for_reviewer": "Synthetic: ad valorem on consideration."
+  },
+  {
+    "rule_id": "SYN-advalorem-higherof",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "A2",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-A2", "quoted_text": "Five per cent on the higher of consideration or market value (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
+      "pct": 5
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: higher-of consideration/market value (standard conveyance rule)."
+  },
+  {
+    "rule_id": "SYN-min",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "M1",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-M1", "quoted_text": "0.1 per cent, subject to a minimum of two hundred rupees (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.1, "min_duty": "200" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: minimum duty floor."
+  },
+  {
+    "rule_id": "SYN-cap",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "C1",
+    "instrument": "loan_hypothecation_agreement",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-C1", "quoted_text": "Three per cent, subject to a maximum of five thousand rupees (synthetic Maharashtra-style cap)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 3, "cap": "5000" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: maximum duty cap (load-bearing for commercial work, PRD §5.2)."
+  },
+  {
+    "rule_id": "SYN-slab-marginal",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "S1",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-S1", "quoted_text": "Marginal slab: 2% to 1 lakh, 3% to 5 lakh, 4% thereafter (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "slab",
+      "base": { "var": "consideration" },
+      "variant": "marginal",
+      "slabs": [
+        { "upto": 100000, "pct": 2 },
+        { "upto": 500000, "pct": 3 },
+        { "upto": null, "pct": 4 }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: marginal slab table."
+  },
+  {
+    "rule_id": "SYN-slab-flat",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "S2",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-S2", "quoted_text": "Flat slab: ₹500 to 1 lakh, else 2% to 10 lakh, else 3% (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "slab",
+      "base": { "var": "consideration" },
+      "variant": "flat",
+      "slabs": [
+        { "upto": 100000, "fixed": "500" },
+        { "upto": 1000000, "pct": 2 },
+        { "upto": null, "pct": 3 }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: flat-slab table mixing fixed and pct rows."
+  },
+  {
+    "rule_id": "SYN-conveyance",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "23",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2020-04-01",
+      "source": { "type": "act", "ref": "SYN-23-v1", "quoted_text": "Five per cent on the higher of consideration or market value (synthetic, pre-2020)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
+      "pct": 5
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic conveyance v1 (cross-ref target, snapshot-scoping test)."
+  },
+  {
+    "rule_id": "SYN-conveyance",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "23",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2020-04-01",
+      "effective_to": null,
+      "supersedes": "SYN-23-v1",
+      "source": { "type": "notification", "ref": "SYN-23-v2", "gazette_date": "2020-03-28", "quoted_text": "Six per cent on the higher of consideration or market value (synthetic, from 2020-04-01)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
+      "pct": 6
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic conveyance v2 (supersedes v1)."
+  },
+  {
+    "rule_id": "SYN-bond",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "15",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-15", "quoted_text": "The same duty as a Conveyance (No. 23) (synthetic cross-reference)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "cross_ref", "rule_id": "SYN-conveyance" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: cross-ref resolved within the active snapshot only (PRD §5.3)."
+  },
+  {
+    "rule_id": "SYN-lease",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "35",
+    "instrument": "lease",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-35", "quoted_text": "Duty on a term-dependent multiple of average annual rent, plus premium charged as a Conveyance (synthetic lease formula)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "formula",
+      "let": {
+        "chargeable_rent": {
+          "op": "*",
+          "args": [
+            { "var": "avg_annual_rent" },
+            { "band": { "on": { "var": "term_years" }, "bands": [{ "upto": 5, "value": { "lit": 1 } }, { "upto": 10, "value": { "lit": 2 } }, { "upto": null, "value": { "lit": 3 } }] } }
+          ]
+        }
+      },
+      "components": [
+        { "kind": "ad_valorem", "base": { "var": "chargeable_rent" }, "pct": 5 },
+        { "kind": "cross_ref", "rule_id": "SYN-conveyance", "on": { "var": "premium" } }
+      ]
+    },
+    "rounding": { "mode": "ceil", "nearest": 100 },
+    "notes_for_reviewer": "Synthetic: formula base (lease rent-multiple) + premium-as-conveyance via cross-ref rebase."
+  },
+  {
+    "rule_id": "SYN-residential",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "23R",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-23R", "quoted_text": "Six per cent on higher-of value, with women concession and metro cess (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
+      "pct": 6
+    },
+    "modifiers": ["SYN-women-concession", "SYN-metro-cess"],
+    "rounding": { "mode": "ceil", "nearest": 100 },
+    "notes_for_reviewer": "Synthetic: concession (ordered before) + cess (ordered after), then rounding."
+  },
+  {
+    "rule_id": "SYN-amnesty-rule",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "AM1",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-AM1", "quoted_text": "Five per cent, with a time-bound 50% amnesty remission (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 5 },
+    "modifiers": ["SYN-amnesty"],
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: time-bound amnesty via date_within condition."
+  },
+  {
+    "rule_id": "SYN-flat-rule",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "FL1",
+    "instrument": "agreement_to_sell",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-FL1", "quoted_text": "Two per cent plus a fixed hundred-rupee surcharge (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 2 },
+    "modifiers": ["SYN-flat-surcharge"],
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: flat_add surcharge modifier."
+  },
+  {
+    "rule_id": "SYN-band-strict",
+    "jurisdiction": "DL",
+    "act": "Synthetic Stamp Act (test fixture)",
+    "article": "B1",
+    "instrument": "lease",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-B1", "quoted_text": "Bands defined only up to 10 years (synthetic, deliberately incomplete to test escalation-by-error)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "band": { "on": { "var": "term_years" }, "bands": [{ "upto": 5, "value": { "var": "avg_annual_rent" } }, { "upto": 10, "value": { "op": "*", "args": [{ "var": "avg_annual_rent" }, { "lit": 2 }] } }] } },
+      "pct": 5
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "Synthetic: missing terminal band → must throw, never approximate (PRD §15)."
+  }
+]

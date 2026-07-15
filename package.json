@@ -1,0 +1,30 @@
+{
+  "name": "stampdraft",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.7.0",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate:rules": "tsx scripts/validate-rules.ts",
+    "golden": "tsx scripts/run-golden.ts",
+    "check": "pnpm typecheck && pnpm validate:rules && pnpm golden && pnpm test"
+  },
+  "devDependencies": {
+    "@stampdraft/engine": "workspace:*",
+    "@stampdraft/schema": "workspace:*",
+    "@types/node": "^20.14.15",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "decimal.js": "^10.4.3",
+    "zod": "^3.23.8"
+  }
+}

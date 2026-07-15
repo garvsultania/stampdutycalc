@@ -1,0 +1,76 @@
+import type { Citation, LineItem, Modifier, Rule } from "@stampdraft/schema";
+import { canonical, num, ZERO, type Num } from "./money.js";
+import { evalCondition } from "./condition.js";
+import { EngineError } from "./errors.js";
+import type { Snapshot } from "./snapshot.js";
+
+export interface ModifierOutcome {
+  lines: LineItem[];
+  preRoundTotal: Num;
+  citations: Citation[];
+}
+
+/**
+ * Apply a rule's modifiers (concessions and surcharges/cesses) to a base duty,
+ * deterministically ordered by `order` then `modifier_id`. Concessions reduce the
+ * running duty; surcharges/cesses are additive lines computed on the running duty
+ * or on a named input value. Each produces its own breakup line with its own
+ * citation. Rounding is NOT applied here — it is the caller's final step (§5.5).
+ *
+ * A modifier id referenced by the rule but not active in the snapshot on this
+ * date is legitimately skipped (e.g. a lapsed amnesty). Referential existence is
+ * guaranteed by the ruleset validator.
+ */
+export function applyModifiers(
+  baseDuty: Num,
+  rule: Rule,
+  snapshot: Snapshot,
+  values: Record<string, Num>,
+  facts: Record<string, string | number>,
+  executionDate: string,
+): ModifierOutcome {
+  const applicable: Modifier[] = [];
+  for (const id of rule.modifiers) {
+    const mod = snapshot.modifiersById.get(id);
+    if (!mod) continue; // not active on this date
+    if (evalCondition(mod.applies_when, facts, executionDate)) applicable.push(mod);
+  }
+  applicable.sort((a, b) => a.order - b.order || (a.modifier_id < b.modifier_id ? -1 : 1));
+
+  const lines: LineItem[] = [];
+  const citations: Citation[] = [];
+  let runningDuty = baseDuty;
+  let addOns = ZERO;
+
+  for (const mod of applicable) {
+    const cite = mod.version.source;
+    const eff = mod.effect;
+    if (eff.op === "duty_reduce_pct") {
+      const reduction = runningDuty.times(eff.pct).div(100);
+      runningDuty = runningDuty.minus(reduction);
+      lines.push({ kind: "concession", label: eff.label, amount: canonical(reduction.negated()), citations: [cite] });
+    } else if (eff.op === "flat_add") {
+      const amt = num(eff.amount);
+      addOns = addOns.plus(amt);
+      lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
+    } else {
+      // pct_add
+      const base =
+        eff.of === "duty" ? runningDuty : requireValue(values, eff.of, eff.label);
+      const amt = base.times(eff.pct).div(100);
+      addOns = addOns.plus(amt);
+      lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
+    }
+    citations.push(cite);
+  }
+
+  return { lines, preRoundTotal: runningDuty.plus(addOns), citations };
+}
+
+function requireValue(values: Record<string, Num>, key: string, label: string): Num {
+  const v = values[key];
+  if (v === undefined) {
+    throw new EngineError(`modifier "${label}" needs input "${key}" but it was not provided`);
+  }
+  return v;
+}

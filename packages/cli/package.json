@@ -1,0 +1,16 @@
+{
+  "name": "@stampdraft/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "stampdraft": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@stampdraft/engine": "workspace:*",
+    "@stampdraft/schema": "workspace:*"
+  }
+}

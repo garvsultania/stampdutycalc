@@ -1,0 +1,99 @@
+import { z } from "zod";
+import { MoneySchema } from "./primitives.js";
+import { ValueExprSchema, type ValueExpr } from "./value-expr.js";
+
+/**
+ * A single slab row. Exactly one of `pct` or `fixed` must be present.
+ * `upto` is the inclusive upper bound of the slab; null = the top (open) slab.
+ */
+export type Slab = { upto: number | null; pct?: number; fixed?: string | number };
+
+export const SlabSchema = z
+  .object({
+    upto: z.number().nullable(),
+    pct: z.number().optional(),
+    fixed: MoneySchema.optional(),
+  })
+  .strict()
+  .refine(
+    (s) => (s.pct === undefined) !== (s.fixed === undefined),
+    "a slab row must specify exactly one of `pct` or `fixed`",
+  );
+
+/**
+ * Charge — the unified, recursive charging structure (approved deviation from the
+ * illustrative split base/rate in PRD §6.1; see DECISIONS.md). One shape covers
+ * every base/rate case in PRD §5.1–5.3:
+ *
+ *  - fixed       : a flat duty (₹100 affidavit).                          §5.1
+ *  - ad_valorem  : pct of a value expression, with optional min/cap.      §5.1/5.2
+ *  - slab        : marginal or flat-slab table over a value, min/cap.     §5.1
+ *  - formula     : `let` bindings + a sum of sub-charges; the lease case  §5.1
+ *                  (rent-multiple ad_valorem + premium-as-conveyance).
+ *  - cross_ref   : "same duty as No. N", resolved ONLY within the active  §5.3
+ *                  version snapshot; `on` optionally re-bases the target
+ *                  (e.g. compute Conveyance duty on `premium`).
+ *
+ * min_duty (floor) and cap (ceiling) are load-bearing — several Maharashtra
+ * articles cap duty (PRD §5.2). They clamp the sub-total of the charge they sit on.
+ */
+export type Charge =
+  | { kind: "fixed"; amount: string | number }
+  | { kind: "ad_valorem"; base: ValueExpr; pct: number; min_duty?: string | number; cap?: string | number }
+  | {
+      kind: "slab";
+      base: ValueExpr;
+      variant: "marginal" | "flat";
+      slabs: Slab[];
+      min_duty?: string | number;
+      cap?: string | number;
+    }
+  | {
+      kind: "formula";
+      let?: Record<string, ValueExpr>;
+      components: Charge[];
+      min_duty?: string | number;
+      cap?: string | number;
+    }
+  | { kind: "cross_ref"; rule_id: string; on?: ValueExpr };
+
+export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
+  z.discriminatedUnion("kind", [
+    z.object({ kind: z.literal("fixed"), amount: MoneySchema }).strict(),
+    z
+      .object({
+        kind: z.literal("ad_valorem"),
+        base: ValueExprSchema,
+        pct: z.number(),
+        min_duty: MoneySchema.optional(),
+        cap: MoneySchema.optional(),
+      })
+      .strict(),
+    z
+      .object({
+        kind: z.literal("slab"),
+        base: ValueExprSchema,
+        variant: z.enum(["marginal", "flat"]),
+        slabs: z.array(SlabSchema).min(1),
+        min_duty: MoneySchema.optional(),
+        cap: MoneySchema.optional(),
+      })
+      .strict(),
+    z
+      .object({
+        kind: z.literal("formula"),
+        let: z.record(ValueExprSchema).optional(),
+        components: z.array(ChargeSchema).min(1),
+        min_duty: MoneySchema.optional(),
+        cap: MoneySchema.optional(),
+      })
+      .strict(),
+    z
+      .object({
+        kind: z.literal("cross_ref"),
+        rule_id: z.string().min(1),
+        on: ValueExprSchema.optional(),
+      })
+      .strict(),
+  ]),
+);

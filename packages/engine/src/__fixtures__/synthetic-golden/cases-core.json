@@ -1,0 +1,91 @@
+[
+  {
+    "name": "fixed duty (₹100 affidavit)",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-fixed", "execution_date": "2021-01-01", "values": {} },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "ad valorem on consideration (6% of 10L)",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-advalorem-consideration", "execution_date": "2021-01-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "60000" }
+  },
+  {
+    "name": "higher-of: market value wins",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-advalorem-higherof", "execution_date": "2021-01-01", "values": { "consideration": "800000", "market_value": "1000000" } },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "higher-of: consideration wins",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-advalorem-higherof", "execution_date": "2021-01-01", "values": { "consideration": "1200000", "market_value": "1000000" } },
+    "expect": { "total_duty": "60000" }
+  },
+  {
+    "name": "minimum duty floor binds",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-min", "execution_date": "2021-01-01", "values": { "consideration": "50000" } },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "minimum duty floor does not bind",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-min", "execution_date": "2021-01-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "1000" }
+  },
+  {
+    "name": "maximum cap binds (high-value commercial)",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-cap", "execution_date": "2021-01-01", "values": { "consideration": "10000000" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "maximum cap does not bind",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-cap", "execution_date": "2021-01-01", "values": { "consideration": "100000" } },
+    "expect": { "total_duty": "3000" }
+  },
+  {
+    "name": "marginal slab (2/3/4% across bands)",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-slab-marginal", "execution_date": "2021-01-01", "values": { "consideration": "600000" } },
+    "expect": { "total_duty": "18000" }
+  },
+  {
+    "name": "flat slab: fixed row",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-slab-flat", "execution_date": "2021-01-01", "values": { "consideration": "50000" } },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "flat slab: percentage row",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-slab-flat", "execution_date": "2021-01-01", "values": { "consideration": "300000" } },
+    "expect": { "total_duty": "6000" }
+  },
+  {
+    "name": "cross-ref resolves to pre-2020 conveyance (5%)",
+    "source_note": "Same input, earlier execution date → v1 snapshot; proves snapshot-scoped cross-ref.",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-bond", "execution_date": "2019-01-01", "values": { "consideration": "1000000", "market_value": "1000000" } },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "cross-ref resolves to post-2020 conveyance (6%)",
+    "source_note": "Same input, later execution date → v2 snapshot; the cross-ref must NOT resolve across versions.",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-bond", "execution_date": "2021-01-01", "values": { "consideration": "1000000", "market_value": "1000000" } },
+    "expect": { "total_duty": "60000" }
+  },
+  {
+    "name": "lease formula: rent-multiple + premium-as-conveyance (post-2020)",
+    "source_note": "term 8y → 2× AAR = 4L @5% = 20000; premium 5L as conveyance v2 @6% = 30000; sum 50000.",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-lease", "execution_date": "2021-01-01", "values": { "avg_annual_rent": "200000", "term_years": "8", "premium": "500000" } },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "lease formula: shorter term + premium-as-conveyance (pre-2020)",
+    "source_note": "term 3y → 1× AAR = 2L @5% = 10000; premium 5L as conveyance v1 @5% = 25000; sum 35000.",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-lease", "execution_date": "2019-01-01", "values": { "avg_annual_rent": "200000", "term_years": "3", "premium": "500000" } },
+    "expect": { "total_duty": "35000" }
+  },
+  {
+    "name": "escalate-by-error: missing market_value input",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-advalorem-higherof", "execution_date": "2021-01-01", "values": { "consideration": "800000" } },
+    "expect": { "error": "unknown input variable \"market_value\"" }
+  },
+  {
+    "name": "escalate-by-error: value outside all bands",
+    "input": { "jurisdiction": "DL", "rule_id": "SYN-band-strict", "execution_date": "2021-01-01", "values": { "term_years": "20", "avg_annual_rent": "100000" } },
+    "expect": { "error": "outside all bands" }
+  }
+]

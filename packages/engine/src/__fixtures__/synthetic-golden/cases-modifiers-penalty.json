@@ -1,0 +1,139 @@
+[
+  {
+    "name": "modifiers: women concession then metro cess then rounding (female)",
+    "source_note": "base 60000; -20% = 48000; +1% cess = 480; preRound 48480; ceil→48500.",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-residential",
+      "execution_date": "2021-01-01",
+      "values": { "consideration": "1000000", "market_value": "1000000" },
+      "facts": { "gender": "female" }
+    },
+    "expect": {
+      "total_duty": "48500",
+      "breakup": [
+        { "kind": "base_duty", "label": "Base duty — conveyance_sale_deed (Art. 23R)", "amount": "60000" },
+        { "kind": "concession", "label": "Women concession (20%)", "amount": "-12000" },
+        { "kind": "surcharge_cess", "label": "Metro cess (1% of duty)", "amount": "480" },
+        { "kind": "rounding", "label": "Rounding (ceil to nearest 100)", "amount": "20" }
+      ]
+    }
+  },
+  {
+    "name": "modifiers: concession not applicable (male), cess on full duty",
+    "source_note": "base 60000; no concession; +1% cess = 600; preRound 60600; ceil→60600 (no rounding line).",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-residential",
+      "execution_date": "2021-01-01",
+      "values": { "consideration": "1000000", "market_value": "1000000" },
+      "facts": { "gender": "male" }
+    },
+    "expect": {
+      "total_duty": "60600",
+      "breakup": [
+        { "kind": "base_duty", "label": "Base duty — conveyance_sale_deed (Art. 23R)", "amount": "60000" },
+        { "kind": "surcharge_cess", "label": "Metro cess (1% of duty)", "amount": "600" }
+      ]
+    }
+  },
+  {
+    "name": "amnesty concession applies within window",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-amnesty-rule",
+      "execution_date": "2020-03-15",
+      "values": { "consideration": "1000000" }
+    },
+    "expect": { "total_duty": "25000" }
+  },
+  {
+    "name": "amnesty concession lapsed outside window",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-amnesty-rule",
+      "execution_date": "2021-03-15",
+      "values": { "consideration": "1000000" }
+    },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "flat_add surcharge line",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-flat-rule",
+      "execution_date": "2021-01-01",
+      "values": { "consideration": "100000" }
+    },
+    "expect": {
+      "total_duty": "2100",
+      "breakup": [
+        { "kind": "base_duty", "label": "Base duty — agreement_to_sell (Art. FL1)", "amount": "2000" },
+        { "kind": "surcharge_cess", "label": "Fixed surcharge (₹100)", "amount": "100" }
+      ]
+    }
+  },
+  {
+    "name": "penalty (Flow D): per-month, cap not binding",
+    "source_note": "dutyThen 60000, paid 40000, deficit 20000; 2%/mo × 10 = 4000.",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-advalorem-consideration",
+      "execution_date": "2019-05-01",
+      "values": { "consideration": "1000000" },
+      "duty_paid": "40000"
+    },
+    "penalty_regime_id": "SYN-permonth",
+    "penalty_months": 10,
+    "expect": {
+      "penalty": {
+        "deficit": "20000",
+        "penalty_point": "4000",
+        "penalty_range": null,
+        "total_payable_point": "24000",
+        "total_payable_range": null
+      }
+    }
+  },
+  {
+    "name": "penalty (Flow D): per-month, cap binds at 2× deficit",
+    "source_note": "2%/mo × 200 = 80000 → capped at 2×20000 = 40000.",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-advalorem-consideration",
+      "execution_date": "2019-05-01",
+      "values": { "consideration": "1000000" },
+      "duty_paid": "40000"
+    },
+    "penalty_regime_id": "SYN-permonth",
+    "penalty_months": 200,
+    "expect": {
+      "penalty": {
+        "deficit": "20000",
+        "penalty_point": "40000",
+        "total_payable_point": "60000"
+      }
+    }
+  },
+  {
+    "name": "penalty (Flow D): discretionary regime outputs a RANGE, never a point",
+    "source_note": "deficit 20000; up-to-10× → [20000, 200000]; total [40000, 220000].",
+    "input": {
+      "jurisdiction": "DL",
+      "rule_id": "SYN-advalorem-consideration",
+      "execution_date": "2019-05-01",
+      "values": { "consideration": "1000000" },
+      "duty_paid": "40000"
+    },
+    "penalty_regime_id": "SYN-discretionary",
+    "expect": {
+      "penalty": {
+        "deficit": "20000",
+        "penalty_point": null,
+        "penalty_range": { "min": "20000", "max": "200000" },
+        "total_payable_point": null,
+        "total_payable_range": { "min": "40000", "max": "220000" }
+      }
+    }
+  }
+]

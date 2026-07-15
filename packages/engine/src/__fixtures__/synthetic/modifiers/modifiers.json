@@ -1,0 +1,66 @@
+[
+  {
+    "modifier_id": "SYN-amnesty",
+    "jurisdiction": "DL",
+    "kind": "concession",
+    "applies_when": { "date_within": { "from": "2020-01-01", "to": "2020-06-30" } },
+    "effect": { "op": "duty_reduce_pct", "pct": 50, "label": "Amnesty remission (50%)" },
+    "order": 5,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "order", "ref": "SYN-AMN", "quoted_text": "50% remission for instruments executed between 2020-01-01 and 2020-06-30 (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: time-bound amnesty."
+  },
+  {
+    "modifier_id": "SYN-women-concession",
+    "jurisdiction": "DL",
+    "kind": "concession",
+    "applies_when": { "eq": { "field": "gender", "value": "female" } },
+    "effect": { "op": "duty_reduce_pct", "pct": 20, "label": "Women concession (20%)" },
+    "order": 10,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "notification", "ref": "SYN-WC", "quoted_text": "20% concession where the sole/primary transferee is a woman (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: gender concession."
+  },
+  {
+    "modifier_id": "SYN-metro-cess",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": { "always": true },
+    "effect": { "op": "pct_add", "pct": 1, "of": "duty", "label": "Metro cess (1% of duty)" },
+    "order": 20,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "notification", "ref": "SYN-MC", "quoted_text": "A cess of one per cent of the stamp duty (synthetic metro cess)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: cess computed on the (post-concession) running duty."
+  },
+  {
+    "modifier_id": "SYN-flat-surcharge",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": { "always": true },
+    "effect": { "op": "flat_add", "amount": "100", "label": "Fixed surcharge (₹100)" },
+    "order": 30,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-FS", "quoted_text": "A fixed surcharge of one hundred rupees (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: flat additive surcharge."
+  }
+]

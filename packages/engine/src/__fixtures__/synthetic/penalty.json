@@ -1,0 +1,30 @@
+[
+  {
+    "regime_id": "SYN-permonth",
+    "jurisdiction": "DL",
+    "penalty": { "type": "per_month", "pct_per_month": 2, "cap_multiple": 2, "min_penalty": null },
+    "adjudication_path": "Synthetic S.31 adjudication route",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-PEN-PM", "quoted_text": "Penalty of 2% per month on the deficit, subject to a maximum of twice the deficit (synthetic)." },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: per-month penalty with a cap."
+  },
+  {
+    "regime_id": "SYN-discretionary",
+    "jurisdiction": "DL",
+    "penalty": { "type": "discretionary_range", "min_multiple": 1, "max_multiple": 10 },
+    "adjudication_path": "Synthetic S.33/S.39 impounding + adjudication route",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "source": { "type": "act", "ref": "SYN-PEN-DISC", "quoted_text": "Penalty up to ten times the deficient duty, in the discretion of the Collector (synthetic).", "gazette_date": "2015-01-01" },
+      "verified_by": "founder",
+      "verified_on": "2026-07-01"
+    },
+    "notes_for_reviewer": "Synthetic: discretionary up-to-10x — must output a RANGE (PRD §5.6)."
+  }
+]
