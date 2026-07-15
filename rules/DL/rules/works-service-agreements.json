@@ -1,0 +1,48 @@
+[
+  {
+    "rule_id": "DL-works-contract",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "5(c)",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 5(c) (Delhi)",
+        "article": "5(c)",
+        "quoted_text": "Sch I-A Art. 5 (both columns): 'AGREEMENT OR MEMORANDUM OF AN AGREEMENT ... (c) If not otherwise provided for — Fifty rupees.' Delhi's Schedule I-A has NO specific works-contract article (unlike Maharashtra Art 63); a works contract executed in Delhi is stamped as an Art 5(c) agreement."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "50" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM (absence-of-specific-entry reasoning + Art 5(c) text). The works-vs-service classification tree still matters for S.6 and for multi-state work (Maharashtra taxes works contracts ad valorem). Confirm no Delhi notification imposes ad valorem duty on works contracts."
+  },
+  {
+    "rule_id": "DL-service-agreement",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "5(c)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 5(c) (Delhi)",
+        "article": "5(c)",
+        "quoted_text": "Sch I-A Art. 5 (both columns): '(c) If not otherwise provided for — Fifty rupees.' Cross-heading in Sch I-A: 'HIRING AGREEMENT or agreement for service — see Agreement (No. 5).' A service agreement is an Art 5(c) agreement (Rs 50)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "50" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH — Sch I-A itself routes 'agreement for service' to Art 5."
+  }
+]

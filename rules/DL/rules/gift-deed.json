@@ -5,28 +5,25 @@
   "article": "33",
   "instrument": "gift_deed",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
-      "type": "notification",
-      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 33 (Delhi) + Delhi Dept. of Revenue operative rate",
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 33 (Delhi)",
       "article": "33",
       "url": "https://revenue.delhi.gov.in/revenue/property-registration",
-      "quoted_text": "Delhi Dept. of Revenue (official) — Gift Deed: 'Stamp & Transfer Duty @ 4% if the donee is a woman and @ 6% if the donee is a man'; property must be valued by an approved valuer. Schedule I-A Art. 33 (Gift): 'The same duty as Conveyance (No.23) on the value of property.' Base = value of property (market value)."
+      "quoted_text": "Sch I-A Art. 33 (both columns): 'GIFT - Instrument of, not being a settlement (No.58), or will or transfer (No. 62)' — 'The same duty as Conveyance (No.23) on the value of property.' So the STAMP component = Art 23 rate (3%, 2% women) on property value; transfer duty (gift is in the DMC s.147 list) rides as a separate modifier. Reconciles with the official Dept. of Revenue combined framing: 'Stamp & Transfer Duty @ 4% if the donee is a woman and @ 6% if the donee is a man'; property must be valued by an approved valuer."
     },
     "verified_by": null,
     "verified_on": null
   },
   "charge": {
-    "kind": "ad_valorem",
-    "base": { "var": "market_value" },
-    "pct": {
-      "by": "donee_category",
-      "cases": [{ "when": "female", "pct": 4 }],
-      "default": 6
-    }
+    "kind": "cross_ref",
+    "rule_id": "DL-ART23-conveyance",
+    "on": { "var": "market_value" }
   },
+  "modifiers": ["DL-transfer-duty-gift", "DL-transfer-duty-gift-hike"],
   "rounding": { "mode": "none", "nearest": 1 },
-  "notes_for_reviewer": "CONFIDENCE: HIGH for male/female (official Delhi Dept. of Revenue: 6% male donee / 4% female donee on property value). Art. 33 charges gift at the same duty as Conveyance on the property value. OPEN QUESTIONS: (1) the official page states only male/female for gift — a 'joint' donee rate is NOT stated; not encoded (defaults to 6% for any non-female donee_category). Confirm if joint/other donee categories need distinct treatment. (2) Family-relation concessions (e.g. gift to specified relatives) may apply in Delhi — NOT encoded; confirm the Delhi relative list (PRD §5.5 requires per-state relative definitions, never generalized). (3) Confirm exact effective_from and rounding rule as per conveyance."
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official combined totals + Sch I-A structure). Now encoded exactly as the statute reads: a CROSS-REF to Conveyance (No.23) re-based on property value — the engine imports only the Art 23 charge (3/2 by transferee_category of the DONEE), then this rule's own transfer-duty modifiers apply. Donee gender uses the same transferee_category fact (female → 2% stamp + 2%/3% transfer). Joint-donee treatment NOT stated on the official page — 'joint' resolves via the Art 23 RateSpec (2.5 PENDING) but no golden asserts it; confirm. Family-relation concessions for gifts: none encoded — Delhi has no general relative concession in the sources reached; confirm (PRD §5.5 requires the per-state relative list be explicit)."
 }

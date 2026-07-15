@@ -5,7 +5,7 @@
   "article": "48",
   "instrument": "special_poa",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
@@ -17,7 +17,13 @@
     "verified_by": null,
     "verified_on": null
   },
-  "charge": { "kind": "fixed", "amount": "50" },
-  "rounding": { "mode": "none", "nearest": 1 },
+  "charge": {
+    "kind": "fixed",
+    "amount": "50"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). A special/single-transaction POA is encoded as Rs 50 (clause c). NOTE: a POA whose SOLE purpose is procuring registration/admitting execution (clause a) is Rs 20 — a lower, distinct case; not modelled separately here. Confirm whether special_poa should default to Rs 50 (act in a single transaction) or Rs 20 (registration-only), or be split by a questionnaire question. Confirm effective_from."
 }

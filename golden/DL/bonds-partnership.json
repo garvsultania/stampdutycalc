@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Bond (Art 15) — general obligor, 2% of Rs 10L",
+    "source_note": "Founder Q2 parse: general bonds → 2%. 10,00,000 × 2% = 20,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART15-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000" } },
+    "expect": { "total_duty": "20000" }
+  },
+  {
+    "name": "Bond (Art 15) — local-authority obligor, 0.5%",
+    "source_note": "Founder Q2 parse: bonds issued by a local authority → 0.5%. 10,00,000 × 0.5% = 5,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART15-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000" }, "facts": { "obligor_category": "local_authority" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "Security/guarantee bond (Art 57) — Rs 800 → Bond-15 leg (2%)",
+    "source_note": "≤ Rs 1,000 → same duty as Bond 15: 800 × 2% = 16.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART57-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "800" } },
+    "expect": { "total_duty": "16" }
+  },
+  {
+    "name": "Security/guarantee bond (Art 57) — boundary Rs 1,000 exactly → 2% = 20",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART57-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "1000" } },
+    "expect": { "total_duty": "20" }
+  },
+  {
+    "name": "Security/guarantee bond (Art 57) — Rs 5L → flat Rs 100",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART57-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "500000" } },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "Indemnity bond (Art 34 → 57) — Rs 900 → 2% = 18",
+    "source_note": "Art 34 = same duty as Security Bond 57; ≤1000 leg → Bond 15 (2%).",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART34-indemnity-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "900" } },
+    "expect": { "total_duty": "18" }
+  },
+  {
+    "name": "Indemnity bond (Art 34 → 57) — Rs 10L → flat Rs 100",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART34-indemnity-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000" } },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "Partnership (Art 46(A)(b)) — Rs 8L capital: 1% would be 8,000 → cap Rs 5,000",
+    "source_note": "Founder Q3 exemplar: 'on ₹8,00,000 capital the computed 1% would be ₹8,000, but the ₹5,000 cap applies.'",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46-partnership", "execution_date": "2024-06-01", "values": { "capital": "800000" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "Partnership (Art 46(A)(b)) — Rs 3L capital: 1% = 3,000 (cap not binding)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46-partnership", "execution_date": "2024-06-01", "values": { "capital": "300000" } },
+    "expect": { "total_duty": "3000" }
+  },
+  {
+    "name": "Dissolution of partnership (Art 46(B)) — flat Rs 200",
+    "source_note": "Founder Q3: the 'Two hundred rupees' belongs to the dissolution row.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46B-partnership-dissolution", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "LLP agreement — charged as partnership: Rs 10L contribution → cap Rs 5,000",
+    "source_note": "PENDING_VERIFICATION (practice-based): LLP agreement as Art 46 partnership instrument.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-llp-agreement", "execution_date": "2024-06-01", "values": { "capital": "1000000" } },
+    "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "Loan/hypothecation (Art 6(a)) — 36-month tenor: 0.5% of Rs 40L = 20,000",
+    "source_note": "Both columns quoted in rule. 40,00,000 × 0.5% = 20,000 (< Rs 50,000 cap).",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "4000000", "repayment_period_months": "36" } },
+    "expect": { "total_duty": "20000" }
+  },
+  {
+    "name": "Loan/hypothecation (Art 6(a)) — cap binds: 0.5% of Rs 2 cr = 1,00,000 → Rs 50,000",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "20000000", "repayment_period_months": "60" } },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "Loan/hypothecation (Art 6(b)) — ≤3-month loan: half of (a) = 0.25%",
+    "source_note": "'Half the duty payable under sub-clause (a)': 10,00,000 × 0.25% = 2,500.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000", "repayment_period_months": "3" } },
+    "expect": { "total_duty": "2500" }
+  }
+]

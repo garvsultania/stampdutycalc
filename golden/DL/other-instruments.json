@@ -1,15 +1,25 @@
 [
   {
-    "name": "Gift — male donee, 6% of property value",
-    "source_note": "Delhi Dept. of Revenue: gift 6% male donee. 50,00,000 × 6% = 3,00,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "donee_category": "male" } },
+    "name": "Gift — male donee, Rs 50L, pre-hike (3% stamp + 3% transfer = 6%)",
+    "source_note": "Art 33 = same duty as Conveyance on property value; + gift transfer duty (s.147). 50,00,000 × 6% = 3,00,000 — matches official framing.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2023-07-01", "values": { "consideration": "0", "market_value": "5000000" }, "facts": { "transferee_category": "male" } },
     "expect": { "total_duty": "300000" }
   },
   {
-    "name": "Gift — female donee, 4% of property value",
-    "source_note": "Delhi: gift 4% female donee. 50,00,000 × 4% = 2,00,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "donee_category": "female" } },
+    "name": "Gift — female donee, Rs 50L, pre-hike (2%+2% = 4%)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2023-07-01", "values": { "consideration": "0", "market_value": "5000000" }, "facts": { "transferee_category": "female" } },
     "expect": { "total_duty": "200000" }
+  },
+  {
+    "name": "Gift — male donee, Rs 50L, post-hike >25L (3%+4% = 7%)",
+    "source_note": "ASSUMPTION FLAG (encoded, founder to confirm): 10-Jul-2023 hike applies to gifts as an s.147 instrument. 50,00,000 × 7% = 3,50,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "consideration": "0", "market_value": "5000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "350000" }
+  },
+  {
+    "name": "Gift — female donee, Rs 20L, post-hike ≤25L (unchanged 4%)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART33-gift", "execution_date": "2024-06-01", "values": { "consideration": "0", "market_value": "2000000" }, "facts": { "transferee_category": "female" } },
+    "expect": { "total_duty": "80000" }
   },
   {
     "name": "Affidavit — fixed Rs 10",
@@ -28,7 +38,7 @@
   },
   {
     "name": "Mortgage without possession — 2% below the Rs 2 lakh ceiling",
-    "source_note": "50,00,000 × 2% = 1,00,000 (< Rs 2,00,000 cap).",
+    "source_note": "50,00,000 × 2% = 1,00,000 (< Rs 2,00,000 cap). No transfer duty (not in the s.147 list).",
     "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
     "expect": { "total_duty": "100000" }
   },
@@ -37,5 +47,15 @@
     "source_note": "2,00,00,000 × 2% = 4,00,000 → capped at Rs 2,00,000.",
     "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "20000000" } },
     "expect": { "total_duty": "200000" }
+  },
+  {
+    "name": "Works contract — Art 5(c) agreement, Rs 50",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-works-contract", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "50" }
+  },
+  {
+    "name": "Service agreement — Art 5(c) agreement, Rs 50",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-service-agreement", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "50" }
   }
 ]

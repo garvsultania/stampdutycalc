@@ -16,7 +16,7 @@ export interface ChargeCtx {
 }
 
 /** Resolve an ad valorem rate: a plain number, or a category-selected rate. */
-function resolveRate(pct: RateSpec, facts: Record<string, string | number>): number {
+export function resolveRate(pct: RateSpec, facts: Record<string, string | number>): number {
   if (typeof pct === "number") return pct;
   const value = facts[pct.by];
   const hit = pct.cases.find((c) => c.when === value);
@@ -73,6 +73,18 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
 
     case "cross_ref":
       return evalCrossRef(charge, ctx);
+
+    case "switch": {
+      const on = evalExpr(charge.on, ctx.values);
+      for (const c of charge.cases) {
+        if (c.upto === null || on.lessThanOrEqualTo(c.upto)) {
+          return evalCharge(c.charge, ctx);
+        }
+      }
+      throw new EngineError(
+        `value ${on.toFixed()} matches no switch case (add a terminal case with upto: null, or this is a deliberate escalate-by-error boundary)`,
+      );
+    }
   }
 }
 
@@ -129,7 +141,10 @@ function evalCrossRef(charge: Extract<Charge, { kind: "cross_ref" }>, ctx: Charg
     const rebasedValue = evalExpr(charge.on, ctx.values);
     targetCharge = rebase(targetCharge, rebasedValue);
   }
-  return evalCharge(targetCharge, { ...ctx, resolving: nextResolving });
+  const result = evalCharge(targetCharge, { ...ctx, resolving: nextResolving });
+  // "Ninety per cent of the duty as a Conveyance (No. 23)" — Art 23A-style
+  // scaling of the TARGET'S DUTY (not its base).
+  return charge.scale !== undefined ? result.times(charge.scale) : result;
 }
 
 /**

@@ -1,7 +1,7 @@
 export { EngineError } from "./errors.js";
 export { D, num, canonical, type Num } from "./money.js";
 export { evalExpr } from "./value-expr.js";
-export { evalCharge, type ChargeCtx } from "./charge.js";
+export { evalCharge, resolveRate, type ChargeCtx } from "./charge.js";
 export { evalCondition } from "./condition.js";
 export { applyRounding } from "./rounding.js";
 export { applyModifiers, type ModifierOutcome } from "./modifiers.js";

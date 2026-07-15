@@ -5,7 +5,7 @@
   "article": "40",
   "instrument": "mortgage_without_possession",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
@@ -19,10 +19,15 @@
   },
   "charge": {
     "kind": "ad_valorem",
-    "base": { "var": "amount_secured" },
+    "base": {
+      "var": "amount_secured"
+    },
     "pct": 2,
     "cap": "200000"
   },
-  "rounding": { "mode": "none", "nearest": 1 },
-  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). 2% of the amount secured, capped at Rs 2,00,000. Self-contained (no cross-ref). The companion 'mortgage WITH possession' (clause a = same duty as Conveyance on amount secured) is a SEPARATE instrument — deferred pending resolution of which conveyance rate a non-sale cross-ref should use (stamp-only 5% vs transfer-inclusive 6%); see DELHI-SOURCING.md open question Q1. Confirm effective_from and rounding."
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; both columns coherent). 2% of the amount secured, capped at Rs 2,00,000. Self-contained (no cross-ref). Mortgage WITHOUT possession is NOT in the DMC s.147 transfer-duty list (founder Q1) — no transfer-duty modifier, correctly. The companion mortgage WITH possession is now encoded separately (DL-ART40a) per the resolved Q1 ruling. Clause (c) collateral/auxiliary security (Rs 2 per Rs 1,000) not yet encoded — questionnaire fork."
 }

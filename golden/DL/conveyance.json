@@ -1,37 +1,78 @@
 [
   {
-    "name": "Conveyance — male vendee, 6% of Rs 1 crore",
-    "source_note": "Delhi Dept. of Revenue: 6% for male vendee. 1,00,00,000 × 6% = 6,00,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "male" } },
-    "expect": { "total_duty": "600000" }
+    "name": "Conveyance — male vendee, Rs 1 cr, pre-hike era (3% stamp + 3% transfer = 6%)",
+    "source_note": "Delhi Towers: Art 23 = 3% (2% women). Founder Q5: transfer duty 3%(M)/2%(F) through 9-Jul-2023. 1,00,00,000 × (3%+3%) = 6,00,000 — matches official 6% framing.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" } },
+    "expect": {
+      "total_duty": "600000",
+      "breakup": [
+        { "kind": "base_duty", "amount": "300000" },
+        { "kind": "surcharge_cess", "label": "Transfer duty (DMC Act s.147, MCD)", "amount": "300000" }
+      ]
+    }
   },
   {
-    "name": "Conveyance — female vendee, 4% of Rs 1 crore",
-    "source_note": "Delhi Dept. of Revenue: 4% for female vendee. 1,00,00,000 × 4% = 4,00,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "female" } },
+    "name": "Conveyance — female vendee, Rs 1 cr, pre-hike (2%+2% = 4%)",
+    "source_note": "1,00,00,000 × (2%+2%) = 4,00,000 — matches official 4% female framing.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "female" } },
     "expect": { "total_duty": "400000" }
   },
   {
-    "name": "Conveyance — joint (male+female) vendees, 5% of Rs 1 crore",
-    "source_note": "Delhi: 5% for joint male+female. 1,00,00,000 × 5% = 5,00,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "buyer_category": "joint" } },
+    "name": "Conveyance — joint vendees, Rs 1 cr, pre-hike (verified 5% total; 2.5+2.5 split PENDING)",
+    "source_note": "Combined 5% total verified; component split PENDING_VERIFICATION per founder Q5. 1,00,00,000 × 5% = 5,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "joint" } },
     "expect": { "total_duty": "500000" }
   },
   {
-    "name": "Conveyance — higher-of: circle rate (market value) exceeds consideration",
-    "source_note": "Duty on higher of consideration/market value. Male 6% × 1,20,00,000 = 7,20,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "8000000", "market_value": "12000000" }, "facts": { "buyer_category": "male" } },
-    "expect": { "total_duty": "720000" }
+    "name": "Conveyance — male, Rs 1 cr, post-hike >25L (3% + 4% = 7%)",
+    "source_note": "MCD notification 10-Jul-2023: transfer duty 4% (men) above Rs 25L. 1,00,00,000 × 7% = 7,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "700000" }
   },
   {
-    "name": "Conveyance — higher-of with female rate",
-    "source_note": "Female 4% × higher-of(1,00,00,000; 1,20,00,000) = 4% × 1,20,00,000 = 4,80,000.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "12000000" }, "facts": { "buyer_category": "female" } },
+    "name": "Conveyance — female, Rs 1 cr, post-hike >25L (2% + 3% = 5%)",
+    "source_note": "Post-hike female transfer duty 3% above Rs 25L. 1,00,00,000 × 5% = 5,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "female" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "Conveyance — male, Rs 20L, post-hike but ≤25L (unchanged 6%)",
+    "source_note": "Founder Q5: 'no change for properties below ₹25 lakh'. 20,00,000 × 6% = 1,20,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "2000000", "market_value": "2000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "120000" }
+  },
+  {
+    "name": "Conveyance — boundary: exactly Rs 25,00,000 post-hike keeps old rate (6%)",
+    "source_note": "Hike applies ABOVE Rs 25L; exactly 25L stays 3+3. 25,00,000 × 6% = 1,50,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "2500000", "market_value": "2500000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "150000" }
+  },
+  {
+    "name": "Conveyance — boundary: Rs 25,00,100 post-hike crosses the cliff (7%)",
+    "source_note": "Flat-slab cliff: 25,00,100 × 3% = 75,003; × 4% = 1,00,004; total 1,75,007.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "2500100", "market_value": "2500100" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "175007" }
+  },
+  {
+    "name": "Conveyance — hike effective ON 10-Jul-2023 (publication date)",
+    "source_note": "Notification effective from publication (10-Jul-2023): that day is post-hike. 1,00,00,000 × 7% = 7,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-10", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "700000" }
+  },
+  {
+    "name": "Conveyance — 9-Jul-2023 still old regime (6%)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-09", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "600000" }
+  },
+  {
+    "name": "Conveyance — higher-of: circle rate above consideration, female pre-hike",
+    "source_note": "Base = max(1,00,00,000; 1,20,00,000) = 1.2 cr; × 4% = 4,80,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "10000000", "market_value": "12000000" }, "facts": { "transferee_category": "female" } },
     "expect": { "total_duty": "480000" }
   },
   {
-    "name": "Conveyance — unspecified buyer_category defaults to general (male) 6%",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "5000000", "market_value": "5000000" } },
+    "name": "Conveyance — unspecified transferee_category defaults to general rate (6% pre-hike)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "5000000", "market_value": "5000000" } },
     "expect": { "total_duty": "300000" }
   }
 ]

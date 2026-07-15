@@ -9,8 +9,14 @@
       "text": "Does the contract involve execution of work together with transfer of property in goods (materials incorporated into the work), rather than the supply of skill/labour alone?",
       "legal_test": "State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560 and Art. 366(29A) Constitution: a works contract is a composite contract for work-and-materials involving transfer of property in goods; a pure service contract transfers no goods.",
       "edges": [
-        { "answer": "yes", "to": "q_deliverable" },
-        { "answer": "no", "to": "t_service" }
+        {
+          "answer": "yes",
+          "to": "q_deliverable"
+        },
+        {
+          "answer": "no",
+          "to": "t_service"
+        }
       ]
     },
     "q_deliverable": {
@@ -18,8 +24,14 @@
       "text": "Is the deliverable the worked-upon/fabricated property itself (e.g. construction, fabrication, installation on immovable property), as opposed to an incidental use of materials during a predominantly-service engagement?",
       "legal_test": "Dominant-intention / predominant-nature test: where the substance is execution of works with materials, the instrument is a works contract; where materials are merely incidental to a service, it is a service agreement.",
       "edges": [
-        { "answer": "yes", "to": "t_works" },
-        { "answer": "no", "to": "grey_mixed" }
+        {
+          "answer": "yes",
+          "to": "t_works"
+        },
+        {
+          "answer": "no",
+          "to": "grey_mixed"
+        }
       ]
     },
     "t_works": {
@@ -40,7 +52,7 @@
     }
   },
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {

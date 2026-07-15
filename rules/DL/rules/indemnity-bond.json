@@ -1,0 +1,23 @@
+{
+  "rule_id": "DL-ART34-indemnity-bond",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "34",
+  "instrument": "indemnity_bond",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 34 (Delhi)",
+      "article": "34",
+      "quoted_text": "Sch I-A Art. 34 (both columns): 'INDEMNITY BOND' — 'The same duty as a security Bond (No. 57) for the same amount.' Chain: Art 34 → Art 57 → (≤Rs 1,000: Bond No.15 = 2%; else Rs 100 flat)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": { "kind": "cross_ref", "rule_id": "DL-ART57-security-bond" },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Pure cross-ref, resolved within the snapshot: indemnity ≤ Rs 1,000 → 2% of amount_secured; above Rs 1,000 → Rs 100 flat. Practical effect: virtually every commercial indemnity bond in Delhi is Rs 100."
+}

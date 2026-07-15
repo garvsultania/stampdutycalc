@@ -5,7 +5,7 @@
   "article": "4",
   "instrument": "affidavit",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
@@ -17,7 +17,13 @@
     "verified_by": null,
     "verified_on": null
   },
-  "charge": { "kind": "fixed", "amount": "10" },
-  "rounding": { "mode": "none", "nearest": 1 },
+  "charge": {
+    "kind": "fixed",
+    "amount": "10"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; figure Rs 10 is consistent with the official affidavit figure and widely cited). Fixed Rs 10. Court/enrolment/pension affidavits are EXEMPT — not modelled here (would be a classification/eligibility flag); confirm whether to add an exemption path. Confirm effective_from."
 }

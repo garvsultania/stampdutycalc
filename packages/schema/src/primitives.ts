@@ -47,6 +47,7 @@ export type Jurisdiction = z.infer<typeof JurisdictionSchema>;
  * schema change.
  */
 export const KNOWN_INSTRUMENTS = [
+  "bond",
   "conveyance_sale_deed",
   "agreement_to_sell",
   "lease",

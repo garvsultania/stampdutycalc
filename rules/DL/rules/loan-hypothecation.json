@@ -1,0 +1,30 @@
+{
+  "rule_id": "DL-ART6-loan-hypothecation",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "6",
+  "instrument": "loan_hypothecation_agreement",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 6 (Delhi)",
+      "article": "6",
+      "quoted_text": "Sch I-A Art. 6 (both columns, verbatim from the committed source PDF): 'Agreement Relating To Deposit of Title Deeds, Pawn or Pledge, that is to say, any Instrument evidencing an agreement relating to (1) the deposit of title-deeds or instruments constituting or being evidence of the title to any property whatever (other than a marketable security), or (2) the pawn or pledge of moveable property, where such deposit, pawn or pledge has been made by way of security for the repayment of money advanced or to be advanced by way of loan or an existing or future debt: (a) If such loan or debt is repayable on demand or more than three months from the date of the instrument evidencing the agreement — 0.5 percent of the amount secured by such deed, subject to a maximum of fifty thousand rupees. (b) If such loan or debt is repayable not more than three months from the date of such instrument — Half the duty payable under sub-clause (a).' Exemption: instrument of pawn or pledge of goods if unattested."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "switch",
+    "on": { "var": "repayment_period_months" },
+    "cases": [
+      { "upto": 3, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.25, "cap": "25000" } },
+      { "upto": null, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5, "cap": "50000" } }
+    ]
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH (clean two-column quote from the committed source PDF; both columns coherent — passes the absurdity check). Clause (a): 0.5% of amount secured, max Rs 50,000 (demand loans / repayable > 3 months — the standard loan-cum-hypothecation case). Clause (b): 'half the duty payable under (a)' — encoded EXACTLY as half of the (a) computation: 0.25% capped at Rs 25,000 (half of a capped duty halves the cap; arithmetic derivation, not a new rate). Input repayment_period_months: pass a large value (e.g. 999) or the true tenor for demand/term loans > 3 months. NOTE: a hypothecation letter accompanying a bill of exchange is EXEMPT under Art 40 exemption (2) — questionnaire flag."
+}

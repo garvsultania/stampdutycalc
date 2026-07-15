@@ -227,6 +227,118 @@ describe("penalty edge cases (PRD §5.6)", () => {
   });
 });
 
+describe("D9 extensions: switch, cross_ref scale, expr-based cess, cmp condition", () => {
+  const conveyance = makeRule({
+    rule_id: "CONV",
+    charge: {
+      kind: "ad_valorem",
+      base: { fn: "max", args: [{ var: "consideration" }, { var: "market_value" }] },
+      pct: { by: "transferee_category", cases: [{ when: "female", pct: 2 }], default: 3 },
+    },
+  });
+
+  it("switch selects a sub-charge by numeric band and errors beyond all cases", () => {
+    const lease = makeRule({
+      rule_id: "LEASE",
+      charge: {
+        kind: "switch",
+        on: { var: "term_months" },
+        cases: [
+          { upto: 60, charge: { kind: "fixed", amount: "100" } },
+          { upto: 120, charge: { kind: "cross_ref", rule_id: "CONV", on: { var: "avg_annual_rent" } } },
+        ],
+      },
+    });
+    const rs: RuleSet = { rules: [lease, conveyance], modifiers: [], penaltyRegimes: [] };
+    const at = (months: string) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "LEASE",
+        execution_date: "2021-01-01",
+        values: { term_months: months, avg_annual_rent: "600000", consideration: "0", market_value: "0" },
+        facts: {},
+      });
+    expect(at("36").total_duty).toBe("100");
+    expect(at("72").total_duty).toBe("18000"); // 3% of 6L via rebased cross-ref
+    expect(() => at("1300")).toThrow(/matches no switch case/);
+  });
+
+  it("cross_ref scale computes a fraction of the target's duty (Art 23A: 90%)", () => {
+    const ats = makeRule({
+      rule_id: "ATS",
+      charge: { kind: "cross_ref", rule_id: "CONV", on: { var: "consideration" }, scale: 0.9 },
+    });
+    const rs: RuleSet = { rules: [ats, conveyance], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, {
+      jurisdiction: "DL",
+      rule_id: "ATS",
+      execution_date: "2021-01-01",
+      values: { consideration: "5000000" },
+      facts: {},
+    });
+    expect(out.total_duty).toBe("135000"); // 90% of 3% of 50L
+  });
+
+  it("category-selected rate resolves from facts (female 2%)", () => {
+    const rs: RuleSet = { rules: [conveyance], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, {
+      jurisdiction: "DL",
+      rule_id: "CONV",
+      execution_date: "2021-01-01",
+      values: { consideration: "1000000", market_value: "1000000" },
+      facts: { transferee_category: "female" },
+    });
+    expect(out.total_duty).toBe("20000");
+  });
+
+  it("cmp condition gates a modifier on a value threshold; pct_add uses an expr base and RateSpec", () => {
+    const hikeModifier = {
+      modifier_id: "TD-HIKE",
+      jurisdiction: "DL" as const,
+      kind: "surcharge_cess" as const,
+      applies_when: {
+        cmp: {
+          expr: { fn: "max" as const, args: [{ var: "consideration" }, { var: "market_value" }] },
+          op: "gt" as const,
+          value: 2500000,
+        },
+      },
+      effect: {
+        op: "pct_add" as const,
+        pct: { by: "transferee_category", cases: [{ when: "female", pct: 3 }], default: 4 },
+        of: { fn: "max" as const, args: [{ var: "consideration" }, { var: "market_value" }] },
+        label: "Transfer duty (DMC s.147)",
+      },
+      order: 20,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "notification" as const, ref: "TD", quoted_text: "test" },
+        verified_by: null,
+        verified_on: null,
+      },
+      notes_for_reviewer: "",
+    };
+    const rule = makeRule({ rule_id: "SALE", charge: conveyance.charge, modifiers: ["TD-HIKE"] });
+    const rs: RuleSet = { rules: [rule], modifiers: [hikeModifier], penaltyRegimes: [] };
+    const at = (consideration: string, facts: Record<string, string>) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "SALE",
+        execution_date: "2024-01-01",
+        values: { consideration, market_value: consideration },
+        facts,
+      });
+    // Above threshold: stamp 3% + transfer 4% = 7%.
+    expect(at("10000000", {}).total_duty).toBe("700000");
+    // Female above threshold: 2% + 3% = 5%.
+    expect(at("10000000", { transferee_category: "female" }).total_duty).toBe("500000");
+    // At/below threshold: modifier inapplicable → stamp only.
+    expect(at("2500000", {}).total_duty).toBe("75000");
+  });
+});
+
 describe("money & rounding primitives", () => {
   it("rounds up to nearest 100 (ceil)", () => {
     expect(canonical(applyRounding(num("1250"), { mode: "ceil", nearest: 100 }))).toBe("1300");

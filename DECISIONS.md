@@ -55,6 +55,34 @@ File: `packages/engine/src/charge.ts`.
 `compute()` does not stamp a timestamp; that would make output non-reproducible. The
 audit layer (M3) records the timestamp alongside the deterministic output.
 
+### D10 — Transfer duty as an independent modifier layer (founder ruling Q1) [M1]
+Delhi municipal transfer duty (DMC Act 1957 s.147) is NOT part of Sch I-A Art 23: it
+attaches only to the s.147 instrument list, sometimes on a DIFFERENT base than the
+stamp duty on the same instrument (contract-for-transfer: 90% of consideration).
+Encoded as versioned `surcharge_cess` modifiers attached per-rule. The engine's
+cross_ref semantics (target's charge only, never its modifiers) make "same duty as a
+Conveyance" import the 3%/2% Schedule rate with no transfer duty — exactly the
+founder-ruled behaviour, with no special-casing. Files: `rules/DL/modifiers/transfer-duty.json`.
+
+### D11 — Encoding guardrails codified (founder meta-ruling) [M1]
+After the Art 46 column-slip incident: two-column PDF extractions must quote both
+columns raw; economically absurd rates auto-escalate (PENDING_VERIFICATION stubs);
+deliberate escalate-by-error boundaries are documented and golden-covered. Full text:
+`ENCODING-GUIDELINES.md`.
+
+### D9 — Engine extensions for Delhi encoding (M1)
+Four data-driven, deterministic additions required by the Q1–Q6 rulings:
+(1) `switch` charge — banded SUB-CHARGES (Delhi lease: the term band changes WHICH
+    cross-ref applies, Bond 15 vs Conveyance, not just a multiplier); no matching
+    case throws (escalate-by-error).
+(2) `cross_ref.scale` — "ninety per cent of the duty as a Conveyance" (Art 23A)
+    scales the TARGET'S DUTY, not its base.
+(3) `Effect.pct_add`: `of` is now "duty" | ValueExpr (surcharge base may differ from
+    stamp base), and `pct` may be a RateSpec (transfer duty 4%/3% by category).
+(4) `Condition.cmp` — numeric threshold over a ValueExpr (the ₹25-lakh
+    transfer-duty cliff, 10-Jul-2023 notification).
+Files: `packages/schema/src/{charge,modifier}.ts`, `packages/engine/src/{charge,condition,modifiers,validators}.ts`.
+
 ### D8 — Category-selected ad valorem rate (`RateSpec`) [M1]
 Delhi conveyance has three EXACT statutory rates by buyer category (6% male / 4%
 female / 5% joint). Modelling female/joint as a percentage-off concession is

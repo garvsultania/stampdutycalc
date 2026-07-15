@@ -1,7 +1,8 @@
 import type { Citation, LineItem, Modifier, Rule } from "@stampdraft/schema";
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { evalCondition } from "./condition.js";
-import { EngineError } from "./errors.js";
+import { evalExpr } from "./value-expr.js";
+import { resolveRate } from "./charge.js";
 import type { Snapshot } from "./snapshot.js";
 
 export interface ModifierOutcome {
@@ -33,7 +34,7 @@ export function applyModifiers(
   for (const id of rule.modifiers) {
     const mod = snapshot.modifiersById.get(id);
     if (!mod) continue; // not active on this date
-    if (evalCondition(mod.applies_when, facts, executionDate)) applicable.push(mod);
+    if (evalCondition(mod.applies_when, facts, executionDate, values)) applicable.push(mod);
   }
   applicable.sort((a, b) => a.order - b.order || (a.modifier_id < b.modifier_id ? -1 : 1));
 
@@ -54,10 +55,12 @@ export function applyModifiers(
       addOns = addOns.plus(amt);
       lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
     } else {
-      // pct_add
-      const base =
-        eff.of === "duty" ? runningDuty : requireValue(values, eff.of, eff.label);
-      const amt = base.times(eff.pct).div(100);
+      // pct_add — base is the running duty or any expression over the inputs
+      // (a surcharge's base can differ from the stamp base, e.g. Delhi transfer
+      // duty on 90% of consideration for a contract for transfer). The rate may
+      // be category-selected (RateSpec).
+      const base = eff.of === "duty" ? runningDuty : evalExpr(eff.of, values);
+      const amt = base.times(resolveRate(eff.pct, facts)).div(100);
       addOns = addOns.plus(amt);
       lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
     }
@@ -65,12 +68,4 @@ export function applyModifiers(
   }
 
   return { lines, preRoundTotal: runningDuty.plus(addOns), citations };
-}
-
-function requireValue(values: Record<string, Num>, key: string, label: string): Num {
-  const v = values[key];
-  if (v === undefined) {
-    throw new EngineError(`modifier "${label}" needs input "${key}" but it was not provided`);
-  }
-  return v;
 }

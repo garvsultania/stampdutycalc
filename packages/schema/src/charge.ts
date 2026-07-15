@@ -55,7 +55,13 @@ export const SlabSchema = z
  *                  (rent-multiple ad_valorem + premium-as-conveyance).
  *  - cross_ref   : "same duty as No. N", resolved ONLY within the active  §5.3
  *                  version snapshot; `on` optionally re-bases the target
- *                  (e.g. compute Conveyance duty on `premium`).
+ *                  (e.g. compute Conveyance duty on `premium`); `scale`
+ *                  multiplies the target's duty (Art 23A: "ninety per cent
+ *                  of the duty as a Conveyance").
+ *  - switch      : banded sub-charges — selects a Charge by a numeric value
+ *                  (Delhi lease: term band determines WHICH cross-ref
+ *                  applies, Bond vs Conveyance, not just a multiple). A value
+ *                  beyond every case throws (escalate-by-error, PRD §15).
  *
  * min_duty (floor) and cap (ceiling) are load-bearing — several Maharashtra
  * articles cap duty (PRD §5.2). They clamp the sub-total of the charge they sit on.
@@ -78,7 +84,8 @@ export type Charge =
       min_duty?: string | number;
       cap?: string | number;
     }
-  | { kind: "cross_ref"; rule_id: string; on?: ValueExpr };
+  | { kind: "cross_ref"; rule_id: string; on?: ValueExpr; scale?: number }
+  | { kind: "switch"; on: ValueExpr; cases: Array<{ upto: number | null; charge: Charge }> };
 
 export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
   z.discriminatedUnion("kind", [
@@ -116,6 +123,24 @@ export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
         kind: z.literal("cross_ref"),
         rule_id: z.string().min(1),
         on: ValueExprSchema.optional(),
+        scale: z.number().positive().optional(),
+      })
+      .strict(),
+    z
+      .object({
+        kind: z.literal("switch"),
+        on: ValueExprSchema,
+        cases: z
+          .array(
+            z
+              .object({
+                // inclusive upper bound; null = catch-all. No matching case → EngineError.
+                upto: z.number().nullable(),
+                charge: ChargeSchema,
+              })
+              .strict(),
+          )
+          .min(1),
       })
       .strict(),
   ]),

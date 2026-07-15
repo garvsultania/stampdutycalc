@@ -5,15 +5,15 @@
   "article": "23",
   "instrument": "conveyance_sale_deed",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
-      "type": "notification",
-      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 23 (Delhi) + Delhi Dept. of Revenue operative rate",
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 23 (Delhi); Delhi Towers Ltd. v. GNCTD (Del HC)",
       "article": "23",
       "url": "https://revenue.delhi.gov.in/revenue/property-registration",
-      "quoted_text": "Delhi Dept. of Revenue (official) — Sale Deed: 'Stamp & Transfer Duty @ 4% if the vendee is a woman and @ 6% if the vendee is a man'. Schedule I-A Art. 23 (Conveyance): '5% of the consideration amount set forth in the instrument', with note 'Further reduced from 5% to 3% in respect of conveyance, sale and Agreement to sale in cases of the purchase of immovable property by women, either individually or severally.' Operative combined stamp+transfer duty as published by the Department of Revenue: 6% (male vendee) / 4% (female vendee) / 5% (joint male+female). Base = higher of consideration or circle-rate (market value); the user supplies market value (circle-rate DB is out of scope, PRD §3)."
+      "quoted_text": "STAMP DUTY ONLY (transfer duty is a separate DMC s.147 levy — see modifiers). Founder ruling (Q1, 2026-07-16): 'when Schedule I-A says same duty as a Conveyance (No. 23), it imports only the Schedule rate — currently 3% (2% for women). The Delhi High Court in Delhi Towers held that a conveyance under Article 23 attracts stamp duty at 3% of the consideration, with no cap, and Article 23 of Schedule 1A prescribes 3%, reduced to 2% where the property is held individually or jointly by women.' Sch I-A women-reduction note: 'Further reduced ... in respect of conveyance, sale and Agreement to sale in cases of the purchase of immovable property by women, either individually or severally.' Base: higher of consideration or circle-rate value (user supplies market value; circle-rate DB out of scope, PRD §3). Timeline per founder Q5: 3%/2% stable across the 2015+ window. Combined with transfer duty this reconciles to the official Dept. of Revenue 6%/4% (7%/5% above Rs 25L after 10-Jul-2023)."
     },
     "verified_by": null,
     "verified_on": null
@@ -22,14 +22,15 @@
     "kind": "ad_valorem",
     "base": { "fn": "max", "args": [{ "var": "consideration" }, { "var": "market_value" }] },
     "pct": {
-      "by": "buyer_category",
+      "by": "transferee_category",
       "cases": [
-        { "when": "female", "pct": 4 },
-        { "when": "joint", "pct": 5 }
+        { "when": "female", "pct": 2 },
+        { "when": "joint", "pct": 2.5 }
       ],
-      "default": 6
+      "default": 3
     }
   },
+  "modifiers": ["DL-transfer-duty-sale", "DL-transfer-duty-sale-hike"],
   "rounding": { "mode": "none", "nearest": 1 },
-  "notes_for_reviewer": "CONFIDENCE: HIGH for the operative total (official Delhi Dept. of Revenue). Rate = 6% male / 4% female / 5% joint on higher-of(consideration, market value). COMPOSITION (reviewer info): this operative rate = Schedule I-A stamp duty (5% general / 3% women / 4% joint) + MCD transfer duty (~1%); encoded here as the combined operative figure to match the official published number the buyer pays. OPEN QUESTIONS FOR FOUNDER: (1) confirm exact effective_from — the underlying women-concession & transfer-duty notification dates (needed for historical mode, M2); set 2020-01-01 as a conservative current-law floor. (2) Confirm whether to split stamp vs transfer duty as separate breakup lines (and the exact transfer-duty rate/threshold, some sources cite 1% above Rs 25 lakh). (3) Confirm the Delhi rounding rule for stamp duty (encoded as none pending confirmation). (4) 'joint' assumes one male + one female co-vendee; confirm multi-owner / primary-holder logic."
+  "notes_for_reviewer": "CONFIDENCE: HIGH for 3%/2% stamp (Delhi Towers + Sch I-A) and for the combined totals (official). This rule is THE cross-ref target for 'same duty as a Conveyance (No. 23)' — cross-refs import this charge ONLY (never the transfer-duty modifiers), so a 6-year lease gets 3% stamp and no transfer duty, per founder ruling Q1. JOINT stamp component 2.5% is PENDING_VERIFICATION (only the combined 5% total is verified; split 2.5+2.5 assumed symmetric — founder to verify against DORIS). Whether the women 2% reduction extends to instruments that reach Art 23 via cross-ref (lease, mortgage-with-possession) follows from founder Q1's framing ('the Schedule rate — 3%, 2% for women') but callers for non-purchase instruments should omit transferee_category (→ default 3%) until verified, since the Sch I-A note textually ties the reduction to 'purchase of immovable property by women'. Rounding: none (founder Q6 — Delhi has no general rounding provision)."
 }

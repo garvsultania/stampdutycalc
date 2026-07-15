@@ -1,0 +1,76 @@
+[
+  {
+    "rule_id": "DL-ART46-partnership",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "46(A)",
+    "instrument": "partnership_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 46(A) (Delhi)",
+        "article": "46(A)",
+        "quoted_text": "Sch I-A Art. 46 RAW two-column extraction (COLUMN-SLIPPED in every online copy reached): description '(a) Where the capital of the partnership does not exceed Rs.500 / (b) In any other case / B. DISSOLUTION of' against duty column 'One percent with a ceiling of Rs.5000/- / Two hundred rupees'. Founder ruling (Q3, 2026-07-16): the duty column has slipped one row — CORRECT alignment: (a) capital ≤ Rs 500 → small fixed duty (exact figure PENDING_VERIFICATION from a clean bare act); (b) any other case → 1% of capital contribution, ceiling Rs 5,000 (corroborated: on Rs 8,00,000 capital the computed 1% would be Rs 8,000, but the Rs 5,000 cap applies); (B) Dissolution → Rs 200. The 'flat Rs 200' belongs to the dissolution row, not clause (b)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": { "var": "capital" },
+      "pct": 1,
+      "cap": "5000"
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for clause (b) (founder-ruled slip correction, multi-source corroborated). ENCODES CLAUSE (b) ONLY: 1% of capital, ceiling Rs 5,000. Clause (a) (capital ≤ Rs 500) is PENDING_VERIFICATION — the true small fixed figure is a casualty of the column slip in every online copy; founder to eyeball a clean bare act. It is commercially near-irrelevant and computing this rule for capital ≤ Rs 500 yields ≤ Rs 5 under (b)'s formula, which may differ from the true clause-(a) figure — the questionnaire should escalate capital ≤ Rs 500 until verified. No golden case covers capital ≤ Rs 500."
+  },
+  {
+    "rule_id": "DL-ART46B-partnership-dissolution",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "46(B)",
+    "instrument": "partnership_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 46(B) (Delhi)",
+        "article": "46(B)",
+        "quoted_text": "Sch I-A Art. 46(B): 'B — DISSOLUTION of [partnership]' — Rs 200 (founder ruling Q3: the 'Two hundred rupees' in the slipped duty column belongs to the dissolution row)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "200" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH (founder-ruled slip correction). Dissolution of partnership → flat Rs 200."
+  },
+  {
+    "rule_id": "DL-llp-agreement",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "46(A)",
+    "instrument": "llp_agreement",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 46(A) (Delhi) — applied to LLP agreements",
+        "article": "46(A)",
+        "quoted_text": "Delhi's Schedule I-A contains no LLP-specific entry (unlike states that amended their schedules post-LLP Act 2008). Prevailing Delhi practice charges an LLP agreement as an instrument of partnership under Art 46: 1% of capital contribution, ceiling Rs 5,000."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "cross_ref", "rule_id": "DL-ART46-partnership" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "PENDING_VERIFICATION: treating an LLP agreement as a partnership instrument under Art 46 is prevailing practice, not an explicit schedule entry — founder to confirm (registrar practice / any Delhi notification on LLP instruments). Encoded as a cross-ref so any future correction to Art 46 flows through. Input: capital."
+  }
+]

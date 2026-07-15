@@ -5,7 +5,7 @@
   "article": "48",
   "instrument": "general_poa",
   "version": {
-    "effective_from": "2020-01-01",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
@@ -17,7 +17,13 @@
     "verified_by": null,
     "verified_on": null
   },
-  "charge": { "kind": "fixed", "amount": "50" },
-  "rounding": { "mode": "none", "nearest": 1 },
+  "charge": {
+    "kind": "fixed",
+    "amount": "50"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). Encoded as fixed Rs 50 (the common general-POA case, clauses c/d/e). IMPORTANT ESCALATION: clause (f) — a POA given for consideration authorizing sale of immovable property is charged as a CONVEYANCE (No.23) on the consideration, NOT Rs 50. This is a classification-sensitive fork (a GPA-for-sale is a common stamp-duty-avoidance pattern the Delhi authorities charge as conveyance). It should be routed via the classification questionnaire, not this flat rule. Confirm whether to add a 'GPA authorizing sale for consideration' branch that cross-refs DL-ART23-conveyance. Also clause (g) is Rs 50 PER PERSON authorized — flat Rs 50 assumes a single grantee. Confirm effective_from."
 }
