@@ -19,8 +19,14 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "100" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Rs 100. Court/enrolment/pension affidavits are exempt (classification flag, not modelled)."
   },
   {
@@ -30,7 +36,7 @@
     "article": "35",
     "instrument": "indemnity_bond",
     "version": {
-      "effective_from": "2015-05-24",
+      "effective_from": "2015-04-24",
       "effective_to": null,
       "supersedes": null,
       "source": {
@@ -43,8 +49,14 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "500" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Flat Rs 500. Unlike Delhi (Art 34 → security bond → Bond 15 ad valorem) and Karnataka (Art 29 → security bond 47), Maharashtra fixes indemnity at Rs 500 — a good three-state contrast."
   },
   {
@@ -67,8 +79,47 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5, "cap": "1000000" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "amount_secured"
+      },
+      "pct": 0.5,
+      "cap": "1000000"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Surety/security/guarantee bond = 0.5% of amount secured, cap Rs 10 lakh. PENDING: the Rs 100 proviso (where the surety's principal already paid duty under Art 40 mortgage) is a fact-gated special case, not modelled."
+  },
+  {
+    "rule_id": "MH-ART35-indemnity-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "35",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2015-04-24",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 35 as it stood before Mah. Act 20 of 2015 s.20(19)",
+        "article": "35",
+        "quoted_text": "Sch I Art. 35 (INDEMNITY BOND) PRIOR to Mah. 20 of 2015: 'Two Hundred rupees' — substituted by Rs 500 w.e.f. 24-4-2015 (IGR footnote 20(19))."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "200"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2015-04-23): indemnity bond Rs 200 before Mah. 20 of 2015 raised it to Rs 500 w.e.f. 24-4-2015."
   }
 ]

@@ -19,7 +19,15 @@ import { NumericStringSchema } from "./primitives.js";
 export type ValueExpr =
   | { var: string }
   | { lit: number | string }
-  | { op: "+" | "-" | "*" | "/"; args: [ValueExpr, ValueExpr] }
+  /**
+   * `ceil_div` is the statutory idiom "for every rupees X **or part thereof**":
+   * ceil(a / b). It appears wherever a schedule steps a fixed amount per slab of
+   * value (e.g. MH Art 63 pre-2015: "Rs 100 for every Rs 1,00,000 or part thereof
+   * above Rs 10 lakh"; KA Art 40A: "Rs 500 for every Rs 5 lakh or part thereof").
+   * Modelled exactly rather than approximated — a plain division would silently
+   * under-charge every partial slab.
+   */
+  | { op: "+" | "-" | "*" | "/" | "ceil_div"; args: [ValueExpr, ValueExpr] }
   | { fn: "max" | "min"; args: ValueExpr[] }
   | { band: { on: ValueExpr; bands: Array<{ upto: number | null; value: ValueExpr }> } };
 
@@ -29,7 +37,7 @@ export const ValueExprSchema: z.ZodType<ValueExpr> = z.lazy(() =>
     z.object({ lit: z.union([z.number().finite(), NumericStringSchema]) }).strict(),
     z
       .object({
-        op: z.enum(["+", "-", "*", "/"]),
+        op: z.enum(["+", "-", "*", "/", "ceil_div"]),
         args: z.tuple([ValueExprSchema, ValueExprSchema]),
       })
       .strict(),

@@ -31,6 +31,10 @@ export function evalExpr(expr: ValueExpr, ctx: Record<string, Num>): Num {
       case "/":
         if (b.isZero()) throw new EngineError("division by zero in value expression");
         return a.div(b);
+      case "ceil_div":
+        // "for every rupees X or part thereof" — a partial slab counts in full.
+        if (b.isZero()) throw new EngineError("division by zero in ceil_div value expression");
+        return a.div(b).ceil();
     }
   }
   if ("fn" in expr) {

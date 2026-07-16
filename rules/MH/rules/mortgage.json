@@ -6,7 +6,7 @@
     "article": "40(a)",
     "instrument": "mortgage_with_possession",
     "version": {
-      "effective_from": "2017-09-07",
+      "effective_from": "2015-01-01",
       "effective_to": null,
       "supersedes": null,
       "source": {
@@ -19,9 +19,18 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "var": "amount_secured" } },
-    "rounding": { "mode": "none", "nearest": 1 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Area-based Conveyance rate (Art 25) on the amount secured (cross-ref imports the Art 25 charge, incl. the area_type RateSpec, but NOT its women/metro modifiers). PENDING: mortgage IS in the metro-cess instrument list (sale/gift/mortgage) — a metro-city mortgage-with-possession should also attract the 1% cess; attach MH-metro-cess here once the mortgage cess base is confirmed."
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "MH-ART25-conveyance",
+      "on": {
+        "var": "amount_secured"
+      }
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Area-based Conveyance rate (Art 25) on the amount secured (cross-ref imports the Art 25 charge, incl. the area_type RateSpec, but NOT its women/metro modifiers). PENDING: mortgage IS in the metro-cess instrument list (sale/gift/mortgage) — a metro-city mortgage-with-possession should also attract the 1% cess; attach MH-metro-cess here once the mortgage cess base is confirmed. BACK-CATALOGUE: effective_from moved to the 2015 floor — this article did not change in 2017; only the Conveyance rate it cross-refs did, and the cross-ref resolves per execution date within the snapshot, so no re-versioning is needed here."
   },
   {
     "rule_id": "MH-ART40b-mortgage-without-possession",
@@ -43,8 +52,53 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.3, "min_duty": "100", "cap": "2000000" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "amount_secured"
+      },
+      "pct": 0.3,
+      "min_duty": "100",
+      "cap": "2000000"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: MEDIUM — flagged per the two-column guardrail. The source duty column shows BOTH a '0.1% min Rs 100' line and a '0.3% max Rs 20 lakh' line for clause (b); the operative figure is widely cited as 0.3% (max Rs 20 lakh; Rs 50 lakh for a consortium of banks) post-Mah 3/2021, and that is encoded (with min Rs 100). PENDING_VERIFICATION: confirm the '0.1%' line is not a distinct sub-tier, and the consortium-of-banks Rs 50 lakh cap (a fact-gated cap not yet modelled — currently the flat Rs 20 lakh cap applies). The prior-era version (0.5%, min 100, max 10 lakh, pre-9-Feb-2021) is a back-catalogue item."
+  },
+  {
+    "rule_id": "MH-ART40b-mortgage-without-possession",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "40(b)",
+    "instrument": "mortgage_without_possession",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2021-02-09",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 40(b) as it stood before Mah. Act 3 of 2021",
+        "article": "40",
+        "quoted_text": "Sch I Art. 40(b) PRIOR to Mah. Act 3 of 2021 (IGR footnote 6, verbatim): '(b) When possession is not given or agreed to be given as aforesaid — 0.5 percent of the amount secured by such deed, subject to the minimum of one hundred rupee and maximum of ten lakh rupees.' Substituted w.e.f. 9-2-2021 by the current 0.3% / Rs 20 lakh structure."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "amount_secured"
+      },
+      "pct": 0.5,
+      "min_duty": "100",
+      "cap": "1000000"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2021-02-08): 0.5% of the amount secured, min Rs 100, max Rs 10 lakh. CONFIDENCE: HIGH — the prior text is quoted unambiguously in the IGR footnote (unlike the CURRENT clause (b), whose duty column is the flagged 0.1%/0.3% ambiguity)."
   }
 ]

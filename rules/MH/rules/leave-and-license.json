@@ -5,7 +5,7 @@
   "article": "36A",
   "instrument": "leave_and_license",
   "version": {
-    "effective_from": "2017-09-07",
+    "effective_from": "2015-01-01",
     "effective_to": null,
     "supersedes": null,
     "source": {
@@ -20,7 +20,9 @@
   },
   "charge": {
     "kind": "switch",
-    "on": { "var": "term_months" },
+    "on": {
+      "var": "term_months"
+    },
     "cases": [
       {
         "upto": 60,
@@ -29,16 +31,45 @@
           "base": {
             "op": "+",
             "args": [
-              { "op": "+", "args": [{ "var": "licence_fee_total" }, { "var": "non_refundable_deposit" }] },
-              { "op": "*", "args": [{ "var": "refundable_deposit" }, { "lit": "0.10" }] }
+              {
+                "op": "+",
+                "args": [
+                  {
+                    "var": "licence_fee_total"
+                  },
+                  {
+                    "var": "non_refundable_deposit"
+                  }
+                ]
+              },
+              {
+                "op": "*",
+                "args": [
+                  {
+                    "var": "refundable_deposit"
+                  },
+                  {
+                    "lit": "0.10"
+                  }
+                ]
+              }
             ]
           },
           "pct": 0.25
         }
       },
-      { "upto": null, "charge": { "kind": "cross_ref", "rule_id": "MH-ART36-lease" } }
+      {
+        "upto": null,
+        "charge": {
+          "kind": "cross_ref",
+          "rule_id": "MH-ART36-lease"
+        }
+      }
     ]
   },
-  "rounding": { "mode": "none", "nearest": 1 },
-  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; the current post-2013 Art 36A). The Maharashtra differentiator: for term ≤60 months, 0.25% of [licence_fee_total + non_refundable_deposit + 10% × refundable_deposit]. Inputs: term_months, licence_fee_total (total rent/licence fees over the whole term), non_refundable_deposit, refundable_deposit. NOTE the 10% is a flat interest factor for the WHOLE agreement as the statute reads (not annualised per year) — confirm registrar practice on multi-year terms (Explanation absent). For >60 months, cross-refs the lease (Art 36) — but Art 36 clause (i) [≤5y] does not apply per the statute's '(ii),(iii) or (iv)'; a >60-month L&L is by definition >5y so the lease switch lands in ≥25% bands correctly. EFFECTIVE-DATE NOTE: the 0.25% formula itself is from Mah 8/2013 (w.e.f. 1-5-2013), but effective_from is set to 2017-09-07 to match the current-law floor of the conveyance rate this rule's >60-month branch depends on (cross-ref must resolve within the snapshot). The 2013-05-01 → 2017-09-06 version (0.25% formula + the pre-2017 conveyance rates for the >60mo tail) is a back-catalogue version to add in M2, alongside conveyance's pre-2017 version."
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; the current post-2013 Art 36A). The Maharashtra differentiator: for term ≤60 months, 0.25% of [licence_fee_total + non_refundable_deposit + 10% × refundable_deposit]. Inputs: term_months, licence_fee_total (total rent/licence fees over the whole term), non_refundable_deposit, refundable_deposit. NOTE the 10% is a flat interest factor for the WHOLE agreement as the statute reads (not annualised per year) — confirm registrar practice on multi-year terms (Explanation absent). For >60 months, cross-refs the lease (Art 36) — but Art 36 clause (i) [≤5y] does not apply per the statute's '(ii),(iii) or (iv)'; a >60-month L&L is by definition >5y so the lease switch lands in ≥25% bands correctly. EFFECTIVE-DATE: the 0.25% formula is from Mah 8/2013 (w.e.f. 1-5-2013); effective_from is the 2015 coverage floor (PRD §13). The >60-month branch cross-refs the lease → conveyance, which now has a pre-2017 version, so the chain resolves across the whole window without re-versioning this article."
 }

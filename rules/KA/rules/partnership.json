@@ -1,31 +1,139 @@
-{
-  "rule_id": "KA-ART40-partnership",
-  "jurisdiction": "KA",
-  "act": "Karnataka Stamp Act, 1957, Schedule",
-  "article": "40",
-  "instrument": "partnership_deed",
-  "version": {
-    "effective_from": "2016-04-01",
-    "effective_to": null,
-    "supersedes": null,
-    "source": {
-      "type": "act",
-      "ref": "Karnataka Stamp Act, 1957, Sch. Art. 40-A (Constitution) (amounts subst. by Act 15 of 2012 / Act 8 of 2003)",
-      "article": "40",
-      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
-      "quoted_text": "Sch Art. 40 (both columns): 'Partnership — A. Instrument of Constitution — (a) Where the capital of the partnership does not exceed rupees fifty thousand — five hundred rupees; (b) In any other case — two thousand rupees. B. Reconstitution — (a) where immovable property contributed as share ... remains with the firm at outgoing — 3% on the market value ...; (b) in any other case — one thousand rupees. C. Dissolution — (a) where property ... is distributed/alloted to another partner — 3% on the market value ...; (b) in any other case — one thousand rupees.'"
+[
+  {
+    "rule_id": "KA-ART40-partnership",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "40",
+    "instrument": "partnership_deed",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 40-A (Constitution) (amounts subst. by Act 15 of 2012 / Act 8 of 2003)",
+        "article": "40",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 40 (both columns): 'Partnership — A. Instrument of Constitution — (a) Where the capital of the partnership does not exceed rupees fifty thousand — five hundred rupees; (b) In any other case — two thousand rupees. B. Reconstitution — (a) where immovable property contributed as share ... remains with the firm at outgoing — 3% on the market value ...; (b) in any other case — one thousand rupees. C. Dissolution — (a) where property ... is distributed/alloted to another partner — 3% on the market value ...; (b) in any other case — one thousand rupees.'"
+      },
+      "verified_by": null,
+      "verified_on": null
     },
-    "verified_by": null,
-    "verified_on": null
+    "charge": {
+      "kind": "switch",
+      "on": {
+        "var": "capital"
+      },
+      "cases": [
+        {
+          "upto": 50000,
+          "charge": {
+            "kind": "fixed",
+            "amount": "500"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "fixed",
+            "amount": "2000"
+          }
+        }
+      ]
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Constitution of partnership: capital ≤ Rs 50,000 → Rs 500; else → Rs 2,000. Karnataka keeps LLP in a SEPARATE article (40A) — now encoded as KA-ART40A-llp (the ceil_div primitive resolved the earlier deferral); contrast Maharashtra's Art 47, which expressly covers partnership 'inclusive of Limited Liability Partnership'. Reconstitution (B) and Dissolution (C) 3%-on-property cases remain deferred (need the property-value base + the 'in addition to' dissolution rule)."
   },
-  "charge": {
-    "kind": "switch",
-    "on": { "var": "capital" },
-    "cases": [
-      { "upto": 50000, "charge": { "kind": "fixed", "amount": "500" } },
-      { "upto": null, "charge": { "kind": "fixed", "amount": "2000" } }
-    ]
-  },
-  "rounding": { "mode": "none", "nearest": 1 },
-  "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Constitution of partnership: capital ≤ Rs 50,000 → Rs 500; else → Rs 2,000. Karnataka has a SEPARATE LLP article (40A: constitution Rs 1,000 ≤Rs 10L, then Rs 500 per Rs 5L slab above, max Rs 10L) — NOT encoded here: the 'Rs 500 for every Rs 5 lakh or part thereof' step needs a ceil/slab-count value primitive (wave 3). Reconstitution (B) and Dissolution (C) 3%-on-property cases also deferred (need the property-value base + the 'in addition to' dissolution rule)."
-}
+  {
+    "rule_id": "KA-ART40A-llp",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "40A",
+    "instrument": "llp_agreement",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 40A-A (ins. by Act 16 of 2015; amounts subst. by Act 07 of 2016 w.e.f. 1-4-2016)",
+        "article": "40A",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 40A (both columns, official DPAL text): 'Limited Liability Partnership — A. constitution of Limited Liability Partnership, or conversion of firm/private company/unlisted public limited company into limited liability partnership — (a) where the capital does not exceed rupees ten lakhs — Rupees one thousand; (b) where the capital exceeds rupees ten lakhs; for every rupees five lakh or part thereof exceeding rupees ten lakhs — Rupees one thousand plus rupees five hundred for every rupees five lakhs or part thereof, exceeding rupee ten lakhs capital amount, subject to a maximum of rupees ten lakhs. B. Reconstruction or amalgamation of Limited Liability Partnership — Three percent on the consideration or market value of the property whichever is higher of the transferor limited liability partnership located within the State of Karnataka.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": {
+        "var": "capital"
+      },
+      "cases": [
+        {
+          "upto": 1000000,
+          "charge": {
+            "kind": "fixed",
+            "amount": "1000"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": {
+              "slabs_above_10L": {
+                "op": "ceil_div",
+                "args": [
+                  {
+                    "op": "-",
+                    "args": [
+                      {
+                        "var": "capital"
+                      },
+                      {
+                        "lit": 1000000
+                      }
+                    ]
+                  },
+                  {
+                    "lit": 500000
+                  }
+                ]
+              }
+            },
+            "components": [
+              {
+                "kind": "fixed",
+                "amount": "1000"
+              },
+              {
+                "kind": "expr",
+                "value": {
+                  "op": "*",
+                  "args": [
+                    {
+                      "var": "slabs_above_10L"
+                    },
+                    {
+                      "lit": 500
+                    }
+                  ]
+                }
+              }
+            ],
+            "cap": "1000000"
+          }
+        }
+      ]
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL, both columns). Constitution/conversion: capital ≤ Rs 10 lakh → Rs 1,000; above → Rs 1,000 + Rs 500 for every Rs 5 lakh OR PART THEREOF over Rs 10 lakh, total capped at Rs 10,00,000. The 'or part thereof' ceiling step is modelled exactly via ceil_div (previously deferred for want of this primitive). Karnataka keeps LLP SEPARATE from partnership (Art 40) — contrast Maharashtra, whose Art 47 expressly covers 'partnership inclusive of Limited Liability Partnership'. Clause B (reconstruction/amalgamation, 3% of consideration-or-market-value) NOT encoded — needs the transferor-property base; deferred."
+  }
+]

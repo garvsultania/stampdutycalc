@@ -6,7 +6,7 @@
     "article": "36",
     "instrument": "lease",
     "version": {
-      "effective_from": "2017-09-07",
+      "effective_from": "2015-01-01",
       "effective_to": null,
       "supersedes": null,
       "source": {
@@ -21,15 +21,88 @@
     },
     "charge": {
       "kind": "switch",
-      "on": { "var": "term_months" },
+      "on": {
+        "var": "term_months"
+      },
       "cases": [
-        { "upto": 60, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.10" }] } } },
-        { "upto": 120, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.25" }] } } },
-        { "upto": 348, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.50" }] } } },
-        { "upto": null, "charge": { "kind": "cross_ref", "rule_id": "MH-ART25-conveyance", "on": { "op": "*", "args": [{ "var": "market_value" }, { "lit": "0.90" }] } } }
+        {
+          "upto": 60,
+          "charge": {
+            "kind": "cross_ref",
+            "rule_id": "MH-ART25-conveyance",
+            "on": {
+              "op": "*",
+              "args": [
+                {
+                  "var": "market_value"
+                },
+                {
+                  "lit": "0.10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "upto": 120,
+          "charge": {
+            "kind": "cross_ref",
+            "rule_id": "MH-ART25-conveyance",
+            "on": {
+              "op": "*",
+              "args": [
+                {
+                  "var": "market_value"
+                },
+                {
+                  "lit": "0.25"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "upto": 348,
+          "charge": {
+            "kind": "cross_ref",
+            "rule_id": "MH-ART25-conveyance",
+            "on": {
+              "op": "*",
+              "args": [
+                {
+                  "var": "market_value"
+                },
+                {
+                  "lit": "0.50"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "cross_ref",
+            "rule_id": "MH-ART25-conveyance",
+            "on": {
+              "op": "*",
+              "args": [
+                {
+                  "var": "market_value"
+                },
+                {
+                  "lit": "0.90"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
-    "rounding": { "mode": "none", "nearest": 1 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). Duty = area-based Conveyance rate (Art 25) applied to a term-dependent PERCENTAGE of market value: ≤5y → 10%; >5≤10y → 25%; >10≤29y → 50%; >29y/perpetuity/no-definite → 90%. Boundaries in months: 60 / 120 / 348 (29y=348mo) / else. IMPORTANT: 'market_value' here must be the Explanation-I market value = property market value INCLUDING premium/deposit/security treated as consideration passed on — the questionnaire/Tier-2 must compute it; the cross-ref carries area_type through for the Art 25 rate. No perpetuity escalation needed (clause iv is the catch-all at 90%). Metro cess/LBT PENDING as for conveyance."
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). Duty = area-based Conveyance rate (Art 25) applied to a term-dependent PERCENTAGE of market value: ≤5y → 10%; >5≤10y → 25%; >10≤29y → 50%; >29y/perpetuity/no-definite → 90%. Boundaries in months: 60 / 120 / 348 (29y=348mo) / else. IMPORTANT: 'market_value' here must be the Explanation-I market value = property market value INCLUDING premium/deposit/security treated as consideration passed on — the questionnaire/Tier-2 must compute it; the cross-ref carries area_type through for the Art 25 rate. No perpetuity escalation needed (clause iv is the catch-all at 90%). Metro cess/LBT PENDING as for conveyance. BACK-CATALOGUE: effective_from moved to the 2015 floor — this article did not change in 2017; only the Conveyance rate it cross-refs did, and the cross-ref resolves per execution date within the snapshot, so no re-versioning is needed here."
   }
 ]

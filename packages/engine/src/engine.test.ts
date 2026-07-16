@@ -534,6 +534,56 @@ describe("audit-review regressions (2026-07-16)", () => {
   });
 });
 
+describe("ceil_div + expr: the 'or part thereof' statutory idiom", () => {
+  // MH Art 63 pre-2015: "Rs 100 plus Rs 100 for every Rs 1,00,000 OR PART THEREOF
+  // above Rs 10 lakh, subject to a maximum of Rs 5 lakh."
+  const stepped = makeRule({
+    rule_id: "STEP",
+    charge: {
+      kind: "switch",
+      on: { var: "contract_value" },
+      cases: [
+        { upto: 1000000, charge: { kind: "fixed", amount: "100" } },
+        {
+          upto: null,
+          charge: {
+            kind: "formula",
+            let: {
+              slabs: {
+                op: "ceil_div",
+                args: [{ op: "-", args: [{ var: "contract_value" }, { lit: 1000000 }] }, { lit: 100000 }],
+              },
+            },
+            components: [
+              { kind: "fixed", amount: "100" },
+              { kind: "expr", value: { op: "*", args: [{ var: "slabs" }, { lit: 100 }] } },
+            ],
+            cap: "500000",
+          },
+        },
+      ],
+    },
+  });
+  const rs: RuleSet = { rules: [stepped], modifiers: [], penaltyRegimes: [] };
+  const at = (contract_value: string) =>
+    compute(rs, { jurisdiction: "DL", rule_id: "STEP", execution_date: "2021-01-01", values: { contract_value }, facts: {} }).total_duty;
+
+  it("counts a PARTIAL slab in full (ceil), not pro-rata", () => {
+    // excess 50,000 → ceil(0.5) = 1 slab → 100 + 100. A plain division gives 150 and under-charges.
+    expect(at("1050000")).toBe("200");
+  });
+  it("counts exact slabs exactly (no off-by-one at the boundary)", () => {
+    expect(at("1100000")).toBe("200"); // excess 1,00,000 → exactly 1 slab
+    expect(at("1100001")).toBe("300"); // one rupee over → 2 slabs
+  });
+  it("charges the flat amount at or below the threshold", () => {
+    expect(at("1000000")).toBe("100");
+  });
+  it("still honours the cap over the stepped total", () => {
+    expect(at("3000000000")).toBe("500000");
+  });
+});
+
 describe("money & rounding primitives", () => {
   it("rounds up to nearest 100 (ceil)", () => {
     expect(canonical(applyRounding(num("1250"), { mode: "ceil", nearest: 100 }))).toBe("1300");

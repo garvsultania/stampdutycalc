@@ -55,6 +55,10 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
     case "fixed":
       return num(charge.amount);
 
+    case "expr":
+      // The duty is the computed amount itself (stepped schedule entries).
+      return evalExpr(charge.value, ctx.values);
+
     case "ad_valorem": {
       const base = evalExpr(charge.base, ctx.values);
       const raw = base.times(resolveRate(charge.pct, ctx.facts)).div(100);

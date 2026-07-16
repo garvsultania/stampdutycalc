@@ -22,16 +22,29 @@
     "charge": {
       "kind": "select",
       "by": "accompanied_by_aoa",
-      "cases": [{ "when": "yes", "charge": { "kind": "fixed", "amount": "1000" } }],
+      "cases": [
+        {
+          "when": "yes",
+          "charge": {
+            "kind": "fixed",
+            "amount": "1000"
+          }
+        }
+      ],
       "default": {
         "kind": "ad_valorem",
-        "base": { "var": "share_capital" },
+        "base": {
+          "var": "share_capital"
+        },
         "pct": 0.2,
         "min_duty": "1000",
         "cap": "5000000"
       }
     },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). The Maharashtra CAP showcase (PRD §5.2 — caps are load-bearing and a differentiator): MOA not accompanied by AoA → 0.2% of share_capital, floor Rs 1,000, CAP Rs 50,00,000. accompanied_by_aoa='yes' → flat Rs 1,000. Instrument key memorandum_of_association is outside the MVP-15 but encoded to exercise the cap primitive; harmless (validator warns, non-blocking). Could be dropped if the founder prefers strict MVP-15 scope."
   },
   {
@@ -54,8 +67,43 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "500" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH for clauses (a)-(e),(h) = Rs 500 (official IGR). ESCALATIONS for the questionnaire (NOT this flat rule): clause (f) POA for consideration to sell immovable → Conveyance rate on market value (the GPA-for-sale avoidance pattern); (f)(ii)(a) family gift-POA → Rs 500; (g) developer/promoter POA → Conveyance rate (with the s.32A market-value provisions and the Rs 100 set-off where Art 5(g-a) agreement duty paid). These forks belong in Flow B. effective_from 2015-05-24 = the Rs 100→Rs 500 change; the pre-2015 Rs 100 version is a back-catalogue item (M2)."
+  },
+  {
+    "rule_id": "MH-ART48-poa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "48",
+    "instrument": "general_poa",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2015-05-24",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 48(a)-(e),(h) as they stood before Mah. Act 20 of 2015 s.20(25)",
+        "article": "48",
+        "quoted_text": "Sch I Art. 48 clauses (a)-(e) and (h) PRIOR to Mah. 20 of 2015: 'One hundred rupees' each — substituted by 'Five hundred rupees' w.e.f. 24-5-2015 (IGR footnotes 20(25)(i)-(v))."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2015-05-23): POA Rs 100 before Mah. 20 of 2015 raised it to Rs 500 w.e.f. 24-5-2015."
   }
 ]

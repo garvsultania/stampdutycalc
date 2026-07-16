@@ -82,6 +82,15 @@ export const SlabSchema = z
  */
 export type Charge =
   | { kind: "fixed"; amount: string | number }
+  /**
+   * `expr` — the duty IS the evaluated expression. For stepped schedule entries
+   * like "Rs 100 for every Rs 1,00,000 or part thereof" the duty is a computed
+   * amount, not a percentage of a base. Expressing that as an ad_valorem at
+   * pct: 100 would compute correctly but read to a legal reviewer as a 100% duty
+   * — and these files are reviewed by a lawyer in a PR diff, so clarity is a
+   * correctness property here.
+   */
+  | { kind: "expr"; value: ValueExpr }
   | { kind: "ad_valorem"; base: ValueExpr; pct: RateSpec; min_duty?: string | number; cap?: string | number }
   | {
       kind: "slab";
@@ -105,6 +114,7 @@ export type Charge =
 export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
   z.discriminatedUnion("kind", [
     z.object({ kind: z.literal("fixed"), amount: MoneySchema }).strict(),
+    z.object({ kind: z.literal("expr"), value: ValueExprSchema }).strict(),
     z
       .object({
         kind: z.literal("ad_valorem"),
