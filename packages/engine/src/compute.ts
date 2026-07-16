@@ -13,6 +13,7 @@ import { evalCharge, type ChargeCtx } from "./charge.js";
 import { applyModifiers } from "./modifiers.js";
 import { applyRounding } from "./rounding.js";
 import { computePenalty } from "./penalty.js";
+import { assertNotPending, collectPending } from "./pending.js";
 
 export interface ComputeOptions {
   /** Per-state penalty regime override. If omitted and input.duty_paid is set,
@@ -50,6 +51,12 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
   };
 
   const mod = applyModifiers(baseDuty, rule, snapshot, values, input.facts, input.execution_date);
+
+  // Refuse before doing any more work. A cell the encoder marked unverified must
+  // not reach a lawyer wearing the same confidence as a verified one.
+  const pending = collectPending(rule, mod.applied, input.facts, input.execution_date, values);
+  assertNotPending(pending);
+
   const preRound = mod.preRoundTotal;
   const rounded = applyRounding(preRound, rule.rounding);
   const roundingDelta = rounded.minus(preRound);
@@ -91,8 +98,7 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
     breakup,
     total_duty: canonical(rounded),
     citations,
-    escalations: [],
-    warnings: [],
+    warnings: pending.warn,
     penalty,
     inputs_echo: input,
   };

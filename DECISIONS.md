@@ -149,3 +149,39 @@ Engine is a pure standalone library + CLI. Postgres enters at M3; UI at M3; ther
 LLM anywhere in the computation path (handoff law #2). Synthetic fixtures live under
 `packages/engine/src/__fixtures__/` (jurisdiction tag `DL`) and are kept separate from
 the real `rules/DL` corpus, which stays empty until M1.
+
+## D15 — Pending verification is machine-readable, and refuses by default
+
+`notes_for_reviewer` is prose: a human reads it in a PR, the engine cannot. A cell
+the encoder had explicitly marked untrusted still produced a number wearing the
+same confidence as a verified one — the project's one unforgivable failure mode,
+shipped by construction.
+
+`pending_verification: PendingVerification[]` now sits on Rule and Modifier:
+`{ reason, when?, severity? }`. `when` reuses the existing Condition language and
+scopes the flag to the doubtful CELL, which is what makes refusal affordable —
+Delhi transfer duty is verified for male and female purchasers, so only the
+joint-above-₹25L combination refuses while the rest of the state keeps computing.
+
+`severity` defaults to **"refuse"**. Founder delegated this call (16-07-2026); the
+reasoning is that a warning is what a hurried lawyer clicks past. `"warn"` is an
+explicit opt-down for doubt that does not touch the figure — Delhi share transfer,
+where the amount is verified and only WHO pays is contested. Refusing there would
+overstate our own doubt.
+
+`ComputeOutput.escalations` was declared and hardcoded to `[]` — a dead field
+promising a safety channel that did not exist. Removed. Refusals throw
+`EngineError`; `warnings` is now genuinely populated.
+
+## D16 — A missing fact is not a "no"
+
+`Modifier.requires_facts: string[]`. A modifier gated on `applies_when` used to
+drop out silently when the fact it depends on was absent — asserting a legal
+conclusion ("no metro cess is due on this Mumbai flat") that nobody reached. The
+engine now escalates instead.
+
+This was not theoretical: `MH-metro-cess` is gated on `metro_cess_city`, and SIX
+Maharashtra goldens asserted totals that silently omitted the 1% cess. Supplying
+the fact explicitly left every expected value unchanged — proving the assumption
+was real, load-bearing and invisible. Same disease as the `RateSpec.default` fix
+(D8), in the applicability gate rather than the rate.

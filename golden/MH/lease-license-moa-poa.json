@@ -2,65 +2,195 @@
   {
     "name": "MH Lease — ≤5 years: conveyance rate on 10% of market value",
     "source_note": "Art 36(i): 5% (Municipal Corp) × (10% × 1,00,00,000 = 10,00,000) = 50,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2024-06-01", "values": { "market_value": "10000000", "term_months": "60" }, "facts": { "area_type": "municipal_corporation" } },
-    "expect": { "total_duty": "50000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "60"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "50000"
+    }
   },
   {
     "name": "MH Lease — >5 ≤10 years: on 25% of market value",
     "source_note": "Art 36(ii): 5% × 25,00,000 = 1,25,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2024-06-01", "values": { "market_value": "10000000", "term_months": "72" }, "facts": { "area_type": "municipal_corporation" } },
-    "expect": { "total_duty": "125000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "72"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "125000"
+    }
   },
   {
     "name": "MH Lease — >10 ≤29 years: on 50% of market value",
     "source_note": "Art 36(iii): 5% × 50,00,000 = 2,50,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2024-06-01", "values": { "market_value": "10000000", "term_months": "200" }, "facts": { "area_type": "municipal_corporation" } },
-    "expect": { "total_duty": "250000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "200"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "250000"
+    }
   },
   {
     "name": "MH Lease — >29 years / perpetuity: on 90% of market value",
     "source_note": "Art 36(iv): 5% × 90,00,000 = 4,50,000. 348-month boundary (29y) is the ≤50% cutoff; 349 → 90%.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2024-06-01", "values": { "market_value": "10000000", "term_months": "360" }, "facts": { "area_type": "municipal_corporation" } },
-    "expect": { "total_duty": "450000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "360"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "450000"
+    }
   },
   {
     "name": "MH Leave & License — ≤60 months: 0.25% of (rent + non-refundable + 10% of refundable)",
     "source_note": "Art 36A(a): base = 12,00,000 + 0 + (10% × 5,00,000 = 50,000) = 12,50,000; × 0.25% = 3,125.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36A-leave-license", "execution_date": "2024-06-01", "values": { "term_months": "24", "licence_fee_total": "1200000", "non_refundable_deposit": "0", "refundable_deposit": "500000" } },
-    "expect": { "total_duty": "3125" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36A-leave-license",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "24",
+        "licence_fee_total": "1200000",
+        "non_refundable_deposit": "0",
+        "refundable_deposit": "500000"
+      }
+    },
+    "expect": {
+      "total_duty": "3125"
+    }
   },
   {
     "name": "MH Leave & License — >60 months: falls to lease (Art 36)",
     "source_note": "72 months → lease band (ii) 25% of 1,00,00,000 = 25,00,000 × 5% = 1,25,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36A-leave-license", "execution_date": "2024-06-01", "values": { "term_months": "72", "market_value": "10000000", "licence_fee_total": "0", "non_refundable_deposit": "0", "refundable_deposit": "0" }, "facts": { "area_type": "municipal_corporation" } },
-    "expect": { "total_duty": "125000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36A-leave-license",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "72",
+        "market_value": "10000000",
+        "licence_fee_total": "0",
+        "non_refundable_deposit": "0",
+        "refundable_deposit": "0"
+      },
+      "facts": {
+        "area_type": "municipal_corporation"
+      }
+    },
+    "expect": {
+      "total_duty": "125000"
+    }
   },
   {
     "name": "MH MOA — not accompanied by AoA: 0.2% of share capital (below cap)",
     "source_note": "Art 39(b): 10,00,00,000 × 0.2% = 2,00,000 (< Rs 50L cap, > Rs 1,000 min).",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART39-moa", "execution_date": "2024-06-01", "values": { "share_capital": "100000000" } },
-    "expect": { "total_duty": "200000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART39-moa",
+      "execution_date": "2024-06-01",
+      "values": {
+        "share_capital": "100000000"
+      }
+    },
+    "expect": {
+      "total_duty": "200000"
+    }
   },
   {
     "name": "MH MOA — cap binds at Rs 50 lakh",
     "source_note": "500,00,00,000 × 0.2% = 1,00,00,000 → capped at Rs 50,00,000. The MH cap differentiator.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART39-moa", "execution_date": "2024-06-01", "values": { "share_capital": "5000000000" } },
-    "expect": { "total_duty": "5000000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART39-moa",
+      "execution_date": "2024-06-01",
+      "values": {
+        "share_capital": "5000000000"
+      }
+    },
+    "expect": {
+      "total_duty": "5000000"
+    }
   },
   {
     "name": "MH MOA — minimum binds at Rs 1,000",
     "source_note": "1,00,000 × 0.2% = 200 → floored at Rs 1,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART39-moa", "execution_date": "2024-06-01", "values": { "share_capital": "100000" } },
-    "expect": { "total_duty": "1000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART39-moa",
+      "execution_date": "2024-06-01",
+      "values": {
+        "share_capital": "100000"
+      }
+    },
+    "expect": {
+      "total_duty": "1000"
+    }
   },
   {
     "name": "MH MOA — accompanied by AoA: flat Rs 1,000",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART39-moa", "execution_date": "2024-06-01", "values": { "share_capital": "100000000" }, "facts": { "accompanied_by_aoa": "yes" } },
-    "expect": { "total_duty": "1000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART39-moa",
+      "execution_date": "2024-06-01",
+      "values": {
+        "share_capital": "100000000"
+      },
+      "facts": {
+        "accompanied_by_aoa": "yes"
+      }
+    },
+    "expect": {
+      "total_duty": "1000"
+    }
   },
   {
     "name": "MH POA — Rs 500 (general)",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART48-poa", "execution_date": "2024-06-01", "values": {} },
-    "expect": { "total_duty": "500" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "500"
+    }
   }
 ]

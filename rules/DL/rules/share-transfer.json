@@ -18,8 +18,17 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.25 },
-    "rounding": { "mode": "ceil", "nearest": 0.05 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.25
+    },
+    "rounding": {
+      "mode": "ceil",
+      "nearest": 0.05
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (article text + 2004 order both in the committed source PDF). Historical version for Flow D / as-of computations. Base: value of the share (consideration; for no-consideration transfers the pre-2020 base was the share VALUE — flag for adjudication-mode inputs). The ceil-to-5-paise rounding is the Q6 micro-exception, encoded ONLY here."
   },
   {
@@ -41,8 +50,23 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.015 },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.015
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "WHO pays is contested: transferor vs transferee under amended s.29 is disputed in practitioner literature and the founder has not adjudicated it. The DUTY AMOUNT is confident and verified — this is a warning, not a refusal, because refusing would overstate our doubt: the figure is right, the incidence is open.",
+        "severity": "warn"
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (founder-ruled, statutory chain quoted). PENDING_VERIFICATION (payer): the amount is confident; WHO pays (transferor vs transferee under amended s.29) is contested in practitioner literature — founder to verify from the bare act; payer does not affect the computed amount. Gift of shares (consideration 0) → duty 0, per DEA FAQ. Keep ISSUE of share certificates (Delhi Art 19: Re 1 per Rs 1,000 = 0.1%) as a SEPARATE instrument — do not conflate; the Delhi revenue site still displaying old certificate-rate guidance in a share-transfer context is a live canary-divergence specimen (M5). Rounding under the amended regime not specified in sources reached — none pending confirmation."
   }
 ]

@@ -78,6 +78,21 @@ export function DutyResult({
           </div>
         </div>
         <CardContent className="pt-5">
+          {output.warnings.length > 0 && (
+            <Alert variant="warning" className="mb-4">
+              <TriangleAlert className="h-4 w-4" />
+              <AlertTitle>
+                The figure stands, but {output.warnings.length === 1 ? "a caveat applies" : "caveats apply"}
+              </AlertTitle>
+              <AlertDescription>
+                <ul className="mt-1 list-disc space-y-1 pl-4">
+                  {output.warnings.map((w, i) => (
+                    <li key={i}>{w}</li>
+                  ))}
+                </ul>
+              </AlertDescription>
+            </Alert>
+          )}
           <div className="space-y-0">
             {output.breakup.map((line, i) => {
               const k = KIND_LABEL[line.kind] ?? KIND_LABEL.base_duty;

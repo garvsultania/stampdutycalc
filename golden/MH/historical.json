@@ -2,28 +2,93 @@
   {
     "name": "MH Conveyance (historical) — Municipal Council 2016: 4% (pre-Act 59/2017)",
     "source_note": "Pre-2017 Art 25(b)(ii) = 4%. 1,00,00,000 × 4% = 4,00,000. Flow D / as-of computation.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2016-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "400000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2016-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "400000"
+    }
   },
   {
     "name": "MH Conveyance — Municipal Council 2024: 5% (post-Act 59/2017)",
     "source_note": "Same council property, later date → 5% = 5,00,000. Same inputs, different law — the versioning thesis.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "500000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "500000"
+    }
   },
   {
     "name": "MH Conveyance (historical) — Gram Panchayat 2016: 3%",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2016-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "gram_panchayat" } },
-    "expect": { "total_duty": "300000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2016-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "gram_panchayat",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "300000"
+    }
   },
   {
     "name": "MH Conveyance — boundary: 2017-09-06 is still the old (4%) council rate",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2017-09-06", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "400000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2017-09-06",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "400000"
+    }
   },
   {
     "name": "MH Conveyance — boundary: 2017-09-07 is the new (5%) council rate",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2017-09-07", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "500000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2017-09-07",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "500000"
+    }
   }
 ]

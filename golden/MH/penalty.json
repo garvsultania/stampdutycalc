@@ -2,7 +2,19 @@
   {
     "name": "MH Penalty (Flow D) — 2%/month, cap not binding",
     "source_note": "MSA s.34. Conveyance municipal-corp 5% → dutyThen 5,00,000; paid 3,00,000; deficit 2,00,000; 2%/mo × 10 = 40,000 (< 4× cap). Total 2,40,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2020-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation" }, "duty_paid": "300000" },
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2020-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      },
+      "duty_paid": "300000"
+    },
     "penalty_months": 10,
     "expect": {
       "penalty": {
@@ -16,7 +28,19 @@
   {
     "name": "MH Penalty (Flow D) — cap binds at 4× the deficiency",
     "source_note": "2%/mo × 300 = 12,00,000 → capped at 4 × 2,00,000 = 8,00,000. Total 10,00,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2020-06-01", "values": { "market_value": "10000000" }, "facts": { "area_type": "municipal_corporation" }, "duty_paid": "300000" },
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2020-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no"
+      },
+      "duty_paid": "300000"
+    },
     "penalty_months": 300,
     "expect": {
       "penalty": {

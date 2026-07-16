@@ -2,81 +2,221 @@
   {
     "name": "MH Gift (historical) — family member 2016: 2% (pre-Act 59/2017 'whichever is less')",
     "source_note": "Pre-2017 family rate = min(conveyance, 2%) = 2%. 50,00,000 × 2% = 1,00,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2016-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "family" } },
-    "expect": { "total_duty": "100000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2016-06-01",
+      "values": {
+        "market_value": "5000000"
+      },
+      "facts": {
+        "gift_relation": "family",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "100000"
+    }
   },
   {
     "name": "MH Gift — family member 2024: 3% (post-Act 59/2017)",
     "source_note": "Same gift, later date → 1,50,000. Rate rose 2% → 3%.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2024-06-01", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "family" } },
-    "expect": { "total_duty": "150000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "5000000"
+      },
+      "facts": {
+        "gift_relation": "family",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "150000"
+    }
   },
   {
     "name": "MH Gift — boundary: 2017-09-06 still 2%",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2017-09-06", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "family" } },
-    "expect": { "total_duty": "100000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2017-09-06",
+      "values": {
+        "market_value": "5000000"
+      },
+      "facts": {
+        "gift_relation": "family",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "100000"
+    }
   },
   {
     "name": "MH POA (historical) — Rs 100 before 24-May-2015",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART48-poa", "execution_date": "2015-03-01", "values": {} },
-    "expect": { "total_duty": "100" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2015-03-01",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "100"
+    }
   },
   {
     "name": "MH POA — boundary: 24-May-2015 is Rs 500",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART48-poa", "execution_date": "2015-05-24", "values": {} },
-    "expect": { "total_duty": "500" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2015-05-24",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "500"
+    }
   },
   {
     "name": "MH Indemnity (historical) — Rs 200 before 24-Apr-2015",
     "source_note": "Date corrected during back-catalogue work: the IGR footnote says w.e.f. 24-4-2015 (was mis-encoded as 24-5-2015).",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART35-indemnity-bond", "execution_date": "2015-04-23", "values": {} },
-    "expect": { "total_duty": "200" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART35-indemnity-bond",
+      "execution_date": "2015-04-23",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "200"
+    }
   },
   {
     "name": "MH Indemnity — boundary: 24-Apr-2015 is Rs 500",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART35-indemnity-bond", "execution_date": "2015-04-24", "values": {} },
-    "expect": { "total_duty": "500" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART35-indemnity-bond",
+      "execution_date": "2015-04-24",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "500"
+    }
   },
   {
     "name": "MH Mortgage w/o possession (historical) — 0.5% pre-Feb-2021",
     "source_note": "50,00,000 × 0.5% = 25,000 (vs 15,000 under the current 0.3%).",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2020-06-01", "values": { "amount_secured": "5000000" } },
-    "expect": { "total_duty": "25000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2020-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      }
+    },
+    "expect": {
+      "total_duty": "25000"
+    }
   },
   {
     "name": "MH Mortgage w/o possession (historical) — old Rs 10 lakh cap binds",
     "source_note": "100 cr × 0.5% = 50,00,000 → capped at Rs 10,00,000 (the pre-2021 cap; today it would be Rs 20L).",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2020-06-01", "values": { "amount_secured": "1000000000" } },
-    "expect": { "total_duty": "1000000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2020-06-01",
+      "values": {
+        "amount_secured": "1000000000"
+      }
+    },
+    "expect": {
+      "total_duty": "1000000"
+    }
   },
   {
     "name": "MH Works contract (historical) — ceiling step: a PART slab counts in full",
     "source_note": "Pre-2015: Rs 100 + Rs 100 per Rs 1,00,000 'or part thereof' above Rs 10L. Value 10,50,000 → excess 50,000 → ceil(50,000/1,00,000) = 1 FULL slab → 100 + 100 = 200. A plain division would give 150 — under-charging. This is why ceil_div exists.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2015-03-01", "values": { "contract_value": "1050000" } },
-    "expect": { "total_duty": "200" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART63-works-contract",
+      "execution_date": "2015-03-01",
+      "values": {
+        "contract_value": "1050000"
+      }
+    },
+    "expect": {
+      "total_duty": "200"
+    }
   },
   {
     "name": "MH Works contract (historical) — exact slabs: Rs 50L → 100 + 40×100",
     "source_note": "excess 40,00,000 / 1,00,000 = exactly 40 slabs → 100 + 4,000 = 4,100.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2015-03-01", "values": { "contract_value": "5000000" } },
-    "expect": { "total_duty": "4100" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART63-works-contract",
+      "execution_date": "2015-03-01",
+      "values": {
+        "contract_value": "5000000"
+      }
+    },
+    "expect": {
+      "total_duty": "4100"
+    }
   },
   {
     "name": "MH Works contract (historical) — old Rs 5 lakh cap binds",
     "source_note": "300cr: 100 + ceil(2,99,00,00,000/1,00,000)×100 = 100 + 29,900×100 = 29,90,100 → capped at Rs 5,00,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2015-03-01", "values": { "contract_value": "3000000000" } },
-    "expect": { "total_duty": "500000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART63-works-contract",
+      "execution_date": "2015-03-01",
+      "values": {
+        "contract_value": "3000000000"
+      }
+    },
+    "expect": {
+      "total_duty": "500000"
+    }
   },
   {
     "name": "MH Lease 2016 — coverage restored: cross-ref picks the pre-2017 conveyance (4% council)",
     "source_note": "Previously ERRORED ('no version effective'). 6-yr lease, council: 25% of 1cr = 25L × 4% (pre-2017) = 1,00,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2016-06-01", "values": { "market_value": "10000000", "term_months": "72" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "100000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2016-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "72"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "100000"
+    }
   },
   {
     "name": "MH Lease 2024 — same lease, current 5% council rate",
     "source_note": "25L × 5% = 1,25,000. Same instrument, +25% duty from the 2017 amendment.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART36-lease", "execution_date": "2024-06-01", "values": { "market_value": "10000000", "term_months": "72" }, "facts": { "area_type": "municipal_council" } },
-    "expect": { "total_duty": "125000" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000",
+        "term_months": "72"
+      },
+      "facts": {
+        "area_type": "municipal_council",
+        "metro_cess_city": "no"
+      }
+    },
+    "expect": {
+      "total_duty": "125000"
+    }
   }
 ]

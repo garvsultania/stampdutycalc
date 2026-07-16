@@ -3,6 +3,7 @@ import { InstrumentSchema, JurisdictionSchema } from "./primitives.js";
 import { VersionMetaSchema } from "./provenance.js";
 import { ChargeSchema } from "./charge.js";
 import { RoundingSchema } from "./rounding.js";
+import { PendingVerificationSchema } from "./pending.js";
 
 /**
  * Rule — one versioned charging rule for one instrument in one jurisdiction.
@@ -28,6 +29,7 @@ export const RuleSchema = z
     charge: ChargeSchema,
     modifiers: z.array(z.string()).default([]),
     rounding: RoundingSchema,
+    pending_verification: z.array(PendingVerificationSchema).default([]),
     notes_for_reviewer: z.string().default(""),
   })
   .strict();

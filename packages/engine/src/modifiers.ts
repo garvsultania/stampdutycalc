@@ -4,11 +4,14 @@ import { evalCondition } from "./condition.js";
 import { evalExpr } from "./value-expr.js";
 import { resolveRate } from "./charge.js";
 import type { Snapshot } from "./snapshot.js";
+import { assertFactsPresent } from "./pending.js";
 
 export interface ModifierOutcome {
   lines: LineItem[];
   preRoundTotal: Num;
   citations: Citation[];
+  /** The modifiers that actually fired — the caller checks their pending flags. */
+  applied: Modifier[];
 }
 
 /**
@@ -34,6 +37,9 @@ export function applyModifiers(
   for (const id of rule.modifiers) {
     const mod = snapshot.modifiersById.get(id);
     if (!mod) continue; // not active on this date
+    // Check BEFORE evaluating applicability: if a fact the gate depends on is
+    // missing, the honest answer is "ask", not a quiet non-application.
+    assertFactsPresent(mod, facts);
     if (evalCondition(mod.applies_when, facts, executionDate, values)) applicable.push(mod);
   }
   applicable.sort((a, b) => a.order - b.order || (a.modifier_id < b.modifier_id ? -1 : 1));
@@ -72,5 +78,5 @@ export function applyModifiers(
     citations.push(cite);
   }
 
-  return { lines, preRoundTotal: runningDuty.plus(addOns), citations };
+  return { lines, preRoundTotal: runningDuty.plus(addOns), citations, applied: applicable };
 }

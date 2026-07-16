@@ -63,7 +63,7 @@ describe("inter-state differential with real DL + MH rules (PRD §5.4)", () => {
       rule_id: "MH-ART25-conveyance",
       execution_date: "2024-06-01",
       values: { market_value: "10000000" },
-      facts: { area_type: "municipal_corporation" },
+      facts: { area_type: "municipal_corporation", metro_cess_city: "no" },
     };
     const propertyDL = {
       jurisdiction: "DL" as const,
@@ -93,7 +93,7 @@ describe("inter-state differential with real DL + MH rules (PRD §5.4)", () => {
       rule_id: "MH-ART25-conveyance",
       execution_date: "2024-06-01",
       values: { market_value: "10000000" },
-      facts: { area_type: "municipal_corporation" },
+      facts: { area_type: "municipal_corporation", metro_cess_city: "no" },
     };
     const r = computeInterStateDifferential(merged.ruleSet, executionDL, propertyMH);
     expect(r.differential_payable).toBe("0");
