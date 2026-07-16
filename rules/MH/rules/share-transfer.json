@@ -1,0 +1,48 @@
+[
+  {
+    "rule_id": "MH-share-transfer",
+    "jurisdiction": "MH",
+    "act": "Indian Stamp Act, 1899 (Union law — Sch. I Art. 62(a), pre-amendment)",
+    "article": "62(a)",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2020-07-01",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I Art. 62(a) + S.O. 130(E) dated 28-1-2004 (corrected by S.O. 522(E) dated 7-4-2005)",
+        "article": "62(a)",
+        "quoted_text": "Central Sch. I Art. 62: 'TRANSFER (whether with or without consideration) — (a) of shares in an incorporated company or other body corporate — [Twenty-five paise] for hundred rupees or part thereof of the value of the share' = 0.25%. Rounding proviso (same 2004 order): duty 'shall, wherever necessary, be rounded off to the next five paise'. NOTE: transfer of SHARES is Union law — the Maharashtra Schedule I has NO share-transfer entry (Art 59 'Transfer' covers only debentures, interest secured by bond/mortgage/policy, Administrator-General property and trust property). This pre-amendment regime governs transfers executed BEFORE 1 July 2020."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.25 },
+    "rounding": { "mode": "ceil", "nearest": 0.05 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH. Historical version for Flow D. Share transfer is CENTRAL law — verified independently here: the MH Schedule I Art 59 'Transfer' has no shares clause (quoted above), so the Union Art 62(a) applies directly. The rule is duplicated per-jurisdiction because the schema is jurisdiction-scoped; DL/MH/KA copies are identical by design (a 'central' pseudo-jurisdiction would be a schema change — see wave-3 note)."
+  },
+  {
+    "rule_id": "MH-share-transfer",
+    "jurisdiction": "MH",
+    "act": "Indian Stamp Act, 1899 (Union law — Part AA / s.9A-9B uniform regime)",
+    "article": "62 / s.9A",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2020-07-01",
+      "effective_to": null,
+      "supersedes": "MH-share-transfer@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "Finance Act 2019 (Part I, Ch. IV) amendments to the Indian Stamp Act + MoF notifications dated 10-12-2019 and 30-03-2020 (regime effective 1-7-2020)",
+        "gazette_date": "2020-03-30",
+        "quoted_text": "Founder ruling (Q4, 2026-07-16): 'Physical share transfers on Form SH-4 attract stamp duty at 0.015% of consideration under Article 62 of the Indian Stamp Act as amended, uniform across India — effective 1 July 2020 ... NO STATE DEVIATION IS PERMITTED; documents still citing 0.25% are outdated.' Per the DEA FAQs, off-market transfers WITHOUT consideration (gifts) attract nil duty, the base being consideration. Corroborated structurally: the Maharashtra Schedule has no competing share-transfer entry."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.015 },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (founder-ruled + no competing state entry). 0.015% of consideration, identical to DL/KA — the uniform regime is the point. Gift of shares (consideration 0) → nil. PENDING (same as DL): the payer (transferor vs transferee under amended s.29) is contested in practitioner literature; the AMOUNT is confident. Keep share-certificate ISSUE separate (state schedule territory)."
+  }
+]

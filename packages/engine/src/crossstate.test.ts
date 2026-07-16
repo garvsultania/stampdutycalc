@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { fileURLToPath } from "node:url";
-import { computeInterStateDifferential, loadStateDir, mergeLoads } from "./index.js";
+import { compute, computeInterStateDifferential, loadStateDir, mergeLoads } from "./index.js";
 
 // Load the real Delhi + Maharashtra rulesets from the repo data.
 const root = (p: string) => fileURLToPath(new URL(p, import.meta.url));
@@ -8,6 +8,46 @@ const merged = mergeLoads([
   loadStateDir(root("../../../rules/DL")),
   loadStateDir(root("../../../rules/MH")),
 ]);
+
+const allThree = mergeLoads([
+  loadStateDir(root("../../../rules/DL")),
+  loadStateDir(root("../../../rules/MH")),
+  loadStateDir(root("../../../rules/KA")),
+]);
+
+/**
+ * Share transfer is UNION law (Finance Act 2019 uniform regime, effective
+ * 1-7-2020) and "no state deviation is permitted" — independently corroborated by
+ * the fact that neither the MH (Art 59) nor the KA (Art 52) 'Transfer' article has
+ * a shares clause. That makes cross-state equality a real legal invariant, not a
+ * coincidence of encoding — so it is worth pinning in a test.
+ */
+describe("share transfer is uniform across states (Union law, from 1-7-2020)", () => {
+  const at = (jurisdiction: "DL" | "MH" | "KA", rule_id: string, date: string) =>
+    compute(allThree.ruleSet, {
+      jurisdiction,
+      rule_id,
+      execution_date: date,
+      values: { consideration: "1000000" },
+      facts: {},
+    }).total_duty;
+
+  it("all three states charge an identical 0.015% after 1-Jul-2020", () => {
+    const dl = at("DL", "DL-ART62-share-transfer", "2021-06-01");
+    const mh = at("MH", "MH-share-transfer", "2021-06-01");
+    const ka = at("KA", "KA-share-transfer", "2021-06-01");
+    expect([mh, ka]).toEqual([dl, dl]);
+    expect(dl).toBe("150");
+  });
+
+  it("all three charged an identical 0.25% before the regime change", () => {
+    const dl = at("DL", "DL-ART62-share-transfer", "2019-06-01");
+    const mh = at("MH", "MH-share-transfer", "2019-06-01");
+    const ka = at("KA", "KA-share-transfer", "2019-06-01");
+    expect([mh, ka]).toEqual([dl, dl]);
+    expect(dl).toBe("2500");
+  });
+});
 
 describe("inter-state differential with real DL + MH rules (PRD §5.4)", () => {
   it("loads both statutes without parse errors", () => {
