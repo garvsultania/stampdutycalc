@@ -21,13 +21,44 @@
     },
     "charge": {
       "kind": "switch",
-      "on": { "var": "share_contribution" },
+      "on": {
+        "var": "share_contribution"
+      },
       "cases": [
-        { "upto": 50000, "charge": { "kind": "fixed", "amount": "500" } },
-        { "upto": null, "charge": { "kind": "ad_valorem", "base": { "var": "share_contribution" }, "pct": 1, "cap": "15000" } }
+        {
+          "upto": 50000,
+          "charge": {
+            "kind": "fixed",
+            "amount": "500"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": {
+              "var": "share_contribution"
+            },
+            "pct": 1,
+            "cap": "15000"
+          }
+        }
       ]
     },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Mah. 9 of 2025 s.2(11), in force 14-10-2024, substituted the Art 47(1)(b) ceiling (\"fifteen thousand\" -> \"fifty thousand\"). This version still caps at Rs 15,000.",
+        "when": {
+          "date_within": {
+            "from": "2024-10-14"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Constitution: cash share_contribution ≤ Rs 50,000 (or none) → Rs 500; above → 1% of contribution, cap Rs 15,000. NOTE: Art 47 EXPRESSLY includes LLP and Joint Venture — so MH LLP agreements use this rule (see MH-ART47-llp cross-ref). Contrast Karnataka, which has SEPARATE partnership (Art 40) and LLP (Art 40A) articles. Dissolution (Art 47(2)(b) = Rs 500) not separately encoded yet."
   },
   {
@@ -50,8 +81,24 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "cross_ref", "rule_id": "MH-ART47-partnership" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "MH-ART47-partnership"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — shares the Art 47 ceiling substituted by Mah. 9 of 2025 s.2(11) w.e.f. 14-10-2024 (\"fifteen thousand\" -> \"fifty thousand\").",
+        "when": {
+          "date_within": {
+            "from": "2024-10-14"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (statute expressly includes LLP). Cross-ref to Art 47 partnership: contribution ≤ Rs 50k → Rs 500; else 1% cap Rs 15,000. Input: share_contribution."
   }
 ]

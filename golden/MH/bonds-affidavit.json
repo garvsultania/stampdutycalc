@@ -1,24 +1,56 @@
 [
   {
     "name": "MH Affidavit — Rs 100",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART4-affidavit", "execution_date": "2024-06-01", "values": {} },
-    "expect": { "total_duty": "100" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART4-affidavit",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "100"
+    }
   },
   {
     "name": "MH Indemnity bond — flat Rs 500",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART35-indemnity-bond", "execution_date": "2024-06-01", "values": {} },
-    "expect": { "total_duty": "500" }
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART35-indemnity-bond",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "500"
+    }
   },
   {
-    "name": "MH Security/guarantee bond — 0.5% below the Rs 10L cap",
-    "source_note": "50,00,000 × 0.5% = 25,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART54-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
-    "expect": { "total_duty": "25000" }
+    "name": "MH Security/guarantee bond — REFUSES: encoded text is superseded",
+    "source_note": "Art 54 was substituted by Mah. 7 of 2022 (20-1-2022). The 0.5%/Rs 10L cap this case used to assert is the PRIOR text, which the source PDF prints in a footnote. Until the current text (0.1% / 0.3%, max Rs 20 lakh) is encoded and verified, the engine must refuse rather than return superseded law.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   },
   {
-    "name": "MH Security/guarantee bond — cap binds at Rs 10 lakh",
-    "source_note": "50,00,00,000 × 0.5% = 25,00,000 → capped at Rs 10,00,000.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART54-security-bond", "execution_date": "2024-06-01", "values": { "amount_secured": "500000000" } },
-    "expect": { "total_duty": "1000000" }
+    "name": "MH Security/guarantee bond — REFUSES: encoded cap is superseded",
+    "source_note": "Art 54 was substituted by Mah. 7 of 2022 (20-1-2022). The 0.5%/Rs 10L cap this case used to assert is the PRIOR text, which the source PDF prints in a footnote. Until the current text (0.1% / 0.3%, max Rs 20 lakh) is encoded and verified, the engine must refuse rather than return superseded law.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "500000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   }
 ]

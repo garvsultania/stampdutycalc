@@ -71,6 +71,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "STALE — Mah. 9 of 2025 s.2(16), in force 14-10-2024, substituted the Art 63 threshold (\"ten lakh\" -> \"five lakh\") and the rate (\"0.1 per cent.\" -> \"0.3 per cent.\"). This version still encodes the pre-amendment 10L/0.1% and is roughly 3x under for current contracts: a Rs 5cr works contract is Rs 1,49,000, not the Rs 49,500 this returns. Refuses from the amendment date; the back-catalogue below that date remains correct and still computes. Founder to verify and encode the new era from the India Code consolidated Act.",
+        "when": {
+          "date_within": {
+            "from": "2024-10-14"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR, both columns). Marginal-with-cap: ≤ Rs 10 lakh → Rs 500; above → Rs 500 + 0.1% of the excess over Rs 10 lakh, TOTAL capped at Rs 25,00,000. Input: contract_value. The cap is read as applying to the whole duty (Rs 500 + the 0.1% component) — confirm. THE WORKS-vs-SERVICE FORK IS HUGE IN MAHARASHTRA: a Rs 5 crore contract is Rs 49,500 as a works contract but Rs 100 as an Art 5(h)(B) service agreement (≈495×) — unlike Delhi (Rs 50 vs Rs 50) and Karnataka (Rs 200 vs Rs 200), where the classification is duty-neutral. Route via the MH-works-vs-service tree; the pre-2015 version (Rs 100 + Rs 100/lakh, max Rs 5 lakh) is a back-catalogue item."
   },
   {

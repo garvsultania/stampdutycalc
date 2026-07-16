@@ -27,6 +27,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "STALE — Mah. 9 of 2025 s.2(1), in force 14-10-2024, substituted Art 4 AFFIDAVIT (\"One hundred rupees\" -> \"Five hundred rupees\"). This version still encodes Rs 100.",
+        "when": {
+          "date_within": {
+            "from": "2024-10-14"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Rs 100. Court/enrolment/pension affidavits are exempt (classification flag, not modelled)."
   },
   {
@@ -91,6 +101,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "WRONG VERSION, not merely stale — Art 54 was SUBSTITUTED by Mah. 7 of 2022 (assented and first published 20-1-2022). Current law: (i) <= Rs 5 lakh -> 0.1%, min Rs 100; (ii) otherwise -> 0.3%, max Rs 20 lakh. This encodes 0.5% / cap Rs 10 lakh, which is the SUPERSEDED text the source PDF prints in its own footnote (\"Prior to substitution, it read as under-\"). The two-column guardrail generalises to a two-VERSION trap: the encoder read the footnote, not the operative column.",
+        "when": {
+          "date_within": {
+            "from": "2022-01-20"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Surety/security/guarantee bond = 0.5% of amount secured, cap Rs 10 lakh. PENDING: the Rs 100 proviso (where the surety's principal already paid duty under Art 40 mortgage) is a fact-gated special case, not modelled."
   },
   {

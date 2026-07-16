@@ -68,3 +68,32 @@ Official dept. pages / gazette / hosted Acts > case law quotes (with citation) >
 practitioner reproductions (mark MEDIUM confidence) > commercial websites (never a
 sole source — many still recite pre-amendment law, e.g. 0.25% share transfer).
 Back up every source document into `sources/<STATE>/` in the same PR.
+
+## 9. The two-VERSION trap (generalises §1)
+
+§1 says a two-column PDF must be quoted in both columns. The same PDF also prints
+BOTH the operative text and the superseded text, the latter inside a footnote
+reading "Prior to substitution, it read as under-". `MH-ART54-security-bond` was
+encoded from the footnote: it shipped 0.5% / cap ₹10 lakh, which is the law Mah. 7
+of 2022 REPLACED on 20-1-2022, while the operative column two lines up said
+0.1% / 0.3% / max ₹20 lakh.
+
+Rule: when a hosted Act shows a footnote marker on a rate, the footnote is the
+history and the column is the law. Quote both and say which is which.
+
+## 10. Open eras are claims, and they expire
+
+`effective_to: null` asserts "nothing has changed since". Nobody had checked that
+for MH since 2022-04-01 or KA since 2020-07-01. Six amending Acts had landed in
+Maharashtra in the meantime, one of which (Mah. 9 of 2025, in force 14-10-2024)
+moved rates we had already shipped.
+
+Two rules follow:
+- An "official department page" is not evidence of currency. IGR Maharashtra
+  serves a Schedule I "as modified upto 01-06-2022" at one URL and one "upto
+  15-01-2018" at another, and both are live today. India Code's consolidated Act
+  is the better spine — and even it lagged by ~15 months.
+- **Golden suites must anchor to today, not only to history.** Every MH golden was
+  dated 2024-06-01, so 166/166 stayed green while the engine was ~3x wrong for
+  every works contract executed now. A suite that only asserts historical dates
+  cannot see the present.
