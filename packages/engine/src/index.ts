@@ -11,12 +11,24 @@ export {
   buildSnapshot,
   resolveRule,
   resolvePenaltyRegime,
+  resolveChargingRules,
   hashSnapshot,
   canonicalJson,
   type RuleSet,
   type Snapshot,
 } from "./snapshot.js";
 export { compute, type ComputeOptions } from "./compute.js";
+export {
+  computeS4,
+  computeS5,
+  computeS6,
+  compareS5S6,
+  type NamedInstrument,
+  type S4Result,
+  type S5Result,
+  type S6Result,
+  type S5S6Comparison,
+} from "./charging.js";
 export {
   computeInterStateDifferential,
   type DifferentialResult,

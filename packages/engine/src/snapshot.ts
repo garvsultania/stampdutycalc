@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import type { ISODate, Jurisdiction, Modifier, PenaltyRegime, Rule } from "@stampdraft/schema";
+import type { ChargingRules, ISODate, Jurisdiction, Modifier, PenaltyRegime, Rule } from "@stampdraft/schema";
 import { EngineError } from "./errors.js";
 
 /**
@@ -11,6 +11,9 @@ export interface RuleSet {
   rules: Rule[];
   modifiers: Modifier[];
   penaltyRegimes: PenaltyRegime[];
+  /** Act-level general charging rules (s.4/s.5/s.6) — optional so existing
+   * synthetic rulesets stay valid; required for the s.4 relief computation. */
+  chargingRules?: ChargingRules[];
 }
 
 /**
@@ -27,6 +30,8 @@ export interface Snapshot {
   /** Active penalty regimes — part of the hashed identity: a Flow D output
    * depends on them, so {inputs, hash} must pin them too (PRD §7). */
   penaltyRegimesById: Map<string, PenaltyRegime>;
+  /** Active general charging rules — hashed, since s.4/s.5/s.6 outputs depend on them. */
+  chargingRulesById: Map<string, ChargingRules>;
   hash: string;
 }
 
@@ -85,8 +90,18 @@ export function buildSnapshot(ruleSet: RuleSet, jurisdiction: Jurisdiction, date
     if (active) penaltyRegimesById.set(rid, active);
   }
 
-  const hash = hashSnapshot(jurisdiction, rulesById, modifiersById, penaltyRegimesById);
-  return { jurisdiction, date, rulesById, modifiersById, penaltyRegimesById, hash };
+  const chargingRulesById = new Map<string, ChargingRules>();
+  const byChargingId = groupBy(
+    (ruleSet.chargingRules ?? []).filter((c) => c.jurisdiction === jurisdiction),
+    (c) => c.rules_id,
+  );
+  for (const [cid, versions] of byChargingId) {
+    const active = resolveLatestActive(versions, date);
+    if (active) chargingRulesById.set(cid, active);
+  }
+
+  const hash = hashSnapshot(jurisdiction, rulesById, modifiersById, penaltyRegimesById, chargingRulesById);
+  return { jurisdiction, date, rulesById, modifiersById, penaltyRegimesById, chargingRulesById, hash };
 }
 
 /** Resolve the penalty regime active on a date for a jurisdiction, or undefined.
@@ -102,6 +117,16 @@ export function resolvePenaltyRegime(
     (p) => p.jurisdiction === jurisdiction && (regimeId === undefined || p.regime_id === regimeId),
   );
   return resolveLatestActive(candidates, date);
+}
+
+/** Resolve the general charging rules (s.4/s.5/s.6) active on a date, or throw. */
+export function resolveChargingRules(ruleSet: RuleSet, jurisdiction: Jurisdiction, date: ISODate): ChargingRules {
+  const candidates = (ruleSet.chargingRules ?? []).filter((c) => c.jurisdiction === jurisdiction);
+  const active = resolveLatestActive(candidates, date);
+  if (!active) {
+    throw new EngineError(`no general charging rules (s.4/s.5/s.6) encoded for ${jurisdiction} on ${date}`);
+  }
+  return active;
 }
 
 /** Resolve one rule version active on a date, or throw if none. */
@@ -138,6 +163,7 @@ export function hashSnapshot(
   rulesById: Map<string, Rule>,
   modifiersById: Map<string, Modifier>,
   penaltyRegimesById: Map<string, PenaltyRegime> = new Map(),
+  chargingRulesById: Map<string, ChargingRules> = new Map(),
 ): string {
   const payload = {
     jurisdiction,
@@ -147,6 +173,7 @@ export function hashSnapshot(
     // when they change, so the hash must change too, or {inputs, hash} would not
     // reproduce the output byte-for-byte (PRD §7).
     penalty_regimes: [...penaltyRegimesById.keys()].sort().map((k) => penaltyRegimesById.get(k)),
+    charging_rules: [...chargingRulesById.keys()].sort().map((k) => chargingRulesById.get(k)),
   };
   return "sha256:" + createHash("sha256").update(canonicalJson(payload)).digest("hex");
 }

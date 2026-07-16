@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 import {
+  ChargingRulesSchema,
   ClassificationTreeSchema,
   ModifierSchema,
   PenaltyRegimeSchema,
@@ -35,8 +36,9 @@ export function loadStateDir(stateDir: string): LoadResult {
   const modifiers = loadDir(join(stateDir, "modifiers"), ModifierSchema, parseErrors);
   const trees = loadDir(join(stateDir, "classification"), ClassificationTreeSchema, parseErrors);
   const penaltyRegimes = loadFile(join(stateDir, "penalty.json"), PenaltyRegimeSchema, parseErrors);
+  const chargingRules = loadFile(join(stateDir, "charging.json"), ChargingRulesSchema, parseErrors);
 
-  return { ruleSet: { rules, modifiers, penaltyRegimes }, trees, parseErrors };
+  return { ruleSet: { rules, modifiers, penaltyRegimes, chargingRules }, trees, parseErrors };
 }
 
 /** Merge multiple state LoadResults into one corpus (for cross-state validation). */
@@ -46,6 +48,7 @@ export function mergeLoads(results: LoadResult[]): LoadResult {
       rules: results.flatMap((r) => r.ruleSet.rules),
       modifiers: results.flatMap((r) => r.ruleSet.modifiers),
       penaltyRegimes: results.flatMap((r) => r.ruleSet.penaltyRegimes),
+      chargingRules: results.flatMap((r) => r.ruleSet.chargingRules ?? []),
     },
     trees: results.flatMap((r) => r.trees),
     parseErrors: results.flatMap((r) => r.parseErrors),

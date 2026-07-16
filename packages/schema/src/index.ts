@@ -6,5 +6,6 @@ export * from "./rounding.js";
 export * from "./rule.js";
 export * from "./modifier.js";
 export * from "./penalty.js";
+export * from "./charging.js";
 export * from "./classification.js";
 export * from "./compute.js";

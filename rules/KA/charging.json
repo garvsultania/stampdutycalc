@@ -1,0 +1,44 @@
+{
+  "rules_id": "KA-charging",
+  "jurisdiction": "KA",
+  "s4": {
+    "nominal_duty": "100",
+    "transaction_types": ["sale", "mortgage", "settlement"],
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, s.4 (nominal duty subst. by Act 8 of 1995 w.e.f. 1-4-1995)",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "s.4 'Several instruments used in single transaction of sale, mortgage or settlement' — (1) 'Where, in the case of any sale, mortgage or settlement, several instruments are employed for completing the transaction, the principal instrument only shall be chargeable with the duty prescribed in the Schedule for the conveyance, mortgage, or settlement, and each of the other instruments shall be chargeable with a duty of [ONE HUNDRED] rupees instead of the duty (if any) prescribed for it in the Schedule.' [Rs 100 substituted by Act 8 of 1995 w.e.f. 1.4.1995.] (2) 'The parties may determine for themselves which of the instruments so employed shall ... be deemed to be the principal instrument: Provided that the duty chargeable on the instrument so determined shall be the highest duty which would be chargeable in respect of any of the said instruments employed.'"
+    }
+  },
+  "s5": {
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, s.5",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "s.5 'Instruments relating to several distinct matters': 'Any instrument comprising or relating to several distinct matters shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters, would be chargeable under this Act.'"
+    }
+  },
+  "s6": {
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, s.6",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule': 'Subject to the provisions of the last preceding section, an instrument so framed as to come within two or more of the descriptions in the Schedule shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties: Provided that nothing contained in this Act shall render chargeable with duty exceeding [four rupees and fifty naye paise] a counter part or duplicate of any instrument chargeable with duty and in respect of which the proper duty has been paid.'"
+    }
+  },
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, ss.4-6",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "General charging rules of the Karnataka Stamp Act 1957 (its own statute)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (primary DPAL text). Nominal s.4 duty Rs 100. s.4 covers sale/mortgage/settlement only (as Delhi; contrast Maharashtra, which adds development agreements and leases). NOT modelled: the s.6 proviso capping a COUNTERPART/DUPLICATE at Rs 4.50 — instrument-specific rather than a general s.6 parameter; encode with the counterpart instrument (Art 22) when added."
+}
