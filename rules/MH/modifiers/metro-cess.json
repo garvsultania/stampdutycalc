@@ -31,10 +31,10 @@
     "effective_to": null,
     "supersedes": null,
     "source": {
-      "type": "notification",
-      "ref": "Maharashtra transport/metro surcharge on stamp duty (in abeyance to 31-Mar-2022 per MRD-3320/C.No.24/UD-7; effective 1-Apr-2022)",
+      "type": "act",
+      "ref": "Mumbai Municipal Corporation Act 1888 s.144F (ins. Mah. 73 of 2018 s.2) for Mumbai; Maharashtra Municipal Corporations Act 1949 s.149B (ins. Mah. 34 of 2015 s.2) for other corporations. Commenced 8-2-2019; suspended 1-4-2020 to 31-3-2022 by statutory proviso (Mah. 33 of 2020); revived automatically 1-4-2022.",
       "gazette_date": "2022-04-01",
-      "quoted_text": "Widely reported (AZB Partners; Free Press Journal, Mar 2022): a 1% Metro Cess / transport surcharge applies, in addition to stamp duty, on SALE, GIFT and MORTGAGE documents executed from 1 April 2022 in the six metro-project cities — Mumbai, Thane, Navi Mumbai, Pune, Nagpur and Nashik. The cess had been kept in abeyance from 1-Apr-2020 (notification MRD-3320/C.No.24/UD-7) until 31-Mar-2022. Computed as 1% of the market value (same base as stamp duty)."
+      "quoted_text": "s.149B(1) (India Code consolidated, [Text as on 2nd May 2025]): 'Without prejudice to the provisions of section 149A, the stamp duty leviable under the Maharashtra Stamp Act (LX of 1958), on the instruments of sale, gift and usufructuary mortgage, respectively, of immovable property ... situated in the City in which one or more Vital Important Urban Transport Projects ... be increased by a surcharge at the rate of one per cent., in case of instrument of sale or gift, on the value of the property so situated and in case of an instrument of usufructuary mortgage, on the amount secured ...' Proviso: '(a) for the period commencing from the 1st April 2020 and ending on the 31st March 2022, not be increased by any surcharge, under this sub-section ; (b) with effect from the 1st April 2022 ...'. s.144F(1) of the MMC Act 1888 is materially identical for Mumbai."
     },
     "verified_by": null,
     "verified_on": null
@@ -44,7 +44,7 @@
   ],
   "pending_verification": [
     {
-      "reason": "The 1% metro cess is encoded from press reporting (AZB; Free Press Journal), not from the gazette notification itself — sources hierarchy §8 forbids that as a sole basis for a live rate. Founder to source the notification and its authoritative city list. Separately, Maharashtra Local Body Tax (LBT) is levied in some corporations and is NOT encoded at all, so a total in an LBT corporation is understated.",
+      "reason": "CITY LIST AND SCOPE UNRESOLVED. (1) NAGPUR IS UNVERIFIED — no official notification declaring Nagpur Metro a notified project under s.149B was located; only practitioner/commercial sources assert it, and this modifier's binary metro_cess_city gate cannot distinguish it. Thane is MEDIUM (derivative of the 26-6-2019 GR). (2) SCOPE — s.144F/s.149B reach ONLY sale, gift and usufructuary mortgage. Our lease rule references this modifier, which likely OVER-charges leases; Art 40 mortgage generally (not just usufructuary) may also be over-reached. (3) STACKING, now answered but not yet modelled — s.149B opens 'Without prejudice to the provisions of section 149A', and s.149A is a SEPARATE 1% in the MMC Act 1949. Mumbai is governed by the MMC Act 1888 and has NO s.149A, so Mumbai is 1% total; Pune/Thane under the 1949 Act may bear 2%. The binary metro_cess_city fact cannot express that difference — it needs a city-level fact. Founder to rule, then re-model.",
       "severity": "warn"
     }
   ],

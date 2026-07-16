@@ -97,3 +97,19 @@ Two rules follow:
   dated 2024-06-01, so 166/166 stayed green while the engine was ~3x wrong for
   every works contract executed now. A suite that only asserts historical dates
   cannot see the present.
+
+## 11. Secondary trackers cannot see a gazette sweep
+
+Maharashtra published TWO different Stamp Acts on the same day — Mah. XIII of 2026
+and Mah. XVI of 2026, both assented 7 April 2026. Every commercial tracker checked
+(TeamLease, SCC Online, Mondaq, JSA) caught the first and missed the second. A
+third, Mah. XXIX of 2026, landed 13 July 2026 with zero secondary coverage at all.
+
+India Code's consolidated Act — our best spine — was four Acts stale within the
+same window.
+
+Rule: for currency, sweep the state's own e-Gazette by part and date range. A
+tracker's silence is not evidence that nothing happened. Also: AI search summaries
+were actively wrong in this sweep (attributing s.53B to the wrong Act, dating the
+women's lock-in deletion to 2026 when it was 2023) — quote only from a document
+actually fetched.
