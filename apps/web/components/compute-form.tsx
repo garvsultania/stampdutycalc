@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { DutyResult, EscalationCard } from "@/components/duty-result";
-import { Landmark, Loader2, CalendarClock, IndianRupee, Sparkles } from "lucide-react";
+import { Landmark, Loader2, CalendarClock, IndianRupee, Sparkles, FolderCheck } from "lucide-react";
 
 type StateCode = "DL" | "MH" | "KA";
 const STATES: { code: StateCode; name: string; act: string }[] = [
@@ -95,8 +95,10 @@ export function ComputeWorkspace() {
   const [dutyPaid, setDutyPaid] = React.useState("");
   const [penaltyMonths, setPenaltyMonths] = React.useState("");
 
+  const matterId = params.get("matter");
   const [busy, setBusy] = React.useState(false);
   const [output, setOutput] = React.useState<ComputeOutput | null>(null);
+  const [filed, setFiled] = React.useState(false);
   const [escalation, setEscalation] = React.useState<string | null>(null);
   const [lastPayload, setLastPayload] = React.useState<string | null>(null);
 
@@ -122,6 +124,7 @@ export function ComputeWorkspace() {
     setBusy(true);
     setOutput(null);
     setEscalation(null);
+    setFiled(false);
     const values: Record<string, string> = {};
     const facts: Record<string, string> = {};
     for (const f of variant.fields) {
@@ -142,14 +145,17 @@ export function ComputeWorkspace() {
       ...(adjudication && penaltyMonths ? { penaltyMonths: Number(penaltyMonths) } : {}),
     };
     try {
-      const res = await fetch("/api/compute", {
+      // Inside a matter, the computation is FILED: computed and written to the
+      // append-only audit log in one step, so what the lawyer saw is what is recorded.
+      const res = await fetch(matterId ? "/api/computations" : "/api/compute", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(matterId ? { ...payload, matterId } : payload),
       });
       const data = await res.json();
       if (data.ok) {
         setOutput(data.output);
+        setFiled(Boolean(data.recordId));
         setLastPayload(btoa(encodeURIComponent(JSON.stringify(payload))));
       } else {
         setEscalation(data.escalation ?? data.error ?? "Computation failed");
@@ -165,6 +171,15 @@ export function ComputeWorkspace() {
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
       {/* ——— Left: the matter ——— */}
       <div className="space-y-4">
+        {matterId && (
+          <div className="flex items-center gap-2 rounded-md border border-emerald-600/30 bg-emerald-600/5 px-3 py-2 text-xs">
+            <FolderCheck className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+            <p className="text-muted-foreground">
+              Filing to a matter — this computation will be written to the{" "}
+              <span className="font-semibold text-foreground">immutable audit log</span>.
+            </p>
+          </div>
+        )}
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 font-serif text-lg">
@@ -291,6 +306,17 @@ export function ComputeWorkspace() {
       {/* ——— Right: the result ——— */}
       <div className="lg:sticky lg:top-24 lg:self-start">
         {escalation && <EscalationCard message={escalation} />}
+        {filed && (
+          <div className="mb-3 flex items-center gap-2 rounded-md border border-emerald-600/30 bg-emerald-600/5 px-3 py-2 text-xs animate-fade-up">
+            <FolderCheck className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+            <p className="text-muted-foreground">
+              Filed to the audit log — replayable from its inputs and ruleset hash.{" "}
+              <a href={`/workspace/${matterId}`} className="font-semibold text-foreground underline underline-offset-2">
+                View matter
+              </a>
+            </p>
+          </div>
+        )}
         {output && <DutyResult output={output} memoHref={lastPayload ? `/memo?d=${lastPayload}` : undefined} />}
         {!output && !escalation && (
           <div className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-lg border border-dashed bg-muted/20 p-10 text-center">

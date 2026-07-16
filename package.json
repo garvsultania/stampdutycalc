@@ -16,6 +16,7 @@
     "check": "pnpm typecheck && pnpm validate:rules && pnpm golden && pnpm test"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.2.12",
     "@stampdraft/engine": "workspace:*",
     "@stampdraft/schema": "workspace:*",
     "@types/node": "^20.14.15",

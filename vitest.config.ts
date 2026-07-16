@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       "@stampdraft/schema": r("./packages/schema/src/index.ts"),
       "@stampdraft/engine": r("./packages/engine/src/index.ts"),
+      "@stampdraft/store": r("./packages/store/src/index.ts"),
     },
   },
   test: {
