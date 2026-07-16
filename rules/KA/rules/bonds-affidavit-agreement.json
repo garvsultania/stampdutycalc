@@ -19,8 +19,24 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "20" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "20"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 4: \"twenty rupees\" -> \"One hundred rupees\".",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Rs 20 (contrast DL Rs 10, MH Rs 100 — a clean three-state fixed-duty contrast)."
   },
   {
@@ -45,13 +61,43 @@
     },
     "charge": {
       "kind": "switch",
-      "on": { "var": "amount_secured" },
+      "on": {
+        "var": "amount_secured"
+      },
       "cases": [
-        { "upto": 1000, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5 } },
-        { "upto": null, "charge": { "kind": "fixed", "amount": "200" } }
+        {
+          "upto": 1000,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": {
+              "var": "amount_secured"
+            },
+            "pct": 0.5
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "fixed",
+            "amount": "200"
+          }
+        }
       ]
     },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 47(a): \"Fifty paise\" -> \"two rupees\"; (b): \"rupees two hundred\" -> \"rupees five hundred\".",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). ≤ Rs 1,000 → 0.5%; above → flat Rs 200. Serves both the guarantee/surety-bond case and (via cross-ref) indemnity."
   },
   {
@@ -74,8 +120,14 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "cross_ref", "rule_id": "KA-ART47-security-bond" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "KA-ART47-security-bond"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Pure cross-ref to Art 47: ≤ Rs 1,000 → 0.5%; else Rs 200."
   },
   {
@@ -98,8 +150,24 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "200" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "200"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, in force at once on 03-02-2024, substituted Art 5(j) (\"two hundred rupees\" -> \"five hundred rupees\"). Our source PDF's newest amendment footnote is Act 55 of 2020, so this encoding followed an already-superseded text. Dates before 03-02-2024 remain correct and still compute.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5(j) residual agreement rate (Rs 200). PENDING: Karnataka Art 5 has many specific sub-clauses (construction/JDA agreements under 5(e)/(f) can be ad valorem) — confirm no specific works-contract entry applies before using 5(j). Same rule serves service_agreement (see note)."
   },
   {
@@ -122,8 +190,24 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "200" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "200"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, in force at once on 03-02-2024, substituted Art 5(j) (\"two hundred rupees\" -> \"five hundred rupees\"). Our source PDF's newest amendment footnote is Act 55 of 2020, so this encoding followed an already-superseded text. Dates before 03-02-2024 remain correct and still compute.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5(j) Rs 200. The works-vs-service distinction carries no duty difference in Karnataka (both Rs 200 under 5(j)) — unlike Maharashtra (works = Art 63 ad valorem); still matters for S.6 and multi-state execution."
   }
 ]

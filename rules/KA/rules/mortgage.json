@@ -19,8 +19,27 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "cross_ref", "rule_id": "KA-ART20-rate", "on": { "var": "amount_secured" } },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "KA-ART20-rate",
+      "on": {
+        "var": "amount_secured"
+      }
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 34(c),(d) amended; verify this clause against the current text before relying on it.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Same duty as Conveyance Art 20(1) = 5% of the amount secured. Mortgage is NOT in the s.3B cess list (conveyance/exchange/settlement/gift/lease-in-perpetuity only), so NO 10% infra cess — correct. Deemed-possession (POA to collect rents / lease) is a classification question."
   },
   {
@@ -43,8 +62,27 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.5 },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "amount_secured"
+      },
+      "pct": 0.5
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 34(c),(d) amended; verify this clause against the current text before relying on it.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). 0.5% of amount secured, no cap. 'Not being a hypothecation' — hypothecation of movables is clause (d), a separate rule (KA-ART34d-hypothecation)."
   },
   {
@@ -69,13 +107,47 @@
     },
     "charge": {
       "kind": "switch",
-      "on": { "var": "amount_secured" },
+      "on": {
+        "var": "amount_secured"
+      },
       "cases": [
-        { "upto": 1000000, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.1 } },
-        { "upto": null, "charge": { "kind": "ad_valorem", "base": { "var": "amount_secured" }, "pct": 0.2, "cap": "1000000" } }
+        {
+          "upto": 1000000,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": {
+              "var": "amount_secured"
+            },
+            "pct": 0.1
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": {
+              "var": "amount_secured"
+            },
+            "pct": 0.2,
+            "cap": "1000000"
+          }
+        }
       ]
     },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 34(d)(i)&(ii) recast to \"Rupees fifty for every rupees ten thousand or part thereof\" — the rate differs AND the Rs 10 lakh cap is gone.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Hypothecation of movable property, demand loan: ≤Rs 10L → 0.1%; >Rs 10L → 0.2% capped at Rs 10,00,000. PENDING: the Schedule text quotes only the 'repayable on demand' limb; term-loan hypothecation may differ — confirm whether Art 34(d) has a non-demand sub-clause (not shown in the source extract)."
   }
 ]

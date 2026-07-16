@@ -18,8 +18,17 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.25 },
-    "rounding": { "mode": "ceil", "nearest": 0.05 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.25
+    },
+    "rounding": {
+      "mode": "ceil",
+      "nearest": 0.05
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH. Historical version for Flow D. effective_from is the KA 2016-04-01 coverage floor (see KA back-catalogue note), not a rate-change date — the 0.25% central rate ran from 1-3-2004."
   },
   {
@@ -41,8 +50,27 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.015 },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.015
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 52(b)(ii) and (c): \"one hundred rupees\" -> \"two hundred rupees\".",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH. 0.015%, identical to DL/MH by design (uniform Union regime). Payer under amended s.29 PENDING (amount is confident)."
   }
 ]

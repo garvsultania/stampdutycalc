@@ -1,32 +1,77 @@
 [
   {
     "name": "KA Mortgage with possession — conveyance rate (5%) on amount secured, no cess",
-    "source_note": "Art 34(a) = Conveyance No.20 on amount secured. 50,00,000 × 5% = 2,50,000. Mortgage not in s.3B list → no cess.",
-    "input": { "jurisdiction": "KA", "rule_id": "KA-ART34a-mortgage-with-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
-    "expect": { "total_duty": "250000" }
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: Art 34(a) = Conveyance No.20 on amount secured. 50,00,000 × 5% = 2,50,000. Mortgage not in s.3B list → no cess",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART34a-mortgage-with-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   },
   {
     "name": "KA Mortgage without possession — 0.5%",
-    "source_note": "Art 34(b). 50,00,000 × 0.5% = 25,000.",
-    "input": { "jurisdiction": "KA", "rule_id": "KA-ART34b-mortgage-without-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
-    "expect": { "total_duty": "25000" }
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: Art 34(b). 50,00,000 × 0.5% = 25,000.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART34b-mortgage-without-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   },
   {
     "name": "KA Hypothecation — ≤ Rs 10L: 0.1%",
-    "source_note": "Art 34(d)(i). 5,00,000 × 0.1% = 500.",
-    "input": { "jurisdiction": "KA", "rule_id": "KA-ART34d-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "500000" } },
-    "expect": { "total_duty": "500" }
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: Art 34(d)(i). 5,00,000 × 0.1% = 500.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART34d-hypothecation",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "500000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   },
   {
     "name": "KA Hypothecation — > Rs 10L: 0.2%",
-    "source_note": "Art 34(d)(ii). 50,00,000 × 0.2% = 10,000 (< Rs 10L cap).",
-    "input": { "jurisdiction": "KA", "rule_id": "KA-ART34d-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
-    "expect": { "total_duty": "10000" }
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: Art 34(d)(ii). 50,00,000 × 0.2% = 10,000 (< Rs 10L cap).",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART34d-hypothecation",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   },
   {
     "name": "KA Hypothecation — cap binds at Rs 10 lakh",
-    "source_note": "100,00,00,000 × 0.2% = 2,00,00,000 → capped at Rs 10,00,000.",
-    "input": { "jurisdiction": "KA", "rule_id": "KA-ART34d-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000000" } },
-    "expect": { "total_duty": "1000000" }
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: 100,00,00,000 × 0.2% = 2,00,00,000 → capped at Rs 10,00,000.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART34d-hypothecation",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "1000000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
   }
 ]

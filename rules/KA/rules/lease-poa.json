@@ -25,15 +25,37 @@
         "lease_base": {
           "op": "+",
           "args": [
-            { "op": "+", "args": [{ "var": "avg_annual_rent" }, { "var": "premium" }] },
-            { "op": "+", "args": [{ "var": "fine" }, { "var": "money_advanced" }] }
+            {
+              "op": "+",
+              "args": [
+                {
+                  "var": "avg_annual_rent"
+                },
+                {
+                  "var": "premium"
+                }
+              ]
+            },
+            {
+              "op": "+",
+              "args": [
+                {
+                  "var": "fine"
+                },
+                {
+                  "var": "money_advanced"
+                }
+              ]
+            }
           ]
         }
       },
       "components": [
         {
           "kind": "switch",
-          "on": { "var": "term_months" },
+          "on": {
+            "var": "term_months"
+          },
           "cases": [
             {
               "upto": 12,
@@ -41,20 +63,83 @@
                 "kind": "select",
                 "by": "property_use",
                 "cases": [
-                  { "when": "residential", "charge": { "kind": "ad_valorem", "base": { "var": "lease_base" }, "pct": 0.5, "cap": "500" } }
+                  {
+                    "when": "residential",
+                    "charge": {
+                      "kind": "ad_valorem",
+                      "base": {
+                        "var": "lease_base"
+                      },
+                      "pct": 0.5,
+                      "cap": "500"
+                    }
+                  }
                 ],
-                "default": { "kind": "ad_valorem", "base": { "var": "lease_base" }, "pct": 0.5 }
+                "default": {
+                  "kind": "ad_valorem",
+                  "base": {
+                    "var": "lease_base"
+                  },
+                  "pct": 0.5
+                }
               }
             },
-            { "upto": 120, "charge": { "kind": "ad_valorem", "base": { "var": "lease_base" }, "pct": 1 } },
-            { "upto": 240, "charge": { "kind": "ad_valorem", "base": { "var": "lease_base" }, "pct": 2 } },
-            { "upto": 360, "charge": { "kind": "ad_valorem", "base": { "var": "lease_base" }, "pct": 3 } },
-            { "upto": null, "charge": { "kind": "cross_ref", "rule_id": "KA-ART20-rate", "on": { "fn": "max", "args": [{ "var": "lease_base" }, { "var": "market_value" }] } } }
+            {
+              "upto": 120,
+              "charge": {
+                "kind": "ad_valorem",
+                "base": {
+                  "var": "lease_base"
+                },
+                "pct": 1
+              }
+            },
+            {
+              "upto": 240,
+              "charge": {
+                "kind": "ad_valorem",
+                "base": {
+                  "var": "lease_base"
+                },
+                "pct": 2
+              }
+            },
+            {
+              "upto": 360,
+              "charge": {
+                "kind": "ad_valorem",
+                "base": {
+                  "var": "lease_base"
+                },
+                "pct": 3
+              }
+            },
+            {
+              "upto": null,
+              "charge": {
+                "kind": "cross_ref",
+                "rule_id": "KA-ART20-rate",
+                "on": {
+                  "fn": "max",
+                  "args": [
+                    {
+                      "var": "lease_base"
+                    },
+                    {
+                      "var": "market_value"
+                    }
+                  ]
+                }
+              }
+            }
           ]
         }
       ]
     },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text, both columns). lease_base = avg_annual_rent + premium + fine + money_advanced (money_advanced INCLUDES security deposit, refundable or adjustable, per the Explanation). Term bands in months: ≤12 (≤1yr; residential 0.5% cap Rs 500, commercial/industrial 0.5% no cap) / ≤120 (1%) / ≤240 (2%) / ≤360 (3%) / >360 (conveyance rate on max(lease_base, market_value)). The >30y clause (vi) is in the s.3B 'lease in perpetuity' cess list — cess NOT attached here (most leases aren't perpetuity); attach a conditional cess for the (vi) branch in wave 2. Family-lease proviso (Rs 5,000/3,000/1,000 to wife/husband/father/mother/son/daughter/brother/sister, like gift) NOT yet encoded — questionnaire branch, wave 2."
   },
   {
@@ -77,8 +162,24 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "fixed", "amount": "100" },
-    "rounding": { "mode": "none", "nearest": 1 },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 41(a)-(c): Rs 100 -> Rs 500; (d): Rs 200 -> Rs 1,000; (f),(g): Rs 50 -> Rs 100; (h): Rs 200 -> Rs 500.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH for the common cases (a)-(c) = Rs 100 (official DPAL). ESCALATIONS for the questionnaire (NOT this flat rule): (d) 6-10 persons → Rs 200; (e) POA for consideration/coupled-with-interest to sell immovable → Conveyance rate on higher of consideration/market value (the GPA-for-sale pattern); (ea) developer/development POA → 2% of market value of the undivided share (with the Art 5(f) agreement set-off capping it at Rs 200). These forks belong in Flow B."
   }
 ]

@@ -45,6 +45,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 40(B)(a),(C)(a): \"three percent\" -> \"five percent\"; (B)(b),(C)(b): Rs 1,000 -> Rs 2,000.",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL). Constitution of partnership: capital ≤ Rs 50,000 → Rs 500; else → Rs 2,000. Karnataka keeps LLP in a SEPARATE article (40A) — now encoded as KA-ART40A-llp (the ceil_div primitive resolved the earlier deferral); contrast Maharashtra's Art 47, which expressly covers partnership 'inclusive of Limited Liability Partnership'. Reconstitution (B) and Dissolution (C) 3%-on-property cases remain deferred (need the property-value base + the 'in addition to' dissolution rule)."
   },
   {
@@ -134,6 +144,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 40-A(A)(a): Rs 1,000 -> Rs 5,000; (A)(b) recast with a Rs 25 lakh maximum; (B): \"three percent\" -> \"five percent\".",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL, both columns). Constitution/conversion: capital ≤ Rs 10 lakh → Rs 1,000; above → Rs 1,000 + Rs 500 for every Rs 5 lakh OR PART THEREOF over Rs 10 lakh, total capped at Rs 10,00,000. The 'or part thereof' ceiling step is modelled exactly via ceil_div (previously deferred for want of this primitive). Karnataka keeps LLP SEPARATE from partnership (Art 40) — contrast Maharashtra, whose Art 47 expressly covers 'partnership inclusive of Limited Liability Partnership'. Clause B (reconstruction/amalgamation, 3% of consideration-or-market-value) NOT encoded — needs the transferor-property base; deferred."
   }
 ]

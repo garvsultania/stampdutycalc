@@ -185,3 +185,23 @@ Maharashtra goldens asserted totals that silently omitted the 1% cess. Supplying
 the fact explicitly left every expected value unchanged — proving the assumption
 was real, load-bearing and invisible. Same disease as the `RateSpec.default` fix
 (D8), in the applicability gate rather than the rate.
+
+## D17 — A stale primary source outranked a correct secondary (KA post-mortem)
+
+`KA-SOURCING.md` logged a DISCREPANCY: secondary sources claimed a 35–45 lakh
+affordable-housing band at 3%; our committed primary PDF had no such band; we
+resolved in favour of the primary, per the §8 hierarchy.
+
+**The secondaries were right.** Act 26 of 2021 inserted Art 20(2A)(iii) on
+05-10-2021. Our primary — `sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf`
+— is a stale print whose newest amendment footnote is Act 55 of 2020. The
+hierarchy worked exactly as written and produced a two-percentage-point overcharge
+on the most common retail transaction in Karnataka, held with high confidence,
+for nearly five years.
+
+The §8 hierarchy ranks sources by AUTHORITY. It has no axis for CURRENCY, and
+authority without currency is just a confident antique. Amendment: a primary
+source must carry the date it was last consolidated to, and that date is part of
+the citation. When a secondary asserts something our primary lacks, the question
+is not "which source ranks higher" but "is our primary current enough to be
+silent about this?" A primary that predates the claimed amendment cannot refute it.

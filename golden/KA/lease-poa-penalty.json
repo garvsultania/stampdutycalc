@@ -161,8 +161,9 @@
       "values": {}
     },
     "expect": {
-      "total_duty": "100"
-    }
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
   },
   {
     "name": "KA Penalty (Flow D) — discretionary up-to-10x outputs a RANGE",
