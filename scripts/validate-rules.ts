@@ -22,7 +22,7 @@ for (const state of STATES) {
     errorCount++;
   }
 
-  const issues = validateRuleSet(load.ruleSet);
+  const issues = validateRuleSet(load.ruleSet, load.trees);
   for (const issue of issues) {
     if (issue.level === "error") errorCount++;
     else warningCount++;

@@ -12,7 +12,7 @@ import { ValueExprSchema, type ValueExpr } from "./value-expr.js";
  */
 export type RateSpec =
   | number
-  | { by: string; cases: Array<{ when: string | number; pct: number }>; default: number };
+  | { by: string; cases: Array<{ when: string | number; pct: number }>; default?: number };
 
 export const RateSpecSchema = z.union([
   z.number(),
@@ -20,7 +20,17 @@ export const RateSpecSchema = z.union([
     .object({
       by: z.string().min(1),
       cases: z.array(z.object({ when: z.union([z.string(), z.number()]), pct: z.number() }).strict()).min(1),
-      default: z.number(),
+      /**
+       * OPTIONAL — and omitting it is a correctness feature, not an oversight.
+       * Supply `default` ONLY where the statute has a genuine residual/general
+       * case (e.g. Delhi's transferee_category: anyone not female/joint pays the
+       * general rate). Where every case must be stated and there is no residual
+       * (e.g. Maharashtra's area_type — a property is in exactly one area class),
+       * OMIT it: an unmatched/missing fact then throws an EngineError rather than
+       * silently charging the default rate. Silent approximation is the one
+       * unforgivable failure mode (PRD §15).
+       */
+      default: z.number().optional(),
     })
     .strict(),
 ]);
@@ -90,7 +100,7 @@ export type Charge =
     }
   | { kind: "cross_ref"; rule_id: string; on?: ValueExpr; scale?: number }
   | { kind: "switch"; on: ValueExpr; cases: Array<{ upto: number | null; charge: Charge }> }
-  | { kind: "select"; by: string; cases: Array<{ when: string | number; charge: Charge }>; default: Charge };
+  | { kind: "select"; by: string; cases: Array<{ when: string | number; charge: Charge }>; default?: Charge };
 
 export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
   z.discriminatedUnion("kind", [
@@ -159,7 +169,9 @@ export const ChargeSchema: z.ZodType<Charge> = z.lazy(() =>
               .strict(),
           )
           .min(1),
-        default: ChargeSchema,
+        /** Optional — omit where there is no statutory residual case, so an
+         * unmatched fact escalates by error instead of silently defaulting. */
+        default: ChargeSchema.optional(),
       })
       .strict(),
   ]),

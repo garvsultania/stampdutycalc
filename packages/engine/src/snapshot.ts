@@ -24,6 +24,9 @@ export interface Snapshot {
   date: ISODate;
   rulesById: Map<string, Rule>;
   modifiersById: Map<string, Modifier>;
+  /** Active penalty regimes — part of the hashed identity: a Flow D output
+   * depends on them, so {inputs, hash} must pin them too (PRD §7). */
+  penaltyRegimesById: Map<string, PenaltyRegime>;
   hash: string;
 }
 
@@ -72,8 +75,18 @@ export function buildSnapshot(ruleSet: RuleSet, jurisdiction: Jurisdiction, date
     if (active) modifiersById.set(mid, active);
   }
 
-  const hash = hashSnapshot(jurisdiction, rulesById, modifiersById);
-  return { jurisdiction, date, rulesById, modifiersById, hash };
+  const penaltyRegimesById = new Map<string, PenaltyRegime>();
+  const byRegimeId = groupBy(
+    ruleSet.penaltyRegimes.filter((p) => p.jurisdiction === jurisdiction),
+    (p) => p.regime_id,
+  );
+  for (const [rid, versions] of byRegimeId) {
+    const active = resolveLatestActive(versions, date);
+    if (active) penaltyRegimesById.set(rid, active);
+  }
+
+  const hash = hashSnapshot(jurisdiction, rulesById, modifiersById, penaltyRegimesById);
+  return { jurisdiction, date, rulesById, modifiersById, penaltyRegimesById, hash };
 }
 
 /** Resolve the penalty regime active on a date for a jurisdiction, or undefined.
@@ -124,11 +137,16 @@ export function hashSnapshot(
   jurisdiction: Jurisdiction,
   rulesById: Map<string, Rule>,
   modifiersById: Map<string, Modifier>,
+  penaltyRegimesById: Map<string, PenaltyRegime> = new Map(),
 ): string {
   const payload = {
     jurisdiction,
     rules: [...rulesById.keys()].sort().map((k) => rulesById.get(k)),
     modifiers: [...modifiersById.keys()].sort().map((k) => modifiersById.get(k)),
+    // Penalty regimes are part of the ruleset identity: a Flow D output changes
+    // when they change, so the hash must change too, or {inputs, hash} would not
+    // reproduce the output byte-for-byte (PRD §7).
+    penalty_regimes: [...penaltyRegimesById.keys()].sort().map((k) => penaltyRegimesById.get(k)),
   };
   return "sha256:" + createHash("sha256").update(canonicalJson(payload)).digest("hex");
 }

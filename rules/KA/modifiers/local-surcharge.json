@@ -2,10 +2,24 @@
   "modifier_id": "KA-local-surcharge",
   "jurisdiction": "KA",
   "kind": "surcharge_cess",
-  "applies_when": { "always": true },
+  "applies_when": {
+    "always": true
+  },
   "effect": {
     "op": "pct_add",
-    "pct": { "by": "ka_area", "cases": [{ "when": "rural", "pct": 3 }], "default": 2 },
+    "pct": {
+      "by": "ka_area",
+      "cases": [
+        {
+          "when": "urban",
+          "pct": 2
+        },
+        {
+          "when": "rural",
+          "pct": 3
+        }
+      ]
+    },
     "of": "duty",
     "label": "Local body surcharge (of stamp duty)"
   },
@@ -22,5 +36,5 @@
     "verified_by": null,
     "verified_on": null
   },
-  "notes_for_reviewer": "CONFIDENCE: MEDIUM (secondary sources, but strongly corroborated across many and it reconciles exactly to the cited 5.6% Bangalore total) — PENDING the primary municipal-law provision/section number. 2% of stamp duty (urban/BBMP, default) or 3% (rural) — fact ka_area='rural' for rural/panchayat, else urban. Computed on the base stamp duty (not compounded with the s.3B cess). NOTE the rural>urban direction is counterintuitive but consistently reported. Attached to conveyance; extend to other s.3B-cess instruments (gift etc.) once confirmed."
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (secondary sources, but strongly corroborated across many and it reconciles exactly to the cited 5.6% Bangalore total) — PENDING the primary municipal-law provision/section number. 2% of stamp duty (urban/BBMP) or 3% (rural) — fact ka_area is REQUIRED ('urban' | 'rural'); there is no residual case, so omitting it ESCALATES rather than silently charging the urban rate (audit fix #3). Computed on the base stamp duty (not compounded with the s.3B cess). NOTE the rural>urban direction is counterintuitive but consistently reported. Attached to conveyance; extend to other s.3B-cess instruments (gift etc.) once confirmed."
 }

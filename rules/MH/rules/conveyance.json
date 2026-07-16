@@ -21,22 +21,57 @@
     },
     "charge": {
       "kind": "ad_valorem",
-      "base": { "var": "market_value" },
+      "base": {
+        "var": "market_value"
+      },
       "pct": {
         "by": "area_type",
         "cases": [
-          { "when": "movable", "pct": 3 },
-          { "when": "gram_panchayat", "pct": 3 },
-          { "when": "municipal_council", "pct": 4 },
-          { "when": "mmrda_rural", "pct": 4 },
-          { "when": "influence_area", "pct": 4 }
-        ],
-        "default": 5
+          {
+            "when": "movable",
+            "pct": 3
+          },
+          {
+            "when": "gram_panchayat",
+            "pct": 3
+          },
+          {
+            "when": "municipal_council",
+            "pct": 4
+          },
+          {
+            "when": "nagar_panchayat",
+            "pct": 4
+          },
+          {
+            "when": "mmrda_rural",
+            "pct": 4
+          },
+          {
+            "when": "influence_area",
+            "pct": 4
+          },
+          {
+            "when": "municipal_corporation",
+            "pct": 5
+          },
+          {
+            "when": "urban",
+            "pct": 5
+          },
+          {
+            "when": "cantonment",
+            "pct": 5
+          }
+        ]
       }
     },
-    "rounding": { "mode": "none", "nearest": 1 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH (IGR amendment footnotes give the pre-2017 rates). Back-catalogue version (2015-01-01 → 2017-09-06): council/MMRDA/influence 4%, gram 3% (both raised by Mah. 59/2017). No women/metro modifiers (those post-date this window). Effective_from set to the 2015 coverage floor (PRD §13); the true prior-substitution date is 2012-04-25 (Mah. 8 of 2012) — extend backward if pre-2015 coverage is later needed. Demonstrates append-only temporal versioning with real historical rates; the post-2017 version supersedes contiguously at 2017-09-07."
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
     },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (IGR amendment footnotes give the pre-2017 rates). Back-catalogue version (2015-01-01 → 2017-09-06): council/MMRDA/influence 4%, gram 3% (both raised by Mah. 59/2017). No women/metro modifiers (those post-date this window). Effective_from set to the 2015 coverage floor (PRD §13); the true prior-substitution date is 2012-04-25 (Mah. 8 of 2012) — extend backward if pre-2015 coverage is later needed. Demonstrates append-only temporal versioning with real historical rates; the post-2017 version supersedes contiguously at 2017-09-07."
+  },
   {
     "rule_id": "MH-ART25-conveyance",
     "jurisdiction": "MH",
@@ -59,18 +94,59 @@
     },
     "charge": {
       "kind": "ad_valorem",
-      "base": { "var": "market_value" },
+      "base": {
+        "var": "market_value"
+      },
       "pct": {
         "by": "area_type",
         "cases": [
-          { "when": "movable", "pct": 3 },
-          { "when": "gram_panchayat", "pct": 4 }
-        ],
-        "default": 5
+          {
+            "when": "movable",
+            "pct": 3
+          },
+          {
+            "when": "gram_panchayat",
+            "pct": 4
+          },
+          {
+            "when": "municipal_council",
+            "pct": 5
+          },
+          {
+            "when": "nagar_panchayat",
+            "pct": 5
+          },
+          {
+            "when": "mmrda_rural",
+            "pct": 5
+          },
+          {
+            "when": "influence_area",
+            "pct": 5
+          },
+          {
+            "when": "municipal_corporation",
+            "pct": 5
+          },
+          {
+            "when": "urban",
+            "pct": 5
+          },
+          {
+            "when": "cantonment",
+            "pct": 5
+          }
+        ]
       }
     },
-    "modifiers": ["MH-women-residential-concession", "MH-metro-cess"],
-    "rounding": { "mode": "none", "nearest": 1 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH for the Schedule stamp rate (official IGR text quoted in full). area_type: municipal_corporation / municipal_council / mmrda_rural / influence_area / urban → 5% (default); gram_panchayat → 4%; movable → 3%. PENDING_VERIFICATION (surcharges): Maharashtra levies (a) a 1% Metro Cess / transport surcharge in MMR, Pune, Nagpur, Nashik etc., and (b) 1% Local Body Tax (LBT) in some corporations, ON TOP of the Schedule rate — NOT yet encoded (need the specific surcharge notifications and their area lists); the effective Mumbai rate is ~6-7%, not 5%. Encode these as separate modifiers once sourced, mirroring the Delhi transfer-duty pattern. effective_from 2017-09-07 = the Act 59/2017 rate change; the pre-2017 version (council 4% / gram 3%) is a back-catalogue version to add for historical mode (M2 batched-by-year)."
+    "modifiers": [
+      "MH-women-residential-concession",
+      "MH-metro-cess"
+    ],
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH for the Schedule stamp rate (official IGR text quoted in full). area_type is REQUIRED and fully enumerated (municipal_corporation/urban/cantonment/municipal_council/nagar_panchayat/mmrda_rural/influence_area → 5%; gram_panchayat → 4%; movable → 3%). NO default: a property sits in exactly one area class, so a missing/unknown area_type ESCALATES rather than silently charging the corporation rate (audit fix #3). PENDING_VERIFICATION (surcharges): Maharashtra levies (a) a 1% Metro Cess / transport surcharge in MMR, Pune, Nagpur, Nashik etc., and (b) 1% Local Body Tax (LBT) in some corporations, ON TOP of the Schedule rate — NOT yet encoded (need the specific surcharge notifications and their area lists); the effective Mumbai rate is ~6-7%, not 5%. Encode these as separate modifiers once sourced, mirroring the Delhi transfer-duty pattern. effective_from 2017-09-07 = the Act 59/2017 rate change; the pre-2017 version (council 4% / gram 3%) is a back-catalogue version to add for historical mode (M2 batched-by-year)."
   }
 ]

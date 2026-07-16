@@ -436,6 +436,104 @@ describe("D9 extensions: switch, cross_ref scale, expr-based cess, cmp condition
   });
 });
 
+describe("audit-review regressions (2026-07-16)", () => {
+  const regime = (pct: number) => ({
+    regime_id: "P",
+    jurisdiction: "DL" as const,
+    penalty: { type: "per_month" as const, pct_per_month: pct, cap_multiple: 4, min_penalty: null },
+    adjudication_path: "S.31",
+    version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
+    notes_for_reviewer: "",
+  });
+
+  it("#2 rules_version hash CHANGES when only the penalty regime changes", () => {
+    const rules = [makeRule({ rule_id: "R", charge: { kind: "fixed", amount: "100" } })];
+    const a = buildSnapshot({ rules, modifiers: [], penaltyRegimes: [regime(2)] }, "DL", "2021-01-01").hash;
+    const b = buildSnapshot({ rules, modifiers: [], penaltyRegimes: [regime(3)] }, "DL", "2021-01-01").hash;
+    // Flow D output differs between these rulesets, so {inputs, hash} must differ too.
+    expect(a).not.toBe(b);
+  });
+
+  it("#3 a RateSpec with no declared default ESCALATES on a missing fact", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: {
+        kind: "ad_valorem",
+        base: { var: "market_value" },
+        pct: { by: "area_type", cases: [{ when: "urban", pct: 5 }, { when: "rural", pct: 4 }] },
+      },
+    });
+    const rs: RuleSet = { rules: [r], modifiers: [], penaltyRegimes: [] };
+    const run = (facts: Record<string, string>) =>
+      compute(rs, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts });
+    expect(run({ area_type: "rural" }).total_duty).toBe("40000");
+    expect(() => run({})).toThrow(/required fact "area_type" was not provided/);
+    expect(() => run({ area_type: "moon" })).toThrow(/matches no rate case/);
+  });
+
+  it("#3 a RateSpec WITH a declared default still uses it (legitimate residual case)", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: {
+        kind: "ad_valorem",
+        base: { var: "market_value" },
+        pct: { by: "transferee_category", cases: [{ when: "female", pct: 2 }], default: 3 },
+      },
+    });
+    const rs: RuleSet = { rules: [r], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts: {} });
+    expect(out.total_duty).toBe("30000"); // general rate — the statute's residual case
+  });
+
+  it("#6 a concession expressed as a negative pct_add renders as a CONCESSION line", () => {
+    const concession = {
+      modifier_id: "C",
+      jurisdiction: "DL" as const,
+      kind: "concession" as const,
+      applies_when: { always: true as const },
+      effect: { op: "pct_add" as const, pct: -1, of: { var: "market_value" }, label: "Women concession (−1%)" },
+      order: 10,
+      version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "order" as const, ref: "c", quoted_text: "x" }, verified_by: null, verified_on: null },
+      notes_for_reviewer: "",
+    };
+    const r = makeRule({
+      rule_id: "R",
+      charge: { kind: "ad_valorem", base: { var: "market_value" }, pct: 5 },
+      modifiers: ["C"],
+    });
+    const out = compute(
+      { rules: [r], modifiers: [concession], penaltyRegimes: [] },
+      { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts: {} },
+    );
+    const line = out.breakup.find((l) => l.label.startsWith("Women concession"));
+    expect(line?.kind).toBe("concession"); // not "surcharge_cess"
+    expect(line?.amount).toBe("-10000");
+    expect(out.total_duty).toBe("40000");
+  });
+
+  it("#5 the validator flags a classification terminal pointing at a missing rule", () => {
+    const tree: ClassificationTree = ClassificationTreeSchema.parse({
+      tree_id: "t",
+      jurisdiction: "DL",
+      instrument_class: "x",
+      root: "t_bad",
+      nodes: { t_bad: { type: "terminal", instrument: "lease", article: "35", rule_id: "GHOST" } },
+      version: { effective_from: "2015-01-01", effective_to: null, source: { type: "act", ref: "t", quoted_text: "x" } },
+    });
+    const issues = validateRuleSet({ rules: [], modifiers: [], penaltyRegimes: [] }, [tree]);
+    expect(issues.some((i) => i.level === "error" && i.message.includes('rule_id "GHOST"'))).toBe(true);
+  });
+
+  it("#7 the validator flags a cap below its own min_duty", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: { kind: "ad_valorem", base: { var: "consideration" }, pct: 5, min_duty: "500", cap: "100" },
+    });
+    const issues = validateRuleSet({ rules: [r], modifiers: [], penaltyRegimes: [] });
+    expect(issues.some((i) => i.level === "error" && i.message.includes("unsatisfiable"))).toBe(true);
+  });
+});
+
 describe("money & rounding primitives", () => {
   it("rounds up to nearest 100 (ceil)", () => {
     expect(canonical(applyRounding(num("1250"), { mode: "ceil", nearest: 100 }))).toBe("1300");

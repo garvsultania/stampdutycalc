@@ -8,6 +8,9 @@
       "execution_date": "2024-06-01",
       "values": {
         "market_value": "10000000"
+      },
+      "facts": {
+        "ka_area": "urban"
       }
     },
     "expect": {
@@ -41,7 +44,8 @@
         "market_value": "1500000"
       },
       "facts": {
-        "first_sale_flat": "yes"
+        "first_sale_flat": "yes",
+        "ka_area": "urban"
       }
     },
     "expect": {
@@ -59,7 +63,8 @@
         "market_value": "3000000"
       },
       "facts": {
-        "first_sale_flat": "yes"
+        "first_sale_flat": "yes",
+        "ka_area": "urban"
       }
     },
     "expect": {
@@ -77,7 +82,8 @@
         "market_value": "5000000"
       },
       "facts": {
-        "first_sale_flat": "yes"
+        "first_sale_flat": "yes",
+        "ka_area": "urban"
       }
     },
     "expect": {

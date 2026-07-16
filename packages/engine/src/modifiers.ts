@@ -46,14 +46,19 @@ export function applyModifiers(
   for (const mod of applicable) {
     const cite = mod.version.source;
     const eff = mod.effect;
+    // The breakup line reflects what the modifier IS (mod.kind), not how it is
+    // arithmetically expressed. A concession implemented as a negative pct_add
+    // (e.g. Maharashtra's −1% women concession, a percentage-POINT reduction)
+    // must still render as a concession line, not a surcharge.
+    const lineKind: LineItem["kind"] = mod.kind === "concession" ? "concession" : "surcharge_cess";
     if (eff.op === "duty_reduce_pct") {
       const reduction = runningDuty.times(eff.pct).div(100);
       runningDuty = runningDuty.minus(reduction);
-      lines.push({ kind: "concession", label: eff.label, amount: canonical(reduction.negated()), citations: [cite] });
+      lines.push({ kind: lineKind, label: eff.label, amount: canonical(reduction.negated()), citations: [cite] });
     } else if (eff.op === "flat_add") {
       const amt = num(eff.amount);
       addOns = addOns.plus(amt);
-      lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
+      lines.push({ kind: lineKind, label: eff.label, amount: canonical(amt), citations: [cite] });
     } else {
       // pct_add — base is the running duty or any expression over the inputs
       // (a surcharge's base can differ from the stamp base, e.g. Delhi transfer
@@ -62,7 +67,7 @@ export function applyModifiers(
       const base = eff.of === "duty" ? runningDuty : evalExpr(eff.of, values);
       const amt = base.times(resolveRate(eff.pct, facts)).div(100);
       addOns = addOns.plus(amt);
-      lines.push({ kind: "surcharge_cess", label: eff.label, amount: canonical(amt), citations: [cite] });
+      lines.push({ kind: lineKind, label: eff.label, amount: canonical(amt), citations: [cite] });
     }
     citations.push(cite);
   }

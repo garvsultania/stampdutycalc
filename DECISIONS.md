@@ -66,6 +66,31 @@ the plain-rate indirection is required). KA gift (Art 28) is area-based FIXED am
 generalized "family" list. Penalty (s.34/s.39) is discretionary up-to-10× → range.
 Local surcharge + perpetuity-lease cess deferred (PENDING). Files: `rules/KA/*`, `sources/KA/*`.
 
+### D14 — Audit fixes: no silent defaults; hash covers penalties [M2, 2026-07-16]
+A senior-engineer audit found four mechanical defects, now fixed and regression-tested:
+
+1. **`rules_version` hash excluded penalty regimes** — a Flow D output depends on the
+   regime, so an unchanged hash with changed output broke the §7 reproducibility
+   guarantee (and the liability shield). `hashSnapshot` now hashes active penalty
+   regimes alongside rules and modifiers; `Snapshot` carries `penaltyRegimesById`.
+2. **A missing categorical fact silently picked `default`** — demonstrated: an MH
+   gram-panchayat mortgage without `area_type` charged 5% (₹5,00,000) instead of 4%
+   (₹4,00,000). That is the silent approximation PRD §15 forbids. `RateSpec.default`
+   and `select.default` are now OPTIONAL: supply a default ONLY where the statute has a
+   genuine residual case (Delhi `transferee_category` → general rate); omit it where
+   every case is enumerated (MH `area_type`, KA `ka_area`), so an unmatched/missing fact
+   throws `EngineError`. MH conveyance and the KA surcharge were re-encoded accordingly.
+3. **Classification-tree terminals were never validated** — a typo'd `rule_id` would
+   only fail at runtime, in front of a user. `validateRuleSet(ruleSet, trees)` now checks
+   every terminal resolves within the tree's own snapshot; CI passes `load.trees`.
+4. **Concessions rendered as surcharge lines** — the breakup `kind` derived from the
+   effect *op*, so MH's women concession (a negative `pct_add`) showed as
+   `surcharge_cess`. It now derives from `modifier.kind` (wrong in the M3 PDF memo
+   otherwise). Also added: validator flags `cap < min_duty`.
+
+Files: `packages/engine/src/{snapshot,charge,modifiers,validators}.ts`,
+`packages/schema/src/charge.ts`, `scripts/validate-rules.ts`.
+
 ### D13 — `select` charge: categorical sub-charge selection [M2]
 Maharashtra gift (Art 34) selects between different charge KINDS by relation — Rs 200
 flat (close family, residential/agri), 3% ad valorem (family), or full conveyance rate

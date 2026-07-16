@@ -32,6 +32,18 @@ statute is unverified (Delhi lease > 100y / perpetuity). The engine throws inste
 approximating. Document the deliberate gap in `notes_for_reviewer` and cover it with
 an `expect.error` golden case.
 
+## 4b. Never declare a `default` without a statutory residual case
+`RateSpec.default` / `select.default` are OPTIONAL — and omitting them is a correctness
+feature. Supply a default ONLY where the statute genuinely has a residual/general case
+(Delhi `transferee_category`: anyone not female/joint pays the general rate; KA
+`first_sale_flat`: not-a-first-sale is the general case). Where the classes are
+exhaustive and a value must be supplied (MH `area_type`, KA `ka_area` — a property sits
+in exactly one area class), **omit the default** so a missing/unknown fact throws.
+
+Origin: an MH gram-panchayat mortgage without `area_type` silently charged 5% instead of
+4% — a ₹1 lakh error from a mandatory default. A default is a legal claim that the
+statute has a fallback; don't make that claim casually.
+
 ## 5. Canonical fact vocabulary
 - `transferee_category`: `male` | `female` | `joint` | (anything else → default rate).
   Used for buyer, donee, lessee, mortgagor — one key across instruments so modifiers

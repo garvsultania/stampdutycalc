@@ -15,12 +15,24 @@ export interface ChargeCtx {
   resolving: Set<string>;
 }
 
-/** Resolve an ad valorem rate: a plain number, or a category-selected rate. */
+/**
+ * Resolve an ad valorem rate: a plain number, or a rate selected by a categorical
+ * fact. If no case matches and the encoding declares no `default`, this THROWS —
+ * the rule has no residual case, so a missing/unknown fact must escalate rather
+ * than silently charge some other class's rate (PRD §15).
+ */
 export function resolveRate(pct: RateSpec, facts: Record<string, string | number>): number {
   if (typeof pct === "number") return pct;
   const value = facts[pct.by];
   const hit = pct.cases.find((c) => c.when === value);
-  return hit ? hit.pct : pct.default;
+  if (hit) return hit.pct;
+  if (pct.default !== undefined) return pct.default;
+  const known = pct.cases.map((c) => String(c.when)).join(", ");
+  throw new EngineError(
+    value === undefined
+      ? `required fact "${pct.by}" was not provided, and this rule declares no default rate (expected one of: ${known})`
+      : `fact "${pct.by}" = "${String(value)}" matches no rate case and this rule declares no default (expected one of: ${known})`,
+  );
 }
 
 /** Clamp a computed duty to its optional [min_duty, cap] window. */
@@ -89,7 +101,14 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
     case "select": {
       const value = ctx.facts[charge.by];
       const hit = charge.cases.find((c) => c.when === value);
-      return evalCharge(hit ? hit.charge : charge.default, ctx);
+      if (hit) return evalCharge(hit.charge, ctx);
+      if (charge.default) return evalCharge(charge.default, ctx);
+      const known = charge.cases.map((c) => String(c.when)).join(", ");
+      throw new EngineError(
+        value === undefined
+          ? `required fact "${charge.by}" was not provided, and this rule declares no default charge (expected one of: ${known})`
+          : `fact "${charge.by}" = "${String(value)}" matches no case and this rule declares no default charge (expected one of: ${known})`,
+      );
     }
   }
 }
