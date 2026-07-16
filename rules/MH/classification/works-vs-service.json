@@ -1,0 +1,54 @@
+{
+  "tree_id": "MH-works-vs-service",
+  "jurisdiction": "MH",
+  "instrument_class": "works_vs_service",
+  "root": "q_goods_transfer",
+  "nodes": {
+    "q_goods_transfer": {
+      "type": "question",
+      "text": "Does the contract involve works and labour or services WITH transfer of property in goods (whether as goods or in some other form) in its execution — as opposed to the supply of skill/labour alone?",
+      "legal_test": "Maharashtra Stamp Act Sch. I Art. 63 defines a works contract in exactly these terms ('a contract for works and labour or services involving transfer of property in goods (whether as goods or in some other form) in its execution and includes a sub-contract'), tracking State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560 and Art. 366(29A) of the Constitution.",
+      "edges": [
+        { "answer": "yes", "to": "q_specific_article" },
+        { "answer": "no", "to": "q_specific_article_service" }
+      ]
+    },
+    "q_specific_article": {
+      "type": "question",
+      "text": "Is the contract instead covered by a MORE SPECIFIC Article 5 sub-clause (e.g. (g-a) development agreement, or (h)(A) contracts charged at 0.1%/0.2% of the amount agreed) rather than by Art 63?",
+      "legal_test": "Art 63 applies to works contracts 'not otherwise provided for'; a specific Art 5 sub-clause displaces both Art 63 and the Art 5(h)(B) residual. Section 6 also charges the highest of competing descriptions where an instrument falls within two.",
+      "edges": [
+        { "answer": "no", "to": "t_works" },
+        { "answer": "yes", "to": "grey_specific_article" }
+      ]
+    },
+    "q_specific_article_service": {
+      "type": "question",
+      "text": "Is this pure service/skill with no transfer of goods, and not covered by any specific Article 5 sub-clause?",
+      "legal_test": "Art 5 routes 'agreement for service' to Article 5; clause (h)(B) is the residual ('if not otherwise provided for').",
+      "edges": [
+        { "answer": "yes", "to": "t_service" },
+        { "answer": "no", "to": "grey_specific_article" }
+      ]
+    },
+    "t_works": { "type": "terminal", "instrument": "works_contract", "article": "63", "rule_id": "MH-ART63-works-contract" },
+    "t_service": { "type": "terminal", "instrument": "service_agreement", "article": "5(h)(B)", "rule_id": "MH-ART5hB-service-agreement" },
+    "grey_specific_article": {
+      "type": "escalate",
+      "reason": "A more specific Article 5 sub-clause may apply (development agreement (g-a) → conveyance rate; (h)(A) → 0.1%/0.2% of the amount agreed), which displaces both Art 63 and the Art 5(h)(B) residual. In Maharashtra this fork is worth up to ~495× the duty (Rs 49,500 vs Rs 100 on a Rs 5 crore contract), so escalate and apply s.6 (highest of the competing descriptions) / seek adjudication (s.31) rather than guessing."
+    }
+  },
+  "version": {
+    "effective_from": "2015-04-24",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act 1958 Sch. I Arts 63 & 5(h)(B), s.6; State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560; Constitution Art. 366(29A)",
+      "quoted_text": "Art 63 charges a works contract (works/labour/services involving transfer of property in goods) ad valorem — Rs 500, plus 0.1% above Rs 10 lakh, capped at Rs 25 lakh. A pure service agreement falls to Art 5(h)(B) — Rs 100. Where an instrument falls within two descriptions, s.6 charges the highest."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH on the tests (Art 63's own statutory definition mirrors Gannon Dunkerley). This is the MOST duty-determinative classification in the corpus: in Maharashtra works vs service is ad valorem (up to Rs 25 lakh) vs a flat Rs 100 — whereas in Delhi (Rs 50 vs Rs 50) and Karnataka (Rs 200 vs Rs 200) it is duty-neutral. The extra node for 'more specific Art 5 sub-clause' matters because Art 5 has many overriding sub-clauses; it escalates rather than defaulting."
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "name": "MH Works contract — ≤ Rs 10 lakh: Rs 500",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "1000000" } },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Works contract — Rs 50 lakh: Rs 500 + 0.1% of the Rs 40L excess",
+    "source_note": "500 + 0.1% × (50,00,000 − 10,00,000 = 40,00,000) = 500 + 4,000 = 4,500.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "5000000" } },
+    "expect": { "total_duty": "4500" }
+  },
+  {
+    "name": "MH Works contract — just above the Rs 10L step: Rs 600",
+    "source_note": "500 + 0.1% × 1,00,000 = 500 + 100 = 600 (no cliff at the boundary).",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "1100000" } },
+    "expect": { "total_duty": "600" }
+  },
+  {
+    "name": "MH Works contract — cap binds at Rs 25 lakh",
+    "source_note": "300 cr: 500 + 0.1% × 2,99,90,00,000 = 29,99,500 → capped at Rs 25,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "3000000000" } },
+    "expect": { "total_duty": "2500000" }
+  },
+  {
+    "name": "MH Service agreement — Art 5(h)(B) residual: Rs 100",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2024-06-01", "values": {} },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "MH works-vs-service stakes — same Rs 5cr contract: Rs 49,500 as works",
+    "source_note": "500 + 0.1% × 4,90,00,000 = 49,500. Compare the service case below: Rs 100 — a ~495x classification fork, unique to MH among the three states.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "50000000" } },
+    "expect": { "total_duty": "49500" }
+  }
+]

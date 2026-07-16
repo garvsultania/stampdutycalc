@@ -1,0 +1,68 @@
+[
+  {
+    "rule_id": "MH-ART63-works-contract",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "63",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2015-04-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 63 (added by Mah. 12 of 2006 w.e.f. 1-5-2006; rates subst. by Mah. 20 of 2015 s.20(34) w.e.f. 24-4-2015)",
+        "article": "63",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 63 (both columns): 'Works Contract, that is to say, a contract for works and labour or services involving transfer of property in goods (whether as goods or in some other form) in its execution and includes a sub-contract — (a) where the amount or value set forth in such contract does not exceed rupees ten lakh — Five hundred rupees; (b) where it exceeds rupees ten lakh — Five hundred rupees plus 0.1 per cent of the amount above rupees ten lakh subject to maximum of rupees twenty-five lakhs.' [Rates subst. by Mah. 20 of 2015; prior: Rs 100 + Rs 100 per Rs 1,00,000 above Rs 10 lakh, max Rs 5 lakh.]"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "contract_value" },
+      "cases": [
+        { "upto": 1000000, "charge": { "kind": "fixed", "amount": "500" } },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": { "excess_over_10L": { "op": "-", "args": [{ "var": "contract_value" }, { "lit": 1000000 }] } },
+            "components": [
+              { "kind": "fixed", "amount": "500" },
+              { "kind": "ad_valorem", "base": { "var": "excess_over_10L" }, "pct": 0.1 }
+            ],
+            "cap": "2500000"
+          }
+        }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR, both columns). Marginal-with-cap: ≤ Rs 10 lakh → Rs 500; above → Rs 500 + 0.1% of the excess over Rs 10 lakh, TOTAL capped at Rs 25,00,000. Input: contract_value. The cap is read as applying to the whole duty (Rs 500 + the 0.1% component) — confirm. THE WORKS-vs-SERVICE FORK IS HUGE IN MAHARASHTRA: a Rs 5 crore contract is Rs 49,500 as a works contract but Rs 100 as an Art 5(h)(B) service agreement (≈495×) — unlike Delhi (Rs 50 vs Rs 50) and Karnataka (Rs 200 vs Rs 200), where the classification is duty-neutral. Route via the MH-works-vs-service tree; the pre-2015 version (Rs 100 + Rs 100/lakh, max Rs 5 lakh) is a back-catalogue item."
+  },
+  {
+    "rule_id": "MH-ART5hB-service-agreement",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "5(h)(B)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 5(h)(B)",
+        "article": "5",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 5 (AGREEMENT OR ITS RECORDS OR MEMORANDUM OF AN AGREEMENT), clause (h)(B) (both columns): '(B) if not otherwise provided for — One hundred rupees.' Cross-heading in Sch I: 'HIRING AGREEMENT or agreement for service, see Agreement (Article 5).'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "100" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5 expressly routes 'agreement for service' here; (h)(B) residual = Rs 100. CAUTION: Art 5 has many specific sub-clauses that override the residual (e.g. (g-a) development agreements = conveyance rate; (h)(A) works-like contracts at 0.1%/0.2% of the contract amount) — the questionnaire must rule those out before landing on (h)(B). Given the 495× works-vs-service gap in MH, mis-routing here is the highest-consequence classification error in the corpus; effective_from set at the 2015 coverage floor (exact amendment date to confirm)."
+  }
+]
