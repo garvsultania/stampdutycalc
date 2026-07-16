@@ -113,7 +113,9 @@ Event {
 | **R7** | Polite: rate-limited, backoff on 429/5xx, identifiable UA, respects the site. These are government servers. |
 | **R8** | **No LLM in the pipeline.** |
 | **R9** | Shape drift detection: if a form field or table structure changes, emit `shape_drift` and fail loudly rather than returning zero rows. A silent zero from a changed page is the worst failure mode this system has. |
-| **R10** | Sweeps are **date-ranged and recorded**, so "we have swept MH Part 8 through 2026-07-16" is a checkable fact, not a memory. |
+| **R10** | Sweeps are **date-ranged and recorded**, so "we have swept MH Part 8 through 2026-07-16" is a checkable fact, not a memory. Sweep state is a **committed** JSONL file, not local memory. |
+| **R11** | **Fixture-replay testing.** One live run records raw HTTP responses (HTML pages + PDFs) as fixtures; the test suite runs entirely against fixtures. Hitting the live site requires an explicit `--live` flag. Tests must never hammer a government server (that would violate R7), and development must not be hostage to its uptime. Shape-drift tests are fixture mutations. |
+| **R12** | **Blob storage is split from the index.** PDF blobs live in a gitignored local directory, addressed by SHA-256. The **index** (`Document` records) and **sweep state** (`SweepRun` records) are small committed JSONL files — diffable and PR-reviewable. Long-term blob home (git-LFS vs object storage) is an open founder decision; do not block v1 on it. |
 
 ## 8. Sources — v1
 
@@ -146,9 +148,18 @@ in the 2026-07-16 session. The watchdog is correct when:
 
 ## 10. Definition of done
 
-A weekly scheduled run that opens a PR titled e.g. *"Watchdog: 2 new documents — MH Part 8"* with the
-archived PDFs, their provenance, and the sweep record — and a human decides what, if anything, it
-means for `rules/`.
+**V1 is a CLI, run locally:**
+
+```
+pnpm watchdog sweep mh-egazette --from 2026-07-01 --to 2026-07-17 --live
+```
+
+It records the sweep, archives new documents, updates the committed index, and prints a
+human-readable report of events. Scheduling (cron / CI) is a **later step, deliberately**: GitHub
+Actions runners are foreign cloud IPs, and Indian government sites are exactly the kind that
+geo-block or throttle them — we already know India Code 403s a default UA. Prove the sweep works
+from a network the site tolerates before automating it. The end state is still a weekly run that
+opens a PR (*"Watchdog: 2 new documents — MH Part 8"*) for a human to read.
 
 ## 11. What this unlocks
 
