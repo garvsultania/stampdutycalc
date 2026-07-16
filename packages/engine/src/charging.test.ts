@@ -20,6 +20,10 @@ const corpus = mergeLoads([
 ]);
 const rs = corpus.ruleSet;
 const DATE = "2024-06-01";
+/** Karnataka Art 5(j) refuses from 03-02-2024 (Act 04 of 2024 rewrote it and our source
+ *  predates that). These cases exercise the s.5/s.6 tie logic, not the rate, so they pin
+ *  to a date whose encoding is verified. */
+const KA_DATE = "2023-06-01";
 
 const dlCharging = resolveChargingRules(rs, "DL", DATE);
 const mhCharging = resolveChargingRules(rs, "MH", DATE);
@@ -132,8 +136,8 @@ describe("s.5 vs s.6 — aggregate vs highest (PRD §5.4)", () => {
 
   it("flags a tie, where s.6 changes nothing", () => {
     const tie: NamedInstrument[] = [
-      { label: "Works contract", input: { jurisdiction: "KA", rule_id: "KA-ART5j-works-contract", execution_date: DATE, values: {}, facts: {} } },
-      { label: "Service agreement", input: { jurisdiction: "KA", rule_id: "KA-ART5j-service-agreement", execution_date: DATE, values: {}, facts: {} } },
+      { label: "Works contract", input: { jurisdiction: "KA", rule_id: "KA-ART5j-works-contract", execution_date: KA_DATE, values: {}, facts: {} } },
+      { label: "Service agreement", input: { jurisdiction: "KA", rule_id: "KA-ART5j-service-agreement", execution_date: KA_DATE, values: {}, facts: {} } },
     ];
     const r = computeS6(rs, tie);
     expect(r.total).toBe("200");
