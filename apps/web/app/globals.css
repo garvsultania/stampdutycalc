@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 222 44% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 44% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 44% 12%;
+    --primary: 222 44% 16%;
+    --primary-foreground: 40 33% 98%;
+    --secondary: 220 18% 94%;
+    --secondary-foreground: 222 44% 16%;
+    --muted: 220 16% 94%;
+    --muted-foreground: 222 12% 42%;
+    --accent: 220 18% 92%;
+    --accent-foreground: 222 44% 16%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 88%;
+    --input: 220 14% 84%;
+    --ring: 222 44% 16%;
+    --gold: 40 68% 46%;
+    --gold-foreground: 40 40% 98%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; }
+  html { scroll-behavior: smooth; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+  .memo-sheet { box-shadow: none !important; border: none !important; margin: 0 !important; max-width: none !important; }
+  @page { margin: 18mm 16mm; }
+}
