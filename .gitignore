@@ -8,3 +8,13 @@ coverage/
 !.env.example
 .stampdraft-db/
 .env.local
+
+# Watchdog primary-source bodies are local, immutable, content-addressed evidence.
+watchdog-data/blobs/
+watchdog-data/recordings/*/bodies/*.pdf
+watchdog-data/recordings/2025-04-09_2026-07-16/
+watchdog-data/recordings/2025-04-09_2026-07-16_failed-pager/
+watchdog-data/recordings/2025-04-09_2026-07-16_partial-page1/
+watchdog-data/recordings/2026-07-01_2026-07-16/
+watchdog-data/recordings/one-document-validation/
+watchdog-data/ocr/

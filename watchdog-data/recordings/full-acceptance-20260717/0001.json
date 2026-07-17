@@ -1,0 +1,25 @@
+{
+  "sequence": 1,
+  "request": {
+    "method": "GET",
+    "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx"
+  },
+  "response": {
+    "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+    "status": 200,
+    "media_type": "text/html",
+    "headers": {
+      "cache-control": "private",
+      "content-encoding": "gzip",
+      "content-length": "7322",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Thu, 16 Jul 2026 23:57:53 GMT",
+      "server": "Microsoft-IIS/10.0",
+      "vary": "Accept-Encoding",
+      "x-aspnet-version": "4.0.30319",
+      "x-powered-by": "ASP.NET"
+    },
+    "body_file": "bodies/0001.html",
+    "bytes": 16353
+  }
+}

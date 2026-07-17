@@ -11,6 +11,7 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "test:watch": "vitest",
+    "watchdog": "tsc -b packages/watchdog && node packages/watchdog/dist/cli.js",
     "validate:rules": "tsx scripts/validate-rules.ts",
     "golden": "tsx scripts/run-golden.ts",
     "check": "pnpm typecheck && pnpm validate:rules && pnpm golden && pnpm test"

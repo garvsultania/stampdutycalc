@@ -12,6 +12,9 @@
     },
     {
       "path": "./packages/store"
+    },
+    {
+      "path": "./packages/watchdog"
     }
   ]
 }

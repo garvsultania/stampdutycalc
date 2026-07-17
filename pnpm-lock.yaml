@@ -168,6 +168,8 @@ importers:
         specifier: ^8.11.10
         version: 8.20.0
 
+  packages/watchdog: {}
+
 packages:
 
   '@alloc/quick-lru@5.2.0':
