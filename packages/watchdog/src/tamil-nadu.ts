@@ -18,7 +18,7 @@ export function parseTamilNaduOrdinaryIssues(html: string, responseUrl: string):
 
 export function parseTamilNaduGazettePdfs(html: string, responseUrl: string): GazetteRow[] {
   const rows = parseStaticDocumentIndex(html, responseUrl, {
-    linkPattern: /\/(?:gazette|extraordinary)\/20\d{2}\/[^?#]+\.pdf(?:$|[?#])/i,
+    linkPattern: /(?:^|\/)(?:gazette|extraordinary)\/20\d{2}\/[^?#]+\.pdf(?:$|[?#])/i,
   });
   for (const row of rows) {
     const url = new URL(row.pdfRequest.url);

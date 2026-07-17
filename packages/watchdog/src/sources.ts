@@ -12,6 +12,7 @@ export interface SourceDefinition {
   name: string;
   owner: string;
   baseUrl: string;
+  probeUrl?: string;
   allowedHosts: string[];
   adapter: AdapterKind;
   publication: PublicationKind;
@@ -62,6 +63,7 @@ const SOURCES = [
     name: "Gujarat e-Gazette",
     owner: "Directorate of Government Printing and Stationery, Government of Gujarat",
     baseUrl: "https://egazette.gujarat.gov.in/GazettesSearch.aspx",
+    probeUrl: "https://egazette.gujarat.gov.in/RecentGazette.aspx",
     allowedHosts: ["egazette.gujarat.gov.in"],
     adapter: "aspnet_postback",
     publication: "gazette",
@@ -77,6 +79,7 @@ const SOURCES = [
     name: "Karnataka DPAL Acts and Ordinances",
     owner: "Department of Parliamentary Affairs and Legislation, Government of Karnataka",
     baseUrl: "https://dpal.karnataka.gov.in/23/acts-and-ordinances/kn",
+    probeUrl: "https://dpal.karnataka.gov.in/79/2025/en",
     allowedHosts: ["dpal.karnataka.gov.in"],
     adapter: "static_index",
     publication: "acts",
@@ -108,6 +111,7 @@ const SOURCES = [
     name: "Tamil Nadu Extraordinary Gazette",
     owner: "Stationery and Printing Department, Government of Tamil Nadu",
     baseUrl: "https://stationeryprinting.tn.gov.in/extra_ordinary_lists.php",
+    probeUrl: "https://stationeryprinting.tn.gov.in/extra_ordinary_lists.php?id=MjAyNg==",
     allowedHosts: ["stationeryprinting.tn.gov.in", "www.stationeryprinting.tn.gov.in"],
     adapter: "static_index",
     publication: "gazette",
@@ -188,6 +192,12 @@ export function validateSourceDefinition(source: SourceDefinition): void {
   if (source.languages.length === 0) throw new WatchdogError(`Watchdog source has no languages: ${source.id}`, "shape_drift");
   if (!source.allowedHosts.includes(url.hostname)) {
     throw new WatchdogError(`Watchdog source base host is not allowlisted: ${source.id}`, "shape_drift");
+  }
+  if (source.probeUrl) {
+    const probeUrl = new URL(source.probeUrl);
+    if (probeUrl.protocol !== "https:" || !source.allowedHosts.includes(probeUrl.hostname)) {
+      throw new WatchdogError(`Watchdog probe URL is outside the source allowlist: ${source.id}`, "shape_drift");
+    }
   }
   if (source.allowedHosts.some((host) => !/\.(gov\.in|nic\.in)$/.test(host))) {
     throw new WatchdogError(`Watchdog source host is not a government domain: ${source.id}`, "shape_drift");

@@ -2,6 +2,7 @@
 import { resolve } from "node:path";
 import { EvidenceStore } from "./archive.js";
 import { HttpFetcher } from "./fetcher.js";
+import { probeSource } from "./probe.js";
 import { ResponseRecorder } from "./recording.js";
 import { listSources } from "./sources.js";
 import { runMhEgazetteSweep } from "./sweep.js";
@@ -30,8 +31,24 @@ async function main(argv: string[]): Promise<number> {
     }
     return 0;
   }
+  if (args.command === "probe") {
+    if (!args.source) return usage("A source id is required for probe.");
+    if (!args.live) return usage("Network access is disabled unless --live is explicit.");
+    try {
+      const report = await probeSource(
+        new HttpFetcher(),
+        args.source,
+        resolve("watchdog-data", "sources", args.source, "state", "probe.jsonl"),
+      );
+      process.stdout.write(`${JSON.stringify(report)}\n`);
+      return 0;
+    } catch (error) {
+      process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+      return 1;
+    }
+  }
   if (args.command !== "sweep" || !["mh-egazette", "mh-egazette-part8"].includes(args.source ?? "")) {
-    return usage("Only the accepted `sweep mh-egazette-part8` source can run live; use `sources` to inspect provisional sources.");
+    return usage("Only the accepted `sweep mh-egazette-part8` source can run live; use `probe` for bounded provisional-source checks.");
   }
   if (!args.from || !args.to) return usage("Both --from and --to are required.");
   if (!args.live) return usage("Network access is disabled unless --live is explicit.");
@@ -87,7 +104,7 @@ function parseArgs(argv: string[]): Args {
 
 function usage(message: string): number {
   process.stderr.write(
-    `${message}\nUsage:\n  pnpm watchdog sources\n  ` +
+    `${message}\nUsage:\n  pnpm watchdog sources\n  pnpm watchdog probe SOURCE --live\n  ` +
       `pnpm watchdog sweep mh-egazette-part8 --from YYYY-MM-DD --to YYYY-MM-DD --live ` +
       `[--record] [--record-label LABEL] [--limit N]\n`,
   );
