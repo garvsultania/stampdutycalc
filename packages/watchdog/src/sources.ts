@@ -53,7 +53,7 @@ const SOURCES = [
     authority: "official_government",
     languages: ["en", "mr"],
     ocr: "recorded_fallback",
-    description: "Official Maharashtra notifications published in Part IV-B.",
+    description: "Official Maharashtra notifications published in Part IV-B; five-year row discovery and the sentinel are proven, but full document acquisition is not yet complete.",
     acceptance: ["2026-01-09 Mudrank-2024/C.R.182/Mudrank-2 notification"],
   },
   {
@@ -137,7 +137,7 @@ const SOURCES = [
     jurisdiction: "DL",
     name: "Delhi Revenue Notifications",
     owner: "Department of Revenue, Government of NCT of Delhi",
-    baseUrl: "https://revenue.delhi.gov.in/revenue/notifications",
+    baseUrl: "https://revenue.delhi.gov.in/revenue/notification",
     allowedHosts: ["revenue.delhi.gov.in"],
     adapter: "static_index",
     publication: "notifications",

@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { inspectSearchForm, MH_PART4B_SELECTION, parseResultsPage, requirePdf } from "./egazette.js";
+import { mhPart4bAdapter } from "./mh-adapter.js";
 import { WatchdogError } from "./errors.js";
 import type { ResponseRecord } from "./types.js";
 
@@ -39,6 +40,7 @@ describe("Maharashtra e-Gazette result fixtures", () => {
     expect(form.values["ctl00$CPH$ddlSection"]).toBe("9");
     expect(form.values["ctl00$CPH$ddldivision"]).toBe("1");
     expect(form.values["ctl00$CPH$ddlGazetteType"]).toBe("1");
+    expect(mhPart4bAdapter().sourceId).toBe("mh-egazette-part4b");
   });
 
   it("parses all 195 rows and the HTML-entity-encoded second-page postback", async () => {

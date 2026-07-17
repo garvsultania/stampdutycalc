@@ -11,7 +11,11 @@ coverage/
 
 # Watchdog primary-source bodies are local, immutable, content-addressed evidence.
 watchdog-data/blobs/
+watchdog-data/sources/*/blobs/
 watchdog-data/recordings/*/bodies/*.pdf
+watchdog-data/sources/*/recordings/*/bodies/*.pdf
+watchdog-data/sources/*/recordings/
+watchdog-data/sources/*/probe/
 watchdog-data/recordings/2025-04-09_2026-07-16/
 watchdog-data/recordings/2025-04-09_2026-07-16_failed-pager/
 watchdog-data/recordings/2025-04-09_2026-07-16_partial-page1/

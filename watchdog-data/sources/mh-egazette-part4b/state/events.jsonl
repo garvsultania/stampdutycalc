@@ -1,0 +1,2 @@
+{"event_id":"2cbdbeed5490fc28ae43b0fbb5b69bdc8405085c52bcf9ad39a825c9ce16d6ed","type":"new_document","source_id":"mh-egazette-part4b","run_id":"0ae46143-96d1-4e79-965b-e0215df48e61","documents":["8931ab80139f05aeef7692bd2d0f3b88b5242f158ab4d5146186ce745738cb03"],"detail":"1 new documents archived"}
+{"event_id":"213c4dd7ac6e8fca040c5ff34d43fea9745637cb234e908f7a78acf2c44844c5","type":"sweep_partial","source_id":"mh-egazette-part4b","run_id":"0ae46143-96d1-4e79-965b-e0215df48e61","detail":"Bounded sweep fetched 1 of 2573 listed documents"}
