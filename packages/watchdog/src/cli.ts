@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { EvidenceStore } from "./archive.js";
 import { HttpFetcher } from "./fetcher.js";
 import { ResponseRecorder } from "./recording.js";
+import { listSources } from "./sources.js";
 import { runMhEgazetteSweep } from "./sweep.js";
 
 interface Args {
@@ -23,7 +24,15 @@ async function main(argv: string[]): Promise<number> {
   } catch (error) {
     return usage(error instanceof Error ? error.message : String(error));
   }
-  if (args.command !== "sweep" || args.source !== "mh-egazette") return usage("Only `sweep mh-egazette` is supported in v1.");
+  if (args.command === "sources") {
+    for (const source of listSources()) {
+      process.stdout.write(`${source.id}\t${source.status}\t${source.adapter}\t${source.name}\n`);
+    }
+    return 0;
+  }
+  if (args.command !== "sweep" || !["mh-egazette", "mh-egazette-part8"].includes(args.source ?? "")) {
+    return usage("Only the accepted `sweep mh-egazette-part8` source can run live; use `sources` to inspect provisional sources.");
+  }
   if (!args.from || !args.to) return usage("Both --from and --to are required.");
   if (!args.live) return usage("Network access is disabled unless --live is explicit.");
 
@@ -78,7 +87,8 @@ function parseArgs(argv: string[]): Args {
 
 function usage(message: string): number {
   process.stderr.write(
-    `${message}\nUsage: pnpm watchdog sweep mh-egazette --from YYYY-MM-DD --to YYYY-MM-DD --live ` +
+    `${message}\nUsage:\n  pnpm watchdog sources\n  ` +
+      `pnpm watchdog sweep mh-egazette-part8 --from YYYY-MM-DD --to YYYY-MM-DD --live ` +
       `[--record] [--record-label LABEL] [--limit N]\n`,
   );
   return 2;

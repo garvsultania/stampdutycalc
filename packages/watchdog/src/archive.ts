@@ -2,7 +2,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { appendFile, mkdir, readFile, rename, stat, writeFile } from "node:fs/promises";
 import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { WatchdogError } from "./errors.js";
-import { SOURCE_ID, type DocumentRecord, type GazetteRow, type SweepRun, type WatchdogEvent } from "./types.js";
+import { SOURCE_ID, type DocumentRecord, type GazetteRow, type SourceId, type SweepRun, type WatchdogEvent } from "./types.js";
 
 export interface ArchiveResult {
   document: DocumentRecord;
@@ -13,7 +13,10 @@ export interface ArchiveResult {
 export class EvidenceStore {
   readonly root: string;
 
-  constructor(root: string) {
+  constructor(
+    root: string,
+    readonly sourceId: SourceId = SOURCE_ID,
+  ) {
     this.root = resolve(root);
     guardArchivePath(this.root);
   }
@@ -22,7 +25,7 @@ export class EvidenceStore {
     const sha256 = createHash("sha256").update(body).digest("hex");
     const blobPath = join(this.root, "blobs", sha256.slice(0, 2), `${sha256}.pdf`);
     const newBlob = await writeImmutableBlob(blobPath, body, sha256);
-    const document = documentRecord(row, sha256, mediaType, fetchedAt);
+    const document = documentRecord(this.sourceId, row, sha256, mediaType, fetchedAt);
     const newDocument = await appendUnique(join(this.root, "index", "documents.jsonl"), "sha256", document);
     return { document, newBlob, newDocument };
   }
@@ -36,7 +39,7 @@ export class EvidenceStore {
     const refreshed = documents.map((document) => {
       const row = rowsById.get(document.source_row_id);
       if (!row) return document;
-      const next = documentRecord(row, document.sha256, document.media_type, document.fetched_at);
+      const next = documentRecord(this.sourceId, row, document.sha256, document.media_type, document.fetched_at);
       next.ocr = document.ocr;
       if (JSON.stringify(next) !== JSON.stringify(document)) updated++;
       return next;
@@ -55,6 +58,7 @@ export class EvidenceStore {
 }
 
 function documentRecord(
+  sourceId: SourceId,
   row: GazetteRow,
   sha256: string,
   mediaType: string,
@@ -62,7 +66,7 @@ function documentRecord(
 ): DocumentRecord {
   return {
     sha256,
-    source_id: SOURCE_ID,
+    source_id: sourceId,
     source_row_id: row.sourceRowId,
     title: row.title,
     ...(row.gazetteDate ? { gazette_date: row.gazetteDate } : {}),
@@ -85,15 +89,16 @@ export function createEvent(
   type: WatchdogEvent["type"],
   detail: string,
   documents?: string[],
+  sourceId: SourceId = SOURCE_ID,
 ): WatchdogEvent {
   const identity =
     type === "new_document"
-      ? JSON.stringify({ source: SOURCE_ID, type, detail, documents: documents ?? [] })
-      : JSON.stringify({ source: SOURCE_ID, runId, type, detail, documents: documents ?? [] });
+      ? JSON.stringify({ source: sourceId, type, detail, documents: documents ?? [] })
+      : JSON.stringify({ source: sourceId, runId, type, detail, documents: documents ?? [] });
   return {
     event_id: createHash("sha256").update(identity).digest("hex"),
     type,
-    source_id: SOURCE_ID,
+    source_id: sourceId,
     run_id: runId,
     ...(documents && documents.length > 0 ? { documents } : {}),
     detail,

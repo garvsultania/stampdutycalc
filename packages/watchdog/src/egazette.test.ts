@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { inspectSearchForm, parseResultsPage, requirePdf } from "./egazette.js";
+import { inspectSearchForm, MH_PART4B_SELECTION, parseResultsPage, requirePdf } from "./egazette.js";
 import { WatchdogError } from "./errors.js";
 import type { ResponseRecord } from "./types.js";
 
@@ -25,6 +25,20 @@ describe("Maharashtra e-Gazette result fixtures", () => {
     expect(form.action).toBe(responseUrl);
     expect(form.values).toMatchObject(searchFormValues);
     expect(form.values.__VIEWSTATE).toBeTruthy();
+  });
+
+  it("selects Part IV-B without changing the reusable ASP.NET form parser", async () => {
+    const html = await readFile(`${recording}0001.html`, "utf8");
+    const form = inspectSearchForm(
+      html,
+      responseUrl,
+      { from: "2021-07-17", to: "2026-07-17" },
+      MH_PART4B_SELECTION,
+    );
+
+    expect(form.values["ctl00$CPH$ddlSection"]).toBe("9");
+    expect(form.values["ctl00$CPH$ddldivision"]).toBe("1");
+    expect(form.values["ctl00$CPH$ddlGazetteType"]).toBe("1");
   });
 
   it("parses all 195 rows and the HTML-entity-encoded second-page postback", async () => {

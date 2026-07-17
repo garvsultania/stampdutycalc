@@ -1,7 +1,8 @@
 import { createEvent, createRunId, EvidenceStore } from "./archive.js";
-import { beginSearch, fetchNextPage, requirePdf } from "./egazette.js";
+import type { SourceAdapter } from "./adapter.js";
 import { WatchdogError } from "./errors.js";
-import type { EventType, Fetcher, SweepStatus } from "./types.js";
+import { mhPart8Adapter } from "./mh-adapter.js";
+import type { EventType, Fetcher, SourceId, SweepStatus } from "./types.js";
 
 export interface SweepOptions {
   from: string;
@@ -31,7 +32,22 @@ export async function runMhEgazetteSweep(
   options: SweepOptions,
   dependencies: SweepDependencies,
 ): Promise<SweepReport> {
+  return runSweep(mhPart8Adapter(), options, dependencies);
+}
+
+export async function runSweep(
+  adapter: SourceAdapter,
+  options: SweepOptions,
+  dependencies: SweepDependencies,
+): Promise<SweepReport> {
   const { fetcher, evidence } = dependencies;
+  if (evidence.sourceId !== adapter.sourceId && !(evidence.sourceId === "mh-egazette" && adapter.sourceId === "mh-egazette-part8")) {
+    throw new WatchdogError(
+      `Evidence store source ${evidence.sourceId} does not match adapter ${adapter.sourceId}`,
+      "shape_drift",
+    );
+  }
+  const sourceId: SourceId = evidence.sourceId;
   if (options.limit !== undefined && (!Number.isSafeInteger(options.limit) || options.limit < 1)) {
     throw new WatchdogError("Sweep limit must be a positive integer", "shape_drift");
   }
@@ -46,15 +62,16 @@ export async function runMhEgazetteSweep(
   const newDocuments: string[] = [];
 
   try {
-    const session = await beginSearch(fetcher, options);
+    const session = await adapter.begin(fetcher, options);
     const rows = [...session.firstPage.rows];
     let page = session.firstPage;
     rowsSeen = rows.length;
     pagesFetched = page.pageNumber;
     pagesExpected = page.pagesExpected;
-    while (page.nextPostBack) {
-      const next = await fetchNextPage(fetcher, page, session.searchFormValues);
-      page = next.page;
+    while (true) {
+      const next = await session.next(page);
+      if (!next) break;
+      page = next;
       pagesFetched = page.pageNumber;
       pagesExpected = page.pagesExpected;
       rows.push(...page.rows);
@@ -63,7 +80,7 @@ export async function runMhEgazetteSweep(
     const uniqueRows = new Set(rows.map((row) => row.sourceRowId));
     if (uniqueRows.size !== rows.length) {
       throw new WatchdogError(
-        `e-Gazette returned ${rows.length} rows but only ${uniqueRows.size} distinct source rows`,
+        `${sourceId} returned ${rows.length} rows but only ${uniqueRows.size} distinct source rows`,
         "shape_drift",
       );
     }
@@ -71,7 +88,7 @@ export async function runMhEgazetteSweep(
     const documents = options.limit === undefined ? rows : rows.slice(0, options.limit);
     for (const [index, row] of documents.entries()) {
       const response = await fetcher.request(row.pdfRequest);
-      requirePdf(response, `e-Gazette document ${index + 1}`);
+      adapter.verifyDocument(response.mediaType, response.body, `${sourceId} document ${index + 1}`);
       const archived = await evidence.archive(row, response.body, response.mediaType, now());
       if (archived.newBlob) newBlobs++;
       if (archived.newDocument) newDocuments.push(archived.document.sha256);
@@ -81,7 +98,7 @@ export async function runMhEgazetteSweep(
     const error = status === "partial" ? `Bounded sweep fetched ${documentsFetched} of ${rowsSeen} listed documents` : undefined;
     await evidence.recordSweep({
       run_id: runId,
-      source_id: "mh-egazette",
+      source_id: sourceId,
       range_from: options.from,
       range_to: options.to,
       started_at: startedAt,
@@ -94,10 +111,10 @@ export async function runMhEgazetteSweep(
     });
     if (newDocuments.length > 0) {
       await evidence.emitEvent(
-        createEvent(runId, "new_document", `${newDocuments.length} new e-Gazette documents archived`, newDocuments),
+        createEvent(runId, "new_document", `${newDocuments.length} new documents archived`, newDocuments, sourceId),
       );
     }
-    if (error) await evidence.emitEvent(createEvent(runId, "sweep_partial", error));
+    if (error) await evidence.emitEvent(createEvent(runId, "sweep_partial", error, undefined, sourceId));
     return {
       status,
       rows: rowsSeen,
@@ -119,7 +136,7 @@ export async function runMhEgazetteSweep(
           : "source_unreachable";
     await evidence.recordSweep({
       run_id: runId,
-      source_id: "mh-egazette",
+      source_id: sourceId,
       range_from: options.from,
       range_to: options.to,
       started_at: startedAt,
@@ -130,7 +147,7 @@ export async function runMhEgazetteSweep(
       ...(pagesFetched > 0 ? { pages_fetched: pagesFetched } : {}),
       error: message,
     });
-    await evidence.emitEvent(createEvent(runId, eventType, message));
+    await evidence.emitEvent(createEvent(runId, eventType, message, undefined, sourceId));
     throw new SweepFailedError(
       message,
       {

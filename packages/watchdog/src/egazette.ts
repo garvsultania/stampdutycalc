@@ -5,10 +5,22 @@ import type { Fetcher, GazettePage, GazetteRow, RequestSpec, ResponseRecord } fr
 
 export const EGAZETTE_URL = "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx";
 
-const EXPECTED = {
-  division: { value: "1", label: /central\s+section/i },
-  section: { value: "15", label: /part\s*8\s*\(english\)/i },
-  type: { value: "1", label: /extra[-\s]*ordinary/i },
+export interface MaharashtraGazetteSelection {
+  division: { value: string; label: RegExp; description: string };
+  section: { value: string; label: RegExp; description: string };
+  type: { value: string; label: RegExp; description: string };
+}
+
+export const MH_PART8_SELECTION: MaharashtraGazetteSelection = {
+  division: { value: "1", label: /central\s+section/i, description: "CENTRAL SECTION(1)" },
+  section: { value: "15", label: /part\s*8\s*\(english\)/i, description: "Part 8 (English)(15)" },
+  type: { value: "1", label: /extra[-\s]*ordinary/i, description: "Extra-Ordinary(1)" },
+};
+
+export const MH_PART4B_SELECTION: MaharashtraGazetteSelection = {
+  division: { value: "1", label: /central\s+section/i, description: "CENTRAL SECTION(1)" },
+  section: { value: "9", label: /part\s*-?\s*4\s*b/i, description: "Part 4 B(9)" },
+  type: { value: "1", label: /extra[-\s]*ordinary/i, description: "Extra-Ordinary(1)" },
 };
 
 export interface GazetteSearch {
@@ -22,11 +34,15 @@ export interface SearchSession {
   response: ResponseRecord;
 }
 
-export async function beginSearch(fetcher: Fetcher, range: GazetteSearch): Promise<SearchSession> {
+export async function beginSearch(
+  fetcher: Fetcher,
+  range: GazetteSearch,
+  selection: MaharashtraGazetteSelection = MH_PART8_SELECTION,
+): Promise<SearchSession> {
   const initial = await fetcher.request({ url: EGAZETTE_URL });
   requireHtml(initial, "initial e-Gazette form");
   const html = htmlText(initial.body);
-  const form = inspectSearchForm(html, initial.url, range);
+  const form = inspectSearchForm(html, initial.url, range, selection);
   const response = await fetcher.request({ url: form.action, method: "POST", formValues: form.values });
   requireHtml(response, "e-Gazette search results");
   const firstPage = parseResultsPage(htmlText(response.body), response.url, 1, form.values);
@@ -56,15 +72,16 @@ export function inspectSearchForm(
   html: string,
   responseUrl: string,
   range: GazetteSearch,
+  selection: MaharashtraGazetteSelection = MH_PART8_SELECTION,
 ): { action: string; values: Record<string, string> } {
   const form = firstForm(html);
   const hidden = hiddenFields(form.inner);
   requireHidden(hidden, "__VIEWSTATE");
 
   const selects = parseSelects(form.inner);
-  const division = findExpectedSelect(selects, EXPECTED.division, "CENTRAL SECTION(1)");
-  const section = findExpectedSelect(selects, EXPECTED.section, "Part 8 (English)(15)");
-  const type = findExpectedSelect(selects, EXPECTED.type, "Extra-Ordinary(1)");
+  const division = findExpectedSelect(selects, selection.division, selection.division.description);
+  const section = findExpectedSelect(selects, selection.section, selection.section.description);
+  const type = findExpectedSelect(selects, selection.type, selection.type.description);
   const dateInputs = findDateInputs(form.inner);
   const submit = findSearchSubmit(form.inner);
 
@@ -214,7 +231,7 @@ function parseSelects(html: string): Array<{ name: string; options: Array<{ valu
 
 function findExpectedSelect(
   selects: ReturnType<typeof parseSelects>,
-  expected: { value: string; label: RegExp },
+  expected: { value: string; label: RegExp; description?: string },
   description: string,
 ): { name: string; value: string } {
   const matches = selects.filter((select) => select.options.some((option) => option.value === expected.value && expected.label.test(option.text)));

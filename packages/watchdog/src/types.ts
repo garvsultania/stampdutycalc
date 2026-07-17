@@ -1,4 +1,5 @@
 export const SOURCE_ID = "mh-egazette" as const;
+export type SourceId = string;
 
 export interface ResponseRecord {
   url: string;
@@ -62,7 +63,7 @@ export type EventType = "new_document" | "source_unreachable" | "shape_drift" | 
 
 export interface DocumentRecord {
   sha256: string;
-  source_id: typeof SOURCE_ID;
+  source_id: SourceId;
   source_row_id: string;
   title: string;
   gazette_date?: string;
@@ -77,7 +78,7 @@ export interface DocumentRecord {
 
 export interface SweepRun {
   run_id: string;
-  source_id: typeof SOURCE_ID;
+  source_id: SourceId;
   range_from: string;
   range_to: string;
   started_at: string;
@@ -92,7 +93,7 @@ export interface SweepRun {
 export interface WatchdogEvent {
   event_id: string;
   type: EventType;
-  source_id: typeof SOURCE_ID;
+  source_id: SourceId;
   run_id: string;
   documents?: string[];
   detail: string;
