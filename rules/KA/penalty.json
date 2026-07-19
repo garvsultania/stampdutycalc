@@ -3,6 +3,11 @@
   "jurisdiction": "KA",
   "penalty": { "type": "discretionary_range", "min_multiple": 0, "max_multiple": 10 },
   "adjudication_path": "Karnataka Stamp Act 1957 s.34 (admission on payment of duty + penalty up to 10× deficiency) / s.39 (Collector) / s.46A",
+  "pending_verification": [
+    {
+      "reason": "One discretionary [0, 10x] range conflates two materially different statutory routes: s.34 admission in evidence can impose a mandatory 10x penalty (subject to the Rs 5 wording), while the Collector path under s.39 is discretionary up to 10x. Refuse until the output contract represents the selected route explicitly."
+    }
+  ],
   "version": {
     "effective_from": "2015-01-01",
     "effective_to": null,

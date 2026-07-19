@@ -1,6 +1,142 @@
 import { z } from "zod";
 import { ISODateSchema } from "./primitives.js";
 
+export const SHA256Schema = z.string().regex(/^[a-f0-9]{64}$/, "must be a lowercase SHA-256 hex digest");
+
+export const EvidenceDocumentRefSchema = z
+  .object({
+    sha256: SHA256Schema,
+    source_id: z.string().min(1),
+    source_row_id: z.string().min(1),
+    /** Successful acquisition run that archived this exact document. */
+    run_id: z.string().min(1),
+    published_on: ISODateSchema,
+    role: z.enum(["base_act", "amendment", "notification", "order", "commencement", "consolidation", "judgment"]),
+    locator: z
+      .object({
+        kind: z.enum(["page", "section", "paragraph", "table", "raw_text"]),
+        value: z.string().min(1),
+      })
+      .strict(),
+  })
+  .strict();
+export type EvidenceDocumentRef = z.infer<typeof EvidenceDocumentRefSchema>;
+
+export const EvidenceAuditRefSchema = z
+  .object({
+    source_id: z.string().min(1),
+    /** Successful complete sweep whose range_to derives audited_through. */
+    run_id: z.string().min(1),
+    audited_through: ISODateSchema,
+  })
+  .strict();
+export type EvidenceAuditRef = z.infer<typeof EvidenceAuditRefSchema>;
+
+const EvidenceChainSchema = z
+  .object({
+    /** First publication date covered by the cited complete sweeps. */
+    checked_from: ISODateSchema,
+    checked_through: ISODateSchema,
+    /** Every official source family that must be complete for this chain. This
+     * remains required when documents is empty: a negative finding needs a
+     * named source and a successful sweep, not an unexplained empty list. */
+    source_ids: z.array(z.string().min(1)).min(1),
+    /** Relevant document hashes, all of which must also appear in documents. Empty
+     * is explicit: the accepted sweep found no separate instrument in this chain. */
+    documents: z.array(SHA256Schema),
+  })
+  .strict()
+  .superRefine((chain, ctx) => {
+    if (chain.checked_through < chain.checked_from) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "checked_through must be on or after checked_from",
+        path: ["checked_through"],
+      });
+    }
+    if (new Set(chain.source_ids).size !== chain.source_ids.length) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "source_ids must not contain duplicates",
+        path: ["source_ids"],
+      });
+    }
+  });
+
+export const CitationEvidenceSchema = z
+  .object({
+    documents: z.array(EvidenceDocumentRefSchema).min(1),
+    audits: z.array(EvidenceAuditRefSchema).min(1),
+    amendment_chain: EvidenceChainSchema,
+    commencement_chain: EvidenceChainSchema,
+    reviewed_by: z.string().min(1),
+    reviewed_on: ISODateSchema,
+  })
+  .strict()
+  .superRefine((evidence, ctx) => {
+    const documentHashes = new Set(evidence.documents.map((document) => document.sha256));
+    for (const [chainName, chain] of [
+      ["amendment_chain", evidence.amendment_chain],
+      ["commencement_chain", evidence.commencement_chain],
+    ] as const) {
+      for (const sha256 of chain.documents) {
+        if (!documentHashes.has(sha256)) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: `${chainName} references a document not present in evidence.documents`,
+            path: [chainName, "documents"],
+          });
+          continue;
+        }
+        const document = evidence.documents.find((candidate) => candidate.sha256 === sha256);
+        if (document && !chain.source_ids.includes(document.source_id)) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: `${chainName} document source ${document.source_id} is absent from source_ids`,
+            path: [chainName, "source_ids"],
+          });
+        }
+      }
+      for (const sourceId of chain.source_ids) {
+        if (
+          !evidence.audits.some(
+            (audit) => audit.source_id === sourceId && audit.audited_through >= chain.checked_through,
+          )
+        ) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: `${chainName} source ${sourceId} has no audit through ${chain.checked_through}`,
+            path: [chainName, "checked_through"],
+          });
+        }
+      }
+      if (chain.checked_through > evidence.reviewed_on) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `${chainName}.checked_through cannot be later than reviewed_on`,
+          path: [chainName, "checked_through"],
+        });
+      }
+    }
+    for (const document of evidence.documents) {
+      if (!evidence.audits.some((audit) => audit.source_id === document.source_id)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `document source ${document.source_id} has no corresponding audit`,
+          path: ["audits"],
+        });
+      }
+      if (document.published_on > evidence.reviewed_on) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `document ${document.sha256} was published after reviewed_on`,
+          path: ["reviewed_on"],
+        });
+      }
+    }
+  });
+export type CitationEvidence = z.infer<typeof CitationEvidenceSchema>;
+
 /**
  * Citation — the legal source of a rule. NON-NEGOTIABLE (PRD §15, handoff law #4):
  * a rule without a source citation is invalid by construction. Enforced here at
@@ -21,6 +157,8 @@ export const CitationSchema = z
     url: z.string().url().optional(),
     /** Verbatim source text — makes the PR diff self-contained. Required. */
     quoted_text: z.string().min(1, "citation.quoted_text is required"),
+    /** Optional in draft data; mandatory on every production dependency. */
+    evidence: CitationEvidenceSchema.optional(),
   })
   .strict();
 export type Citation = z.infer<typeof CitationSchema>;

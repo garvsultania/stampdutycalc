@@ -3,6 +3,7 @@ import { compute, EngineError } from "@stampdraft/engine";
 import { getCorpus } from "@/lib/rules-server";
 import { DEMO_USER, ENGINE_VERSION } from "@/lib/store-server";
 import { resolveWorkspace } from "@/lib/api-workspace";
+import { indiaTodayISO } from "@/lib/legal-date";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,9 @@ export async function POST(req: NextRequest) {
     const { corpus } = getCorpus();
     const output = compute(corpus.ruleSet, input, {
       penaltyMonths: penaltyMonths === undefined ? undefined : Number(penaltyMonths),
+      requireVerified: process.env.NODE_ENV === "production",
+      requireEvidence: process.env.NODE_ENV === "production",
+      evidenceAsOf: indiaTodayISO(),
     });
 
     const resolved = await resolveWorkspace();

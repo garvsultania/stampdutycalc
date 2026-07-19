@@ -13,7 +13,10 @@ import { evalCharge, type ChargeCtx } from "./charge.js";
 import { applyModifiers } from "./modifiers.js";
 import { applyRounding } from "./rounding.js";
 import { computePenalty } from "./penalty.js";
-import { assertNotPending, collectPending } from "./pending.js";
+import { assertNotPending, collectPendingDependencies } from "./pending.js";
+import { assertFounderVerified, verifiedAsOf, type VerificationDependency } from "./verification.js";
+import { assertEvidenceBacked, type CitationDependency } from "./evidence.js";
+import { EngineError } from "./errors.js";
 
 export interface ComputeOptions {
   /** Per-state penalty regime override. If omitted and input.duty_paid is set,
@@ -21,6 +24,19 @@ export interface ComputeOptions {
   penaltyRegime?: PenaltyRegime;
   /** Whole months elapsed, for per_month penalty regimes. */
   penaltyMonths?: number;
+  /**
+   * Production safety gate. When true, every rule traversed through a
+   * cross-reference, every applied modifier, and any penalty regime used by the
+   * output must have founder verification metadata. Draft encoding tools leave
+   * this false so unmerged rules can still be tested.
+   */
+  requireVerified?: boolean;
+  /** Production evidence gate. Every legal dependency must carry a complete
+   * Watchdog evidence link validated against the catalog in CI. */
+  requireEvidence?: boolean;
+  /** Explicit freshness boundary for requireEvidence. Required when that gate
+   * is enabled so the deterministic engine never reads the wall clock. */
+  evidenceAsOf?: string;
 }
 
 /**
@@ -40,7 +56,14 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
   const values: Record<string, Num> = {};
   for (const [k, v] of Object.entries(input.values)) values[k] = num(v);
 
-  const ctx: ChargeCtx = { values, facts: input.facts, snapshot, resolving: new Set<string>() };
+  const ruleDependencies = new Map([[rule.rule_id, rule]]);
+  const ctx: ChargeCtx = {
+    values,
+    facts: input.facts,
+    snapshot,
+    resolving: new Set([rule.rule_id]),
+    ruleDependencies,
+  };
   const baseDuty = evalCharge(rule.charge, ctx);
 
   const baseLine: LineItem = {
@@ -52,10 +75,59 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
 
   const mod = applyModifiers(baseDuty, rule, snapshot, values, input.facts, input.execution_date);
 
+  const penaltyRegime = input.duty_paid === undefined
+    ? undefined
+    : opts.penaltyRegime ?? resolvePenaltyRegime(ruleSet, input.jurisdiction, input.execution_date);
+  const rulesUsed = [...ruleDependencies.values()];
+
   // Refuse before doing any more work. A cell the encoder marked unverified must
-  // not reach a lawyer wearing the same confidence as a verified one.
-  const pending = collectPending(rule, mod.applied, input.facts, input.execution_date, values);
+  // not reach a lawyer wearing the same confidence as a verified one. This must
+  // include cross-ref targets: their charge is part of the returned figure.
+  const pending = collectPendingDependencies(
+    [
+      ...rulesUsed.map((dependency) => ({
+        source: dependency.rule_id,
+        pending_verification: dependency.pending_verification,
+      })),
+      ...mod.applied.map((dependency) => ({
+        source: dependency.modifier_id,
+        pending_verification: dependency.pending_verification,
+      })),
+      ...(penaltyRegime
+        ? [{ source: penaltyRegime.regime_id, pending_verification: penaltyRegime.pending_verification }]
+        : []),
+    ],
+    input.facts,
+    input.execution_date,
+    values,
+  );
   assertNotPending(pending);
+  const verificationDependencies: VerificationDependency[] = [
+    ...rulesUsed.map((dependency) => ({ label: `rule ${dependency.rule_id}`, version: dependency.version })),
+    ...mod.applied.map((dependency) => ({ label: `modifier ${dependency.modifier_id}`, version: dependency.version })),
+    ...(penaltyRegime
+      ? [{ label: `penalty regime ${penaltyRegime.regime_id}`, version: penaltyRegime.version }]
+      : []),
+  ];
+  if (opts.requireVerified) {
+    assertFounderVerified(
+      verificationDependencies,
+      input.duty_paid !== undefined && !penaltyRegime ? ["penalty regime (none active)"] : [],
+    );
+  }
+  const citationDependencies: CitationDependency[] = [
+    ...rulesUsed.map((dependency) => ({ label: `rule ${dependency.rule_id}`, citation: dependency.version.source })),
+    ...mod.applied.map((dependency) => ({ label: `modifier ${dependency.modifier_id}`, citation: dependency.version.source })),
+    ...(penaltyRegime
+      ? [{ label: `penalty regime ${penaltyRegime.regime_id}`, citation: penaltyRegime.version.source }]
+      : []),
+  ];
+  if (opts.requireEvidence) {
+    if (!opts.evidenceAsOf) {
+      throw new EngineError("requireEvidence needs an explicit evidenceAsOf date");
+    }
+    assertEvidenceBacked(citationDependencies, { asOf: opts.evidenceAsOf });
+  }
 
   const preRound = mod.preRoundTotal;
   const rounded = applyRounding(preRound, rule.rounding);
@@ -71,14 +143,16 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
     });
   }
 
-  const citations = dedupeCitations([rule.version.source, ...mod.citations]);
+  const citations = dedupeCitations([
+    ...rulesUsed.map((dependency) => dependency.version.source),
+    ...mod.citations,
+    ...(penaltyRegime ? [penaltyRegime.version.source] : []),
+  ]);
 
   let penalty: PenaltyResult | null = null;
   if (input.duty_paid !== undefined) {
-    const regime =
-      opts.penaltyRegime ?? resolvePenaltyRegime(ruleSet, input.jurisdiction, input.execution_date);
-    if (regime) {
-      penalty = computePenalty(regime, {
+    if (penaltyRegime) {
+      penalty = computePenalty(penaltyRegime, {
         dutyThen: rounded,
         dutyPaid: num(input.duty_paid),
         months: opts.penaltyMonths,
@@ -94,7 +168,7 @@ export function compute(ruleSet: RuleSet, rawInput: ComputeInput, opts: ComputeO
     act: rule.act,
     article: rule.article,
     execution_date: input.execution_date,
-    verified_as_of: rule.version.verified_on,
+    verified_as_of: verifiedAsOf(verificationDependencies),
     breakup,
     total_duty: canonical(rounded),
     citations,

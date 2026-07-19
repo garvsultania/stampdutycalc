@@ -38,6 +38,16 @@
       "reason": "A more specific Article 5 sub-clause may apply (development agreement (g-a) → conveyance rate; (h)(A) → 0.1%/0.2% of the amount agreed), which displaces both Art 63 and the Art 5(h)(B) residual. In Maharashtra this fork is worth up to ~495× the duty (Rs 49,500 vs Rs 100 on a Rs 5 crore contract), so escalate and apply s.6 (highest of the competing descriptions) / seek adjudication (s.31) rather than guessing."
     }
   },
+  "pending_verification": [
+    {
+      "reason": "STALE CURRENT CONSEQUENCE — from 14-10-2024 Mah. 9 of 2025 changed Article 63's threshold and rate, while this tree's source quotation and stated financial consequence still describe the pre-amendment law. The classification fork is amount-determinative, so the current tree must refuse until its source and consequence are re-encoded and verified.",
+      "when": {
+        "date_within": {
+          "from": "2024-10-14"
+        }
+      }
+    }
+  ],
   "version": {
     "effective_from": "2015-04-24",
     "effective_to": null,

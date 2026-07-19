@@ -3,6 +3,11 @@
   "jurisdiction": "DL",
   "penalty": { "type": "discretionary_range", "min_multiple": 0, "max_multiple": 10 },
   "adjudication_path": "Indian Stamp Act 1899 (Delhi) s.31/s.32 (adjudication) & s.40 (impounded instruments — duty + penalty up to 10×); s.35 inadmissibility",
+  "pending_verification": [
+    {
+      "reason": "Delhi-specific amendments to s.40 and the statutory minimum have not been established from current primary text. The encoded [0, 10x] range could therefore misstate the available penalty range and must not be returned until verified."
+    }
+  ],
   "version": {
     "effective_from": "2015-01-01",
     "effective_to": null,

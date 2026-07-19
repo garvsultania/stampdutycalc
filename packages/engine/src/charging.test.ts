@@ -28,6 +28,18 @@ const KA_DATE = "2023-06-01";
 const dlCharging = resolveChargingRules(rs, "DL", DATE);
 const mhCharging = resolveChargingRules(rs, "MH", DATE);
 const kaCharging = resolveChargingRules(rs, "KA", DATE);
+/** Mechanics tests use a locally cleared flag; a separate regression below
+ * proves the real Delhi corpus refuses until its Rs 1 figure is verified. */
+const dlChargingForMechanics = {
+  ...dlCharging,
+  s4: { ...dlCharging.s4, pending_verification: [] },
+};
+const rsForDlMechanics = {
+  ...rs,
+  chargingRules: rs.chargingRules!.map((charging) =>
+    charging.rules_id === dlChargingForMechanics.rules_id ? dlChargingForMechanics : charging,
+  ),
+};
 
 /** A Delhi sale set: the conveyance (the real duty) + two ancillary instruments. */
 const dlSaleSet: NamedInstrument[] = [
@@ -49,9 +61,52 @@ const dlSaleSet: NamedInstrument[] = [
   },
 ];
 
+const mhLeaseSet: NamedInstrument[] = [
+  {
+    label: "Service agreement A",
+    input: { jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {}, facts: {} },
+  },
+  {
+    label: "Service agreement B",
+    input: { jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {}, facts: {} },
+  },
+];
+
+const kaAgreementSet: NamedInstrument[] = [
+  {
+    label: "Works agreement",
+    input: { jurisdiction: "KA", rule_id: "KA-ART5j-works-contract", execution_date: KA_DATE, values: {}, facts: {} },
+  },
+  {
+    label: "Service agreement",
+    input: { jurisdiction: "KA", rule_id: "KA-ART5j-service-agreement", execution_date: KA_DATE, values: {}, facts: {} },
+  },
+];
+
+// The classic Maharashtra grey zone: is it a lease (Art 36) or a leave & licence
+// (Art 36A)? The trees escalate it; s.6 says charge the higher of the two.
+const mhCompeting: NamedInstrument[] = [
+  {
+    label: "As a lease (Art 36)",
+    input: {
+      jurisdiction: "MH", rule_id: "MH-ART36-lease", execution_date: DATE,
+      values: { market_value: "10000000", term_months: "72" },
+      facts: { area_type: "municipal_corporation" },
+    },
+  },
+  {
+    label: "As a leave & licence (Art 36A)",
+    input: {
+      jurisdiction: "MH", rule_id: "MH-ART36A-leave-license", execution_date: DATE,
+      values: { term_months: "24", licence_fee_total: "1200000", non_refundable_deposit: "0", refundable_deposit: "500000" },
+      facts: {},
+    },
+  },
+];
+
 describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
   it("charges the principal in full and every other instrument the nominal duty", () => {
-    const r = computeS4(rs, dlCharging, dlSaleSet, { transactionType: "sale" });
+    const r = computeS4(rsForDlMechanics, dlChargingForMechanics, dlSaleSet, { transactionType: "sale" });
     // Conveyance 1cr male 2024 = 3% stamp + 4% transfer = 7,00,000. Others → Rs 1 each.
     expect(r.principal.label).toBe("Sale deed");
     expect(r.principal.charged).toBe("700000");
@@ -64,7 +119,7 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
   });
 
   it("nominating a cheaper instrument does NOT reduce the duty (the s.4 proviso), and warns", () => {
-    const r = computeS4(rs, dlCharging, dlSaleSet, { transactionType: "sale", principalIndex: 1 });
+    const r = computeS4(rsForDlMechanics, dlChargingForMechanics, dlSaleSet, { transactionType: "sale", principalIndex: 1 });
     expect(r.principal.label).toBe("General POA to the buyer");
     expect(r.principal.own_duty).toBe("50"); // what the POA alone would bear
     expect(r.principal.charged).toBe("700000"); // but it is charged the HIGHEST duty
@@ -80,12 +135,30 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
 
   it("ESCALATES where the state's s.4 does not reach the transaction type", () => {
     // Maharashtra's s.4 covers leases; Delhi's does not.
-    expect(() => computeS4(rs, mhCharging, dlSaleSet, { transactionType: "lease" })).not.toThrow();
+    expect(() => computeS4(rs, mhCharging, mhLeaseSet, { transactionType: "lease" })).not.toThrow();
     expect(() => computeS4(rs, dlCharging, dlSaleSet, { transactionType: "lease" })).toThrow(
       /does not extend to "lease"/,
     );
-    expect(() => computeS4(rs, kaCharging, dlSaleSet, { transactionType: "development_agreement" })).toThrow(
+    expect(() => computeS4(rs, kaCharging, kaAgreementSet, { transactionType: "development_agreement" })).toThrow(
       /does not extend to "development_agreement"/,
+    );
+  });
+
+  it("refuses Delhi s.4 while its nominal ancillary duty is pending verification", () => {
+    expect(() => computeS4(rs, dlCharging, dlSaleSet, { transactionType: "sale" })).toThrow(
+      /DL-charging s\.4: The Rs 1 ancillary-instrument duty/,
+    );
+  });
+
+  it("refuses a charging-rules object from a different jurisdiction", () => {
+    expect(() => computeS4(rs, mhCharging, dlSaleSet, { transactionType: "sale" })).toThrow(
+      /cannot price DL instruments/,
+    );
+  });
+
+  it("refuses a caller-altered charging object that is not the active hashed version", () => {
+    expect(() => computeS4(rs, dlChargingForMechanics, dlSaleSet, { transactionType: "sale" })).toThrow(
+      /do not match the active hashed ruleset version/,
     );
   });
 
@@ -95,27 +168,6 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
 });
 
 describe("s.5 vs s.6 — aggregate vs highest (PRD §5.4)", () => {
-  // The classic Maharashtra grey zone: is it a lease (Art 36) or a leave & licence
-  // (Art 36A)? The trees escalate it; s.6 says charge the higher of the two.
-  const mhCompeting: NamedInstrument[] = [
-    {
-      label: "As a lease (Art 36)",
-      input: {
-        jurisdiction: "MH", rule_id: "MH-ART36-lease", execution_date: DATE,
-        values: { market_value: "10000000", term_months: "72" },
-        facts: { area_type: "municipal_corporation" },
-      },
-    },
-    {
-      label: "As a leave & licence (Art 36A)",
-      input: {
-        jurisdiction: "MH", rule_id: "MH-ART36A-leave-license", execution_date: DATE,
-        values: { term_months: "24", licence_fee_total: "1200000", non_refundable_deposit: "0", refundable_deposit: "500000" },
-        facts: {},
-      },
-    },
-  ];
-
   it("s.6 charges the highest of the competing descriptions and marks which one bites", () => {
     const r = computeS6(rs, mhCompeting);
     // Lease: 25% of 1cr = 25L × 5% = 1,25,000. L&L: 0.25% of 12.5L = 3,125.
@@ -163,5 +215,36 @@ describe("charging rules are part of the ruleset identity", () => {
       expect(c.s5.source.quoted_text.length).toBeGreaterThan(50);
       expect(c.s6.source.quoted_text.length).toBeGreaterThan(50);
     }
+  });
+
+  it("verified-only mode includes the applicable charging section in its dependency gate", () => {
+    expect(() => computeS6(rs, mhCompeting, { requireVerified: true })).toThrow(
+      /charging rules MH-charging s\.6/,
+    );
+  });
+
+  it("evidence-only mode includes the applicable charging version and section", () => {
+    expect(() =>
+      computeS6(rs, mhCompeting, { requireEvidence: true, evidenceAsOf: "2026-07-19" }),
+    ).toThrow(/missing evidence links: charging rules MH-charging version, charging rules MH-charging s\.6/);
+  });
+
+  it("enforces section-scoped pending flags on s.5 without blocking s.6", () => {
+    const blocked = {
+      ...rs,
+      chargingRules: rs.chargingRules!.map((charging) =>
+        charging.rules_id === "MH-charging"
+          ? {
+              ...charging,
+              s5: {
+                ...charging.s5,
+                pending_verification: [{ reason: "s.5 text needs current proof" }],
+              },
+            }
+          : charging,
+      ),
+    };
+    expect(() => computeS5(blocked, mhCompeting)).toThrow(/s\.5 text needs current proof/);
+    expect(() => computeS6(blocked, mhCompeting)).not.toThrow();
   });
 });

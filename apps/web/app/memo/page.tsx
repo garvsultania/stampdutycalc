@@ -3,6 +3,7 @@ import { getCorpus } from "@/lib/rules-server";
 import { inr, formatDate } from "@/lib/utils";
 import { PrintButton } from "@/components/print-button";
 import { Scale } from "lucide-react";
+import { indiaTodayISO } from "@/lib/legal-date";
 
 export const metadata = { title: "Computation memo — StampDraft" };
 export const dynamic = "force-dynamic";
@@ -34,7 +35,12 @@ export default function MemoPage({ searchParams }: { searchParams: { d?: string 
   const { corpus } = getCorpus();
   let output;
   try {
-    output = compute(corpus.ruleSet, payload.input, { penaltyMonths: payload.penaltyMonths });
+    output = compute(corpus.ruleSet, payload.input, {
+      penaltyMonths: payload.penaltyMonths,
+      requireVerified: process.env.NODE_ENV === "production",
+      requireEvidence: process.env.NODE_ENV === "production",
+      evidenceAsOf: indiaTodayISO(),
+    });
   } catch (e) {
     return (
       <div className="container py-20 text-center text-muted-foreground">

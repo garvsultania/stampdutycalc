@@ -8,7 +8,12 @@
       "type": "act",
       "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), s.4",
       "quoted_text": "s.4(1): 'Where, in the case of any sale, mortgage or settlement, several instruments are employed for completing the transaction, the principal instrument only shall be chargeable with the duty prescribed in Schedule I for the conveyance, mortgage or settlement, and each of the other instruments shall be chargeable with a duty of ONE RUPEE instead of the duty (if any) prescribed for it in that Schedule.' s.4(2): 'The parties may determine for themselves which of the instruments so employed shall ... be deemed to be the principal instrument: Provided that the duty chargeable on the instrument so determined shall be the highest duty which would be chargeable in respect of any of the said instruments employed.' Note (Finance Act 2019): for any issue, sale or transfer of SECURITIES the instrument chargeable under s.9A is the principal instrument and no duty is charged on any other instrument of that transaction."
-    }
+    },
+    "pending_verification": [
+      {
+        "reason": "The Rs 1 ancillary-instrument duty is taken from the unamended central s.4 text. A current Delhi primary source has not yet established that no Delhi amendment or notification changed it. Because this amount is used for every non-principal instrument, s.4 must refuse until the Delhi-applicable text is archived and founder-verified."
+      }
+    ]
   },
   "s5": {
     "source": {

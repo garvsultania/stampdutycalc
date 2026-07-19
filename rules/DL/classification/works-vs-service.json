@@ -51,6 +51,21 @@
       "reason": "Materials are present but the predominant nature (works vs service) is genuinely mixed. Classification affects duty — apply S.6 highest-duty and recommend adjudication (S.31) rather than guessing."
     }
   },
+  "pending_verification": [
+    {
+      "reason": "The works-contract terminal assumes Delhi has no more specific or ad valorem operative entry and routes to the Article 5 residual amount. Complete current notification history is needed to prove that absence before this amount-affecting classification may resolve.",
+      "when": {
+        "all": [
+          { "eq": { "field": "q_goods_transfer", "value": "yes" } },
+          { "eq": { "field": "q_deliverable", "value": "yes" } }
+        ]
+      }
+    },
+    {
+      "reason": "The service-agreement terminal routes directly to the Article 5 residual without a verified questionnaire excluding more specific, potentially higher Article 5 clauses. Refuse until those displacement questions and current primary sources are encoded.",
+      "when": { "eq": { "field": "q_goods_transfer", "value": "no" } }
+    }
+  ],
   "version": {
     "effective_from": "2015-01-01",
     "effective_to": null,

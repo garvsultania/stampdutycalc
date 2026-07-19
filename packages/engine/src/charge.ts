@@ -1,4 +1,4 @@
-import type { Charge, RateSpec, Slab } from "@stampdraft/schema";
+import type { Charge, RateSpec, Rule, Slab } from "@stampdraft/schema";
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { evalExpr } from "./value-expr.js";
 import { EngineError } from "./errors.js";
@@ -13,6 +13,12 @@ export interface ChargeCtx {
   snapshot: Snapshot;
   /** rule_ids currently being resolved, for cross-ref cycle detection. */
   resolving: Set<string>;
+  /**
+   * Every rule whose charge contributed to this evaluation. `compute()` uses
+   * this to apply pending/verification gates transitively. Optional so callers
+   * using the low-level evaluator directly are not forced to collect metadata.
+   */
+  ruleDependencies?: Map<string, Rule>;
 }
 
 /**
@@ -162,6 +168,7 @@ function evalCrossRef(charge: Extract<Charge, { kind: "cross_ref" }>, ctx: Charg
   if (ctx.resolving.has(charge.rule_id)) {
     throw new EngineError(`cyclic cross_ref detected at "${charge.rule_id}"`);
   }
+  ctx.ruleDependencies?.set(target.rule_id, target);
   const nextResolving = new Set(ctx.resolving);
   nextResolving.add(charge.rule_id);
 

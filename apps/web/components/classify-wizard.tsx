@@ -4,9 +4,11 @@ import * as React from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ArrowRight, CheckCircle2, RotateCcw, Scale, ShieldAlert, Gavel } from "lucide-react";
+import { indiaTodayISO } from "@/lib/legal-date";
 
 export interface TreeMeta {
   tree_id: string;
@@ -23,24 +25,34 @@ type StepState =
 
 export function ClassifyWizard({ trees }: { trees: TreeMeta[] }) {
   const [treeId, setTreeId] = React.useState<string | null>(null);
+  const [executionDate, setExecutionDate] = React.useState(() => indiaTodayISO());
   const [answers, setAnswers] = React.useState<Record<string, string>>({});
   const [trail, setTrail] = React.useState<{ question: string; answer: string }[]>([]);
   const [step, setStep] = React.useState<StepState | null>(null);
   const [busy, setBusy] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   const tree = trees.find((t) => t.tree_id === treeId) ?? null;
 
-  async function advance(nextAnswers: Record<string, string>, id = treeId) {
+  async function advance(nextAnswers: Record<string, string>, id = treeId, date = executionDate) {
     if (!id) return;
     setBusy(true);
+    setError(null);
     try {
       const res = await fetch("/api/classify", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ tree_id: id, answers: nextAnswers }),
+        body: JSON.stringify({ tree_id: id, answers: nextAnswers, execution_date: date }),
       });
       const data = await res.json();
       if (data.ok) setStep(data.result);
+      else {
+        setStep(null);
+        setError(data.error ?? "Classification is unavailable for this date.");
+      }
+    } catch {
+      setStep(null);
+      setError("Classification request failed. Please try again.");
     } finally {
       setBusy(false);
     }
@@ -51,6 +63,7 @@ export function ClassifyWizard({ trees }: { trees: TreeMeta[] }) {
     setAnswers({});
     setTrail([]);
     setStep(null);
+    setError(null);
     void advance({}, id);
   }
 
@@ -67,6 +80,16 @@ export function ClassifyWizard({ trees }: { trees: TreeMeta[] }) {
     setAnswers({});
     setTrail([]);
     setStep(null);
+    setError(null);
+  }
+
+  function changeExecutionDate(date: string) {
+    setExecutionDate(date);
+    setAnswers({});
+    setTrail([]);
+    setStep(null);
+    setError(null);
+    if (date) void advance({}, treeId, date);
   }
 
   if (!tree) {
@@ -99,6 +122,26 @@ export function ClassifyWizard({ trees }: { trees: TreeMeta[] }) {
         </div>
         <Button variant="ghost" size="sm" onClick={reset}><RotateCcw /> Start over</Button>
       </div>
+
+      <div className="max-w-xs space-y-1.5">
+        <label htmlFor="classification-execution-date" className="text-xs font-medium text-muted-foreground">
+          Instrument execution date
+        </label>
+        <Input
+          id="classification-execution-date"
+          type="date"
+          value={executionDate}
+          onChange={(event) => changeExecutionDate(event.target.value)}
+        />
+      </div>
+
+      {error && (
+        <Alert variant="warning">
+          <ShieldAlert />
+          <AlertTitle>Classification unavailable</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
 
       {trail.length > 0 && (
         <ol className="space-y-1.5">

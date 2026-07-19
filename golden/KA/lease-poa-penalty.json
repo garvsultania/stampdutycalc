@@ -166,8 +166,8 @@
     "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
   },
   {
-    "name": "KA Penalty (Flow D) — discretionary up-to-10x outputs a RANGE",
-    "source_note": "s.34/s.39. dutyThen 5,60,000 (5% + cess + 2% surcharge), paid 3,00,000, deficit 2,60,000; up to 10× → [0, 26,00,000]; total payable [2,60,000, 28,60,000]. Regime auto-resolved from ruleset.",
+    "name": "KA Penalty (Flow D) — refuses until the statutory route is explicit",
+    "source_note": "One [0, 10×] range cannot safely represent both the discretionary Collector path under s.39 and the potentially mandatory 10× admission consequence under s.34.",
     "input": {
       "jurisdiction": "KA",
       "rule_id": "KA-ART20-conveyance",
@@ -181,19 +181,7 @@
       }
     },
     "expect": {
-      "penalty": {
-        "deficit": "260000",
-        "penalty_point": null,
-        "penalty_range": {
-          "min": "0",
-          "max": "2600000"
-        },
-        "total_payable_point": null,
-        "total_payable_range": {
-          "min": "260000",
-          "max": "2860000"
-        }
-      }
+      "error": "KA-penalty: One discretionary [0, 10x] range"
     }
   }
 ]

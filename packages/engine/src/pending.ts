@@ -1,4 +1,9 @@
-import { pendingSeverity, type Modifier, type Rule } from "@stampdraft/schema";
+import {
+  pendingSeverity,
+  type Modifier,
+  type PendingVerification,
+  type Rule,
+} from "@stampdraft/schema";
 import { evalCondition } from "./condition.js";
 import { EngineError } from "./errors.js";
 import type { Num } from "./money.js";
@@ -10,6 +15,29 @@ export interface PendingFlags {
   warn: string[];
 }
 
+/** Any versioned legal dependency that can carry a refusal/warning flag. */
+export interface PendingDependency {
+  source: string;
+  pending_verification?: readonly PendingVerification[];
+}
+
+/** Gather flags from dependencies other than ordinary rules/modifiers. */
+export function collectPendingDependencies(
+  dependencies: readonly PendingDependency[],
+  facts: Record<string, string | number>,
+  executionDate: string,
+  values: Record<string, Num>,
+): PendingFlags {
+  const flags: PendingFlags = { refuse: [], warn: [] };
+  for (const dependency of dependencies) {
+    for (const p of dependency.pending_verification ?? []) {
+      if (p.when && !evalCondition(p.when, facts, executionDate, values)) continue;
+      flags[pendingSeverity(p)].push(`${dependency.source}: ${p.reason}`);
+    }
+  }
+  return flags;
+}
+
 /**
  * Gather the pending-verification flags that actually bite on THIS input.
  *
@@ -19,25 +47,21 @@ export interface PendingFlags {
  * female purchasers, so only the joint-above-₹25L cell refuses.
  */
 export function collectPending(
-  rule: Rule,
-  appliedModifiers: Modifier[],
+  rules: readonly Rule[],
+  appliedModifiers: readonly Modifier[],
   facts: Record<string, string | number>,
   executionDate: string,
   values: Record<string, Num>,
 ): PendingFlags {
-  const flags: PendingFlags = { refuse: [], warn: [] };
-
-  const consider = (source: string, list: Rule["pending_verification"]) => {
-    for (const p of list ?? []) {
-      if (p.when && !evalCondition(p.when, facts, executionDate, values)) continue;
-      flags[pendingSeverity(p)].push(`${source}: ${p.reason}`);
-    }
-  };
-
-  consider(rule.rule_id, rule.pending_verification);
-  for (const mod of appliedModifiers) consider(mod.modifier_id, mod.pending_verification);
-
-  return flags;
+  return collectPendingDependencies(
+    [
+      ...rules.map((rule) => ({ source: rule.rule_id, pending_verification: rule.pending_verification })),
+      ...appliedModifiers.map((mod) => ({ source: mod.modifier_id, pending_verification: mod.pending_verification })),
+    ],
+    facts,
+    executionDate,
+    values,
+  );
 }
 
 /**

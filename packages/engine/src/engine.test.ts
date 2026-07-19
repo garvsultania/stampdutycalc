@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import {
   ClassificationTreeSchema,
+  ModifierSchema,
+  PenaltyRegimeSchema,
   RuleSchema,
   type Rule,
   type ClassificationTree,
@@ -11,6 +13,7 @@ import {
   compute,
   computePenalty,
   computeInterStateDifferential,
+  resolveClassificationTree,
   EngineError,
   num,
   canonical,
@@ -105,6 +108,156 @@ describe("temporal & snapshot-scoped cross-refs (PRD §5.3, §5.4)", () => {
 
   it("different active snapshots ⇒ different rules_version hashes", () => {
     expect(bondOn("2019-01-01").rules_version).not.toBe(bondOn("2021-01-01").rules_version);
+  });
+});
+
+describe("transitive safety gates", () => {
+  it("propagates a pending-verification refusal from a cross-ref target", () => {
+    const staleTarget = makeRule({
+      rule_id: "STALE-TARGET",
+      charge: { kind: "fixed", amount: "200" },
+      pending_verification: [{ reason: "target rate was superseded" }],
+    });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "STALE-TARGET" },
+    });
+    const ruleSet: RuleSet = { rules: [staleTarget, wrapper], modifiers: [], penaltyRegimes: [] };
+
+    expect(() =>
+      compute(ruleSet, {
+        jurisdiction: "DL",
+        rule_id: "WRAPPER",
+        execution_date: "2021-01-01",
+        values: {},
+        facts: {},
+      }),
+    ).toThrow(/STALE-TARGET: target rate was superseded/);
+  });
+
+  it("allows draft evaluation by default but verified-only mode checks every cross-ref target", () => {
+    const unverifiedTarget = makeRule({ rule_id: "TARGET", charge: { kind: "fixed", amount: "100" } });
+    const verifiedWrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "wrapper", quoted_text: "same duty as target" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const ruleSet: RuleSet = { rules: [unverifiedTarget, verifiedWrapper], modifiers: [], penaltyRegimes: [] };
+    const input = {
+      jurisdiction: "DL" as const,
+      rule_id: "WRAPPER",
+      execution_date: "2021-01-01",
+      values: {},
+      facts: {},
+    };
+
+    expect(compute(ruleSet, input).total_duty).toBe("100");
+    expect(() => compute(ruleSet, input, { requireVerified: true })).toThrow(
+      /unverified dependencies: rule TARGET/,
+    );
+  });
+
+  it("derives verified_as_of and citations from the complete verified rule chain", () => {
+    const target = makeRule({
+      rule_id: "TARGET",
+      charge: { kind: "fixed", amount: "100" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "target", quoted_text: "target rate" },
+        verified_by: "founder",
+        verified_on: "2026-07-01",
+      },
+    });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "wrapper", quoted_text: "same duty as target" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const ruleSet: RuleSet = { rules: [target, wrapper], modifiers: [], penaltyRegimes: [] };
+    const out = compute(
+      ruleSet,
+      { jurisdiction: "DL", rule_id: "WRAPPER", execution_date: "2021-01-01", values: {}, facts: {} },
+      { requireVerified: true },
+    );
+
+    expect(out.verified_as_of).toBe("2026-07-01");
+    expect(out.citations.map((citation) => citation.ref)).toEqual(["wrapper", "target"]);
+  });
+
+  it("verified-only mode checks applied modifiers and a requested penalty regime", () => {
+    const verifiedRule = makeRule({
+      rule_id: "R",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: ["M"],
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "rule", quoted_text: "fixed duty" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const unverifiedModifier = ModifierSchema.parse({
+      modifier_id: "M",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "10", label: "test surcharge" },
+      order: 1,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "modifier", quoted_text: "add ten" },
+      },
+    });
+    const unverifiedPenalty = PenaltyRegimeSchema.parse({
+      regime_id: "P",
+      jurisdiction: "DL",
+      penalty: { type: "discretionary_range", min_multiple: 0, max_multiple: 10 },
+      adjudication_path: "Test Act s.1",
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "act", ref: "penalty", quoted_text: "up to ten times" },
+      },
+    });
+    const ruleSet: RuleSet = {
+      rules: [verifiedRule],
+      modifiers: [unverifiedModifier],
+      penaltyRegimes: [unverifiedPenalty],
+    };
+
+    expect(() =>
+      compute(
+        ruleSet,
+        {
+          jurisdiction: "DL",
+          rule_id: "R",
+          execution_date: "2021-01-01",
+          values: {},
+          facts: {},
+          duty_paid: "50",
+        },
+        { requireVerified: true },
+      ),
+    ).toThrow(/modifier M, penalty regime P/);
   });
 });
 
@@ -206,6 +359,50 @@ describe("classification tree walk (Flow B, PRD §6.2)", () => {
     expect(r).toMatchObject({ status: "incomplete", node: "q_possession" });
   });
 
+  it("enforces date-scoped pending flags on classification trees", () => {
+    const pendingTree = ClassificationTreeSchema.parse({
+      ...tree,
+      pending_verification: [
+        { reason: "current classification consequence is stale", when: { date_within: { from: "2024-10-14" } } },
+      ],
+    });
+
+    expect(() => classify(pendingTree, {})).toThrow(/executionDate is required/);
+    expect(classify(pendingTree, {}, { executionDate: "2024-10-13" }).status).toBe("incomplete");
+    expect(() => classify(pendingTree, {}, { executionDate: "2024-10-14" })).toThrow(
+      /current classification consequence is stale/,
+    );
+  });
+
+  it("verified-only mode rejects an unverified classification tree", () => {
+    expect(() => classify(tree, {}, { requireVerified: true })).toThrow(
+      /classification tree lease-vs-license/,
+    );
+  });
+
+  it("resolves the classification-tree version active on the execution date", () => {
+    const oldTree = ClassificationTreeSchema.parse({
+      ...tree,
+      version: { ...tree.version, effective_to: "2020-01-01" },
+    });
+    const newTree = ClassificationTreeSchema.parse({
+      ...tree,
+      nodes: {
+        ...tree.nodes,
+        t_lease: { type: "terminal", instrument: "lease", article: "35-new", rule_id: "DL-lease-new" },
+      },
+      version: {
+        ...tree.version,
+        effective_from: "2020-01-01",
+        effective_to: null,
+        source: { type: "amendment_act", ref: "new tree", quoted_text: "new classification consequence" },
+      },
+    });
+
+    expect(resolveClassificationTree([oldTree, newTree], tree.tree_id, "2019-12-31")).toBe(oldTree);
+    expect(resolveClassificationTree([oldTree, newTree], tree.tree_id, "2020-01-01")).toBe(newTree);
+  });
+
   it("treats an unmatched answer as an escalation", () => {
     const r = classify(tree, { q_possession: "maybe" });
     expect(r.status).toBe("escalate");
@@ -254,6 +451,7 @@ describe("penalty regime auto-resolution from the ruleset (PRD §5.6)", () => {
     jurisdiction: "DL" as const,
     penalty: { type: "per_month" as const, pct_per_month: 2, cap_multiple: 4, min_penalty: null },
     adjudication_path: "S.31",
+    pending_verification: [],
     version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
     notes_for_reviewer: "",
   };
@@ -279,6 +477,27 @@ describe("penalty regime auto-resolution from the ruleset (PRD §5.6)", () => {
     const out = compute(ruleSet, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { consideration: "1000000" }, facts: {} });
     expect(out.penalty).toBeNull();
   });
+
+  it("refuses an applicable pending flag carried by the penalty regime", () => {
+    const blockedRuleSet: RuleSet = {
+      ...ruleSet,
+      penaltyRegimes: [{ ...regime, pending_verification: [{ reason: "penalty route is unresolved" }] }],
+    };
+    expect(() =>
+      compute(
+        blockedRuleSet,
+        {
+          jurisdiction: "DL",
+          rule_id: "R",
+          execution_date: "2021-01-01",
+          values: { consideration: "1000000" },
+          facts: {},
+          duty_paid: "30000",
+        },
+        { penaltyMonths: 5 },
+      ),
+    ).toThrow(/DL-penalty: penalty route is unresolved/);
+  });
 });
 
 describe("penalty edge cases (PRD §5.6)", () => {
@@ -288,6 +507,7 @@ describe("penalty edge cases (PRD §5.6)", () => {
       jurisdiction: "DL" as const,
       penalty: { type: "discretionary_range" as const, min_multiple: 1, max_multiple: 10 },
       adjudication_path: "S.31",
+      pending_verification: [],
       version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
       notes_for_reviewer: "",
     };
@@ -442,6 +662,7 @@ describe("audit-review regressions (2026-07-16)", () => {
     jurisdiction: "DL" as const,
     penalty: { type: "per_month" as const, pct_per_month: pct, cap_multiple: 4, min_penalty: null },
     adjudication_path: "S.31",
+    pending_verification: [],
     version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
     notes_for_reviewer: "",
   });

@@ -2,7 +2,10 @@ import type { ChargingRules, Citation, ComputeInput, ComputeOutput } from "@stam
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { compute, type ComputeOptions } from "./compute.js";
 import { EngineError } from "./errors.js";
-import type { RuleSet } from "./snapshot.js";
+import { assertNotPending, collectPendingDependencies } from "./pending.js";
+import { canonicalJson, resolveChargingRules, type RuleSet } from "./snapshot.js";
+import { assertFounderVerified } from "./verification.js";
+import { assertEvidenceBacked } from "./evidence.js";
 
 /** One instrument in a multi-instrument analysis, with a human label for the memo. */
 export interface NamedInstrument {
@@ -16,12 +19,134 @@ interface Priced extends NamedInstrument {
   duty: Num;
 }
 
-function priceAll(ruleSet: RuleSet, instruments: NamedInstrument[]): Priced[] {
+export interface ChargingAnalysisOptions {
+  /** Require founder verification for the charging section and every priced instrument. */
+  requireVerified?: boolean;
+  /** Require Watchdog evidence for the charging section and priced instruments. */
+  requireEvidence?: boolean;
+  /** Explicit freshness boundary for requireEvidence. */
+  evidenceAsOf?: string;
+}
+
+function priceAll(
+  ruleSet: RuleSet,
+  instruments: NamedInstrument[],
+  requireVerified = false,
+  requireEvidence = false,
+  evidenceAsOf?: string,
+): Priced[] {
   if (instruments.length === 0) throw new EngineError("no instruments supplied");
   return instruments.map((i) => {
-    const output = compute(ruleSet, i.input, i.options);
+    const options = {
+      ...i.options,
+      requireVerified: requireVerified || i.options?.requireVerified === true,
+      requireEvidence: requireEvidence || i.options?.requireEvidence === true,
+      evidenceAsOf: evidenceAsOf ?? i.options?.evidenceAsOf,
+    };
+    const output = compute(ruleSet, i.input, options);
     return { ...i, output, duty: num(output.total_duty) };
   });
+}
+
+function sharedInput(instruments: NamedInstrument[]): NamedInstrument["input"] {
+  const first = instruments[0];
+  if (!first) throw new EngineError("no instruments supplied");
+  for (const instrument of instruments.slice(1)) {
+    if (instrument.input.jurisdiction !== first.input.jurisdiction) {
+      throw new EngineError("a charging analysis cannot mix jurisdictions");
+    }
+    if (instrument.input.execution_date !== first.input.execution_date) {
+      throw new EngineError("a charging analysis cannot mix execution dates");
+    }
+  }
+  return first.input;
+}
+
+function wantsVerified(instruments: NamedInstrument[], requested?: boolean): boolean {
+  return requested === true || instruments.some((instrument) => instrument.options?.requireVerified === true);
+}
+
+function wantsEvidence(instruments: NamedInstrument[], requested?: boolean): boolean {
+  return requested === true || instruments.some((instrument) => instrument.options?.requireEvidence === true);
+}
+
+function sharedEvidenceAsOf(instruments: NamedInstrument[], requested?: string): string | undefined {
+  const dates = [requested, ...instruments.map((instrument) => instrument.options?.evidenceAsOf)].filter(
+    (date): date is string => date !== undefined,
+  );
+  const unique = [...new Set(dates)];
+  if (unique.length > 1) {
+    throw new EngineError(`a charging analysis cannot mix evidenceAsOf dates: ${unique.join(", ")}`);
+  }
+  return unique[0];
+}
+
+function assertChargingVersionMatches(
+  ruleSet: RuleSet,
+  charging: ChargingRules,
+  instruments: NamedInstrument[],
+): void {
+  const input = sharedInput(instruments);
+  if (charging.jurisdiction !== input.jurisdiction) {
+    throw new EngineError(
+      `charging rules for ${charging.jurisdiction} cannot price ${input.jurisdiction} instruments`,
+    );
+  }
+  if (
+    input.execution_date < charging.version.effective_from ||
+    (charging.version.effective_to !== null && input.execution_date >= charging.version.effective_to)
+  ) {
+    throw new EngineError(
+      `charging rules "${charging.rules_id}" are not effective on ${input.execution_date}`,
+    );
+  }
+  const active = resolveChargingRules(ruleSet, input.jurisdiction, input.execution_date);
+  if (canonicalJson(active) !== canonicalJson(charging)) {
+    throw new EngineError(
+      `supplied charging rules "${charging.rules_id}" do not match the active hashed ruleset version`,
+    );
+  }
+}
+
+function chargingGate(
+  charging: ChargingRules,
+  section: "4" | "5" | "6",
+  instruments: NamedInstrument[],
+  requireVerified: boolean,
+  requireEvidence: boolean,
+  evidenceAsOf: string | undefined,
+  facts: Record<string, string | number> = {},
+): string[] {
+  const input = sharedInput(instruments);
+  const sectionRules = section === "4" ? charging.s4 : section === "5" ? charging.s5 : charging.s6;
+  const pending = collectPendingDependencies(
+    [{ source: `${charging.rules_id} s.${section}`, pending_verification: sectionRules.pending_verification }],
+    facts,
+    input.execution_date,
+    {},
+  );
+  assertNotPending(pending);
+  if (requireVerified) {
+    assertFounderVerified([{ label: `charging rules ${charging.rules_id} s.${section}`, version: charging.version }]);
+  }
+  if (requireEvidence) {
+    if (!evidenceAsOf) {
+      throw new EngineError("requireEvidence needs an explicit evidenceAsOf date");
+    }
+    assertEvidenceBacked(
+      [
+        { label: `charging rules ${charging.rules_id} version`, citation: charging.version.source },
+        { label: `charging rules ${charging.rules_id} s.${section}`, citation: sectionRules.source },
+      ],
+      { asOf: evidenceAsOf },
+    );
+  }
+  return pending.warn;
+}
+
+function resolveChargingFor(ruleSet: RuleSet, instruments: NamedInstrument[]): ChargingRules {
+  const input = sharedInput(instruments);
+  return resolveChargingRules(ruleSet, input.jurisdiction, input.execution_date);
 }
 
 function maxIndex(priced: Priced[]): number {
@@ -68,18 +193,37 @@ export function computeS4(
   ruleSet: RuleSet,
   charging: ChargingRules,
   instruments: NamedInstrument[],
-  opts: { transactionType: string; principalIndex?: number } = { transactionType: "sale" },
+  opts: {
+    transactionType: string;
+    principalIndex?: number;
+    requireVerified?: boolean;
+    requireEvidence?: boolean;
+    evidenceAsOf?: string;
+  } = { transactionType: "sale" },
 ): S4Result {
   if (instruments.length < 2) {
     throw new EngineError("s.4 applies where SEVERAL instruments complete one transaction — supply at least two");
   }
+  assertChargingVersionMatches(ruleSet, charging, instruments);
   if (!charging.s4.transaction_types.includes(opts.transactionType)) {
     throw new EngineError(
       `s.4 in ${charging.jurisdiction} covers only ${charging.s4.transaction_types.join(", ")} — it does not extend to "${opts.transactionType}", so each instrument bears its own full duty`,
     );
   }
 
-  const priced = priceAll(ruleSet, instruments);
+  const requireVerified = wantsVerified(instruments, opts.requireVerified);
+  const requireEvidence = wantsEvidence(instruments, opts.requireEvidence);
+  const evidenceAsOf = sharedEvidenceAsOf(instruments, opts.evidenceAsOf);
+  const pendingWarnings = chargingGate(
+    charging,
+    "4",
+    instruments,
+    requireVerified,
+    requireEvidence,
+    evidenceAsOf,
+    { transaction_type: opts.transactionType },
+  );
+  const priced = priceAll(ruleSet, instruments, requireVerified, requireEvidence, evidenceAsOf);
   const highestIdx = maxIndex(priced);
   const nominatedIdx = opts.principalIndex ?? highestIdx;
   if (nominatedIdx < 0 || nominatedIdx >= priced.length) {
@@ -90,7 +234,7 @@ export function computeS4(
   const highestDuty = priced[highestIdx]!.duty; // the proviso's charge on the principal
   const nominal = num(charging.s4.nominal_duty);
 
-  const warnings: string[] = [];
+  const warnings: string[] = [...pendingWarnings];
   if (nominatedIdx !== highestIdx) {
     warnings.push(
       `"${principal.label}" was nominated as the principal instrument, but its own duty (₹${canonical(principal.duty)}) is not the highest in the set. Under the s.4 proviso the nominated instrument is charged the HIGHEST duty of any instrument employed (₹${canonical(highestDuty)}, from "${priced[highestIdx]!.label}"), so the nomination does not reduce the duty.`,
@@ -116,7 +260,7 @@ export function computeS4(
     total: canonical(total),
     principal_selection: opts.principalIndex === undefined ? "highest_duty_default" : "nominated",
     warnings,
-    citations: [charging.s4.source, ...principal.output.citations],
+    citations: [charging.s4.source, ...priced.flatMap((pricedInstrument) => pricedInstrument.output.citations)],
   };
 }
 
@@ -126,6 +270,7 @@ export interface S5Result {
   section: "5";
   matters: Array<{ label: string; duty: string; output: ComputeOutput }>;
   total: string;
+  warnings: string[];
   citations: Citation[];
 }
 
@@ -138,17 +283,27 @@ export interface S5Result {
  * determination belongs to the practitioner; this function computes the s.5 answer
  * once they have made it, and `compareS5S6` shows both side by side.
  */
-export function computeS5(ruleSet: RuleSet, matters: NamedInstrument[]): S5Result {
+export function computeS5(
+  ruleSet: RuleSet,
+  matters: NamedInstrument[],
+  opts: ChargingAnalysisOptions = {},
+): S5Result {
   if (matters.length < 2) {
     throw new EngineError("s.5 applies to an instrument covering SEVERAL distinct matters — supply at least two");
   }
-  const priced = priceAll(ruleSet, matters);
+  const charging = resolveChargingFor(ruleSet, matters);
+  const requireVerified = wantsVerified(matters, opts.requireVerified);
+  const requireEvidence = wantsEvidence(matters, opts.requireEvidence);
+  const evidenceAsOf = sharedEvidenceAsOf(matters, opts.evidenceAsOf);
+  const warnings = chargingGate(charging, "5", matters, requireVerified, requireEvidence, evidenceAsOf);
+  const priced = priceAll(ruleSet, matters, requireVerified, requireEvidence, evidenceAsOf);
   const total = priced.reduce((acc, p) => acc.plus(p.duty), ZERO);
   return {
     section: "5",
     matters: priced.map((p) => ({ label: p.label, duty: canonical(p.duty), output: p.output })),
     total: canonical(total),
-    citations: priced.flatMap((p) => p.output.citations),
+    warnings,
+    citations: [charging.s5.source, ...priced.flatMap((p) => p.output.citations)],
   };
 }
 
@@ -174,16 +329,32 @@ export interface S6Result {
  * s.6 says charge the higher. Feeding both candidate descriptions in here turns an
  * unresolved classification into a defensible, conservative number.
  */
-export function computeS6(ruleSet: RuleSet, descriptions: NamedInstrument[]): S6Result {
+export function computeS6(
+  ruleSet: RuleSet,
+  descriptions: NamedInstrument[],
+  opts: ChargingAnalysisOptions = {},
+): S6Result {
   if (descriptions.length < 2) {
     throw new EngineError("s.6 applies where an instrument falls within TWO OR MORE descriptions — supply at least two");
   }
-  const priced = priceAll(ruleSet, descriptions);
+  const charging = resolveChargingFor(ruleSet, descriptions);
+  const requireVerified = wantsVerified(descriptions, opts.requireVerified);
+  const requireEvidence = wantsEvidence(descriptions, opts.requireEvidence);
+  const evidenceAsOf = sharedEvidenceAsOf(descriptions, opts.evidenceAsOf);
+  const pendingWarnings = chargingGate(
+    charging,
+    "6",
+    descriptions,
+    requireVerified,
+    requireEvidence,
+    evidenceAsOf,
+  );
+  const priced = priceAll(ruleSet, descriptions, requireVerified, requireEvidence, evidenceAsOf);
   const bestIdx = maxIndex(priced);
   const highest = priced[bestIdx]!.duty;
   const tied = priced.filter((p) => p.duty.equals(highest)).length > 1;
 
-  const warnings: string[] = [];
+  const warnings: string[] = [...pendingWarnings];
   if (tied) {
     warnings.push(
       "Two or more competing descriptions attract the same duty, so s.6 does not change the amount — but the classification may still matter for registration, admissibility and multi-state execution.",
@@ -201,7 +372,7 @@ export function computeS6(ruleSet: RuleSet, descriptions: NamedInstrument[]): S6
     total: canonical(highest),
     tied,
     warnings,
-    citations: priced[bestIdx]!.output.citations,
+    citations: [charging.s6.source, ...priced[bestIdx]!.output.citations],
   };
 }
 
@@ -220,9 +391,13 @@ export interface S5S6Comparison {
  * DESCRIPTIONS (s.6 — highest)? The answer can differ by the whole of the smaller
  * duty. StampDraft will not decide it — it shows both, and names the test.
  */
-export function compareS5S6(ruleSet: RuleSet, candidates: NamedInstrument[]): S5S6Comparison {
-  const s5 = computeS5(ruleSet, candidates);
-  const s6 = computeS6(ruleSet, candidates);
+export function compareS5S6(
+  ruleSet: RuleSet,
+  candidates: NamedInstrument[],
+  opts: ChargingAnalysisOptions = {},
+): S5S6Comparison {
+  const s5 = computeS5(ruleSet, candidates, opts);
+  const s6 = computeS6(ruleSet, candidates, opts);
   const difference = canonical(num(s5.total).minus(num(s6.total)));
   return {
     s5,

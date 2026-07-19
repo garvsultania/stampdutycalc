@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { JurisdictionSchema, MoneySchema } from "./primitives.js";
 import { VersionMetaSchema } from "./provenance.js";
+import { PendingVerificationSchema } from "./pending.js";
 
 /**
  * PenaltyRegime — per-state deficit + penalty model (PRD §5.6, Flow D).
@@ -39,6 +40,7 @@ export const PenaltyRegimeSchema = z
         .strict(),
     ]),
     adjudication_path: z.string().min(1),
+    pending_verification: z.array(PendingVerificationSchema).default([]),
     version: VersionMetaSchema,
     notes_for_reviewer: z.string().default(""),
   })

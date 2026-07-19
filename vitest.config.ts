@@ -14,7 +14,7 @@ export default defineConfig({
   },
   test: {
     globals: false,
-    include: ["packages/**/*.test.ts", "scripts/**/*.test.ts"],
+    include: ["packages/**/*.test.ts", "scripts/**/*.test.ts", "apps/web/lib/**/*.test.ts"],
     environment: "node",
   },
 });

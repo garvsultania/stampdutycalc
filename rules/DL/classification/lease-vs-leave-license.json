@@ -70,6 +70,17 @@
       "reason": "A document labelled 'leave & licence' carries exclusive-possession indicia (the classic under-stamping grey zone). Substance may make it a lease. Apply S.6 highest-duty and recommend adjudication (S.31)."
     }
   },
+  "pending_verification": [
+    {
+      "reason": "The no-exclusive-possession branch currently resolves a Delhi leave-and-licence instrument to Article 35, but that operative stamp treatment has not been established from current Delhi primary material. Refuse this terminal classification until the Article and registrar-practice position are verified.",
+      "when": {
+        "all": [
+          { "eq": { "field": "q_exclusive_possession", "value": "no" } },
+          { "eq": { "field": "q_indicia", "value": "no" } }
+        ]
+      }
+    }
+  ],
   "version": {
     "effective_from": "2015-01-01",
     "effective_to": null,
