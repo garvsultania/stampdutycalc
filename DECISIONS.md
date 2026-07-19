@@ -205,3 +205,101 @@ source must carry the date it was last consolidated to, and that date is part of
 the citation. When a secondary asserts something our primary lacks, the question
 is not "which source ranks higher" but "is our primary current enough to be
 silent about this?" A primary that predates the claimed amendment cannot refute it.
+
+## D18 — Safety gates follow the complete computation dependency graph
+
+A computation is not supported merely because its top-level rule is supported.
+Every `cross_ref` target contributes law to the number and is therefore a
+load-bearing dependency for pending-verification, founder-verification,
+`verified_as_of`, and citations.
+
+This closes a concrete defect: `KA-ART29-indemnity-bond` imports
+`KA-ART47-security-bond`. Article 47 is flagged stale from 03-02-2024, but the
+indemnity rule had no local flag, so the old Article 47 amount still escaped.
+Charge evaluation now records every traversed rule; pending flags propagate over
+that set, and the current Karnataka indemnity goldens assert refusal.
+
+`ComputeOptions.requireVerified` is the explicit production gate. When enabled,
+every traversed rule, applied modifier, and requested penalty regime must carry
+paired `verified_by`/`verified_on` metadata. Draft encoding and golden tooling keep
+the option off so unmerged work remains testable. Web compute, filing, and memo
+paths enable it when `NODE_ENV=production`. `verified_as_of` is now the oldest
+verification date across dependencies, and cross-reference source citations are
+included in the output.
+
+## D19 — Every legal decision path carries the same refusal contract
+
+Pending verification and founder verification now apply beyond Schedule-rate
+rules. `PenaltyRegime` and `ClassificationTree` carry machine-readable
+`pending_verification`; charging rules carry it separately on s.4, s.5, and s.6
+so doubt about one section does not disable the others.
+
+This converts three known amount-affecting prose caveats into hard stops: Delhi
+s.4's unconfirmed Rs 1 ancillary duty, Delhi's unconfirmed penalty range, and
+Karnataka's conflated discretionary-Collector versus mandatory-admission penalty
+paths. The Maharashtra works/service tree also refuses from 14-10-2024 because
+its quoted Article 63 consequence is stale. Delhi classification flags are
+branch-scoped: the supported questions can still be walked, but the unproved
+leave/licence and works/service terminal treatments cannot resolve.
+
+Charging analyses now resolve and cite the operative s.5/s.6 rules, reject mixed
+jurisdictions and execution dates, and propagate verified-only mode into every
+underlying instrument computation. The production classification API requires
+tree verification, resolves the tree version active on the instrument date, and
+carries that date into scoped flags. These are dependency gates only: no disputed
+rate was silently corrected.
+
+## D20 — Evidence is an immutable, freshness-bounded dependency
+
+A quoted citation is review context, not proof that the operative text is current.
+`Citation.evidence` therefore records exact Watchdog document hashes, source-row
+identities, acquisition runs, publication dates, pinpoint locators, document roles,
+amendment and commencement chains, complete-sweep audits, and human evidence review.
+Each chain names every required source family and its checked interval; an empty
+document list is meaningful only when a named source has a successful sweep covering
+that interval.
+
+Evidence remains optional in draft data so encoding, goldens, and historical repair
+can proceed. `requireEvidence` makes it mandatory on every dependency used by
+compute, charging, and classification paths. The caller must also supply
+`evidenceAsOf`; the engine refuses a chain checked before that date and never reads
+the wall clock itself. Production web paths pass the current date explicitly.
+
+CI loads every committed Watchdog index, sweep, and event shard and validates each
+supplied link against the exact immutable records and an accepted source. The
+Maharashtra Part 8 source declares `mh-egazette` as its legacy evidence ID so old
+records remain verifiable without rewriting history. Missing links are coverage
+gaps; malformed, provisional, partial-sweep, or mismatched links fail validation.
+
+The deterministic evidence report currently records **0 of 99** citation
+dependencies linked. This is deliberate: the accepted archive contains later
+Maharashtra amendments, not the older consolidated Acts and other primary sources
+the numeric corpus cites. No unrelated document is attached merely to improve a
+coverage count.
+
+## D21 — Portal position is not source identity
+
+Maharashtra Part IV-B returned the same 2,575 PDFs on an identical full re-fetch,
+but reordered 179 rows. The original identity included the displayed serial number
+and ASP.NET postback control position, so unchanged documents were falsely emitted
+as new source occurrences. Content deduplication caught the symptom (`0` new blobs),
+but an audit that says `179` new documents for unchanged content is not acceptable.
+
+Part IV-B row identity is now the normalized visible row metadata plus an ordinal
+only for genuinely identical visible rows. Dynamic serial numbers and postback
+positions remain retrieval locators, not identity. A recorded migration collapsed
+the positional aliases back to the complete 2,575-row baseline; no content blob was
+deleted. A subsequent live sweep reused all 2,575 stable identities with zero
+additions.
+
+The migration audit retains the baseline run, before/after occurrence counts,
+strategy, and post-migration index digest. Its temporary pre-migration rollback
+copy was not retained, so the record says that explicitly instead of preserving a
+machine-local path that no future reviewer could use. Future migrations record both
+pre- and post-migration digests at execution time.
+
+Transient `__VIEWSTATE` and related ASP.NET session fields are also excluded from
+the immutable document index. They are neither stable nor replayable evidence and
+had inflated the Part IV-B locator index to 269 MB. The compact index retains the
+official URL, search selection, date range, and postback target; raw sessions belong
+in optional recordings, not citation provenance.

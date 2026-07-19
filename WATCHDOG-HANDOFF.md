@@ -1,12 +1,12 @@
 # StampDraft Watchdog — Handoff
 
-**Updated:** 2026-07-17
+**Updated:** 2026-07-19
 
-**Repository:** `/Users/mac/Documents/Claude Workspace/Projects/stampdutycalc`
+**Repository:** `/Users/mac/Documents/workspace/Projects/stampdutycalc`
 
 **Current branch:** `watchdog/multistate-foundation`
 
-**Current commit:** `f45db8f` (`feat(watchdog): add bounded official source probes`)
+**Current commit:** `e64a13b` (`docs(watchdog): add current multistate handoff`)
 
 Read this together with [`WATCHDOG-PRD.md`](./WATCHDOG-PRD.md). The older [`HANDOFF.md`](./HANDOFF.md) remains authoritative for calculator/rules work; this document is the current state of the Watchdog only.
 
@@ -16,12 +16,17 @@ Read this together with [`WATCHDOG-PRD.md`](./WATCHDOG-PRD.md). The older [`HAND
 
 The Watchdog work is local and deliberately **not pushed**. GitHub authentication was unavailable, and the founder asked to push only after the work is ready.
 
-Commit stack, oldest to newest:
+Committed stack, oldest to newest:
 
 1. `57bbd54` — `feat(watchdog): archive and verify MH e-Gazette sweeps`
 2. `e491560` — `feat(watchdog): add official multi-state source foundation`
 3. `4a85217` — `feat(watchdog): add direct state source adapters`
 4. `f45db8f` — `feat(watchdog): add bounded official source probes`
+5. `e64a13b` — `docs(watchdog): add current multistate handoff`
+
+There is a large recovered, uncommitted batch after `e64a13b`. Its exact state and
+ordered checkpoint plan are recorded in [`PHASED-EXECUTION-PLAN.md`](./PHASED-EXECUTION-PLAN.md).
+Do not assume a clean working tree until Phase 0 of that plan is complete.
 
 Branches:
 
@@ -58,7 +63,7 @@ Only first-party government sources may become evidence:
 
 ## 3. What is complete
 
-### Maharashtra Part 8 — accepted
+### Maharashtra Part 8 — operational under the original acceptance gate
 
 Source ID: `mh-egazette-part8` (legacy evidence records retain `mh-egazette` for compatibility).
 
@@ -76,6 +81,11 @@ Direct official sweep:
   - Maharashtra Act XXIX of 2026
 
 The local PDFs are ignored; the index, sweep/event state, sanitized sidecars, and three replay HTML pages are committed.
+
+The archive has one complete acquisition run and one later bounded/partial run. It
+does **not** yet satisfy the newer promotion requirement for a second complete
+identical run with zero additions. Treat the hardcoded `accepted` label as legacy
+operational status until the generated promotion gate is implemented and passed.
 
 ### Shared architecture — complete
 
@@ -98,10 +108,11 @@ CLI:
 ```bash
 pnpm watchdog sources
 pnpm watchdog probe SOURCE --live
-pnpm watchdog sweep mh-egazette-part8 --from YYYY-MM-DD --to YYYY-MM-DD --live [--record] [--limit N]
+pnpm watchdog sweep mh-egazette-part8 --from YYYY-MM-DD --to YYYY-MM-DD --live [--resume] [--record] [--limit N]
+pnpm watchdog sweep mh-egazette-part4b --from YYYY-MM-DD --to YYYY-MM-DD --live [--resume] [--record] [--limit N]
 ```
 
-Only the accepted Maharashtra Part 8 source can run a generic live sweep. Other sources are intentionally probe-only until their full adapter/acquisition gates pass.
+The Maharashtra Part 8 and Part IV-B adapters can run live sweeps. Other sources remain probe-only until their adapter/acquisition gates pass.
 
 ---
 
@@ -109,8 +120,8 @@ Only the accepted Maharashtra Part 8 source can run a generic live sweep. Other 
 
 | Source ID | Status | Direct evidence currently proven | What is still missing |
 |---|---|---|---|
-| `mh-egazette-part8` | **accepted** | 195/195 archived; full successful sweep and replay | Scheduling/push only |
-| `mh-egazette-part4b` | provisional | Five-year discovery: **2,573 rows / 26 pages**; known 2026-01-09 Mudrank sentinel PDF hash-archived | Acquire all 2,573 PDFs, run identical second sweep, then promote |
+| `mh-egazette-part8` | **legacy accepted; re-promotion pending** | 195/195 archived; one full successful sweep and replay | Run a second complete identical sweep, require zero additions, then pass the generated promotion gate |
+| `mh-egazette-part4b` | **generated promotion passes** | **2,575 rows / 26 pages** for 2021-07-17 through 2026-07-19; 2,547 unique blobs; full independent content re-fetch added zero blobs; stable-identity audit reused 2,575/2,575 with zero additions | Extract/classify relevant instruments and extend the archive back to 2015 |
 | `gj-egazette` | provisional | Current official page probe: **22 rows**, **11 advertised pages**; ordinary and extraordinary direct handlers proven | Implement search form/year traversal, five-year discovery and acquisition |
 | `ka-dpal-acts` | provisional | Official 2025 probe: **77 identifiable Acts**, **125 direct PDFs** | Prove exact annual URLs for 2021–2026, run known Act checklist, acquire PDFs |
 | `tn-gazette-ordinary` | provisional | Official 2026 probe: **28 issue-detail pages**; year→issue→PDF traversal implemented | Run five-year discovery and acquisition |
@@ -144,32 +155,37 @@ watchdog-data/
       probe/                           # local diagnostic HTML; ignored
 ```
 
-Current local footprint is approximately **334 MB**. The large content is ignored evidence/recordings, not staged source code.
+Current local footprint is approximately **1.8 GB**. The large content is ignored evidence/recordings, not staged source code; the committed Part IV-B locator index is approximately 2.75 MB because transient ASP.NET ViewState is excluded.
 
-The only current per-source acquired evidence is Maharashtra Part IV-B:
+Maharashtra Part IV-B now contains a complete five-year dataset that passes the
+generated promotion check for its stated interval:
 
-- one bounded-probe document
-- the known `Mudrank-2024/C.R.182/Mudrank-2` sentinel
-- sentinel SHA-256: `1d2695a0be9714d2cc94e9218e9ce4fdff28a12e0968fae0dda9aad4e835d07f`
+- 2,575 stable source rows and 2,547 unique content-addressed PDFs
+- three successful complete 26-page audits for the exact 2021-07-17 through 2026-07-19 interval
+- an independent 2,575-document re-fetch with zero new blobs
+- a post-migration stability audit with 2,575 reused identities and zero additions
+- known `Mudrank-2024/C.R.182/Mudrank-2` sentinel SHA-256: `1d2695a0be9714d2cc94e9218e9ce4fdff28a12e0968fae0dda9aad4e835d07f`
 
-The Part IV-B sweep is intentionally recorded as `partial`: one document fetched from 2,573 listed rows.
+The identity migration is recorded in `state/identity-migrations.jsonl`; it removed positional aliases caused by unstable ASP.NET row numbers/control IDs without deleting any content blob. The durable record includes the post-migration index digest and honestly notes that its temporary pre-migration rollback copy was not retained.
 
 ---
 
 ## 6. Verification state
 
-Last full gate on 2026-07-17:
+Recovery gate on 2026-07-19:
 
 - TypeScript project build: passed
 - rule validation: **0 errors, 0 warnings**
 - golden suite: **166/166 passed**
-- Vitest: **146/146 passed across 25 files**
+- evidence coverage validation: **0 invalid supplied links**; **0/99 linked**
+- Vitest: **183/183 passed across 29 files**
+- Next.js production build: passed
 - `git diff --check`: passed
 
 `pnpm` is not globally available in the current shell, but dependencies and local binaries exist. Exact equivalent:
 
 ```bash
-cd '/Users/mac/Documents/Claude Workspace/Projects/stampdutycalc'
+cd '/Users/mac/Documents/workspace/Projects/stampdutycalc'
 node_modules/.bin/tsc -b
 node_modules/.bin/tsx scripts/validate-rules.ts
 node_modules/.bin/tsx scripts/run-golden.ts
@@ -177,7 +193,8 @@ node_modules/.bin/vitest run
 git diff --check
 ```
 
-Before any new commit, rerun all five commands from the repository root.
+Before any new commit, also run evidence validation and the web production build as
+listed in `PHASED-EXECUTION-PLAN.md`.
 
 ---
 
@@ -185,12 +202,11 @@ Before any new commit, rerun all five commands from the repository root.
 
 Resume in this order:
 
-1. **Maharashtra Part IV-B full acquisition**
-   - Use the already proven 26-page listing.
-   - Resume safely into `watchdog-data/sources/mh-egazette-part4b`.
-   - Expect a long, polite run: 2,573 documents at a two-second minimum interval is at least ~86 minutes, excluding retries.
-   - Do not lower politeness limits to make it faster.
-   - Run a second identical sweep; require zero new blobs/documents before promotion.
+1. **Maharashtra Part IV-B extraction and older-history extension**
+   - Search/extract the acquired five-year corpus for stamp commencements, concessions, surcharge/remission orders, and amendment dependencies.
+   - Attach documents only after pinpoint review and a complete baseline/amendment/commencement chain is established.
+   - Extend the same adapter/archive back to the 2015 product floor; do not treat the accepted 2021-07-17 lower bound as proof of earlier history.
+   - Preserve the two-second politeness limit and stable visible-row identity strategy.
 
 2. **Tamil Nadu five-year discovery before bulk download**
    - Run `discoverTamilNaduYear` for 2021–2026 for ordinary and extraordinary sources.
@@ -243,11 +259,13 @@ Resume in this order:
 ## 9. Resume checklist
 
 ```bash
-cd '/Users/mac/Documents/Claude Workspace/Projects/stampdutycalc'
+cd '/Users/mac/Documents/workspace/Projects/stampdutycalc'
 git switch watchdog/multistate-foundation
 git status --short --branch
 git log -4 --oneline
 node packages/watchdog/dist/cli.js sources
 ```
 
-Expected HEAD before subsequent work: `f45db8f` plus the handoff commit made after this document. Expected working tree: clean.
+Recovery baseline: HEAD `e64a13b` plus the uncommitted batch described in
+`PHASED-EXECUTION-PLAN.md`. The working tree is intentionally dirty until Phase 0
+reviews and checkpoints each recovered unit.

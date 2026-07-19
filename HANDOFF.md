@@ -1,5 +1,10 @@
 # StampDraft — Session Handoff
 
+> **Historical calculator handoff (2026-07-16).** Its legal traps and founder-only
+> decisions remain relevant, but its branch/test/status snapshot is superseded by
+> [`PHASED-EXECUTION-PLAN.md`](./PHASED-EXECUTION-PLAN.md) and
+> [`WATCHDOG-HANDOFF.md`](./WATCHDOG-HANDOFF.md).
+
 Written 2026-07-16. Read this plus `DECISIONS.md` and `ENCODING-GUIDELINES.md` before touching anything.
 
 ---
