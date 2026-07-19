@@ -7,6 +7,8 @@ export interface HttpFetcherOptions {
   minIntervalMs?: number;
   maxAttempts?: number;
   baseBackoffMs?: number;
+  requestTimeoutMs?: number;
+  maxResponseBytes?: number;
   fetchImpl?: typeof fetch;
   sleep?: (ms: number) => Promise<void>;
   record?: (response: ResponseRecord) => Promise<void>;
@@ -19,6 +21,8 @@ export class HttpFetcher implements Fetcher {
   private readonly minIntervalMs: number;
   private readonly maxAttempts: number;
   private readonly baseBackoffMs: number;
+  private readonly requestTimeoutMs: number;
+  private readonly maxResponseBytes: number;
   private lastRequestAt = 0;
 
   constructor(private readonly options: HttpFetcherOptions = {}) {
@@ -27,6 +31,8 @@ export class HttpFetcher implements Fetcher {
     this.minIntervalMs = options.minIntervalMs ?? 2_000;
     this.maxAttempts = options.maxAttempts ?? 4;
     this.baseBackoffMs = options.baseBackoffMs ?? 1_000;
+    this.requestTimeoutMs = options.requestTimeoutMs ?? 180_000;
+    this.maxResponseBytes = options.maxResponseBytes ?? 100 * 1024 * 1024;
   }
 
   async request(spec: RequestSpec): Promise<ResponseRecord> {
@@ -69,18 +75,37 @@ export class HttpFetcher implements Fetcher {
       body = new URLSearchParams(spec.formValues ?? {}).toString();
     }
 
-    const response = await this.fetchImpl(spec.url, { method, headers, body, redirect: "follow" });
-    this.captureCookies(response.url, response.headers);
-    const responseHeaders = Object.fromEntries(response.headers.entries());
-    const responseBody = new Uint8Array(await response.arrayBuffer());
-    return {
-      url: response.url,
-      status: response.status,
-      mediaType: response.headers.get("content-type")?.split(";", 1)[0]?.trim().toLowerCase() ?? "application/octet-stream",
-      body: responseBody,
-      headers: responseHeaders,
-      request: { method, url: spec.url, ...(spec.formValues ? { formValues: spec.formValues } : {}) },
-    };
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), this.requestTimeoutMs);
+    try {
+      const response = await this.fetchImpl(spec.url, { method, headers, body, redirect: "follow", signal: controller.signal });
+      this.captureCookies(response.url, response.headers);
+      const responseHeaders = Object.fromEntries(response.headers.entries());
+      const declaredBytes = Number(response.headers.get("content-length"));
+      if (Number.isFinite(declaredBytes) && declaredBytes > this.maxResponseBytes) {
+        throw new WatchdogError(
+          `Response from ${spec.url} declares ${declaredBytes} bytes, exceeding ${this.maxResponseBytes}`,
+          "shape_drift",
+        );
+      }
+      const responseBody = new Uint8Array(await response.arrayBuffer());
+      if (responseBody.byteLength > this.maxResponseBytes) {
+        throw new WatchdogError(
+          `Response from ${spec.url} contains ${responseBody.byteLength} bytes, exceeding ${this.maxResponseBytes}`,
+          "shape_drift",
+        );
+      }
+      return {
+        url: response.url,
+        status: response.status,
+        mediaType: response.headers.get("content-type")?.split(";", 1)[0]?.trim().toLowerCase() ?? "application/octet-stream",
+        body: responseBody,
+        headers: responseHeaders,
+        request: { method, url: spec.url, ...(spec.formValues ? { formValues: spec.formValues } : {}) },
+      };
+    } finally {
+      clearTimeout(timeout);
+    }
   }
 
   private captureCookies(url: string, headers: Headers): void {

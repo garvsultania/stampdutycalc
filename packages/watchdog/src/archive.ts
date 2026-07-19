@@ -12,6 +12,7 @@ export interface ArchiveResult {
 
 export class EvidenceStore {
   readonly root: string;
+  private documentsCache?: DocumentRecord[];
 
   constructor(
     root: string,
@@ -23,16 +24,69 @@ export class EvidenceStore {
 
   async archive(row: GazetteRow, body: Uint8Array, mediaType: string, fetchedAt: string): Promise<ArchiveResult> {
     const sha256 = createHash("sha256").update(body).digest("hex");
+    const documents = await this.documents();
+    const matches = documents.filter(
+      (document) => document.source_id === this.sourceId && document.source_row_id === row.sourceRowId,
+    );
+    if (matches.length > 1) {
+      throw duplicateOccurrence(this.sourceId, row.sourceRowId, matches.length);
+    }
+    const occurrence = matches[0];
+    if (occurrence && occurrence.sha256 !== sha256) {
+      throw new WatchdogError(
+        `Official source row ${this.sourceId}/${row.sourceRowId} changed content from ${occurrence.sha256} to ${sha256}`,
+        "shape_drift",
+      );
+    }
     const blobPath = join(this.root, "blobs", sha256.slice(0, 2), `${sha256}.pdf`);
     const newBlob = await writeImmutableBlob(blobPath, body, sha256);
     const document = documentRecord(this.sourceId, row, sha256, mediaType, fetchedAt);
-    const newDocument = await appendUnique(join(this.root, "index", "documents.jsonl"), "sha256", document);
+    const newDocument = occurrence === undefined;
+    if (newDocument) {
+      await appendFileJson(join(this.root, "index", "documents.jsonl"), document);
+      documents.push(document);
+    }
     return { document, newBlob, newDocument };
+  }
+
+  async archivedDocument(row: GazetteRow): Promise<DocumentRecord | undefined> {
+    const documents = await this.documents();
+    const matches = documents.filter(
+      (document) => document.source_id === this.sourceId && document.source_row_id === row.sourceRowId,
+    );
+    if (matches.length > 1) {
+      throw duplicateOccurrence(this.sourceId, row.sourceRowId, matches.length);
+    }
+    const document = matches[0];
+    if (!document) return undefined;
+
+    const blobPath = join(this.root, "blobs", document.sha256.slice(0, 2), `${document.sha256}.pdf`);
+    let body: Uint8Array;
+    try {
+      body = await readFile(blobPath);
+    } catch (error) {
+      if (error instanceof Error && "code" in error && error.code === "ENOENT") {
+        throw new WatchdogError(
+          `Archived document ${this.sourceId} row ${row.sourceRowId} is missing blob ${document.sha256}`,
+          "shape_drift",
+          error,
+        );
+      }
+      throw error;
+    }
+    const actualHash = createHash("sha256").update(body).digest("hex");
+    if (actualHash !== document.sha256) {
+      throw new WatchdogError(
+        `Archived document ${this.sourceId} row ${row.sourceRowId} failed blob integrity: expected ${document.sha256}, got ${actualHash}`,
+        "shape_drift",
+      );
+    }
+    return document;
   }
 
   async refreshDocumentMetadata(rows: GazetteRow[]): Promise<number> {
     const path = join(this.root, "index", "documents.jsonl");
-    const documents = await readJsonLines<DocumentRecord>(path);
+    const documents = await this.documents();
     if (documents.length === 0) return 0;
     const rowsById = new Map(rows.map((row) => [row.sourceRowId, row]));
     let updated = 0;
@@ -44,7 +98,10 @@ export class EvidenceStore {
       if (JSON.stringify(next) !== JSON.stringify(document)) updated++;
       return next;
     });
-    if (updated > 0) await writeJsonLinesAtomically(path, refreshed);
+    if (updated > 0) {
+      await writeJsonLinesAtomically(path, refreshed);
+      this.documentsCache = refreshed;
+    }
     return updated;
   }
 
@@ -54,6 +111,11 @@ export class EvidenceStore {
 
   async emitEvent(event: WatchdogEvent): Promise<boolean> {
     return appendUnique(join(this.root, "state", "events.jsonl"), "event_id", event);
+  }
+
+  private async documents(): Promise<DocumentRecord[]> {
+    this.documentsCache ??= await readJsonLines<DocumentRecord>(join(this.root, "index", "documents.jsonl"));
+    return this.documentsCache;
   }
 }
 
@@ -73,11 +135,21 @@ function documentRecord(
     fetched_at: fetchedAt,
     retrieval: {
       url: row.pdfRequest.url,
-      ...(row.pdfRequest.formValues ? { form_values: row.pdfRequest.formValues } : {}),
+      ...(row.pdfRequest.formValues ? { form_values: archivalFormValues(row.pdfRequest.formValues) } : {}),
     },
     media_type: mediaType,
     ocr: null,
   };
+}
+
+function archivalFormValues(values: Record<string, string>): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(values).filter(([name]) =>
+      name === "__EVENTTARGET" ||
+      name === "__EVENTARGUMENT" ||
+      /\$(?:ddlDivision|ddlSection|ddlGazetteType|txtFromDate|txtToDate)$/i.test(name)
+    ),
+  );
 }
 
 export function createRunId(): string {
@@ -127,6 +199,17 @@ async function appendUnique<T extends object>(path: string, identityKey: keyof T
   if (existing.some((entry) => entry[identityKey] === value[identityKey])) return false;
   await appendFileJson(path, value);
   return true;
+}
+
+function duplicateOccurrence(
+  sourceId: SourceId,
+  sourceRowId: string,
+  count: number,
+): WatchdogError {
+  return new WatchdogError(
+    `Archive has ${count} occurrences for ${sourceId} row ${sourceRowId}`,
+    "shape_drift",
+  );
 }
 
 async function appendFileJson(path: string, value: unknown): Promise<void> {

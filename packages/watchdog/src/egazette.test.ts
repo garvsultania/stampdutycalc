@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { inspectSearchForm, MH_PART4B_SELECTION, parseResultsPage, requirePdf } from "./egazette.js";
-import { mhPart4bAdapter } from "./mh-adapter.js";
+import { mhPart4bAdapter, stabilizeMhGazetteRows } from "./mh-adapter.js";
 import { WatchdogError } from "./errors.js";
 import type { ResponseRecord } from "./types.js";
 
@@ -92,6 +92,19 @@ describe("Maharashtra e-Gazette result fixtures", () => {
     expect(request.formValues?.["ctl00$CPH$btnSearch"]).toBeUndefined();
   });
 
+  it("gives Part IV-B rows stable identities when portal positions change", () => {
+    const first = fixtureRow("1", "ctl00$CPH$GridView2$ctl02$LinkButton1", "First subject");
+    const second = fixtureRow("2", "ctl00$CPH$GridView2$ctl03$LinkButton1", "Second subject");
+    const reorderedFirst = fixtureRow("4", "ctl00$CPH$GridView2$ctl05$LinkButton1", "First subject");
+    const reorderedSecond = fixtureRow("1", "ctl00$CPH$GridView2$ctl02$LinkButton1", "Second subject");
+
+    stabilizeMhGazetteRows([first, second]);
+    stabilizeMhGazetteRows([reorderedSecond, reorderedFirst]);
+
+    expect(reorderedFirst.sourceRowId).toBe(first.sourceRowId);
+    expect(reorderedSecond.sourceRowId).toBe(second.sourceRowId);
+  });
+
   it("fails loudly when a document postback returns HTML with status 200", () => {
     const response = makeResponse("text/html", new TextEncoder().encode("<html>results</html>"));
     expect(() => requirePdf(response, "test document")).toThrowError(WatchdogError);
@@ -102,6 +115,18 @@ describe("Maharashtra e-Gazette result fixtures", () => {
     expect(() => requirePdf(response, "test document")).not.toThrow();
   });
 });
+
+function fixtureRow(serial: string, eventTarget: string, subject: string) {
+  return {
+    sourceRowId: eventTarget,
+    cells: [serial, "CENTRAL SECTION", "Part -4 B", "2026/07/16", subject, "View"],
+    title: `${serial} | CENTRAL SECTION | Part -4 B | 2026/07/16 | ${subject} | View`,
+    gazetteDate: "2026/07/16",
+    pdfTarget: responseUrl,
+    pdfRequest: { url: responseUrl, method: "POST" as const, formValues: { __EVENTTARGET: eventTarget } },
+    retrieval: { form_values: { __EVENTTARGET: eventTarget } },
+  };
+}
 
 function makeResponse(mediaType: string, body: Uint8Array): ResponseRecord {
   return {

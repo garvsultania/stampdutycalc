@@ -8,6 +8,7 @@ export interface SweepOptions {
   from: string;
   to: string;
   limit?: number;
+  resume?: boolean;
 }
 
 export interface SweepDependencies {
@@ -15,7 +16,22 @@ export interface SweepDependencies {
   evidence: EvidenceStore;
   runId?: () => string;
   now?: () => string;
+  onProgress?: (progress: SweepProgress) => void;
 }
+
+export type SweepProgress =
+  | {
+      phase: "listing";
+      rows: number;
+      pagesFetched: number;
+      pagesExpected?: number;
+    }
+  | {
+      phase: "documents";
+      documentsTotal: number;
+      documentsFetched: number;
+      documentsReused: number;
+    };
 
 export interface SweepReport {
   status: SweepStatus;
@@ -23,6 +39,7 @@ export interface SweepReport {
   pagesFetched: number;
   pagesExpected?: number;
   documentsFetched: number;
+  documentsReused: number;
   newBlobs: number;
   newDocuments: string[];
   error?: string;
@@ -58,6 +75,7 @@ export async function runSweep(
   let pagesFetched = 0;
   let pagesExpected: number | undefined;
   let documentsFetched = 0;
+  let documentsReused = 0;
   let newBlobs = 0;
   const newDocuments: string[] = [];
 
@@ -68,6 +86,12 @@ export async function runSweep(
     rowsSeen = rows.length;
     pagesFetched = page.pageNumber;
     pagesExpected = page.pagesExpected;
+    dependencies.onProgress?.({
+      phase: "listing",
+      rows: rowsSeen,
+      pagesFetched,
+      ...(pagesExpected === undefined ? {} : { pagesExpected }),
+    });
     while (true) {
       const next = await session.next(page);
       if (!next) break;
@@ -76,7 +100,14 @@ export async function runSweep(
       pagesExpected = page.pagesExpected;
       rows.push(...page.rows);
       rowsSeen = rows.length;
+      dependencies.onProgress?.({
+        phase: "listing",
+        rows: rowsSeen,
+        pagesFetched,
+        ...(pagesExpected === undefined ? {} : { pagesExpected }),
+      });
     }
+    adapter.finalizeRows?.(rows);
     const uniqueRows = new Set(rows.map((row) => row.sourceRowId));
     if (uniqueRows.size !== rows.length) {
       throw new WatchdogError(
@@ -87,15 +118,36 @@ export async function runSweep(
     await evidence.refreshDocumentMetadata(rows);
     const documents = options.limit === undefined ? rows : rows.slice(0, options.limit);
     for (const [index, row] of documents.entries()) {
+      if (options.resume && await evidence.archivedDocument(row)) {
+        documentsReused++;
+        dependencies.onProgress?.({
+          phase: "documents",
+          documentsTotal: documents.length,
+          documentsFetched,
+          documentsReused,
+        });
+        continue;
+      }
       const response = await fetcher.request(row.pdfRequest);
       adapter.verifyDocument(response.mediaType, response.body, `${sourceId} document ${index + 1}`);
       const archived = await evidence.archive(row, response.body, response.mediaType, now());
       if (archived.newBlob) newBlobs++;
       if (archived.newDocument) newDocuments.push(archived.document.sha256);
       documentsFetched++;
+      dependencies.onProgress?.({
+        phase: "documents",
+        documentsTotal: documents.length,
+        documentsFetched,
+        documentsReused,
+      });
     }
-    const status = documentsFetched === rowsSeen ? "ok" : "partial";
-    const error = status === "partial" ? `Bounded sweep fetched ${documentsFetched} of ${rowsSeen} listed documents` : undefined;
+    const documentsCovered = documentsFetched + documentsReused;
+    const status = documentsCovered === rowsSeen ? "ok" : "partial";
+    const error = status === "partial"
+      ? documentsReused === 0
+        ? `Bounded sweep fetched ${documentsFetched} of ${rowsSeen} listed documents`
+        : `Resumed sweep covered ${documentsCovered} of ${rowsSeen} listed documents (${documentsFetched} fetched, ${documentsReused} reused)`
+      : undefined;
     await evidence.recordSweep({
       run_id: runId,
       source_id: sourceId,
@@ -121,13 +173,14 @@ export async function runSweep(
       pagesFetched,
       ...(pagesExpected === undefined ? {} : { pagesExpected }),
       documentsFetched,
+      documentsReused,
       newBlobs,
       newDocuments,
       ...(error ? { error } : {}),
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    const status = rowsSeen > 0 || pagesFetched > 0 || documentsFetched > 0 ? "partial" : "failed";
+    const status = rowsSeen > 0 || pagesFetched > 0 || documentsFetched > 0 || documentsReused > 0 ? "partial" : "failed";
     const eventType: EventType =
       status === "partial"
         ? "sweep_partial"
@@ -156,6 +209,7 @@ export async function runSweep(
         pagesFetched,
         ...(pagesExpected === undefined ? {} : { pagesExpected }),
         documentsFetched,
+        documentsReused,
         newBlobs,
         newDocuments,
         error: message,

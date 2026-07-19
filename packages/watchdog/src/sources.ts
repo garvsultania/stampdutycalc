@@ -8,6 +8,8 @@ export type PublicationKind = "acts" | "department_orders" | "gazette" | "notifi
 
 export interface SourceDefinition {
   id: SourceId;
+  /** Historical source IDs retained by immutable index/sweep records. */
+  evidence_ids?: string[];
   jurisdiction: Jurisdiction;
   name: string;
   owner: string;
@@ -24,9 +26,10 @@ export interface SourceDefinition {
   acceptance?: string[];
 }
 
-const SOURCES = [
+const SOURCES: readonly SourceDefinition[] = [
   {
     id: "mh-egazette-part8",
+    evidence_ids: ["mh-egazette"],
     jurisdiction: "MH",
     name: "Maharashtra e-Gazette Part 8 English Extra-Ordinary",
     owner: "Directorate of Government Printing, Stationery and Publications, Government of Maharashtra",
@@ -50,12 +53,17 @@ const SOURCES = [
     allowedHosts: ["egazzete.mahaonline.gov.in"],
     adapter: "aspnet_postback",
     publication: "gazette",
-    status: "provisional",
+    status: "accepted",
     authority: "official_government",
     languages: ["en", "mr"],
     ocr: "recorded_fallback",
-    description: "Official Maharashtra notifications published in Part IV-B; five-year row discovery and the sentinel are proven, but full document acquisition is not yet complete.",
-    acceptance: ["2026-01-09 Mudrank-2024/C.R.182/Mudrank-2 notification"],
+    description: "Official Maharashtra notifications published in Part IV-B; the accepted archive covers 2021-07-17 through 2026-07-19, while earlier history remains outside the proven interval.",
+    acceptance: [
+      "2,575 rows across 26 pages for 2021-07-17 through 2026-07-19",
+      "2,575-document independent content re-fetch with zero new blobs",
+      "2,575 stable row identities reused with zero additions",
+      "2026-01-09 Mudrank-2024/C.R.182/Mudrank-2 notification",
+    ],
   },
   {
     id: "gj-egazette",
@@ -166,7 +174,7 @@ const SOURCES = [
     ocr: "recorded_fallback",
     description: "Official Government Orders filtered to Revenue; this source does not claim complete gazette coverage.",
   },
-] as const satisfies readonly SourceDefinition[];
+];
 
 const BY_ID = new Map<SourceId, SourceDefinition>(SOURCES.map((source) => [source.id, source]));
 
@@ -183,6 +191,11 @@ export function sourceById(id: SourceId): SourceDefinition {
 export function validateSourceDefinition(source: SourceDefinition): void {
   if (!/^[a-z]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(source.id)) {
     throw new WatchdogError(`Invalid watchdog source id ${source.id}`, "shape_drift");
+  }
+  for (const evidenceId of source.evidence_ids ?? []) {
+    if (!/^[a-z]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(evidenceId)) {
+      throw new WatchdogError(`Invalid legacy evidence source id ${evidenceId}`, "shape_drift");
+    }
   }
   const url = new URL(source.baseUrl);
   if (url.protocol !== "https:") throw new WatchdogError(`Watchdog source must use HTTPS: ${source.id}`, "shape_drift");
@@ -212,3 +225,17 @@ export function assertOfficialUrl(source: SourceDefinition, value: string): void
 }
 
 for (const source of SOURCES) validateSourceDefinition(source);
+
+const EVIDENCE_IDS = new Map<string, string>();
+for (const source of SOURCES) {
+  for (const evidenceId of [source.id, ...(source.evidence_ids ?? [])]) {
+    const existing = EVIDENCE_IDS.get(evidenceId);
+    if (existing) {
+      throw new WatchdogError(
+        `Evidence source id ${evidenceId} is claimed by both ${existing} and ${source.id}`,
+        "shape_drift",
+      );
+    }
+    EVIDENCE_IDS.set(evidenceId, source.id);
+  }
+}

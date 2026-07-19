@@ -19,6 +19,7 @@ export interface DiscoverySession {
 export interface SourceAdapter {
   readonly sourceId: SourceId;
   begin(fetcher: Fetcher, range: SweepRange): Promise<DiscoverySession>;
+  finalizeRows?(rows: GazetteRow[]): void;
   verifyDocument(mediaType: string, body: Uint8Array, description: string): void;
 }
 

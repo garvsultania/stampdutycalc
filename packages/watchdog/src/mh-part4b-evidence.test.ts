@@ -6,18 +6,31 @@ import type { DocumentRecord, SweepRun } from "./types.js";
 const data = (path: string) => fileURLToPath(new URL(`../../../watchdog-data/sources/mh-egazette-part4b/${path}`, import.meta.url));
 
 describe("Maharashtra Part IV-B direct evidence", () => {
-  it("records five-year discovery completeness without mislabelling the bounded probe as complete", async () => {
+  it("records complete acquisition, independent re-fetch, and stable-identity audits", async () => {
     const sweeps = await jsonLines<SweepRun>(data("state/sweeps.jsonl"));
-    expect(sweeps).toContainEqual(expect.objectContaining({
+    const complete = sweeps.filter((sweep) =>
+      sweep.source_id === "mh-egazette-part4b" &&
+      sweep.range_from === "2021-07-17" &&
+      sweep.range_to === "2026-07-19" &&
+      sweep.status === "ok"
+    );
+
+    expect(complete).toHaveLength(3);
+    expect(complete.at(-1)).toMatchObject({
       source_id: "mh-egazette-part4b",
       range_from: "2021-07-17",
-      range_to: "2026-07-17",
-      status: "partial",
-      rows_seen: 2573,
+      range_to: "2026-07-19",
+      status: "ok",
+      rows_seen: 2575,
       pages_expected: 26,
       pages_fetched: 26,
-      error: "Bounded sweep fetched 1 of 2573 listed documents",
-    }));
+    });
+
+    const documents = await jsonLines<DocumentRecord>(data("index/documents.jsonl"));
+    expect(documents).toHaveLength(2575);
+    expect(new Set(documents.map((document) => document.source_row_id))).toHaveLength(2575);
+    expect(new Set(documents.map((document) => document.sha256))).toHaveLength(2547);
+    expect(documents.some((document) => "__VIEWSTATE" in (document.retrieval.form_values ?? {}))).toBe(false);
   });
 
   it("archives the known commencement notification from the official e-Gazette", async () => {

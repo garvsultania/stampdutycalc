@@ -1,6 +1,7 @@
 export * from "./adapter.js";
 export * from "./archive.js";
 export * from "./aspnet.js";
+export * from "./catalog.js";
 export * from "./delhi-up.js";
 export * from "./discovery.js";
 export * from "./egazette.js";
@@ -11,6 +12,7 @@ export * from "./karnataka.js";
 export * from "./mh-adapter.js";
 export * from "./ocr.js";
 export * from "./probe.js";
+export * from "./promotion.js";
 export * from "./recording.js";
 export * from "./search-form.js";
 export * from "./sources.js";

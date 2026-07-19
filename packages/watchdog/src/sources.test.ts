@@ -19,13 +19,14 @@ describe("watchdog source registry", () => {
     }
   });
 
-  it("keeps Maharashtra Part IV-B provisional until full acquisition completes", () => {
+  it("declares Maharashtra Part IV-B eligible only for its proven five-year interval", () => {
     expect(sourceById("mh-egazette-part4b")).toMatchObject({
       publication: "gazette",
-      status: "provisional",
+      status: "accepted",
       allowedHosts: ["egazzete.mahaonline.gov.in"],
     });
-    expect(sourceById("mh-egazette-part4b").description).toMatch(/full document acquisition is not yet complete/i);
+    expect(sourceById("mh-egazette-part4b").description).toMatch(/2021-07-17 through 2026-07-19/i);
+    expect(sourceById("mh-egazette-part4b").description).toMatch(/earlier history remains outside/i);
   });
 
   it("labels Telangana GOIR as orders, not complete gazette coverage", () => {

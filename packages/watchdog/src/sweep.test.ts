@@ -77,6 +77,33 @@ describe("MH e-Gazette sweep", () => {
     expect(await jsonLines(join(root, "state", "events.jsonl"))).toHaveLength(1);
   });
 
+  it("resumes from integrity-checked archived rows without re-fetching them", async () => {
+    const root = await mkdtemp(join(tmpdir(), "stampdraft-sweep-"));
+    const evidence = new EvidenceStore(root);
+    const fetcher = new FixtureFetcher();
+    const dependencies = {
+      fetcher,
+      evidence,
+      runId: () => "resume-run",
+      now: () => "2026-07-17T00:00:00.000Z",
+    };
+
+    await runMhEgazetteSweep({ from: "2026-07-13", to: "2026-07-13", limit: 1 }, dependencies);
+    const resumed = await runMhEgazetteSweep(
+      { from: "2026-07-13", to: "2026-07-13", resume: true },
+      dependencies,
+    );
+
+    expect(resumed).toMatchObject({
+      status: "ok",
+      rows: 2,
+      documentsFetched: 1,
+      documentsReused: 1,
+      newBlobs: 1,
+    });
+    expect(fetcher.documentRequests).toBe(2);
+  });
+
   it("records a bounded run as partial and emits an event", async () => {
     const root = await mkdtemp(join(tmpdir(), "stampdraft-sweep-"));
     const evidence = new EvidenceStore(root);

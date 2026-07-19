@@ -28,6 +28,24 @@ describe("HTTP fetcher", () => {
     expect(record).toHaveBeenCalledOnce();
     expect(record.mock.calls[0]?.[0].status).toBe(404);
   });
+
+  it("aborts a request that exceeds the configured timeout", async () => {
+    const fetchImpl = vi.fn<typeof fetch>().mockImplementation((_input, init) => new Promise((_resolve, reject) => {
+      init?.signal?.addEventListener("abort", () => reject(new DOMException("aborted", "AbortError")));
+    }));
+    const fetcher = new HttpFetcher({ fetchImpl, minIntervalMs: 0, maxAttempts: 1, requestTimeoutMs: 1 });
+
+    await expect(fetcher.request({ url })).rejects.toThrow(/Network failure/);
+  });
+
+  it("rejects a response whose declared size exceeds the configured bound", async () => {
+    const response = makeResponse("small fixture", 200, "application/pdf");
+    response.headers.set("content-length", "1000");
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(response);
+    const fetcher = new HttpFetcher({ fetchImpl, minIntervalMs: 0, maxResponseBytes: 100 });
+
+    await expect(fetcher.request({ url })).rejects.toThrow(/exceeding 100/);
+  });
 });
 
 function makeResponse(body: string, status: number, contentType: string): Response {

@@ -52,4 +52,39 @@ describe("watchdog evidence store", () => {
   it("refuses to target the rules corpus", () => {
     expect(() => new EvidenceStore("/tmp/project/rules/watchdog")).toThrowError(WatchdogError);
   });
+
+  it("indexes document occurrences by source row even when content is shared", async () => {
+    const root = await mkdtemp(join(tmpdir(), "stampdraft-watchdog-"));
+    const store = new EvidenceStore(root);
+    const body = new TextEncoder().encode("%PDF-1.4\nshared");
+
+    const first = await store.archive(row, body, "application/pdf", "2026-07-17T00:00:00.000Z");
+    const second = await store.archive(
+      { ...row, sourceRowId: "row-2", title: "A second official occurrence" },
+      body,
+      "application/pdf",
+      "2026-07-17T00:01:00.000Z",
+    );
+
+    expect(first).toMatchObject({ newBlob: true, newDocument: true });
+    expect(second).toMatchObject({ newBlob: false, newDocument: true });
+    expect((await readFile(join(root, "index", "documents.jsonl"), "utf8")).trim().split("\n")).toHaveLength(2);
+  });
+
+  it("verifies resumed blobs and rejects changed content for the same official row", async () => {
+    const root = await mkdtemp(join(tmpdir(), "stampdraft-watchdog-"));
+    const store = new EvidenceStore(root);
+    const body = new TextEncoder().encode("%PDF-1.4\noriginal");
+    const archived = await store.archive(row, body, "application/pdf", "2026-07-17T00:00:00.000Z");
+
+    await expect(store.archivedDocument(row)).resolves.toMatchObject({ sha256: archived.document.sha256 });
+    await expect(
+      store.archive(
+        row,
+        new TextEncoder().encode("%PDF-1.4\nchanged"),
+        "application/pdf",
+        "2026-07-17T00:01:00.000Z",
+      ),
+    ).rejects.toThrow(/changed content/);
+  });
 });
