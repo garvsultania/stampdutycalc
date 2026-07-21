@@ -31,6 +31,10 @@ degrades to a setup card by design; the calculator itself needs no database. See
 `packages/store/README.md`. PGlite cannot load inside Next's runtime — it is **test-only**. Do not
 try to route around this again; two approaches were tried and both failed (documented below).
 
+Production and non-loopback deployments also require a 32-byte-or-longer
+`STAMPDRAFT_MEMO_CAPABILITY_SECRET`. Memo links are five-minute, firm-scoped capabilities; a
+loopback `next dev` session alone receives a development fallback. See `apps/web/.env.example`.
+
 ---
 
 ## 2. The state of the truth
@@ -163,8 +167,11 @@ deliberately NOT half-built**: a stub test that reports without failing is theat
 - **Registration fees** — researched thoroughly, encoded nowhere, pending decisions above.
 - **Frontend polish** — founder called it "very vibe coded"; deprioritised in favour of correctness.
   Still true, still deprioritised.
-- **Workspace end-to-end run** — store layer is proven (10/10 tests against real Postgres semantics
+- **Workspace end-to-end run** — store layer is proven (15/15 tests against real Postgres semantics
   via PGlite), but the web layer on top has **never been exercised** for lack of a Postgres in the
   dev environment.
-- **M4/M5**, foreign-executed instruments, exchange/settlement, KA pre-2016 back-catalogue,
-  `min()`-over-charges, real PDF generation, real auth.
+- **M4/M5 external provider/deployment completion**, foreign-executed instruments,
+  exchange/settlement, KA pre-2016 back-catalogue, and `min()`-over-charges. The later
+  review series adds fail-closed authentication, Tier 2 upload/confirmation/lifecycle,
+  PDF memos, migrations, and backup contracts; production IdP, extraction, backup, and
+  Postgres integrations still require deployment credentials and drills.

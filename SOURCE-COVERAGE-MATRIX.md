@@ -1,6 +1,6 @@
 # StampDraft MVP Source and Coverage Matrix
 
-**Updated:** 2026-07-19
+**Updated:** 2026-07-21
 **Scope:** Delhi, Maharashtra, and Karnataka
 **Purpose:** Define what StampDraft may eventually answer, what it must currently refuse, and which primary-source work unlocks each path.
 
@@ -17,7 +17,7 @@ StampDraft should target **at least 80% answer coverage with near-100% condition
 - Unsupported, stale, ambiguous, or incompletely sourced cells must refuse or escalate and therefore do not count as answered.
 - No production number is eligible merely because the arithmetic engine can compute it.
 
-As of this document, every `verified_on` value is null and the generated evidence report records **0/99 Watchdog-linked citation dependencies**. Production web computation, memo, filing, and classification paths enforce both founder verification and current immutable evidence, so **every current rule remains blocked from production by design**. Draft engine and golden tooling deliberately permit unmerged versions for testing. The statuses below describe readiness for founder review; they do not authorize production use.
+As of this document, every `verified_on` value is null and the generated evidence report records **0/115 Watchdog-linked citation dependencies**. Production web computation, memo, filing, and classification paths enforce both founder verification and current immutable evidence, so **every current rule remains blocked from production by design**. Draft engine and golden tooling deliberately permit unmerged versions for testing. The statuses below describe readiness for founder review; they do not authorize production use.
 
 ## 2. Status legend
 
@@ -47,11 +47,11 @@ Warnings are permitted only for issues that cannot change the number. Any doubt 
 
 | State | Active rule versions reported by validator | Golden cases | Lawyer-verified versions | Latest golden execution date | Current source position |
 |---|---:|---:|---:|---|---|
-| Delhi | 22 | 59 | 0 | 2024-06-01 | Rates drafted; notification history and municipal evidence incomplete |
-| Maharashtra | 23 | 67 | 0 | 2024-06-01 | Several known-current errors refuse; Part 8 has one complete run and Part IV-B has three complete five-year audits, but generated promotion and pre-2021 history remain incomplete |
-| Karnataka | 17 | 40 | 0 | 2024-06-01 | Consolidated source is stale; many current paths refuse |
+| Delhi | 22 | 85 | 0 | 2026-07-21 | Rates drafted; notification history and municipal evidence incomplete |
+| Maharashtra | 30 | 124 | 0 | 2026-07-21 | Acts III of 2021, VII of 2022, XXXII of 2024, and IX and XX of 2025 are date-versioned for review; Article 54 and two fail-closed Part IV-B remission screens have exact mechanically validated evidence proposals; both Gazette baselines pass generated promotion, and Part IV-B has one exact early-2021 document gap |
+| Karnataka | 17 | 42 | 0 | 2026-07-21 | Consolidated source is stale; many current paths refuse |
 
-The 166/166 golden result proves deterministic agreement with the drafted expectations. It does not independently prove the law.
+The 256/256 golden result proves deterministic agreement with the drafted expectations. It does not independently prove the law.
 
 ---
 
@@ -62,7 +62,7 @@ The 166/166 golden result proves deterministic agreement with the drafted expect
 | Source family | Needed for | Evidence now | Watchdog state | Gap and required proof | Priority |
 |---|---|---|---|---|---|
 | Current Delhi Schedule I-A and amendment chain | All Delhi Schedule rates, cross-references, exemptions, historical eras | Official Delhi-hosted central Schedule I plus a secondary Schedule I-A reproduction; the reproduction has a known column-slip defect | No complete source | Obtain a current first-party Schedule I-A or assemble it from Delhi Gazette amendment instruments; archive every instrument and link each encoded article | **P0** |
-| Delhi Revenue notification history | Remissions, exemptions, procedural and rate notifications | Current page probe found 10 PDFs across 2 listing URLs | Provisional probe only | Traverse all history and pagination; acquire documents; record OCR status for scans; repeat with zero additions | **P0** |
+| Delhi Revenue notification history | Remissions, exemptions, procedural and rate notifications | Current page probe found 10 PDFs across 2 listing URLs; bounded full-pagination discovery and a dated snapshot acquisition adapter are fixture-tested and CLI-wired | Provisional; no live snapshot, historical-completeness proof, or committed acquisition | Run the dated snapshot sweep; establish history coverage independently; record OCR status for scans; repeat with zero additions | **P0** |
 | DMC/MCD transfer-duty law and 10-Jul-2023 notification | Sale, gift, mortgage with possession, contract for transfer, perpetual lease | Citations and founder rulings exist, but the primary notification is not in the immutable evidence archive | No registered source family | Add the municipal source; acquire s.147 text and the complete notification; prove instrument scope, bases, threshold, gender/joint treatment, and effective date | **P0** |
 | DORIS/property-registration output | Joint rates, mortgage base, registrar-practice reconciliation | Manual references only | No canary | Create fixed, recorded reconciliation scenarios; a portal result is a canary, not the legal source | **P0** |
 | Central e-Gazette/MoF/DEA securities material | Physical share transfer from 2020 and historical central rate | Citations exist; no complete Watchdog-backed chain | No source family | Archive Finance Act 2019 provisions, commencement notifications, rate notifications, and relevant official FAQs | **P1** |
@@ -73,11 +73,11 @@ The 166/166 golden result proves deterministic agreement with the drafted expect
 
 | Source family | Needed for | Evidence now | Watchdog state | Gap and required proof | Priority |
 |---|---|---|---|---|---|
-| Maharashtra Act / Schedule spine | All Schedule articles and Act-level sections | Local IGR Schedule PDF expressly current only through 1-Jun-2022; some India Code references | Not an accepted current spine | Link a current consolidated spine to all amendments; retain consolidation date as evidence metadata | **P0** |
-| e-Gazette Part 8 English Extra-Ordinary | Amendment Acts and ordinances | 195 unique PDFs for 2025-04-09 to 2026-07-16; hashes verified | One successful complete run; second recorded run was bounded/partial | Run a second complete identical acquisition with zero additions; extend discovery/acquisition back to the 2015 product floor | **P0** |
-| e-Gazette Part IV-B | Stamp notifications, commencements, concessions, surcharge and remission orders | 2,575 rows / 2,547 unique immutable PDFs archived for 2021-07-17 to 2026-07-19; independent full re-fetch added zero blobs; stable-identity sweep reused 2,575/2,575 with zero additions | Accepted for the stated five-year interval | Extract and classify stamp instruments; extend acquisition back to the 2015 product floor before claiming older-chain completeness | **P0** |
+| Maharashtra Act / Schedule spine | All Schedule articles and Act-level sections | Local IGR Schedule PDF current only through 1-Jun-2022; official Acts III of 2021, VII of 2022, XXXII of 2024, and IX and XX of 2025 are pinpointed in the immutable Gazette archive but deliberately unlinked pending the complete chain | Not an accepted current spine | Link a current consolidated spine to all amendments; retain consolidation date as evidence metadata | **P0** |
+| e-Gazette Part 8 English Extra-Ordinary | Amendment Acts and ordinances | 1,368 occurrences / 1,361 unique immutable PDFs; 195-document accepted baseline plus complete non-overlapping historical queries from 2015 | Accepted baseline; receipt-bound historical query coverage complete to the 2015 product floor | Review all 422 selected occurrences / 421 blobs, including the 407 enacted-law-title backstop items and two curated generic-title dependency targets, and establish complete amendment/commencement chains before linking evidence | **P0** |
+| e-Gazette Part IV-B | Stamp notifications, commencements, concessions, surcharge and remission orders | 5,065 occurrences / 5,030 unique immutable PDFs; accepted 2,575-row baseline; complete 2015–2020 queries; 207/208 early-2021 rows; exact local orders show targeted, retrospective, industrial, housing, logistics, agricultural, and GCC remissions; a shared section 9 screen plus the two broad 2026 policy gates refuse possibly affected paths | Accepted baseline; exact missing 2021-05-28 row is recorded and remains inaccessible | Re-attempt the one exact document; complete review of 107 selected title candidates / 105 blobs; establish complete chains and exact order-scope questionnaires before linking evidence | **P0** |
 | Municipal/transport surcharge law | Metro cess, s.149A/s.149B stacking, city coverage, LBT | Partial statutory quotations and secondary corroboration | No complete source family | Archive the municipal Acts, commencement/project notifications, city declarations, abeyance/revival instruments, and LBT instruments; model city and instrument scope explicitly | **P0** |
-| IGR circulars, fee table, payment guidance | Registration fee, practice, stamping mode | Local pages/PDF references only | No complete source family | Add a dedicated first-party source; do not treat current IGR pages as proof of currency without dated sweeps | **P1** |
+| IGR publications: Acts, rules, notifications, circulars, valuation, fees | Act/Schedule spine, registration fee, valuation, practice, stamping mode | Official portal registered; a local official Schedule I/II PDF is expressly current only through 1-Jun-2022 | Provisional source-family discovery only | Execute and record publication-section discovery, traverse each family, acquire dated documents, and prove history/currency with repeat runs | **P0** |
 | Official calculator/canary | Property-rate reconciliation | Not automated | None | Add fixed scenario reconciliation only after the underlying rules are verified | **P1** |
 | Registration fee table | Property registration adjunct | Researched, not encoded | None | Archive and verify the stepped fee table and family-gift exception | **DEFER** |
 
@@ -86,7 +86,7 @@ The 166/166 golden result proves deterministic agreement with the drafted expect
 | Source family | Needed for | Evidence now | Watchdog state | Gap and required proof | Priority |
 |---|---|---|---|---|---|
 | DPAL base/consolidated Act | Schedule, s.3B, penalties, charging rules | Local official PDF whose newest amendment footnote is Act 55 of 2020 | Known stale | Preserve as historical evidence only; never use its silence to reject later amendments | **P0** |
-| DPAL annual Acts and ordinances | Acts 26/2021, 11/2022, 12/2022, 31/2022, 03/2023, 04/2024, 23/2024, 30/2025, 42/2025 | 2025 probe found 77 identifiable Acts and 125 PDFs | Provisional probe only | Prove annual pages for 2021-2026, acquire all PDFs, assert the known-Act checklist, and repeat with zero additions | **P0** |
+| DPAL annual Acts and ordinances | Acts 26/2021, 11/2022, 12/2022, 31/2022, 03/2023, 04/2024, 23/2024, 30/2025, 42/2025 | 2025 probe found 77 identifiable Acts and 125 PDFs; direct 2021–2026 traversal, nine-Act gate, CLI full probe, and complete PDF acquisition sweep are fixture-tested | Provisional; no six-year live run or committed acquisition | Execute and record the live sweep, prove the checklist from recorded responses, and repeat with zero additions | **P0** |
 | Commencement notifications | Acts whose provisions commence on a notified date, especially Acts 30/2025 and 42/2025 | Not located | No complete source | Locate the official Gazette/department notification source and archive positive commencement evidence; absence cannot be treated as non-commencement | **P0** |
 | Karnataka IGR circulars/orders | Current practice, fee tables, registration requirements and clarification | No Watchdog source | None | Add source families by portal shape; archive fee tables and operative circulars separately | **P0** |
 | Municipal/local-body surcharge law | Urban/rural surcharge and instrument scope | Secondary corroboration only; no primary section pinned | No source family | Acquire the governing municipal provisions and amendments; verify rate direction, base, territorial classification, and instrument list | **P0** |
@@ -112,20 +112,20 @@ All rows remain globally blocked until founder verification and source freshness
 
 | Instrument / rule | Encoded path | Material dependencies and gaps | Review disposition |
 |---|---|---|---|
-| Conveyance — `DL-ART23-conveyance` | Schedule duty by transferee category plus municipal transfer duty and 2023 threshold | Primary MCD notification not archived; joint stamp split and joint post-hike treatment unresolved | **RESTRICT** to separately sourced male/female cells; **REFUSE** joint > Rs 25 lakh and all unsourced categories |
+| Conveyance — `DL-ART23-conveyance` | Schedule duty by transferee category plus municipal transfer duty and 2023 threshold | Primary MCD notification not archived; joint component split and joint post-hike treatment unresolved | **RESTRICT** to separately sourced male/female cells; pre-hike and <= Rs 25 lakh joint totals carry component warnings; **REFUSE** joint > Rs 25 lakh and all unsourced categories |
 | Gift — `DL-ART33-gift` | Conveyance charge on value plus gift transfer duty | Must prove that the 2023 hike applies to gifts; joint donee and any family concession require evidence | **REFUSE** until notification scope is established; then review non-joint cells |
-| Agreement to sell with possession — `DL-ART23A-ats-part-performance` | 90% of conveyance duty plus transfer duty | Transfer-duty scope, 90% base, threshold test, and set-off memo treatment need primary proof | **REFUSE** pending MCD evidence and questionnaire proof |
-| Agreement to sell without possession — `DL-ART5c-agreement-to-sell` | Fixed Article 5(c) amount | Registrar practice may treat some variants ad valorem; possession fork is high consequence | **REFUSE** until the supported no-possession fact pattern is defined and verified |
+| Agreement to sell with possession — `DL-ART23A-ats-part-performance` | 90% of conveyance duty plus transfer duty | Transfer-duty scope, 90% base, threshold test, and set-off memo treatment need primary proof | **REFUSE** pending MCD evidence and questionnaire proof; day-before, amendment-day, ambiguous-threshold, current, and missing-input coverage is explicit |
+| Agreement to sell without possession — `DL-ART5c-agreement-to-sell` | Fixed Article 5(c) amount | Registrar practice may treat some variants ad valorem; possession fork is high consequence | **REFUSE** until the supported no-possession fact pattern is defined and verified; current neighbouring-route refusal is explicit |
 | Lease — `DL-ART35-lease` | Term-banded Bond/Conveyance cross-references | OCR ambiguity in the >30-year band; >100 years/perpetuity incomplete; premium and category treatment need review | **RESTRICT** to verified term bands after a clean primary Schedule; refuse the ambiguous tail |
 | Leave and licence — `DL-leave-and-license` | Treated as Article 35 agreement to let | Delhi registrar-practice treatment not positively established for all licences | **REFUSE** until practice and classification boundary are verified |
-| Mortgage with possession — `DL-ART40a-mortgage-with-possession` | Conveyance duty on secured amount plus transfer duty | Municipal base, scope, gender treatment, and 2023 hike application are assumptions | **REFUSE** |
-| Mortgage without possession — `DL-ART40b-mortgage-without-possession` | Ad valorem with cap | Collateral/auxiliary-security branch not encoded; current Schedule must be proved | **RESTRICT** to a verified principal mortgage without collateral-security exception |
+| Mortgage with possession — `DL-ART40a-mortgage-with-possession` | Conveyance duty on secured amount plus transfer duty | Municipal base, scope, gender treatment, and 2023 hike application are assumptions | **REFUSE** on both sides of the amendment and currently; arithmetic is isolated, and missing base refuses first |
+| Mortgage without possession — `DL-ART40b-mortgage-without-possession` | Ad valorem with cap | Collateral/auxiliary-security branch not encoded; current Schedule must be proved | **RESTRICT** to an explicitly confirmed principal mortgage; the collateral neighbour refuses |
 | Loan/hypothecation — `DL-ART6-loan-hypothecation` | Tenor-selected rate and cap | Bill-of-exchange accompanying exemption and instrument classification require questions | **RESTRICT** to ordinary standalone agreements after primary verification |
 | Indemnity — `DL-ART34-indemnity-bond` | Cross-reference to security bond | Depends on Bond/Security Bond cross-reference chain and correct classification | **VERIFY** after the complete primary chain is linked |
 | Guarantee/security bond — `DL-ART57-security-bond` | Small-amount switch to Bond; otherwise fixed | Source is a reproduction and must be replaced or corroborated by a clean primary Schedule | **VERIFY** after primary evidence |
-| Partnership — `DL-ART46-partnership` | 1% of capital capped at Rs 5,000 | Known duty-column slip; exact clause (a) amount for capital <= Rs 500 unresolved | **RESTRICT** to capital > Rs 500 after clean primary proof; refuse the lower cell |
+| Partnership — `DL-ART46-partnership` | 1% of capital capped at Rs 5,000 | Known duty-column slip; exact clause (a) amount for capital <= Rs 500 unresolved | **RESTRICT** to capital > Rs 500 after clean primary proof; Rs 500 refuses and Rs 501 is the tested neighbouring formula cell |
 | Partnership dissolution — `DL-ART46B-partnership-dissolution` | Fixed amount | Same column-slip source family | **VERIFY** after clean primary proof |
-| LLP — `DL-llp-agreement` | Treated as partnership | Classification is practice-based, not tied to an explicit verified Delhi entry | **REFUSE** |
+| LLP — `DL-llp-agreement` | Treated as partnership | Classification is practice-based, not tied to an explicit verified Delhi entry | **REFUSE** globally, including where the cross-referenced partnership low-capital cell would also refuse |
 | General POA — `DL-ART48-gpa` | Fixed common case | POA-for-sale, consideration, number-of-attorneys, and other clauses can change duty materially | **RESTRICT** only after a clause-selection questionnaire is mandatory |
 | Special POA — `DL-ART48-spa` | Fixed single-transaction case | Registration-only clause may carry a different amount | **RESTRICT** only after purpose is explicitly selected |
 | Affidavit — `DL-ART4-affidavit` | Fixed amount | Court, enrolment, and pension exemptions not modelled; current Schedule source incomplete | **RESTRICT** to a verified non-exempt affidavit |
@@ -133,54 +133,54 @@ All rows remain globally blocked until founder verification and source freshness
 | Service agreement — `DL-service-agreement` | Article 5 residual/service path | Specific agreement sub-clauses can displace the residual | **RESTRICT** after the questionnaire rules out specific higher entries |
 | Physical share transfer — `DL-ART62-share-transfer` | Historical 0.25%; current Union 0.015% | Central evidence chain must be archived; payer is contested but does not change amount | **VERIFY** amount after central-source acquisition; payer remains a non-amount caveat |
 | Deficit/penalty — `DL-penalty` | Discretionary range | Delhi-specific amendments and practical/statutory minimum not verified | **REFUSE** |
-| Several instruments / distinct matters / multiple descriptions — `DL-charging` | Sections 4-6 | Delhi s.4 nominal duty may have been amended; currently prose-only pending | **REFUSE** s.4; review s.5/s.6 only after current Act proof |
+| Several instruments / distinct matters / multiple descriptions — `DL-charging` | Sections 4-6 | Delhi s.4 nominal duty may have been amended; the section carries a machine-readable refusal | **REFUSE** s.4; review s.5/s.6 only after current Act proof |
 
 ### 5.2 Maharashtra
 
 | Instrument / rule | Encoded path | Material dependencies and gaps | Review disposition |
 |---|---|---|---|
-| Conveyance — `MH-ART25-conveyance` | Area-based Schedule rate, women concession, metro modifier | Metro city list and 1%/2% stacking unresolved; LBT incomplete; women-order scope/currency incomplete | **RESTRICT** to positively proven non-metro/non-LBT cases without concession; **REFUSE** metro and concession cells until sourced |
-| Gift — `MH-ART34-gift` | Fixed close-family, 3% family, or conveyance rate | Metro/LBT treatment is absent; relation/property-use precedence must be confirmed | **RESTRICT** to verified family definitions and locations proven free of omitted surcharges |
-| Lease — `MH-ART36-lease` | Conveyance rate on term percentage of market value | User-supplied market-value concept must include required premium/deposit treatment; LBT and area effects need proof | **RESTRICT** after current Schedule and locality questions are verified |
-| Leave and licence — `MH-ART36A-leave-license` | 0.25% formula up to 60 months, then lease | Deposit classification and >60-month cross-reference require verified inputs | **VERIFY** the <=60-month standard path after current-source review; restrict the tail |
+| Conveyance — `MH-ART25-conveyance` | Area-based Schedule rate, women concession, metro modifier | Metro city list and 1%/2% stacking unresolved; LBT incomplete; section 9 includes targeted/project remissions, and the GCC Policy can affect Article 25 instruments from 3-Nov-2025 | **RESTRICT** to explicit non-metro/non-LBT cells without concession and with no other remission identified; **REFUSE** active metro, LBT-uncertain, concession, GCC, and other claimed/possible section 9 cells |
+| Gift — `MH-ART34-gift` | Fixed close-family, 3% family, or conveyance rate | Metro/LBT treatment is absent; relation/property-use precedence must be confirmed | **RESTRICT** all three relationship branches to explicit non-metro/non-LBT locations; **REFUSE** metro, LBT-uncertain, or missing-relation cells |
+| Lease — `MH-ART36-lease` | Conveyance rate on term percentage of market value | User-supplied market-value concept must include required premium/deposit treatment; LBT and area effects need proof; targeted, retrospective, logistics, and GCC orders can remit Article 36 instruments | **RESTRICT** after current Schedule, locality, and order-scope questions are verified; every claimed/possible section 9 or GCC cell refuses |
+| Leave and licence — `MH-ART36A-leave-license` | 0.25% formula up to 60 months, then lease | Deposit classification and >60-month cross-reference require verified inputs; the GCC Policy remission can affect Article 36A instruments from 3-Nov-2025 | **VERIFY** the <=60-month standard path only after current-source and GCC order-scope review; eligible/uncertain GCC cells and the unsupported tail refuse |
 | Memorandum of association — `MH-ART39-moa` | Share-capital rate with minimum/cap and AoA branch | Current Act sweep and exact accompanied-by-AoA facts | **VERIFY** after current-source review |
 | POA — `MH-ART48-poa` | Fixed common clauses | Consideration/sale/developer clauses route to conveyance and are not represented by the flat path | **RESTRICT** to verified clauses through a mandatory questionnaire |
-| Mortgage with possession — `MH-ART40a-mortgage-with-possession` | Conveyance rate on amount secured | Metro surcharge reaches only specified mortgage types; current modifier is not attached; subtype matters | **REFUSE** metro/possibly usufructuary cases; review only a sourced non-surcharge subtype |
-| Mortgage without possession — `MH-ART40b-mortgage-without-possession` | Rate with minimum and cap | Consortium/bank cap and alternate line ambiguities remain | **RESTRICT** to verified non-consortium standard cases |
+| Mortgage with possession — `MH-ART40a-mortgage-with-possession` | Conveyance rate on amount secured | Metro surcharge reaches only specified mortgage types; subtype matters; general section 9, GCC Policy, and agricultural/crop-loan orders can remit Article 40 duty | **RESTRICT** to explicit non-usufructuary, non-metro, non-LBT cells with no remission identified; **REFUSE** metro/uncertain subtype, omitted-levy, and every claimed/possible remission cell |
+| Mortgage without possession — `MH-ART40b-mortgage-without-possession` | Date-versioned 0.5% baseline, then the 0.1%/0.3% table with Rs 10 lakh and Rs 20 lakh ceilings | Exact Acts III of 2021 and VII of 2022 establish the two current-era boundaries; the latter adds the Rs 50 lakh consortium ceiling; scope questions cover general section 9, GCC Policy, and agricultural/crop-loan remissions | **RESTRICT** to a questionnaire-proved ordinary or consortium scope with no remission identified; every claimed/possible order scope refuses; verify the complete chain before production |
 | Indemnity — `MH-ART35-indemnity-bond` | Fixed amount with historical era | Requires current Act sweep but no known current error recorded | **VERIFY** after current-source review |
-| Guarantee/security bond — `MH-ART54-security-bond` | Currently encodes superseded text | Known wrong version: operative 2022 substitution was confused with historical footnote | **REFUSE** and re-encode new eras |
-| Partnership — `MH-ART47-partnership` | Rate with cap | Known stale: 2024-effective amendment raised the cap | **REFUSE** and re-encode |
-| LLP — `MH-ART47-llp` | Partnership-linked rate | Shares the stale cap | **REFUSE** and re-encode |
-| Affidavit — `MH-ART4-affidavit` | Fixed amount | Known stale: 2024-effective amendment changed the amount | **REFUSE** and re-encode |
-| Works contract — `MH-ART63-works-contract` | Thresholded marginal formula with cap | Known stale: threshold and rate changed from 14-Oct-2024 | **REFUSE** and re-encode |
-| Service agreement — `MH-ART5hB-service-agreement` | Residual fixed amount | Many specific Article 5 sub-clauses can displace it; current works/service tree quotes stale works law | **REFUSE** until classification tree and current competing entries are verified |
+| Guarantee/security bond — `MH-ART54-security-bond` | Date-versioned historical 0.5% and current 0.1%/0.3% table, Article 40 proviso, and statutory exemptions | Exact Act VII of 2022 pages 3-4 are encoded; historical exemptions remain refused; current exemption/proviso and GCC Policy or agricultural/crop-loan remission scope must be known | **RESTRICT** to an exact listed scope expressly outside both remission orders; every uncertain or eligible remission answer refuses; verify the complete source chain before production |
+| Partnership — `MH-ART47-partnership` | Date-versioned 1% rate; cap rises from Rs 15,000 to Rs 50,000 on 14-Oct-2024 | Exact Act IX of 2025 pinpoint is encoded; complete baseline/amendment chain, evidence link, and founder review remain open | **VERIFY** the new era after chain review; production stays blocked meanwhile |
+| LLP — `MH-ART47-llp` | Date-versioned partnership cross-reference | Exact amended cap is inherited by the new LLP era; chain and founder review remain open | **VERIFY** with the partnership dependency |
+| Affidavit — `MH-ART4-affidavit` | Date-versioned fixed amount: Rs 100 then Rs 500 from 14-Oct-2024 | Exact Act IX pinpoint is encoded; statutory exemptions remain observable-fact gated | **RESTRICT** to an ordinary non-exempt affidavit; verify the source chain before production |
+| Works contract — `MH-ART63-works-contract` | Rs 5 lakh threshold and 0.3% marginal rate from 14-Oct-2024 | Exact Act IX pinpoint is encoded; whether the existing Rs 25 lakh ceiling applies to total duty or only the percentage component remains material only when it can bind | **RESTRICT** to non-cap-binding values after source review; **REFUSE** every cap-binding value |
+| Service agreement — `MH-ART5hB-service-agreement` | Residual fixed amount rises from Rs 100 to Rs 500 on 14-Oct-2024 | Exact Act IX pinpoint is encoded; specific Article 5 branches can still displace the residual | **RESTRICT** to questionnaire-proved residual agreements; affirmative or uncertain competing paths refuse |
 | Physical share transfer — `MH-share-transfer` | Historical state/central rate and current Union rate | Central evidence chain and payer treatment | **VERIFY** amount after central-source acquisition |
-| Deficit/penalty — `MH-penalty` | Per-month formula with cap | Current full-Act section and adjudication distinctions must be tied to evidence | **VERIFY** only after current Act review and memo semantics are approved |
-| Sections 4-6 — `MH-charging` | State-specific nominal duty and transaction scope | Current text appears sourced, but exact historical amendment dates are approximated at the 2015 floor | **VERIFY** current use; **REFUSE** historical claims until exact era dates are proved |
-| Classification trees | Lease/licence and works/service | Works tree embeds pre-amendment amounts; both trees remain unverified | **REFUSE** current works/service routing; review lease/licence after source update |
+| Deficit/penalty — `MH-penalty` | Sections 31/34 use 2% per month with a four-times cap; section 39 is a distinct route and changed on 31-Jul-2024 to 1% for registered instruments / 2% otherwise | Exact Act XXXII of 2024 boundary is encoded, but the product does not collect procedural route or registration status | **REFUSE** every route-free penalty output until the form and result contract represent the applicable branch |
+| Sections 4-6 — `MH-charging` | State-specific nominal duty and transaction scope | Exact Act XX of 2025 changes the section 4 ancillary-instrument amount from Rs 100 to Rs 500 on 1-Apr-2025; sections 5 and 6 are unchanged by that Act | **VERIFY** the two append-only eras after complete-chain review; the 31-Mar/1-Apr boundary is executable and production remains evidence-gated |
+| Classification trees | Lease/licence and date-versioned works/service | Works/service consequences now change at 14-Oct-2024; both tree families remain unverified and unlinked | **VERIFY** the current works/service era with its rule chain; review lease/licence after source update |
 
 ### 5.3 Karnataka
 
 | Instrument / rule | Encoded path | Material dependencies and gaps | Review disposition |
 |---|---|---|---|
 | Conveyance — `KA-ART20-conveyance` | Base rate/first-sale bands plus infrastructure cess and local surcharge | Missing Rs 35-45 lakh first-sale band; local surcharge lacks primary evidence; source spine is stale | **REFUSE** totals until both the current band and surcharge law are encoded |
-| Bare conveyance rate — `KA-ART20-rate` | 5% cross-reference target | Must be audited through all annual amendment Acts | **VERIFY** only as an internal dependency after the Act sweep |
+| Bare conveyance rate — `KA-ART20-rate` | 5% cross-reference target | Must be audited through all annual amendment Acts | **REFUSE** from 1-Jan-2021 until the Act/commencement sweep is complete; historical arithmetic remains testable |
 | Gift — `KA-ART28-gift` | Fixed family amounts or conveyance rate; non-family cess | Family-gift cess treatment unresolved; local surcharge/instrument scope not modelled | **REFUSE** total until cess and surcharge scope are settled |
-| Lease / leave and licence — `KA-ART30-lease` | Term bands; >30 years routes to conveyance | Family-lease proviso missing; perpetuity/long-term cess missing; current Act audit incomplete | **RESTRICT** ordinary non-family leases <=30 years after current Act review; refuse other branches |
+| Lease / leave and licence — `KA-ART30-lease` | Term bands; >30 years routes to conveyance | Family-lease proviso missing; perpetuity/long-term cess missing; current Act audit incomplete | **REFUSE** from 1-Jan-2021 until the source graph and missing classification/cess inputs are complete |
 | POA — `KA-ART41-poa` | Fixed common clauses | Known stale after Act 04/2024; conveyance/development forks also require questions | **REFUSE** and re-encode |
 | Mortgage with possession — `KA-ART34a-mortgage-with-possession` | Conveyance rate on secured amount | Current rule is flagged stale; municipal surcharge scope separately unresolved | **REFUSE** and re-encode |
 | Mortgage without possession — `KA-ART34b-mortgage-without-possession` | Ad valorem | Current rule is flagged stale | **REFUSE** and re-encode |
 | Hypothecation/loan — `KA-ART34d-hypothecation` | Banded rate and historical cap | Known stale: Act 04/2024 changed formula and removed the encoded cap; demand/term distinction incomplete | **REFUSE** and re-encode |
 | Affidavit — `KA-ART4-affidavit` | Fixed amount | Known stale after Act 04/2024 | **REFUSE** and re-encode |
 | Guarantee/security bond — `KA-ART47-security-bond` | Small-amount percentage/fixed switch | Known stale after Act 04/2024 | **REFUSE** and re-encode |
-| Indemnity — `KA-ART29-indemnity-bond` | Cross-reference to security bond | **Critical transitive-refusal bug:** target Art 47 is stale, but the top-level indemnity rule has no flag and can still emit the old amount | **REFUSE**; fix transitive dependency checks before any review |
+| Indemnity — `KA-ART29-indemnity-bond` | Cross-reference to security bond | Target Article 47 is stale; the transitive dependency gate now propagates its refusal through this otherwise unflagged wrapper | **REFUSE** until Article 47 is re-encoded |
 | Works contract — `KA-ART5j-works-contract` | Residual agreement amount | Known stale after Act 04/2024; specific construction/JDA entries can displace it | **REFUSE** and re-encode with classification scope |
 | Service agreement — `KA-ART5j-service-agreement` | Residual agreement amount | Known stale after Act 04/2024 | **REFUSE** and re-encode |
 | Partnership — `KA-ART40-partnership` | Fixed/rate branches | Known stale after Act 04/2024 | **REFUSE** and re-encode |
 | LLP — `KA-ART40A-llp` | Capital formula with cap | Known stale after Act 04/2024 | **REFUSE** and re-encode |
 | Physical share transfer — `KA-share-transfer` | Historical and current Union rates | Current rule is flagged due state Art 52 amendment even though the amount is intended to follow the Union regime; scope must be legally resolved | **REFUSE** until founder confirms whether the state amendment touches this instrument and the flag is correctly scoped |
 | Deficit/penalty — `KA-penalty` | Discretionary range | s.34 admission consequence may be mandatory 10x while Collector adjudication is discretionary; one range does not communicate both paths adequately | **REFUSE** until output semantics represent both statutory routes |
-| Sections 4-6 — `KA-charging` | State-specific nominal duty and scope | Current source is a stale consolidation; later amendments must be checked even if they did not obviously target these sections | **VERIFY** only after the annual Act sweep |
+| Sections 4-6 — `KA-charging` | State-specific nominal duty and scope | Current source is a stale consolidation; later amendments must be checked even if they did not obviously target these sections | **REFUSE** every section from 1-Jan-2021 until the annual Act/commencement sweep is complete |
 | Lease/licence classification tree | Both paths point to Article 30 | Legal test is plausible but unverified; rate target must be current | **VERIFY** only with the refreshed Article 30 source |
 
 ---
@@ -199,7 +199,9 @@ The current computation checks the top-level rule and applied modifiers, but not
 
 `KA-ART29-indemnity-bond` -> `KA-ART47-security-bond`
 
-The target is known stale from 3-Feb-2024, while the indemnity path can still return the superseded amount. The evaluator must return the dependency set it traversed, and the pending/verification gate must evaluate every member.
+The target is known stale from 3-Feb-2024. The evaluator now returns the dependency set
+it traversed, and pending/verification gates evaluate every member, so the indemnity
+wrapper refuses instead of returning the superseded target amount.
 
 The same dependency mechanism should include:
 
@@ -212,7 +214,24 @@ The same dependency mechanism should include:
 
 ### P0-C — Replace prose-only doubt with machine-readable gates
 
-Material doubts currently live only in `notes_for_reviewer` for several Delhi transfer-duty cells, charging rules, penalties, classification boundaries, Maharashtra surcharges, and Karnataka cess/surcharge branches. Every amount-affecting doubt needs a scoped machine-readable refusal.
+**Implemented for the deterministic inventory on 2026-07-21.** The corpus scan finds
+50 uncertainty-language fields outside machine-readable pending data. Every field is
+dispositioned by stable object/version/field key as a machine refusal/warning, an
+explicit non-amount exclusion, or an unresolved legal-review item protected by a named
+refusal. CI compares the exact key set and verifies that every declared control exists
+with the stated severity.
+
+This pass also closed two previously callable Karnataka gaps: the secondary-only local
+surcharge refuses whenever applied, and gift totals refuse until infrastructure-cess
+and local-surcharge scope are established. Delhi joint totals before the hike and at or
+below Rs 25 lakh retain the verified 5% total with provisional-component warnings; the
+post-hike joint cell above the threshold remains a refusal.
+
+The closure audit now separately inventories all **80 executable pending controls**.
+CI compares their exact stable IDs, requires a focused test/golden or explicit
+fail-closed dependency disposition, and checks each declared warning/refusal severity
+against the parsed corpus. This prevents a machine-readable flag from being added or
+renumbered without a reviewable coverage update, even when no prose keyword changes.
 
 ### P0-D — Link rules to evidence
 
@@ -260,13 +279,13 @@ Every supported path needs:
 ## 7. Ordered execution backlog
 
 1. **Implemented — safety gate:** production refusal for unverified dependencies; transitive cross-reference pending checks; machine-readable pending support for charging, penalty, and classification dependencies.
-2. **Implemented — evidence contract and gate:** immutable document/acquisition references, source-complete amendment and commencement intervals, explicit freshness enforcement, committed-catalog validation, and a deterministic 0/99 coverage baseline. Actual source acquisition and citation linking remain outstanding.
+2. **Implemented — evidence contract and gate:** immutable document/acquisition references, source-complete amendment and commencement intervals, explicit freshness enforcement, committed-catalog validation, and a deterministic 0/115 coverage baseline. Three exact Maharashtra proposals are packaged pending human review; other acquisition and citation-link work remains outstanding.
 3. **Watchdog hardening:** successful zero rows, timeouts, resumability, occurrence history, promotion reports, and durable blob storage.
 4. **Finish the three MVP source graphs:**
    - Delhi Schedule I-A + Revenue history + MCD transfer duty + central securities.
    - Maharashtra Part 8 second full run + Part 8/IV-B back to 2015 + municipal surcharge sources.
    - Karnataka DPAL 2021-2026 + commencement notifications + IGR + municipal surcharge sources.
-5. **Re-encode known-current failures:** Maharashtra Art 4, 47, 54, 63 and related trees; Karnataka Act 26/2021 and Act 04/2024 changes, followed by later Acts/commencements.
+5. **Re-encode known-current failures:** Maharashtra Articles 4, 5(h)(B), 40(b), 47, 54, 63, the section 39 penalty fork, and the related works/service tree are date-versioned from Acts III of 2021, VII of 2022, XXXII of 2024, and IX of 2025. Karnataka Act 26/2021 and Act 04/2024 changes remain, followed by later Acts/commencements.
 6. **Founder review:** one dependency-bounded, instrument-sized PR at a time, with evidence hashes and present-day goldens.
 7. **Independent validation:** spot-check high-value/property, mortgage, lease, and works-contract paths; reconcile fixed canaries.
 8. **Closed beta:** measure answer coverage and conditional correctness using representative matters. Do not count refusals as wrong answers; track them as coverage gaps.
@@ -299,7 +318,16 @@ Watchdog document, acquisition, locator, chain, audit, and reviewer metadata.
 Production computation, charging, memo, filing, and classification paths require
 evidence current through an explicit application-supplied date. CI cross-checks any
 supplied link against committed document/sweep/event records and accepted source IDs;
-`EVIDENCE-COVERAGE.md` is a deterministic ship artifact. Current coverage is 0/99,
+`EVIDENCE-COVERAGE.md` is a deterministic ship artifact. Current coverage is 0/115,
 because the available accepted archive does not contain the primary documents cited
-by the numeric rules. The next work is source acquisition and truthful per-citation
-linking, not weakening the gate.
+by most numeric rules. Three exact Maharashtra dependencies now have mechanically
+validated proposal packets, but remain unlinked until human review. The next work is
+source acquisition and truthful per-citation linking, not weakening the gate.
+
+**Release-candidate unit implemented:** 2026-07-21. The engine can now emit the
+exact input-dependent rule, cross-reference, applied-modifier, and penalty graph.
+The candidate assessor carries immutable evidence hashes and chain intervals, requires
+regression/refusal-neighbour receipts and an explained canary disposition for review
+readiness, and treats founder verification as a separate production-readiness gate.
+Because current coverage is 0/115, this machinery correctly produces blockers rather
+than a false release candidate.

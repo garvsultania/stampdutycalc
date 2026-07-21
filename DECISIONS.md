@@ -18,6 +18,21 @@ they override the PRD where they conflict.
 
 ## Engineering decisions (M0)
 
+### D15 — Tier 2 confirmation is a one-way privacy boundary [M4, updated 2026-07-22]
+
+Provider output is bound to the selected rule's shared input contract: every expected
+field must be returned exactly once as either `found` with a page/snippet or explicitly
+`not_found`. PDF/DOCX intake requires processing consent, permits only 30-day retention
+or compute-and-delete, and enforces the 60-page cap. A separate confirmation object must
+disposition every field; required fields cannot remain empty, and an `accepted` value
+must exactly match the displayed proposal. The conversion into engine inputs returns
+only confirmed values/facts plus the extraction model version. It cannot return source
+snippets, so audit callers have no accidental path to persist them. The provider-neutral
+lifecycle, routes, confirmation UI, compute/audit consumer, expiry hook, and precision
+harness implement this boundary. Production storage/OCR/model configuration remains an
+external deployment requirement. Files: `packages/schema/src/extraction.ts` and
+`apps/web/lib/tier2-lifecycle.ts`.
+
 ### D1 — Unified recursive `Charge` model (approved by founder)
 PRD §6.1's JSON separates `base` and `rate`; it is explicitly labelled "illustrative".
 We collapse them into a single recursive `Charge` discriminated union
@@ -271,11 +286,11 @@ Maharashtra Part 8 source declares `mh-egazette` as its legacy evidence ID so ol
 records remain verifiable without rewriting history. Missing links are coverage
 gaps; malformed, provisional, partial-sweep, or mismatched links fail validation.
 
-The deterministic evidence report currently records **0 of 99** citation
-dependencies linked. This is deliberate: the accepted archive contains later
-Maharashtra amendments, not the older consolidated Acts and other primary sources
-the numeric corpus cites. No unrelated document is attached merely to improve a
-coverage count.
+The deterministic evidence report currently records **0 of 115** citation
+dependencies linked. Thirteen Maharashtra dependencies have exact, mechanically valid
+proposal packets, but remain unlinked pending human review. This is deliberate: the
+accepted archive contains only part of the primary-source graph the numeric corpus
+cites. No unrelated document is attached merely to improve a coverage count.
 
 ## D21 — Portal position is not source identity
 
@@ -303,3 +318,23 @@ the immutable document index. They are neither stable nor replayable evidence an
 had inflated the Part IV-B locator index to 269 MB. The compact index retains the
 official URL, search selection, date range, and postback target; raw sessions belong
 in optional recordings, not citation provenance.
+
+## D22 — Authentication asserts identity; the store proves firm membership
+
+Protected routes have no header-derived or demo-principal fallback. A deployment adapter
+must authenticate its own session/token and return a stable issuer, subject, and asserted
+firm. The store then resolves that exact identity inside the firm before any route work.
+Repository checks and composite foreign keys independently reject non-members and
+cross-firm matter/computation/extraction relationships. With no adapter installed the
+application returns 401 and readiness remains red; provider selection is deliberately
+outside the product core.
+
+## D23 — Database evolution and recovery are forward-only and content-addressed
+
+Store migrations are contiguous immutable versions recorded with SHA-256 checksums and
+applied transactionally. Drift, gaps, future schemas, and partial application fail closed.
+Backups use a repeatable-read snapshot and canonical manifest whose object key and data
+payload are independently hashed; restore requires an empty destination, runs under an
+exclusive transaction, and re-verifies the restored data while retaining append-only
+triggers. In-memory storage exists only for tests. Production readiness requires an
+installed encrypted off-device provider and a real Postgres backup/restore drill.
