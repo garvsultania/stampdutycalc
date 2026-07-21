@@ -1,0 +1,168 @@
+[
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "charging_version",
+      "id": "MH-charging",
+      "effective_from": "2025-04-01",
+      "citation_ref": "Maharashtra Act XX of 2025, short title and s.2, p.1"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        {
+          "sha256": "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa",
+          "source_id": "mh-egazette",
+          "source_row_id": "2f729dd6779c3d1deefbc0a3afa0ad2f8f5cbf9678914b54633a08bdf35d6d2d",
+          "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+          "published_on": "2025-04-01",
+          "role": "amendment",
+          "locator": {
+            "kind": "page",
+            "value": "p.1 (Act identity, first publication after assent, and s.2 section 4 nominal-duty substitution)"
+          }
+        }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": {
+        "checked_from": "2025-04-01",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": ["5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"]
+      },
+      "commencement_chain": {
+        "checked_from": "2025-04-01",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": ["5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"]
+      }
+    },
+    "source_text_receipts": [
+      {
+        "sha256": "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa",
+        "pages": [1],
+        "text_sha256": "30e45e77c1b6cd78e8121faff1ad36d4f4c8b3ec6c464c1ecc6d33d621f76295",
+        "detail": "Three-page PDF with text on every page; p.1 identifies Maharashtra Act XX of 2025, first publication on 1 April 2025, and s.2's section 4 Rs 100 to Rs 500 nominal-duty substitution."
+      }
+    ],
+    "review_context": {
+      "encoded_diff": {
+        "base_revision": "22842b4",
+        "candidate_revision": "working-tree-evidence-proposal",
+        "changed_paths": [
+          "rules/MH/charging.json",
+          "review-packets/MH-charging-2025-batch.json",
+          "packages/engine/src/charging.test.ts"
+        ],
+        "summary": "Propose exact amendment provenance for the dated charging-rules version without treating sections 5 or 6 as proven by the section 4 amendment."
+      },
+      "tests": {
+        "present_day": ["vitest:packages/engine/src/charging.test.ts#versions Maharashtra's Rs 100 to Rs 500 nominal-duty boundary on 1 April 2025"],
+        "boundaries": ["vitest:packages/engine/src/charging.test.ts#charges the principal in full and every other instrument the nominal duty"],
+        "negative_cases": ["vitest:packages/engine/src/charging.test.ts#refuses a single-instrument s.4 request"]
+      },
+      "canary": {
+        "id": null,
+        "status": "not_applicable",
+        "detail": "Section 4 is a multi-instrument charging rule, not a standalone portal-calculator cell; deterministic section tests are the applicable machine check."
+      },
+      "open_refusals": [
+        "Sections 5 and 6 retain separate citation dependencies and are not promoted by this packet.",
+        "The consolidated base-Act charging spine remains a separate dependency."
+      ]
+    },
+    "human_review": {
+      "status": "pending_human_review",
+      "questions": [
+        "Confirm first publication after assent on 1 April 2025 as the version boundary where no delayed commencement clause is stated.",
+        "Confirm that this version packet does not imply separate evidence approval for sections 5 or 6."
+      ]
+    }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "charging_section",
+      "id": "MH-charging",
+      "effective_from": "2025-04-01",
+      "section": "4",
+      "citation_ref": "Maharashtra Act XX of 2025, s.2, p.1"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        {
+          "sha256": "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa",
+          "source_id": "mh-egazette",
+          "source_row_id": "2f729dd6779c3d1deefbc0a3afa0ad2f8f5cbf9678914b54633a08bdf35d6d2d",
+          "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+          "published_on": "2025-04-01",
+          "role": "amendment",
+          "locator": {
+            "kind": "page",
+            "value": "p.1, s.2 (section 4 nominal duty Rs 100 to Rs 500 substitution)"
+          }
+        }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": {
+        "checked_from": "2025-04-01",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": ["5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"]
+      },
+      "commencement_chain": {
+        "checked_from": "2025-04-01",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": ["5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"]
+      }
+    },
+    "source_text_receipts": [
+      {
+        "sha256": "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa",
+        "pages": [1],
+        "text_sha256": "30e45e77c1b6cd78e8121faff1ad36d4f4c8b3ec6c464c1ecc6d33d621f76295",
+        "detail": "Three-page PDF with text on every page; p.1 contains the exact section 4 nominal-duty substitution and publication identity."
+      }
+    ],
+    "review_context": {
+      "encoded_diff": {
+        "base_revision": "22842b4",
+        "candidate_revision": "working-tree-evidence-proposal",
+        "changed_paths": [
+          "rules/MH/charging.json",
+          "review-packets/MH-charging-2025-batch.json",
+          "packages/engine/src/charging.test.ts"
+        ],
+        "summary": "Propose the exact Act XX/2025 evidence for the current section 4 nominal-duty amount and its date boundary."
+      },
+      "tests": {
+        "present_day": ["vitest:packages/engine/src/charging.test.ts#charges the principal in full and every other instrument the nominal duty"],
+        "boundaries": ["vitest:packages/engine/src/charging.test.ts#versions Maharashtra's Rs 100 to Rs 500 nominal-duty boundary on 1 April 2025"],
+        "negative_cases": ["vitest:packages/engine/src/charging.test.ts#refuses a single-instrument s.4 request"]
+      },
+      "canary": {
+        "id": null,
+        "status": "not_applicable",
+        "detail": "The provision determines treatment of multi-instrument documents; exact unit/boundary tests replace a nonexistent fixed portal canary."
+      },
+      "open_refusals": ["Sections 5 and 6 remain separate evidence dependencies and are not covered by this section 4 packet."]
+    },
+    "human_review": {
+      "status": "pending_human_review",
+      "questions": [
+        "Confirm the section 4 Rs 100 to Rs 500 substitution and 1 April 2025 boundary.",
+        "Confirm that the section-scoped packet leaves sections 5 and 6 untouched."
+      ]
+    }
+  }
+]

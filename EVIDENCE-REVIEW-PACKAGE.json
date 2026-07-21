@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "purpose": "Tamper-evident pre-approval evidence-review handoff; not a production evidence link",
+  "corpus_evidence_coverage": {
+    "linked": 0,
+    "total": 115
+  },
+  "approval_metadata_populated": false,
+  "proposals": [
+    {
+      "packet_path": "review-packets/MH-ART40b-mortgage-without-possession@2022-01-20.json",
+      "packet_sha256": "828bfbc2cf6d040535382edee646c2d944ff2b809117b64c7cdfbce51d301ae8",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART40b-mortgage-without-possession",
+        "effective_from": "2022-01-20"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"
+      ],
+      "source_text_sha256s": [
+        "70f54ae7e2156288ed21e6189a257f3af053c82c7d39f7ad3febc8f7d63aa3b8"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ART54-security-bond@2022-01-20.json",
+      "packet_sha256": "8a29dabcd6ac61b62ccf81bacd04009e9bfe1dddeebfed81ff8a9002480d87ec",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART54-security-bond",
+        "effective_from": "2022-01-20"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"
+      ],
+      "source_text_sha256s": [
+        "70f54ae7e2156288ed21e6189a257f3af053c82c7d39f7ad3febc8f7d63aa3b8"
+      ],
+      "golden_receipt_count": 11,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 3,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-agricultural-loan-remission@2026-01-01.json",
+      "packet_sha256": "2d46ba88a058126a4761d35ff0254e153d31bd98b81d2bab81d513ccd42eccef",
+      "target": {
+        "kind": "modifier",
+        "id": "MH-agricultural-loan-remission",
+        "effective_from": "2026-01-01"
+      },
+      "evidence_as_of": "2026-07-19",
+      "document_sha256s": [
+        "ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266"
+      ],
+      "source_text_sha256s": [
+        "e18b22df7140de6fe64c80de4c5001a5d739b0f69a047e1f7316769d9af090c4"
+      ],
+      "golden_receipt_count": 4,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-charging-2025-batch.json",
+      "packet_sha256": "1b13b09a6f1f13a1b6b62e8e034549811681a94cc68229ba454c520c38d45ad4",
+      "target": {
+        "kind": "charging_version",
+        "id": "MH-charging",
+        "effective_from": "2025-04-01"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"
+      ],
+      "source_text_sha256s": [
+        "30e45e77c1b6cd78e8121faff1ad36d4f4c8b3ec6c464c1ecc6d33d621f76295"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-charging-2025-batch.json",
+      "packet_sha256": "1b13b09a6f1f13a1b6b62e8e034549811681a94cc68229ba454c520c38d45ad4",
+      "target": {
+        "kind": "charging_section",
+        "id": "MH-charging",
+        "effective_from": "2025-04-01"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa"
+      ],
+      "source_text_sha256s": [
+        "30e45e77c1b6cd78e8121faff1ad36d4f4c8b3ec6c464c1ecc6d33d621f76295"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-gcc-policy-remission@2025-11-03.json",
+      "packet_sha256": "f4ff4fb2f65e929e2bf37eee75f21d521df19b0b512b0f9c782c36f1c78f54cc",
+      "target": {
+        "kind": "modifier",
+        "id": "MH-gcc-policy-remission",
+        "effective_from": "2025-11-03"
+      },
+      "evidence_as_of": "2026-07-19",
+      "document_sha256s": [
+        "ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795"
+      ],
+      "source_text_sha256s": [
+        "c9ee881e6e7adfaab30b13f45ae18c351c7201fc84facbaa938f8431bfa8806e"
+      ],
+      "golden_receipt_count": 4,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART4-affidavit",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART47-partnership",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART47-llp",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART63-works-contract",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "rule",
+        "id": "MH-ART5hB-service-agreement",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-ordinance-XII-2024-batch.json",
+      "packet_sha256": "2511666c247c5827103b7ad713e6aefa2aa9008a1a6faa545d8640c5545e24d7",
+      "target": {
+        "kind": "classification",
+        "id": "MH-works-vs-service",
+        "effective_from": "2024-10-14"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+      ],
+      "source_text_sha256s": [
+        "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 2,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    },
+    {
+      "packet_path": "review-packets/MH-penalty@2024-07-31.json",
+      "packet_sha256": "cf19b53aca8ff85d995074426841cfd176eff31a1fb8e6fec6b264cc2874f0a3",
+      "target": {
+        "kind": "penalty",
+        "id": "MH-penalty",
+        "effective_from": "2024-07-31"
+      },
+      "evidence_as_of": "2026-07-16",
+      "document_sha256s": [
+        "408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2"
+      ],
+      "source_text_sha256s": [
+        "4673b752fe6fc6081399277a42262e6159a4c83ebd8750879ec45c446ec49347"
+      ],
+      "golden_receipt_count": 3,
+      "canary_status": "not_applicable",
+      "open_refusal_count": 1,
+      "mechanically_valid": true,
+      "mechanical_issues": [],
+      "human_review_status": "pending_human_review"
+    }
+  ]
+}

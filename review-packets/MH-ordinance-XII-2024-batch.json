@@ -1,0 +1,322 @@
+[
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "rule",
+      "id": "MH-ART4-affidavit",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Act IX of 2025, ss.1(2), 2(1), p.2"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        {
+          "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+          "source_id": "mh-egazette",
+          "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec",
+          "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee",
+          "published_on": "2024-10-14",
+          "role": "amendment",
+          "locator": {
+            "kind": "page",
+            "value": "p.1 (identity/publication); p.2 (s.1(2), immediate commencement, and Article 4 Rs 100 to Rs 500 substitution)"
+          }
+        },
+        {
+          "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034",
+          "source_id": "mh-egazette",
+          "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70",
+          "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+          "published_on": "2025-01-01",
+          "role": "amendment",
+          "locator": {
+            "kind": "page",
+            "value": "p.2 (deemed 14-Oct-2024 commencement and Article 4 substitution); p.4 (Ordinance repeal and saving)"
+          }
+        }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": {
+        "checked_from": "2024-10-14",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": [
+          "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+          "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+        ]
+      },
+      "commencement_chain": {
+        "checked_from": "2024-10-14",
+        "checked_through": "2026-07-16",
+        "source_ids": ["mh-egazette"],
+        "documents": [
+          "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+          "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"
+        ]
+      }
+    },
+    "source_text_receipts": [
+      {
+        "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+        "pages": [1, 2],
+        "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9",
+        "detail": "Four-page Ordinance PDF with text on every page; pp.1-2 identify Ordinance XII of 2024, publication on 14 October 2024, immediate commencement, and the Article 4 substitution."
+      },
+      {
+        "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034",
+        "pages": [2, 4],
+        "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f",
+        "detail": "Four-page replacement Act PDF with text on every page; p.2 repeats the deemed commencement and Article 4 amendment and p.4 preserves acts under the repealed Ordinance."
+      }
+    ],
+    "review_context": {
+      "encoded_diff": {
+        "base_revision": "22842b4",
+        "candidate_revision": "working-tree-evidence-proposal",
+        "changed_paths": [
+          "rules/MH/rules/bonds-affidavit.json",
+          "review-packets/MH-ordinance-XII-2024-batch.json",
+          "golden/MH/bonds-affidavit.json"
+        ],
+        "summary": "Propose the operative Ordinance and replacement/saving Act chain for the Article 4 rate change without changing the encoded rule or founder verification metadata."
+      },
+      "tests": {
+        "present_day": ["MH Affidavit — Rs 100"],
+        "boundaries": ["MH Affidavit — amendment boundary becomes Rs 500 on 14 October 2024"],
+        "negative_cases": ["MH Affidavit — current exempt or uncertain purpose refuses"]
+      },
+      "canary": {
+        "id": null,
+        "status": "not_applicable",
+        "detail": "No fixed official portal calculator for this Article 4 classification has been identified; primary text and boundary tests control this packet."
+      },
+      "open_refusals": [
+        "Exempt or uncertain affidavit purposes remain typed refusals.",
+        "The consolidated base-Act spine remains a separate corpus dependency."
+      ]
+    },
+    "human_review": {
+      "status": "pending_human_review",
+      "questions": [
+        "Confirm the Ordinance's immediate commencement and the Act's deemed 14 October 2024 replacement/saving chain.",
+        "Confirm the Article 4 Rs 100 to Rs 500 substitution before promotion."
+      ]
+    }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "rule",
+      "id": "MH-ART47-partnership",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Act IX of 2025, ss.1(2), 2(11), p.3"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        {
+          "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4",
+          "source_id": "mh-egazette",
+          "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec",
+          "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee",
+          "published_on": "2024-10-14",
+          "role": "amendment",
+          "locator": { "kind": "page", "value": "p.1 (identity/publication); pp.2-3 (immediate commencement and Article 47 cap substitution)" }
+        },
+        {
+          "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034",
+          "source_id": "mh-egazette",
+          "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70",
+          "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+          "published_on": "2025-01-01",
+          "role": "amendment",
+          "locator": { "kind": "page", "value": "pp.2-3 (deemed commencement and Article 47 cap substitution); p.4 (repeal and saving)" }
+        }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] },
+      "commencement_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] }
+    },
+    "source_text_receipts": [
+      { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "pages": [1, 2, 3], "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9", "detail": "Ordinance pp.1-3 provide identity, immediate commencement, and the Article 47 Rs 15,000 to Rs 50,000 cap change." },
+      { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "pages": [2, 3, 4], "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f", "detail": "Replacement Act pp.2-4 repeat the deemed commencement and Article 47 change and preserve the repealed Ordinance's operation." }
+    ],
+    "review_context": {
+      "encoded_diff": { "base_revision": "22842b4", "candidate_revision": "working-tree-evidence-proposal", "changed_paths": ["rules/MH/rules/partnership.json", "review-packets/MH-ordinance-XII-2024-batch.json", "golden/MH/partnership.json"], "summary": "Propose the two-document provenance chain for the current partnership cap without changing the encoded rate or verification metadata." },
+      "tests": {
+        "present_day": ["MH Partnership — contribution Rs 50L: 1% capped at Rs 15,000"],
+        "boundaries": ["MH Partnership — amended cap is Rs 50,000 from 14 October 2024"],
+        "negative_cases": ["MH LLP agreement — current era follows the amended Rs 50,000 cap"]
+      },
+      "canary": { "id": null, "status": "not_applicable", "detail": "No fixed official partnership calculator has been identified; the official instruments and exact boundary fixtures control this packet." },
+      "open_refusals": ["The separate classification and consolidated base-Act dependencies remain independently reviewable."]
+    },
+    "human_review": { "status": "pending_human_review", "questions": ["Confirm the two-document commencement/replacement chain.", "Confirm that the Article 47 cap, and no other partnership branch, changed in this target version."] }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "rule",
+      "id": "MH-ART47-llp",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 47(1), as amended by Maharashtra Act IX of 2025 ss.1(2), 2(11)"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "source_id": "mh-egazette", "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "published_on": "2024-10-14", "role": "amendment", "locator": { "kind": "page", "value": "pp.1-3 (identity, immediate commencement and Article 47 cap substitution applied by the encoded LLP cross-reference)" } },
+        { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "source_id": "mh-egazette", "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "published_on": "2025-01-01", "role": "amendment", "locator": { "kind": "page", "value": "pp.2-4 (deemed commencement, Article 47 cap substitution, and Ordinance saving)" } }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] },
+      "commencement_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] }
+    },
+    "source_text_receipts": [
+      { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "pages": [1, 2, 3], "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9", "detail": "Ordinance pp.1-3 provide identity, commencement and the Article 47 cap text used by the encoded LLP mapping." },
+      { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "pages": [2, 3, 4], "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f", "detail": "Replacement Act pp.2-4 repeat the Article 47 cap change, deemed commencement and saving." }
+    ],
+    "review_context": {
+      "encoded_diff": { "base_revision": "22842b4", "candidate_revision": "working-tree-evidence-proposal", "changed_paths": ["rules/MH/rules/partnership.json", "review-packets/MH-ordinance-XII-2024-batch.json", "golden/MH/partnership.json"], "summary": "Propose exact amendment provenance for the LLP rule's Article 47 cap dependency without changing its cross-reference or verification metadata." },
+      "tests": {
+        "present_day": ["MH LLP agreement — current era follows the amended Rs 50,000 cap"],
+        "boundaries": ["MH Partnership — amended cap is Rs 50,000 from 14 October 2024"],
+        "negative_cases": ["MH LLP agreement — charged as Art 47 partnership (Rs 5L → Rs 5,000)"]
+      },
+      "canary": { "id": null, "status": "not_applicable", "detail": "No fixed official LLP calculator has been identified; this packet tests the explicit encoded Article 47 cross-reference against official amendment text." },
+      "open_refusals": ["Legal confirmation of the LLP-to-Article-47 mapping remains a separate human review question."]
+    },
+    "human_review": { "status": "pending_human_review", "questions": ["Confirm the LLP cross-reference to Article 47(1).", "Confirm the cap amendment and commencement chain before promotion."] }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "rule",
+      "id": "MH-ART63-works-contract",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Act IX of 2025, ss.1(2), 2(16), p.3"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "source_id": "mh-egazette", "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "published_on": "2024-10-14", "role": "amendment", "locator": { "kind": "page", "value": "pp.1-3 (identity, immediate commencement, and Article 63 threshold/rate substitutions)" } },
+        { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "source_id": "mh-egazette", "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "published_on": "2025-01-01", "role": "amendment", "locator": { "kind": "page", "value": "pp.2-4 (deemed commencement, Article 63 threshold/rate substitutions, and saving)" } }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] },
+      "commencement_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] }
+    },
+    "source_text_receipts": [
+      { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "pages": [1, 2, 3], "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9", "detail": "Ordinance pp.1-3 provide publication, immediate commencement, and the Article 63 Rs 10 lakh to Rs 5 lakh and 0.1% to 0.3% substitutions." },
+      { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "pages": [2, 3, 4], "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f", "detail": "Replacement Act pp.2-4 repeat the Article 63 changes, deemed commencement and saving." }
+    ],
+    "review_context": {
+      "encoded_diff": { "base_revision": "22842b4", "candidate_revision": "working-tree-evidence-proposal", "changed_paths": ["rules/MH/rules/works-service.json", "review-packets/MH-ordinance-XII-2024-batch.json", "golden/MH/works-service.json"], "summary": "Propose the two-document provenance chain for the current Article 63 threshold and rate without resolving the separately pending cap cell." },
+      "tests": {
+        "present_day": ["MH Works contract — current Rs 50 lakh formula is Rs 14,000"],
+        "boundaries": ["MH Works contract — current threshold is Rs 5 lakh from 14 October 2024"],
+        "negative_cases": ["MH Works contract — current user-facing computation refuses the unresolved cap cell"]
+      },
+      "canary": { "id": null, "status": "not_applicable", "detail": "No fixed official works-contract calculator has been identified; the packet keeps the unresolved cap cell fail-closed." },
+      "open_refusals": ["The current Article 63 cap cell remains a typed refusal pending separate primary evidence."]
+    },
+    "human_review": { "status": "pending_human_review", "questions": ["Confirm both Article 63 numeric substitutions and the 14 October 2024 boundary.", "Confirm that the unresolved cap must remain outside this proposal."] }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "rule",
+      "id": "MH-ART5hB-service-agreement",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Act IX of 2025, ss.1(2), 2(2), p.2"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "source_id": "mh-egazette", "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "published_on": "2024-10-14", "role": "amendment", "locator": { "kind": "page", "value": "pp.1-2 (identity, immediate commencement and Article 5(h)(B) Rs 100 to Rs 500 substitution)" } },
+        { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "source_id": "mh-egazette", "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "published_on": "2025-01-01", "role": "amendment", "locator": { "kind": "page", "value": "p.2 (deemed commencement and Article 5(h)(B) substitution); p.4 (repeal and saving)" } }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] },
+      "commencement_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] }
+    },
+    "source_text_receipts": [
+      { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "pages": [1, 2], "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9", "detail": "Ordinance pp.1-2 provide publication, immediate commencement, and the Article 5(h)(B) Rs 100 to Rs 500 substitution." },
+      { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "pages": [2, 4], "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f", "detail": "Replacement Act pp.2 and 4 repeat the service-agreement substitution, deemed commencement and saving." }
+    ],
+    "review_context": {
+      "encoded_diff": { "base_revision": "22842b4", "candidate_revision": "working-tree-evidence-proposal", "changed_paths": ["rules/MH/rules/works-service.json", "review-packets/MH-ordinance-XII-2024-batch.json", "golden/MH/works-service.json"], "summary": "Propose exact provenance for the current Article 5(h)(B) residual duty while retaining uncertain classifications as refusals." },
+      "tests": {
+        "present_day": ["MH Service agreement — current Article 5(h)(B) residual is Rs 500"],
+        "boundaries": ["MH Service agreement — Art 5(h)(B) residual: Rs 100"],
+        "negative_cases": ["MH Service agreement — current uncertain classification still refuses"]
+      },
+      "canary": { "id": null, "status": "not_applicable", "detail": "No fixed official residual-agreement calculator has been identified; classification uncertainty remains fail-closed." },
+      "open_refusals": ["Agreements that may contain another transaction remain typed classification refusals."]
+    },
+    "human_review": { "status": "pending_human_review", "questions": ["Confirm the Article 5(h)(B) substitution and commencement chain.", "Confirm that classification uncertainty remains outside the arithmetic proposal."] }
+  },
+  {
+    "schema_version": 1,
+    "target": {
+      "jurisdiction": "MH",
+      "kind": "classification",
+      "id": "MH-works-vs-service",
+      "effective_from": "2024-10-14",
+      "citation_ref": "Maharashtra Stamp Act 1958 Sch. I Arts 63 & 5(h)(B), s.6, as amended by Maharashtra Act IX of 2025 ss.1(2), 2(2), 2(16)"
+    },
+    "evidence_as_of": "2026-07-16",
+    "proposed_evidence": {
+      "documents": [
+        { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "source_id": "mh-egazette", "source_row_id": "0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "published_on": "2024-10-14", "role": "amendment", "locator": { "kind": "page", "value": "pp.1-3 (identity, immediate commencement, and the Article 5(h)(B)/Article 63 amendment pair selected by the tree)" } },
+        { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "source_id": "mh-egazette", "source_row_id": "926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "published_on": "2025-01-01", "role": "amendment", "locator": { "kind": "page", "value": "pp.2-4 (deemed commencement, both selected articles, and Ordinance saving)" } }
+      ],
+      "audits": [
+        { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+        { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+        { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+      ],
+      "amendment_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] },
+      "commencement_chain": { "checked_from": "2024-10-14", "checked_through": "2026-07-16", "source_ids": ["mh-egazette"], "documents": ["d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034"] }
+    },
+    "source_text_receipts": [
+      { "sha256": "d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4", "pages": [1, 2, 3], "text_sha256": "9ce212340736a00eb3bada814245b31f10798dbc49cf28b45bde3a535c5b26e9", "detail": "Ordinance pp.1-3 contain the effective date and both article amendments reached by the classification tree." },
+      { "sha256": "d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034", "pages": [2, 3, 4], "text_sha256": "534f13da767040956c2e55423c441e74ab97e200abbdeb3dc5b9968aaf4e629f", "detail": "Replacement Act pp.2-4 repeat both article amendments, the deemed date and saving." }
+    ],
+    "review_context": {
+      "encoded_diff": { "base_revision": "22842b4", "candidate_revision": "working-tree-evidence-proposal", "changed_paths": ["rules/MH/classification/works-vs-service.json", "review-packets/MH-ordinance-XII-2024-batch.json", "packages/engine/src/corpus-safety.test.ts"], "summary": "Propose the shared primary-text provenance for the dated works-versus-service tree without claiming that the amendment instruments alone prove every classification fact." },
+      "tests": {
+        "present_day": ["vitest:packages/engine/src/corpus-safety.test.ts#derives the Maharashtra service terminal from observable tree answers"],
+        "boundaries": ["vitest:packages/engine/src/corpus-safety.test.ts#selects both Maharashtra works/service eras at the amendment boundary"],
+        "negative_cases": ["MH Service agreement — current uncertain classification still refuses"]
+      },
+      "canary": { "id": null, "status": "not_applicable", "detail": "Classification is driven by observable answers and typed refusal tests, not a reproducible fixed-value government calculator." },
+      "open_refusals": ["The consolidated base Act and section 6 remain separate citation dependencies.", "Unobservable or ambiguous works/service facts remain typed refusals."]
+    },
+    "human_review": { "status": "pending_human_review", "questions": ["Confirm that the tree's two terminals and boundary accurately reflect the cited article pair.", "Confirm that section 6 and base-Act support are reviewed separately before production promotion."] }
+  }
+]

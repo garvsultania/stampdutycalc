@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "target": {
+    "jurisdiction": "MH",
+    "kind": "rule",
+    "id": "MH-ART40b-mortgage-without-possession",
+    "effective_from": "2022-01-20",
+    "citation_ref": "Maharashtra Act VII of 2022, s.2(3), p.2 (first published 20-Jan-2022)"
+  },
+  "evidence_as_of": "2026-07-16",
+  "proposed_evidence": {
+    "documents": [
+      {
+        "sha256": "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1",
+        "source_id": "mh-egazette",
+        "source_row_id": "78eba1eda656979c0e4dc2d8d87d1c088518fc1be65433bcdaa34bdf870fac1a",
+        "run_id": "4048d323-497b-4601-aa67-1a54d58368d6",
+        "published_on": "2022-01-20",
+        "role": "amendment",
+        "locator": {
+          "kind": "page",
+          "value": "p.1 (assent/publication); p.2, s.2(3) (Article 40(b) consortium cap substitution)"
+        }
+      }
+    ],
+    "audits": [
+      { "source_id": "mh-egazette", "run_id": "4048d323-497b-4601-aa67-1a54d58368d6", "audited_through": "2022-12-31" },
+      { "source_id": "mh-egazette", "run_id": "218c93a3-de85-40e1-8790-cc4f73748deb", "audited_through": "2023-12-31" },
+      { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+      { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+      { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+    ],
+    "amendment_chain": {
+      "checked_from": "2022-01-20",
+      "checked_through": "2026-07-16",
+      "source_ids": ["mh-egazette"],
+      "documents": ["75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"]
+    },
+    "commencement_chain": {
+      "checked_from": "2022-01-20",
+      "checked_through": "2026-07-16",
+      "source_ids": ["mh-egazette"],
+      "documents": ["75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"]
+    }
+  },
+  "source_text_receipts": [
+    {
+      "sha256": "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1",
+      "pages": [1, 2],
+      "text_sha256": "70f54ae7e2156288ed21e6189a257f3af053c82c7d39f7ad3febc8f7d63aa3b8",
+      "detail": "Four-page PDF with text on every page; p.1 identifies Maharashtra Act VII of 2022 and first publication after assent on 20 January 2022; p.2 contains s.2(3) and the Article 40(b) consortium ceiling change."
+    }
+  ],
+  "review_context": {
+    "encoded_diff": {
+      "base_revision": "22842b4",
+      "candidate_revision": "working-tree-evidence-proposal",
+      "changed_paths": [
+        "rules/MH/rules/mortgage.json",
+        "review-packets/MH-ART40b-mortgage-without-possession@2022-01-20.json",
+        "golden/MH/mortgage.json"
+      ],
+      "summary": "Propose exact Watchdog evidence for the 2022 Article 40(b) consortium ceiling change without changing the encoded rate, scope, or founder verification metadata."
+    },
+    "tests": {
+      "present_day": ["MH Mortgage without possession — current consortium ceiling is Rs 50 lakh"],
+      "boundaries": ["MH Mortgage without possession — Rs 10 lakh ceiling remains through 19 January 2022"],
+      "negative_cases": ["MH Mortgage without possession — uncertain consortium scope refuses"]
+    },
+    "canary": {
+      "id": null,
+      "status": "not_applicable",
+      "detail": "No fixed official calculator for the Article 40(b) consortium branch has been identified; primary text and dated fixtures control this packet."
+    },
+    "open_refusals": [
+      "Uncertain consortium scope remains a typed refusal.",
+      "Agricultural/crop-loan and other remission eligibility remain separate unresolved dependencies."
+    ]
+  },
+  "human_review": {
+    "status": "pending_human_review",
+    "questions": [
+      "Confirm first publication after assent as the operative 20 January 2022 boundary where no delayed commencement clause is stated.",
+      "Confirm that this packet is limited to the Article 40(b) consortium ceiling change."
+    ]
+  }
+}

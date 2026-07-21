@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "target": {
+    "jurisdiction": "MH",
+    "kind": "modifier",
+    "id": "MH-gcc-policy-remission",
+    "effective_from": "2025-11-03",
+    "citation_ref": "Maharashtra R&FD Order No. Mudrank-2025/URO-31/Mudrank-2 dated 22-May-2026, pp.5-7"
+  },
+  "evidence_as_of": "2026-07-19",
+  "proposed_evidence": {
+    "documents": [
+      {
+        "sha256": "ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795",
+        "source_id": "mh-egazette-part4b",
+        "source_row_id": "7765ae3899def4fddb449f43a8c62f67d89318e943bf7a9f2202598f95daa997",
+        "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+        "published_on": "2026-05-22",
+        "role": "order",
+        "locator": {
+          "kind": "page",
+          "value": "pp.5-7 (English order, conditions, policy period and Schedule entry for Article 54)"
+        }
+      }
+    ],
+    "audits": [
+      {
+        "source_id": "mh-egazette-part4b",
+        "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+        "audited_through": "2026-07-19"
+      }
+    ],
+    "amendment_chain": {
+      "checked_from": "2025-11-03",
+      "checked_through": "2026-07-19",
+      "source_ids": ["mh-egazette-part4b"],
+      "documents": ["ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795"]
+    },
+    "commencement_chain": {
+      "checked_from": "2025-11-03",
+      "checked_through": "2026-07-19",
+      "source_ids": ["mh-egazette-part4b"],
+      "documents": ["ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795"]
+    }
+  },
+  "source_text_receipts": [
+    {
+      "sha256": "ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795",
+      "pages": [5, 6, 7],
+      "text_sha256": "c9ee881e6e7adfaab30b13f45ae18c351c7201fc84facbaa938f8431bfa8806e",
+      "detail": "Seven-page PDF with text on every page; pp.5-7 contain the English order, the 3-Nov-2025 through 3-Nov-2030 policy period, eligibility conditions, and the Article 54 schedule percentages."
+    }
+  ],
+  "review_context": {
+    "encoded_diff": {
+      "base_revision": "e64a13b",
+      "candidate_revision": "working-tree-evidence-proposal",
+      "changed_paths": [
+        "rules/MH/modifiers/gcc-policy-remission.json",
+        "review-packets/MH-gcc-policy-remission@2025-11-03.json",
+        "golden/MH/bonds-affidavit.json"
+      ],
+      "summary": "Propose exact Watchdog evidence for the GCC Policy 2025 remission screen without inferring eligibility or changing founder verification metadata."
+    },
+    "tests": {
+      "present_day": [
+        "MH Security bond — possible GCC Policy eligibility refuses unreduced duty"
+      ],
+      "boundaries": [
+        "MH Security bond — day before GCC Policy period ignores future remission screen",
+        "MH Security bond — GCC Policy start date activates remission refusal"
+      ],
+      "negative_cases": [
+        "MH Security bond — current upper branch is 0.3%"
+      ]
+    },
+    "canary": {
+      "id": null,
+      "status": "not_applicable",
+      "detail": "The encoded modifier is a fail-closed eligibility screen, not an arithmetic remission calculator, so no computed remission amount exists to compare against a portal canary."
+    },
+    "open_refusals": [
+      "Zone, project, unit, transaction, certificate, prior-benefit and breach conditions remain unencoded.",
+      "The applicable 50%, 75% or 100% remission is never inferred; possible eligibility remains a typed refusal."
+    ]
+  },
+  "human_review": {
+    "status": "pending_human_review",
+    "questions": [
+      "Confirm that the order's retrospective policy period is correctly represented as 3 November 2025 through 3 November 2030 inclusive.",
+      "Confirm that Article 54 is included in the Schedule and that the current no-op modifier must remain only a refusal screen pending complete eligibility encoding.",
+      "Supply reviewed_by and reviewed_on only in the separately approved merge."
+    ]
+  }
+}

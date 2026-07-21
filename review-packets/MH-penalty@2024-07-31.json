@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "target": {
+    "jurisdiction": "MH",
+    "kind": "penalty",
+    "id": "MH-penalty",
+    "effective_from": "2024-07-31",
+    "citation_ref": "Maharashtra Act XXXII of 2024, ss.1(2) and 2(3), p.2"
+  },
+  "evidence_as_of": "2026-07-16",
+  "proposed_evidence": {
+    "documents": [
+      {
+        "sha256": "408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2",
+        "source_id": "mh-egazette",
+        "source_row_id": "fa5d6763372b2bd5962ed8d31d9d34600c25a8cdecacbeca31cfedf8304eebf4",
+        "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee",
+        "published_on": "2024-07-31",
+        "role": "amendment",
+        "locator": {
+          "kind": "page",
+          "value": "p.1 (assent/publication); p.2, ss.1(2), 2(3) (commencement and section 39 registered/other route percentages)"
+        }
+      }
+    ],
+    "audits": [
+      { "source_id": "mh-egazette", "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee", "audited_through": "2024-12-31" },
+      { "source_id": "mh-egazette", "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b", "audited_through": "2025-04-08" },
+      { "source_id": "mh-egazette", "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5", "audited_through": "2026-07-16" }
+    ],
+    "amendment_chain": {
+      "checked_from": "2024-07-31",
+      "checked_through": "2026-07-16",
+      "source_ids": ["mh-egazette"],
+      "documents": ["408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2"]
+    },
+    "commencement_chain": {
+      "checked_from": "2024-07-31",
+      "checked_through": "2026-07-16",
+      "source_ids": ["mh-egazette"],
+      "documents": ["408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2"]
+    }
+  },
+  "source_text_receipts": [
+    {
+      "sha256": "408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2",
+      "pages": [1, 2],
+      "text_sha256": "4673b752fe6fc6081399277a42262e6159a4c83ebd8750879ec45c446ec49347",
+      "detail": "Three-page PDF with text on every page; p.1 identifies Act XXXII of 2024 and publication on 31 July 2024; p.2 contains immediate commencement and the section 39 one-percent registered/two-percent other route text."
+    }
+  ],
+  "review_context": {
+    "encoded_diff": {
+      "base_revision": "22842b4",
+      "candidate_revision": "working-tree-evidence-proposal",
+      "changed_paths": [
+        "rules/MH/penalty.json",
+        "review-packets/MH-penalty@2024-07-31.json",
+        "golden/MH/penalty.json"
+      ],
+      "summary": "Propose exact primary evidence for the section 39 route split while retaining the route-free input as a typed refusal."
+    },
+    "tests": {
+      "present_day": ["MH Penalty (Flow D) — 2%/month, cap not binding"],
+      "boundaries": ["MH Penalty — refuses the route-free form immediately before the 2024 section 39 change"],
+      "negative_cases": ["MH Penalty — refuses the route-free form on the 2024 section 39 change date"]
+    },
+    "canary": {
+      "id": null,
+      "status": "not_applicable",
+      "detail": "The statute branches on registration route and the route-free form is deliberately refused; no fixed official calculator can prove that omitted fact."
+    },
+    "open_refusals": ["Missing registration route remains a typed refusal; no penalty percentage is inferred."]
+  },
+  "human_review": {
+    "status": "pending_human_review",
+    "questions": [
+      "Confirm immediate commencement on 31 July 2024.",
+      "Confirm the registered one-percent and other two-percent section 39 routing before promotion."
+    ]
+  }
+}
