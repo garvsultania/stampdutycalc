@@ -12,6 +12,7 @@ import {
   type DocumentIntake,
   type ConfirmedExtractionValues,
   type ExtractionDraft,
+  type ExtractionLifecycleEvent,
   type RuleInputContract,
 } from "@stampdraft/schema";
 import type { ExtractionJobRecord, Store } from "@stampdraft/store";
@@ -224,7 +225,7 @@ export class Tier2LifecycleService {
     firmId: string,
     id: string,
     occurredAt: string,
-    reason: "user_deleted" | "retention_expired" = "user_deleted",
+    reason: ExtractionLifecycleEvent = "user_deleted",
   ): Promise<PublicExtractionJob> {
     const job = await this.requireJob(firmId, id);
     if (job.status === "deleted") return publicJob(job);
@@ -302,7 +303,7 @@ export class Tier2LifecycleService {
 
   private applyLifecycle(
     job: ExtractionJobRecord,
-    event: "confirmation_completed" | "user_deleted" | "retention_expired",
+    event: ExtractionLifecycleEvent,
     occurredAt: string,
   ): void {
     try {
