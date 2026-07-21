@@ -48,6 +48,18 @@
       "verified_by": null,
       "verified_on": null
     },
+    "pending_verification": [
+      {
+        "reason": "The combined pre-hike joint total is verified at 5%, but the 2.5% transfer-duty component is an unsourced allocation of that total. Preserve the total and warn that the component breakup is provisional.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        },
+        "severity": "warn"
+      }
+    ],
     "notes_for_reviewer": "Applies to conveyance/sale. Base: higher-of(consideration, market value) — Q5 says 'registered sale value'; encoded as the same higher-of base used for stamp duty, flag if the SR practice differs. Superseded on 2023-07-10 by the threshold-split versions below."
   },
   {
@@ -114,6 +126,18 @@
       "verified_by": null,
       "verified_on": null
     },
+    "pending_verification": [
+      {
+        "reason": "At or below Rs 25 lakh the combined joint total remains the verified 5%, but the 2.5% transfer-duty component is an unsourced allocation. Preserve the total and warn that the component breakup is provisional.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        },
+        "severity": "warn"
+      }
+    ],
     "notes_for_reviewer": "Post-hike, at-or-below the Rs 25L threshold: rates unchanged (3% M / 2% F). Boundary encoded as lte 2,500,000 — i.e. a property valued exactly Rs 25,00,000 keeps the old rate ('above ₹25 lakh' triggers the hike). Joint 2.5 PENDING_VERIFICATION as in v1."
   },
   {

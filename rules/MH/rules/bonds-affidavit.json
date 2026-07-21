@@ -7,7 +7,7 @@
     "instrument": "affidavit",
     "version": {
       "effective_from": "2015-01-01",
-      "effective_to": null,
+      "effective_to": "2024-10-14",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -29,15 +29,61 @@
     },
     "pending_verification": [
       {
-        "reason": "STALE — Mah. 9 of 2025 s.2(1), in force 14-10-2024, substituted Art 4 AFFIDAVIT (\"One hundred rupees\" -> \"Five hundred rupees\"). This version still encodes Rs 100.",
+        "reason": "Court-use, armed-forces-enrolment, pension, and charitable-allowance affidavits are exempt. Return a fixed amount only after the caller positively identifies an ordinary non-exempt affidavit.",
         "when": {
-          "date_within": {
-            "from": "2024-10-14"
+          "not": {
+            "eq": {
+              "field": "affidavit_scope",
+              "value": "ordinary_non_exempt"
+            }
           }
         }
       }
     ],
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Rs 100. Court/enrolment/pension affidavits are exempt (classification flag, not modelled)."
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Historical 2015-01-01 through 2024-10-13 rate: Rs 100. Court/enrolment/pension affidavits are exempt."
+  },
+  {
+    "rule_id": "MH-ART4-affidavit",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "4",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART4-affidavit@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(1), p.2",
+        "article": "4",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2): 'It shall be deemed to have come into force on the 14th October 2024.' Section 2(1): in Schedule I, in article 4, in column 2, for the words 'One hundred rupees' the words 'Five hundred rupees' shall be substituted."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "Court-use, armed-forces-enrolment, pension, and charitable-allowance affidavits are exempt. Return a fixed amount only after the caller positively identifies an ordinary non-exempt affidavit.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "affidavit_scope",
+              "value": "ordinary_non_exempt"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "Maharashtra Act IX of 2025 raises the Article 4 amount to Rs 500 from 14 October 2024; the statutory exemptions remain fact-gated."
   },
   {
     "rule_id": "MH-ART35-indemnity-bond",
@@ -77,7 +123,7 @@
     "instrument": "guarantee_bond",
     "version": {
       "effective_from": "2015-01-01",
-      "effective_to": null,
+      "effective_to": "2022-01-20",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -90,12 +136,29 @@
       "verified_on": null
     },
     "charge": {
-      "kind": "ad_valorem",
-      "base": {
-        "var": "amount_secured"
-      },
-      "pct": 0.5,
-      "cap": "1000000"
+      "kind": "select",
+      "by": "principal_art40_duty_status",
+      "cases": [
+        {
+          "when": "paid",
+          "charge": { "kind": "fixed", "amount": "100" }
+        },
+        {
+          "when": "not_paid",
+          "charge": {
+            "kind": "ad_valorem",
+            "base": { "var": "amount_secured" },
+            "pct": 0.5,
+            "cap": "1000000"
+          }
+        }
+      ],
+      "default": {
+        "kind": "ad_valorem",
+        "base": { "var": "amount_secured" },
+        "pct": 0.5,
+        "cap": "1000000"
+      }
     },
     "rounding": {
       "mode": "none",
@@ -103,15 +166,134 @@
     },
     "pending_verification": [
       {
-        "reason": "WRONG VERSION, not merely stale — Art 54 was SUBSTITUTED by Mah. 7 of 2022 (assented and first published 20-1-2022). Current law: (i) <= Rs 5 lakh -> 0.1%, min Rs 100; (ii) otherwise -> 0.3%, max Rs 20 lakh. This encodes 0.5% / cap Rs 10 lakh, which is the SUPERSEDED text the source PDF prints in its own footnote (\"Prior to substitution, it read as under-\"). The two-column guardrail generalises to a two-VERSION trap: the encoder read the footnote, not the operative column.",
+        "reason": "The historical Article 40 proviso returns Rs 100 only when the principal instrument paid Article 40 duty. Refuse if that status is uncertain.",
         "when": {
-          "date_within": {
-            "from": "2022-01-20"
+          "not": {
+            "in": {
+              "field": "principal_art40_duty_status",
+              "values": ["paid", "not_paid"]
+            }
+          }
+        }
+      },
+      {
+        "reason": "The historical exemption branches are outside this encoded formula. Return the historical amount only for an ordinary non-exempt security bond.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "security_bond_scope",
+              "value": "ordinary_non_exempt"
+            }
           }
         }
       }
     ],
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Surety/security/guarantee bond = 0.5% of amount secured, cap Rs 10 lakh. PENDING: the Rs 100 proviso (where the surety's principal already paid duty under Art 40 mortgage) is a fact-gated special case, not modelled."
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Historical ordinary bond: 0.5% of amount secured, cap Rs 10 lakh; the Article 40-paid proviso is Rs 100. This era ends before Maharashtra Act VII of 2022."
+  },
+  {
+    "rule_id": "MH-ART54-security-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "54",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2022-01-20",
+      "effective_to": null,
+      "supersedes": "MH-ART54-security-bond@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act VII of 2022, s.2(5), pp.3-4 (first published 20-Jan-2022)",
+        "article": "54",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 2(5) substitutes Article 54: (i) where the amount secured does not exceed rupees five lakhs, 0.1 per cent subject to a minimum of one hundred rupees; (ii) in any other case, 0.3 per cent subject to a maximum of twenty lakh rupees. If Article 40 duty was paid on the principal's instrument, duty is one hundred rupees. Page 4 retains four specified exemption classes."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "security_bond_scope",
+      "cases": [
+        {
+          "when": "ordinary_non_exempt",
+          "charge": {
+            "kind": "select",
+            "by": "principal_art40_duty_status",
+            "cases": [
+              {
+                "when": "paid",
+                "charge": { "kind": "fixed", "amount": "100" }
+              },
+              {
+                "when": "not_paid",
+                "charge": {
+                  "kind": "switch",
+                  "on": { "var": "amount_secured" },
+                  "cases": [
+                    {
+                      "upto": 500000,
+                      "charge": {
+                        "kind": "ad_valorem",
+                        "base": { "var": "amount_secured" },
+                        "pct": 0.1,
+                        "min_duty": "100"
+                      }
+                    },
+                    {
+                      "upto": null,
+                      "charge": {
+                        "kind": "ad_valorem",
+                        "base": { "var": "amount_secured" },
+                        "pct": 0.3,
+                        "cap": "2000000"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "default": { "kind": "fixed", "amount": "0" }
+          }
+        },
+        { "when": "charitable_public_utility_guarantee", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "irrigation_section_114", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "agricultural_loan_advance", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "government_officer_security", "charge": { "kind": "fixed", "amount": "0" } }
+      ],
+      "default": { "kind": "fixed", "amount": "0" }
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "modifiers": [
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      },
+      { "modifier_id": "MH-agricultural-loan-remission", "required_from": "2026-01-01" }
+    ],
+    "pending_verification": [
+      {
+        "reason": "The document's Article 54 exemption status is uncertain. Select the exact ordinary or statutory exemption fact pattern before computing.",
+        "when": { "eq": { "field": "security_bond_scope", "value": "uncertain" } }
+      },
+      {
+        "reason": "For an ordinary Article 54 bond, whether Article 40 duty was paid on the principal instrument changes the result. Select paid or not paid before computing.",
+        "when": {
+          "all": [
+            { "eq": { "field": "security_bond_scope", "value": "ordinary_non_exempt" } },
+            {
+              "not": {
+                "in": {
+                  "field": "principal_art40_duty_status",
+                  "values": ["paid", "not_paid"]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "notes_for_reviewer": "Maharashtra Act VII of 2022 substitutes the complete Article 54 rate table and retains the Article 40 proviso and four exemption classes."
   },
   {
     "rule_id": "MH-ART35-indemnity-bond",

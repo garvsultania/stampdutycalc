@@ -10,8 +10,10 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -29,8 +31,10 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "gram_panchayat",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -47,8 +51,10 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "movable",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -57,6 +63,7 @@
   },
   {
     "name": "MH Conveyance — women residential concession (−1%) applies post-1-Apr-2021",
+    "suite": "arithmetic",
     "source_note": "5% − 1% (women residential, Order 31-Mar-2021) = 4% effective. 1,00,00,000 × 4% = 4,00,000.",
     "input": {
       "jurisdiction": "MH",
@@ -66,10 +73,12 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
         "buyer_all_women": "yes",
         "property_use": "residential",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -87,10 +96,12 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
         "buyer_all_women": "yes",
         "property_use": "residential",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -108,10 +119,12 @@
         "market_value": "10000000"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
         "buyer_all_women": "yes",
         "property_use": "commercial",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -124,14 +137,15 @@
     "input": {
       "jurisdiction": "MH",
       "rule_id": "MH-ART34-gift",
-      "execution_date": "2024-06-01",
+      "execution_date": "2026-07-21",
       "values": {
         "market_value": "5000000"
       },
       "facts": {
         "area_type": "municipal_corporation",
         "gift_relation": "other",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -144,13 +158,14 @@
     "input": {
       "jurisdiction": "MH",
       "rule_id": "MH-ART34-gift",
-      "execution_date": "2024-06-01",
+      "execution_date": "2026-07-21",
       "values": {
         "market_value": "5000000"
       },
       "facts": {
         "gift_relation": "family",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -163,17 +178,55 @@
     "input": {
       "jurisdiction": "MH",
       "rule_id": "MH-ART34-gift",
-      "execution_date": "2024-06-01",
+      "execution_date": "2026-07-21",
       "values": {
         "market_value": "5000000"
       },
       "facts": {
         "gift_relation": "close_family_residential_agri",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
       "total_duty": "200"
     }
+  },
+  {
+    "name": "MH Conveyance — user-facing computation refuses the unverified women-concession condition",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART25-conveyance",
+      "execution_date": "2024-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "facts": {
+        "mh_section9_remission_claim": "none_identified",
+        "area_type": "municipal_corporation",
+        "buyer_all_women": "yes",
+        "property_use": "residential",
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
+      }
+    },
+    "expect": {
+      "error": "all-women purchaser condition"
+    }
+  },
+  {
+    "name": "MH Gift — favourable close-family amount refuses in an unresolved metro location",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2026-07-21", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "close_family_residential_agri", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "error": "active metro/transport surcharge applies to gifts" }
+  },
+  {
+    "name": "MH Gift — family rate refuses where LBT may apply",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2026-07-21", "values": { "market_value": "5000000" }, "facts": { "gift_relation": "family", "metro_cess_city": "no", "lbt_status": "applies_or_uncertain" } },
+    "expect": { "error": "Gift totals currently omit Local Body Tax" }
+  },
+  {
+    "name": "MH Gift — missing relationship refuses before selecting a concession",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART34-gift", "execution_date": "2026-07-21", "values": { "market_value": "5000000" }, "facts": { "metro_cess_city": "no", "lbt_status": "not_applicable" } },
+    "expect": { "error": "gift_relation" }
   }
 ]

@@ -26,5 +26,23 @@
     ]
   },
   "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "A qualifying instrument accompanying a bill of exchange or an unattested pledge can be exempt. The observable instrument-type and accompanying-document answers do not establish the encoded non-exempt Article 6 branch.",
+      "when": {
+        "any": [
+          {
+            "not": {
+              "in": {
+                "field": "security_instrument_type",
+                "values": ["title_deed_deposit", "attested_pledge", "hypothecation"]
+              }
+            }
+          },
+          { "not": { "eq": { "field": "accompanies_bill_of_exchange", "value": "no" } } }
+        ]
+      }
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH (clean two-column quote from the committed source PDF; both columns coherent — passes the absurdity check). Clause (a): 0.5% of amount secured, max Rs 50,000 (demand loans / repayable > 3 months — the standard loan-cum-hypothecation case). Clause (b): 'half the duty payable under (a)' — encoded EXACTLY as half of the (a) computation: 0.25% capped at Rs 25,000 (half of a capped duty halves the cap; arithmetic derivation, not a new rate). Input repayment_period_months: pass a large value (e.g. 999) or the true tenor for demand/term loans > 3 months. NOTE: a hypothecation letter accompanying a bill of exchange is EXEMPT under Art 40 exemption (2) — questionnaire flag."
 }

@@ -38,6 +38,7 @@ export function resolveRate(pct: RateSpec, facts: Record<string, string | number
     value === undefined
       ? `required fact "${pct.by}" was not provided, and this rule declares no default rate (expected one of: ${known})`
       : `fact "${pct.by}" = "${String(value)}" matches no rate case and this rule declares no default (expected one of: ${known})`,
+    "INPUT_REQUIRED",
   );
 }
 
@@ -118,6 +119,7 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
         value === undefined
           ? `required fact "${charge.by}" was not provided, and this rule declares no default charge (expected one of: ${known})`
           : `fact "${charge.by}" = "${String(value)}" matches no case and this rule declares no default charge (expected one of: ${known})`,
+        "INPUT_REQUIRED",
       );
     }
   }

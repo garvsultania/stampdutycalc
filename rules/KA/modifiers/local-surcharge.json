@@ -36,5 +36,10 @@
     "verified_by": null,
     "verified_on": null
   },
+  "pending_verification": [
+    {
+      "reason": "The local-body surcharge rate, urban/rural direction, statutory base, and conveyance scope are supported only by secondary material. Refuse every applied surcharge until the primary municipal provisions and amendment chain are archived and reviewed."
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (secondary sources, but strongly corroborated across many and it reconciles exactly to the cited 5.6% Bangalore total) — PENDING the primary municipal-law provision/section number. 2% of stamp duty (urban/BBMP) or 3% (rural) — fact ka_area is REQUIRED ('urban' | 'rural'); there is no residual case, so omitting it ESCALATES rather than silently charging the urban rate (audit fix #3). Computed on the base stamp duty (not compounded with the s.3B cess). NOTE the rural>urban direction is counterintuitive but consistently reported. Attached to conveyance; extend to other s.3B-cess instruments (gift etc.) once confirmed."
 }

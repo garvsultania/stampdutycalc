@@ -25,5 +25,17 @@
     "mode": "none",
     "nearest": 1
   },
+  "pending_verification": [
+    {
+      "reason": "Article 48(a) charges a different amount for registration-only authority and sale powers may reach conveyance duty. The observable answers do not establish an ordinary single-transaction Article 48(c) power.",
+      "when": {
+        "any": [
+          { "not": { "eq": { "field": "poa_registration_only", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_authorizes_property_sale", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_transaction_pattern", "value": "single_transaction" } } }
+        ]
+      }
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). A special/single-transaction POA is encoded as Rs 50 (clause c). NOTE: a POA whose SOLE purpose is procuring registration/admitting execution (clause a) is Rs 20 — a lower, distinct case; not modelled separately here. Confirm whether special_poa should default to Rs 50 (act in a single transaction) or Rs 20 (registration-only), or be split by a questionnaire question. Confirm effective_from."
 }

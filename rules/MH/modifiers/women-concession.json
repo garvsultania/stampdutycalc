@@ -29,5 +29,10 @@
     "verified_by": null,
     "verified_on": null
   },
+  "pending_verification": [
+    {
+      "reason": "The all-women purchaser condition, continuing currency, and complete instrument scope of the 31-Mar-2021 concession order have not been established from the archived primary order. Refuse any cell in which the concession would reduce duty."
+    }
+  ],
   "notes_for_reviewer": "Applies ONLY to clause (b) immovable residential conveyance, all-women purchasers, from 1-Apr-2021. Modelled as a −1 percentage-point reduction via pct_add(-1% of market_value) so it composes exactly with the 5%/4% base (avoids the non-exact 'percentage-off-duty' problem). PENDING_VERIFICATION: (1) whether the concession requires ALL purchasers to be women (assumed yes, per 'women purchaser/s') vs any woman co-owner — fact buyer_all_women; (2) whether it extends to agreement-to-sell (order text says 'conveyance or agreement to sell' — yes, attach to that rule too when encoded); (3) any re-notification/expiry after the initial period."
 }

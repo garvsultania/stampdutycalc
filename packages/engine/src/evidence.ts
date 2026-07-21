@@ -81,6 +81,7 @@ export function assertEvidenceBacked(
   if (missing.length > 0) {
     throw new EngineError(
       `production result requires Watchdog-backed primary evidence; missing evidence links: ${missing.join(", ")}`,
+      "EVIDENCE_REQUIRED",
     );
   }
 
@@ -100,6 +101,7 @@ export function assertEvidenceBacked(
   if (stale.length > 0) {
     throw new EngineError(
       `production result requires evidence current through ${asOf}; stale evidence: ${stale.join(", ")}`,
+      "EVIDENCE_REQUIRED",
     );
   }
 }
@@ -147,7 +149,7 @@ export function citationEvidenceIssues(citation: Citation, catalog: EvidenceCata
       (candidate) =>
         candidate.run_id === reference.run_id &&
         candidate.source_id === reference.source_id &&
-        candidate.type === "new_document" &&
+        (candidate.type === "new_document" || candidate.type === "document_acquired") &&
         candidate.documents?.includes(reference.sha256),
     );
     if (!event) issues.push(`document ${reference.sha256} is not linked to its acquisition run event`);

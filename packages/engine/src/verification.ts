@@ -22,6 +22,7 @@ export function assertFounderVerified(
   if (missing.length === 0) return;
   throw new EngineError(
     `production computation requires founder-verified law; unverified dependencies: ${missing.join(", ")}`,
+    "VERIFICATION_REQUIRED",
   );
 }
 

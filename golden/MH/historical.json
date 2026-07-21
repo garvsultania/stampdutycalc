@@ -9,9 +9,10 @@
       "values": {
         "market_value": "10000000"
       },
-      "facts": {
+      "facts": { "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -28,9 +29,10 @@
       "values": {
         "market_value": "10000000"
       },
-      "facts": {
+      "facts": { "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -46,9 +48,10 @@
       "values": {
         "market_value": "10000000"
       },
-      "facts": {
+      "facts": { "mh_section9_remission_claim": "none_identified",
         "area_type": "gram_panchayat",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -64,9 +67,10 @@
       "values": {
         "market_value": "10000000"
       },
-      "facts": {
+      "facts": { "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -82,9 +86,10 @@
       "values": {
         "market_value": "10000000"
       },
-      "facts": {
+      "facts": { "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {

@@ -23,7 +23,15 @@
     "rule_id": "DL-ART23-conveyance",
     "on": { "var": "market_value" }
   },
-  "modifiers": ["DL-transfer-duty-gift", "DL-transfer-duty-gift-hike"],
+  "modifiers": [
+    "DL-transfer-duty-gift",
+    { "modifier_id": "DL-transfer-duty-gift-hike", "required_from": "2023-07-10" }
+  ],
   "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "The primary 10-Jul-2023 MCD notification has not yet established that the transfer-duty hike applies to gifts, and joint-donee and family-concession treatment remain unresolved. Refuse gift totals until that municipal scope is proved."
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: HIGH (official combined totals + Sch I-A structure). Now encoded exactly as the statute reads: a CROSS-REF to Conveyance (No.23) re-based on property value — the engine imports only the Art 23 charge (3/2 by transferee_category of the DONEE), then this rule's own transfer-duty modifiers apply. Donee gender uses the same transferee_category fact (female → 2% stamp + 2%/3% transfer). Joint-donee treatment NOT stated on the official page — 'joint' resolves via the Art 23 RateSpec (2.5 PENDING) but no golden asserts it; confirm. Family-relation concessions for gifts: none encoded — Delhi has no general relative concession in the sources reached; confirm (PRD §5.5 requires the per-state relative list be explicit)."
 }

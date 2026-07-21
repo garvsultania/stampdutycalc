@@ -13,6 +13,8 @@ const STATES = ["DL", "MH", "KA"] as const;
 
 let totalFail = 0;
 let totalCases = 0;
+let totalArithmetic = 0;
+let totalEligibility = 0;
 
 for (const state of STATES) {
   const { ruleSet, parseErrors } = loadStateDir(`rules/${state}`);
@@ -23,6 +25,8 @@ for (const state of STATES) {
 
   const cases = loadGoldenDir(`golden/${state}`);
   totalCases += cases.length;
+  totalArithmetic += cases.filter((c) => c.suite === "arithmetic").length;
+  totalEligibility += cases.filter((c) => c.suite === "eligibility").length;
   let stateFail = 0;
 
   for (const c of cases) {
@@ -38,5 +42,8 @@ for (const state of STATES) {
   process.stdout.write(`golden ${state}: ${cases.length - stateFail}/${cases.length} passed\n`);
 }
 
-process.stdout.write(`\ngolden: ${totalCases - totalFail} of ${totalCases} case(s) passed across ${STATES.length} state(s)\n`);
+process.stdout.write(
+  `\ngolden: ${totalCases - totalFail} of ${totalCases} case(s) passed ` +
+  `(${totalEligibility} eligibility, ${totalArithmetic} arithmetic) across ${STATES.length} state(s)\n`,
+);
 process.exit(totalFail === 0 ? 0 : 1);

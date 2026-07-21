@@ -21,7 +21,7 @@
     "charge": {
       "kind": "ad_valorem",
       "base": {
-        "var": "consideration"
+        "var": "share_value"
       },
       "pct": 0.25
     },

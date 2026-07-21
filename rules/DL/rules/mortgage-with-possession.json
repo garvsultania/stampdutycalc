@@ -22,7 +22,15 @@
     "rule_id": "DL-ART23-conveyance",
     "on": { "var": "amount_secured" }
   },
-  "modifiers": ["DL-transfer-duty-mwp", "DL-transfer-duty-mwp-hike"],
+  "modifiers": [
+    "DL-transfer-duty-mwp",
+    { "modifier_id": "DL-transfer-duty-mwp-hike", "required_from": "2023-07-10" }
+  ],
   "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "The DMC transfer-duty base, gender treatment, and application of the 10-Jul-2023 hike to a mortgage with possession have not been proved from primary municipal material. Refuse the total until those dependencies are sourced."
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for the stamp leg (clean two-column quote; 3% via Art 23 cross-ref on amount secured). Transfer-duty leg per founder Q1 ruling, but its BASE for mortgages (assumed amount secured) and gender split are PENDING_VERIFICATION — see modifier notes. The deemed-possession explanation (POA to collect rents = possession) is a classification question for the questionnaire. Callers should omit transferee_category (→ default 3%) unless the women reduction is verified to extend to mortgages."
 }

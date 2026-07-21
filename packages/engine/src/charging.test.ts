@@ -20,10 +20,14 @@ const corpus = mergeLoads([
 ]);
 const rs = corpus.ruleSet;
 const DATE = "2024-06-01";
-/** Karnataka Art 5(j) refuses from 03-02-2024 (Act 04 of 2024 rewrote it and our source
- *  predates that). These cases exercise the s.5/s.6 tie logic, not the rate, so they pin
- *  to a date whose encoding is verified. */
-const KA_DATE = "2023-06-01";
+const arithmeticOnly = (instruments: NamedInstrument[]): NamedInstrument[] =>
+  instruments.map((instrument) => ({
+    ...instrument,
+    options: { ...instrument.options, pendingPolicy: "arithmetic-test-only" },
+  }));
+/** Karnataka's current annual Act graph is incomplete. These mechanics cases exercise
+ *  s.5/s.6 rather than current law, so they pin to the last covered consolidation era. */
+const KA_DATE = "2020-06-01";
 
 const dlCharging = resolveChargingRules(rs, "DL", DATE);
 const mhCharging = resolveChargingRules(rs, "MH", DATE);
@@ -53,22 +57,39 @@ const dlSaleSet: NamedInstrument[] = [
   },
   {
     label: "General POA to the buyer",
-    input: { jurisdiction: "DL", rule_id: "DL-ART48-gpa", execution_date: DATE, values: {}, facts: {} },
+    input: {
+      jurisdiction: "DL", rule_id: "DL-ART48-gpa", execution_date: DATE,
+      values: { authorized_person_count: "1" },
+      facts: {
+        poa_authorizes_property_sale: "no",
+        poa_registration_only: "no",
+        poa_transaction_pattern: "general_or_multiple",
+      },
+    },
   },
   {
     label: "Affidavit of title",
-    input: { jurisdiction: "DL", rule_id: "DL-ART4-affidavit", execution_date: DATE, values: {}, facts: {} },
+    input: {
+      jurisdiction: "DL", rule_id: "DL-ART4-affidavit", execution_date: DATE, values: {},
+      facts: { affidavit_purpose: "ordinary" },
+    },
   },
 ];
 
 const mhLeaseSet: NamedInstrument[] = [
   {
     label: "Service agreement A",
-    input: { jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {}, facts: {} },
+    input: {
+      jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {},
+      facts: { service_goods_transfer: "no", service_additional_transaction: "no" },
+    },
   },
   {
     label: "Service agreement B",
-    input: { jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {}, facts: {} },
+    input: {
+      jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {},
+      facts: { service_goods_transfer: "no", service_additional_transaction: "no" },
+    },
   },
 ];
 
@@ -91,7 +112,13 @@ const mhCompeting: NamedInstrument[] = [
     input: {
       jurisdiction: "MH", rule_id: "MH-ART36-lease", execution_date: DATE,
       values: { market_value: "10000000", term_months: "72" },
-      facts: { area_type: "municipal_corporation" },
+      facts: {
+        area_type: "municipal_corporation",
+        lease_has_unentered_premium_advance_or_deposit: "no",
+        lease_has_unentered_renewal_period: "no",
+        lbt_status: "not_applicable",
+        mh_section9_remission_claim: "none_identified",
+      },
     },
   },
   {
@@ -99,7 +126,7 @@ const mhCompeting: NamedInstrument[] = [
     input: {
       jurisdiction: "MH", rule_id: "MH-ART36A-leave-license", execution_date: DATE,
       values: { term_months: "24", licence_fee_total: "1200000", non_refundable_deposit: "0", refundable_deposit: "500000" },
-      facts: {},
+      facts: { licence_has_unentered_payment: "no" },
     },
   },
 ];
@@ -127,15 +154,17 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
     expect(r.warnings[0]).toMatch(/charged the HIGHEST duty/);
   });
 
-  it("state nominal duties differ sharply (DL Rs 1 · KA Rs 100 · MH Rs 500)", () => {
+  it("versions Maharashtra's Rs 100 to Rs 500 nominal-duty boundary on 1 April 2025", () => {
     expect(dlCharging.s4.nominal_duty).toBe("1");
     expect(kaCharging.s4.nominal_duty).toBe("100");
-    expect(mhCharging.s4.nominal_duty).toBe("500");
+    expect(mhCharging.s4.nominal_duty).toBe("100");
+    expect(resolveChargingRules(rs, "MH", "2025-03-31").s4.nominal_duty).toBe("100");
+    expect(resolveChargingRules(rs, "MH", "2025-04-01").s4.nominal_duty).toBe("500");
   });
 
   it("ESCALATES where the state's s.4 does not reach the transaction type", () => {
     // Maharashtra's s.4 covers leases; Delhi's does not.
-    expect(() => computeS4(rs, mhCharging, mhLeaseSet, { transactionType: "lease" })).not.toThrow();
+    expect(() => computeS4(rs, mhCharging, arithmeticOnly(mhLeaseSet), { transactionType: "lease" })).not.toThrow();
     expect(() => computeS4(rs, dlCharging, dlSaleSet, { transactionType: "lease" })).toThrow(
       /does not extend to "lease"/,
     );
@@ -148,6 +177,19 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
     expect(() => computeS4(rs, dlCharging, dlSaleSet, { transactionType: "sale" })).toThrow(
       /DL-charging s\.4: The Rs 1 ancillary-instrument duty/,
     );
+  });
+
+  it("refuses current Karnataka charging sections until the annual Act graph is complete", () => {
+    const current = kaAgreementSet.map((instrument) => ({
+      ...instrument,
+      input: { ...instrument.input, execution_date: "2026-07-21" },
+      options: { pendingPolicy: "arithmetic-test-only" as const },
+    }));
+    expect(() => computeS4(rs, kaCharging, current, { transactionType: "sale" })).toThrow(
+      /KA-charging s\.4: CURRENT SOURCE GAP/,
+    );
+    expect(() => computeS5(rs, current)).toThrow(/KA-charging s\.5: CURRENT SOURCE GAP/);
+    expect(() => computeS6(rs, current)).toThrow(/KA-charging s\.6: CURRENT SOURCE GAP/);
   });
 
   it("refuses a charging-rules object from a different jurisdiction", () => {
@@ -169,7 +211,7 @@ describe("s.4 — several instruments, one transaction (PRD §5.4)", () => {
 
 describe("s.5 vs s.6 — aggregate vs highest (PRD §5.4)", () => {
   it("s.6 charges the highest of the competing descriptions and marks which one bites", () => {
-    const r = computeS6(rs, mhCompeting);
+    const r = computeS6(rs, arithmeticOnly(mhCompeting));
     // Lease: 25% of 1cr = 25L × 5% = 1,25,000. L&L: 0.25% of 12.5L = 3,125.
     expect(r.total).toBe("125000");
     expect(r.descriptions.map((d) => d.chargeable)).toEqual([true, false]);
@@ -177,10 +219,11 @@ describe("s.5 vs s.6 — aggregate vs highest (PRD §5.4)", () => {
   });
 
   it("s.5 aggregates instead — and the gap between the two is the stake", () => {
-    const r = computeS5(rs, mhCompeting);
+    const candidates = arithmeticOnly(mhCompeting);
+    const r = computeS5(rs, candidates);
     expect(r.total).toBe("128125"); // 1,25,000 + 3,125
 
-    const cmp = compareS5S6(rs, mhCompeting);
+    const cmp = compareS5S6(rs, candidates);
     expect(cmp.s6.total).toBe("125000");
     expect(cmp.difference).toBe("3125"); // what construction is worth here
     expect(cmp.guidance).toMatch(/question of construction/);
@@ -200,9 +243,15 @@ describe("s.5 vs s.6 — aggregate vs highest (PRD §5.4)", () => {
   it("the Maharashtra works-vs-service fork under s.6 charges the works rate", () => {
     const mhFork: NamedInstrument[] = [
       { label: "Works contract (Art 63)", input: { jurisdiction: "MH", rule_id: "MH-ART63-works-contract", execution_date: DATE, values: { contract_value: "50000000" }, facts: {} } },
-      { label: "Service agreement (Art 5(h)(B))", input: { jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {}, facts: {} } },
+      {
+        label: "Service agreement (Art 5(h)(B))",
+        input: {
+          jurisdiction: "MH", rule_id: "MH-ART5hB-service-agreement", execution_date: DATE, values: {},
+          facts: { service_goods_transfer: "no", service_additional_transaction: "no" },
+        },
+      },
     ];
-    const r = computeS6(rs, mhFork);
+    const r = computeS6(rs, arithmeticOnly(mhFork));
     expect(r.total).toBe("49500"); // not Rs 100 — s.6 resolves the ~495x fork conservatively
     expect(r.descriptions[0]!.chargeable).toBe(true);
   });
@@ -244,7 +293,8 @@ describe("charging rules are part of the ruleset identity", () => {
           : charging,
       ),
     };
-    expect(() => computeS5(blocked, mhCompeting)).toThrow(/s\.5 text needs current proof/);
-    expect(() => computeS6(blocked, mhCompeting)).not.toThrow();
+    const candidates = arithmeticOnly(mhCompeting);
+    expect(() => computeS5(blocked, candidates)).toThrow(/s\.5 text needs current proof/);
+    expect(() => computeS6(blocked, candidates)).not.toThrow();
   });
 });

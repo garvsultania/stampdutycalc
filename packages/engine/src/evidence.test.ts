@@ -129,6 +129,14 @@ describe("Watchdog citation evidence", () => {
     expect(citationEvidenceIssues(evidenceCitation(), catalog)).toEqual([]);
   });
 
+  it("accepts a complete-run integrity acquisition receipt for a safely resumed document", () => {
+    const resumedCatalog: EvidenceCatalog = {
+      ...catalog,
+      events: catalog.events.map((event) => ({ ...event, type: "document_acquired" })),
+    };
+    expect(citationEvidenceIssues(evidenceCitation(), resumedCatalog)).toEqual([]);
+  });
+
   it("rejects a supplied link whose sweep does not cover the asserted chain", () => {
     const shortCatalog: EvidenceCatalog = {
       ...catalog,

@@ -29,5 +29,18 @@
     "mode": "none",
     "nearest": 1
   },
+  "pending_verification": [
+    {
+      "reason": "Collateral or auxiliary security can fall under Article 40(c) at a different rate. The caller must answer the observable collateral-security question; only a direct 'no' reaches this principal-mortgage branch.",
+      "when": {
+        "not": {
+          "eq": {
+            "field": "is_collateral_or_auxiliary_security",
+            "value": "no"
+          }
+        }
+      }
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; both columns coherent). 2% of the amount secured, capped at Rs 2,00,000. Self-contained (no cross-ref). Mortgage WITHOUT possession is NOT in the DMC s.147 transfer-duty list (founder Q1) — no transfer-duty modifier, correctly. The companion mortgage WITH possession is now encoded separately (DL-ART40a) per the resolved Q1 ruling. Clause (c) collateral/auxiliary security (Rs 2 per Rs 1,000) not yet encoded — questionnaire fork."
 }

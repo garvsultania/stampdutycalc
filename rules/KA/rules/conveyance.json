@@ -30,6 +30,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — the accepted Karnataka source spine ends with a consolidation whose newest amendment footnote is Act 55 of 2020. The required DPAL annual Act and commencement sweep for 2021 onward is incomplete, so the current bare Article 20(1) rate cannot be returned merely because no later amendment has yet been archived.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text). The bare 5% Art 20(1) rate. Rebaseable via cross_ref `on` (it is a plain ad_valorem), so lease (vi) can apply it to max(lease_base, market_value) and gift to property value. Kept separate from KA-ART20-conveyance (which adds the first-sale concession + s.3B cess) so the cross-ref chain is clean — mirrors Delhi's stamp-only conveyance-rate pattern."
   },
   {

@@ -20,6 +20,11 @@
     },
     "charge": { "kind": "fixed", "amount": "50" },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The works-contract amount relies on the unproved absence of a more specific operative Delhi entry or notification. Refuse direct computation until the current source history establishes that negative."
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM (absence-of-specific-entry reasoning + Art 5(c) text). The works-vs-service classification tree still matters for S.6 and for multi-state work (Maharashtra taxes works contracts ad valorem). Confirm no Delhi notification imposes ad valorem duty on works contracts."
   },
   {
@@ -43,6 +48,11 @@
     },
     "charge": { "kind": "fixed", "amount": "50" },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The observable questionnaire needed to exclude more specific Article 5 agreement clauses is not yet encoded. A caller cannot opt into the residual amount by asserting that no specific article applies."
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH — Sch I-A itself routes 'agreement for service' to Art 5."
   }
 ]

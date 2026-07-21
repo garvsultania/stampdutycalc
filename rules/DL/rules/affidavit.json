@@ -25,5 +25,18 @@
     "mode": "none",
     "nearest": 1
   },
+  "pending_verification": [
+    {
+      "reason": "Article 4 exempts court-use, armed-forces-enrolment, pension, and charitable-allowance affidavits. Return Rs 10 only after the caller positively classifies the instrument as an ordinary non-exempt affidavit.",
+      "when": {
+        "not": {
+          "eq": {
+            "field": "affidavit_purpose",
+            "value": "ordinary"
+          }
+        }
+      }
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; figure Rs 10 is consistent with the official affidavit figure and widely cited). Fixed Rs 10. Court/enrolment/pension affidavits are EXEMPT — not modelled here (would be a classification/eligibility flag); confirm whether to add an exemption path. Confirm effective_from."
 }

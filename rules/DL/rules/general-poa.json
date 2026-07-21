@@ -25,5 +25,33 @@
     "mode": "none",
     "nearest": 1
   },
+  "pending_verification": [
+    {
+      "reason": "Rs 50 covers only the common non-sale, non-registration-only Article 48(c)-(e) cases represented here. The observable answers do not establish that safe branch.",
+      "when": {
+        "any": [
+          { "not": { "eq": { "field": "poa_authorizes_property_sale", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_registration_only", "value": "no" } } },
+          {
+            "not": {
+              "in": {
+                "field": "poa_transaction_pattern",
+                "values": ["single_transaction", "general_or_multiple"]
+              }
+            }
+          },
+          {
+            "not": {
+              "cmp": {
+                "expr": { "var": "authorized_person_count" },
+                "op": "lte",
+                "value": 10
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). Encoded as fixed Rs 50 (the common general-POA case, clauses c/d/e). IMPORTANT ESCALATION: clause (f) — a POA given for consideration authorizing sale of immovable property is charged as a CONVEYANCE (No.23) on the consideration, NOT Rs 50. This is a classification-sensitive fork (a GPA-for-sale is a common stamp-duty-avoidance pattern the Delhi authorities charge as conveyance). It should be routed via the classification questionnaire, not this flat rule. Confirm whether to add a 'GPA authorizing sale for consideration' branch that cross-refs DL-ART23-conveyance. Also clause (g) is Rs 50 PER PERSON authorized — flat Rs 50 assumes a single grantee. Confirm effective_from."
 }

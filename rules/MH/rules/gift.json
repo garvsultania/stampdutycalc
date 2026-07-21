@@ -53,6 +53,51 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "The relationship/property-use precedence must be answered explicitly; a missing or unknown gift_relation cannot silently fall through to the full conveyance rate.",
+        "when": {
+          "not": {
+            "in": {
+              "field": "gift_relation",
+              "values": ["close_family_residential_agri", "family", "other"]
+            }
+          }
+        }
+      },
+      {
+        "reason": "Gift totals currently omit Local Body Tax and other local levies. Compute only for a location positively confirmed free of those omitted surcharges.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "lbt_status",
+              "value": "not_applicable"
+            }
+          }
+        }
+      },
+      {
+        "reason": "The active metro/transport surcharge applies to gifts, but its city list and stacking are not modelled on this rule. Refuse metro or unanswered location cells during active surcharge periods.",
+        "when": {
+          "all": [
+            {
+              "any": [
+                { "date_within": { "from": "2019-02-08", "to": "2020-03-31" } },
+                { "date_within": { "from": "2022-04-01" } }
+              ]
+            },
+            {
+              "not": {
+                "eq": {
+                  "field": "metro_cess_city",
+                  "value": "no"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; both provisos quoted). This is the PRD §5.5 per-state relative-list showcase — encoded as an explicit enumerated list, NEVER generalized. gift_relation (set by the questionnaire from relation + property type): 'close_family_residential_agri' → Rs 200 (Proviso 2: residential/agricultural to husband/wife/son/daughter/grandson/granddaughter/wife-of-deceased-son); 'family' → 3% (Proviso 1: husband/wife/brother/sister/lineal ascendant/descendant, ANY property); default → full area-based Conveyance rate (cross-ref Art 25, no transfer/cess imported). PRECEDENCE: Proviso 2 (Rs 200) is more specific and more beneficial than Proviso 1 (3%) for the overlapping spouse/child + residential/agri case — the questionnaire must pick 'close_family_residential_agri' there. Metro cess/LBT (PENDING) would ride on the default and 3% cases via Art 25's future surcharge modifiers; the Rs 200 fixed case is not ad valorem."
   },
   {
@@ -69,7 +114,7 @@
         "type": "act",
         "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 34 provisos as they stood before Mah. Act 59 of 2017",
         "article": "34",
-        "quoted_text": "Sch I Art. 34 Proviso 1 PRIOR to Mah. 59 of 2017 (IGR footnote 3): the family-member rate read 'at the same rate as specified in this article OR at the rate of rupees ten for every rupees five hundred or part thereof on the market value ... WHICHEVER IS LESS' — i.e. min(Conveyance rate, 2%). Mah. 59 of 2017 substituted 'at the rate of 3 percent' and deleted 'whichever is less' (footnote 4), both w.e.f. 7-9-2017. Proviso 2 (residential/agricultural to close family — Rs 200) was added by Mah. 20 of 2015 s.20(18) w.e.f. 24-1-2015."
+        "quoted_text": "Sch I Art. 34 Proviso 1 PRIOR to Mah. 59 of 2017 (IGR footnote 3): the family-member rate read 'at the same rate as specified in this article OR at the rate of rupees ten for every rupees five hundred or part thereof on the market value ... WHICHEVER IS LESS' — i.e. min(Conveyance rate, 2%). Mah. 59 of 2017 substituted 'at the rate of 3 percent' and deleted 'whichever is less' (footnote 4), both w.e.f. 7-9-2017. Proviso 2 (residential/agricultural to close family — Rs 200) was added by Mah. 20 of 2015 s.20(18). The official Act was first published on 24-Apr-2015, while the IGR consolidated footnote separately states 24-Jan-2015; the conflicting boundary remains pending human legal review."
       },
       "verified_by": null,
       "verified_on": null
@@ -108,6 +153,39 @@
       "mode": "none",
       "nearest": 1
     },
-    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2017-09-06). Family gift = min(Conveyance rate, 2%) per the pre-2017 'whichever is less' text. Every pre-2017 conveyance rate (gram 3%, council 4%, corp 5%, movable 3%) EXCEEDS 2%, so the min is always 2% — encoded as a flat 2% rather than a min() over charges, which the model cannot express. If the founder finds any pre-2017 area rate below 2%, this simplification breaks and must become an explicit min. EDGE: Proviso 2 (Rs 200) only existed from 24-1-2015, so 1–23 Jan 2015 is technically outside it; not versioned separately (23-day window, commercially immaterial) — flagged rather than silently ignored."
+    "pending_verification": [
+      {
+        "reason": "The relationship/property-use precedence must be answered explicitly; a missing or unknown gift_relation cannot silently fall through to the full conveyance rate.",
+        "when": {
+          "not": {
+            "in": {
+              "field": "gift_relation",
+              "values": ["close_family_residential_agri", "family", "other"]
+            }
+          }
+        }
+      },
+      {
+        "reason": "Historical gift totals currently omit Local Body Tax and other local levies. Compute only for a location positively confirmed free of those omitted surcharges.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "lbt_status",
+              "value": "not_applicable"
+            }
+          }
+        }
+      },
+      {
+        "reason": "The official Act adding the Rs 200 close-family residential/agricultural proviso was first published on 24-Apr-2015, while the IGR consolidated footnote states 24-Jan-2015. Refuse that classification through 23-Apr instead of relying on the conflicting earlier date.",
+        "when": {
+          "all": [
+            { "date_within": { "to": "2015-04-23" } },
+            { "eq": { "field": "gift_relation", "value": "close_family_residential_agri" } }
+          ]
+        }
+      }
+    ],
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2017-09-06). Family gift = min(Conveyance rate, 2%) per the pre-2017 'whichever is less' text. Every pre-2017 conveyance rate (gram 3%, council 4%, corp 5%, movable 3%) EXCEEDS 2%, so the min is encoded as 2%. The Rs 200 proviso has a source-date conflict: Act XX/2015 was first published 24-Apr-2015, while the IGR footnote states 24-Jan-2015. Close-family residential/agricultural cases through 23-Apr are refused pending human legal review."
   }
 ]

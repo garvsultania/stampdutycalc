@@ -36,6 +36,7 @@
   },
   {
     "name": "Lease — 50 years (band vi, OCR-flagged): Conveyance on 4× AAR",
+    "suite": "arithmetic",
     "source_note": "Band boundary >30≤100y is OCR-AMBIGUOUS in source — founder to verify. 4 × 6,00,000 = 24,00,000 × 3% = 72,000.",
     "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "600", "avg_annual_rent": "600000", "premium": "0" } },
     "expect": { "total_duty": "72000" }
@@ -60,8 +61,24 @@
   },
   {
     "name": "Leave & license — 11 months at Rs 30,000/month: 2% of whole licence fee",
+    "suite": "arithmetic",
     "source_note": "Charged as Art 35 'agreement to let' (PENDING practice verification). 11 × 30,000 = 3,30,000 × 2% = 6,600.",
     "input": { "jurisdiction": "DL", "rule_id": "DL-leave-and-license", "execution_date": "2024-06-01", "values": { "term_months": "11", "total_rent_payable": "330000", "avg_annual_rent": "360000", "premium": "0" } },
     "expect": { "total_duty": "6600" }
+  },
+  {
+    "name": "Lease — user-facing computation refuses the OCR-ambiguous >30-year band",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "600", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "error": "band after 30 years" }
+  },
+  {
+    "name": "Leave & license — user-facing computation refuses unproved registrar practice",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-leave-and-license", "execution_date": "2024-06-01", "values": { "term_months": "11", "total_rent_payable": "330000", "avg_annual_rent": "360000", "premium": "0" } },
+    "expect": { "error": "registrar practice" }
+  },
+  {
+    "name": "Lease — a women/joint conveyance reduction cannot leak through a non-purchase cross-reference",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "72", "avg_annual_rent": "600000", "premium": "0" }, "facts": { "transferee_category": "female" } },
+    "expect": { "error": "unknown input fact" }
   }
 ]

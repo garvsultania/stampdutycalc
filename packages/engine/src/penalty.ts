@@ -40,7 +40,10 @@ export function computePenalty(regime: PenaltyRegime, args: PenaltyArgs): Penalt
 
   if (regime.penalty.type === "per_month") {
     if (args.months === undefined) {
-      throw new EngineError(`penalty regime "${regime.regime_id}" is per_month but no month count was provided`);
+      throw new EngineError(
+        `penalty regime "${regime.regime_id}" is per_month but no month count was provided`,
+        "INPUT_REQUIRED",
+      );
     }
     let penalty = deficit.times(regime.penalty.pct_per_month).div(100).times(args.months);
     if (regime.penalty.cap_multiple !== null) {

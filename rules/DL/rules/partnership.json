@@ -25,6 +25,18 @@
       "cap": "5000"
     },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The exact fixed duty for Article 46(A)(a), where capital does not exceed Rs 500, is lost in the column-slipped source. Refuse that cell instead of applying the Article 46(A)(b) percentage formula.",
+        "when": {
+          "cmp": {
+            "expr": { "var": "capital" },
+            "op": "lte",
+            "value": 500
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for clause (b) (founder-ruled slip correction, multi-source corroborated). ENCODES CLAUSE (b) ONLY: 1% of capital, ceiling Rs 5,000. Clause (a) (capital ≤ Rs 500) is PENDING_VERIFICATION — the true small fixed figure is a casualty of the column slip in every online copy; founder to eyeball a clean bare act. It is commercially near-irrelevant and computing this rule for capital ≤ Rs 500 yields ≤ Rs 5 under (b)'s formula, which may differ from the true clause-(a) figure — the questionnaire should escalate capital ≤ Rs 500 until verified. No golden case covers capital ≤ Rs 500."
   },
   {
@@ -71,6 +83,11 @@
     },
     "charge": { "kind": "cross_ref", "rule_id": "DL-ART46-partnership" },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "Treating an LLP agreement as a partnership instrument under Article 46 is registrar practice, not an explicit verified Delhi Schedule entry. Refuse until that classification is established from current authoritative material."
+      }
+    ],
     "notes_for_reviewer": "PENDING_VERIFICATION: treating an LLP agreement as a partnership instrument under Art 46 is prevailing practice, not an explicit schedule entry — founder to confirm (registrar practice / any Delhi notification on LLP instruments). Encoded as a cross-ref so any future correction to Art 46 flows through. Input: capital."
   }
 ]

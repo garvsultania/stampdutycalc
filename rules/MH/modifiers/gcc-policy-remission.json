@@ -1,0 +1,35 @@
+{
+  "modifier_id": "MH-gcc-policy-remission",
+  "jurisdiction": "MH",
+  "kind": "concession",
+  "applies_when": {
+    "eq": { "field": "mh_gcc_remission_scope", "value": "eligible_or_uncertain" }
+  },
+  "effect": {
+    "op": "duty_reduce_pct",
+    "pct": 0,
+    "label": "GCC Policy 2025 remission — legal review required"
+  },
+  "order": 5,
+  "requires_facts": ["mh_gcc_remission_scope"],
+  "pending_verification": [
+    {
+      "reason": "The Maharashtra GCC Policy 2025 order can remit 50%, 75%, or 100% of duty on this instrument depending on the unit, project, zone, transaction, and policy conditions. The current calculator does not model those branches, so a possibly eligible instrument must refuse rather than return unreduced duty."
+    }
+  ],
+  "version": {
+    "effective_from": "2025-11-03",
+    "effective_to": "2030-11-04",
+    "supersedes": null,
+    "source": {
+      "type": "order",
+      "ref": "Maharashtra R&FD Order No. Mudrank-2025/URO-31/Mudrank-2 dated 22-May-2026, pp.5-7",
+      "gazette_date": "2026-05-22",
+      "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+      "quoted_text": "The order reduces or remits stamp duty under the GCC Policy 2025 for the period 3 November 2025 through 3 November 2030. Its Schedule grants 50%, 75%, or 100% relief, depending on project and zone, for Articles 6, 25, 25(da), 33, 36, 36A, 40, 54 and 60, subject to stated eligibility and anti-duplication conditions."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "This no-op modifier is a shared eligibility gate only. A later reviewed implementation must encode the percentage, zone, project, transaction, policy-period, certificate, prior-benefit, and breach conditions before computing relief."
+}

@@ -11,7 +11,8 @@
       },
       "facts": {
         "gift_relation": "family",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -30,7 +31,8 @@
       },
       "facts": {
         "gift_relation": "family",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -48,7 +50,8 @@
       },
       "facts": {
         "gift_relation": "family",
-        "metro_cess_city": "no"
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -56,16 +59,96 @@
     }
   },
   {
+    "name": "MH Gift — source-date conflict refuses close-family Rs 200 on 24 January 2015",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2015-01-24",
+      "values": { "market_value": "5000000" },
+      "facts": {
+        "gift_relation": "close_family_residential_agri",
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
+      }
+    },
+    "expect": { "error": "first published on 24-Apr-2015" }
+  },
+  {
+    "name": "MH Gift — source-date conflict refuses close-family Rs 200 through 23 April 2015",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2015-04-23",
+      "values": { "market_value": "5000000" },
+      "facts": {
+        "gift_relation": "close_family_residential_agri",
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
+      }
+    },
+    "expect": { "error": "first published on 24-Apr-2015" }
+  },
+  {
+    "name": "MH Gift — 24 April 2015 neighbouring close-family cell remains Rs 200",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART34-gift",
+      "execution_date": "2015-04-24",
+      "values": { "market_value": "5000000" },
+      "facts": {
+        "gift_relation": "close_family_residential_agri",
+        "metro_cess_city": "no",
+        "lbt_status": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "200" }
+  },
+  {
     "name": "MH POA (historical) — Rs 100 before 24-May-2015",
     "input": {
       "jurisdiction": "MH",
       "rule_id": "MH-ART48-poa",
       "execution_date": "2015-03-01",
-      "values": {}
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "no",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
     },
     "expect": {
       "total_duty": "100"
     }
+  },
+  {
+    "name": "MH POA — source-date conflict refuses the old amount on 24 April 2015",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2015-04-24",
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "no",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
+    },
+    "expect": { "error": "first published on 24-Apr-2015" }
+  },
+  {
+    "name": "MH POA — source-date conflict refuses through 23 May 2015",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2015-05-23",
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "no",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
+    },
+    "expect": { "error": "first published on 24-Apr-2015" }
   },
   {
     "name": "MH POA — boundary: 24-May-2015 is Rs 500",
@@ -73,7 +156,12 @@
       "jurisdiction": "MH",
       "rule_id": "MH-ART48-poa",
       "execution_date": "2015-05-24",
-      "values": {}
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "no",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
     },
     "expect": {
       "total_duty": "500"
@@ -113,7 +201,8 @@
       "execution_date": "2020-06-01",
       "values": {
         "amount_secured": "5000000"
-      }
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified" }
     },
     "expect": {
       "total_duty": "25000"
@@ -128,7 +217,8 @@
       "execution_date": "2020-06-01",
       "values": {
         "amount_secured": "1000000000"
-      }
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified" }
     },
     "expect": {
       "total_duty": "1000000"
@@ -191,8 +281,11 @@
         "term_months": "72"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -211,8 +304,11 @@
         "term_months": "72"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_council",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {

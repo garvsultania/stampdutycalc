@@ -1,0 +1,34 @@
+{
+  "modifier_id": "MH-section9-remission-screen",
+  "jurisdiction": "MH",
+  "kind": "concession",
+  "applies_when": {
+    "eq": { "field": "mh_section9_remission_claim", "value": "claimed_or_uncertain" }
+  },
+  "effect": {
+    "op": "duty_reduce_pct",
+    "pct": 0,
+    "label": "Maharashtra section 9 remission screen — legal review required"
+  },
+  "order": 4,
+  "requires_facts": ["mh_section9_remission_claim"],
+  "pending_verification": [
+    {
+      "reason": "Maharashtra Stamp Act section 9 permits instrument-, party-, project-, policy-, and period-specific reductions or remissions. The local Gazette contains active and retrospective orders for industrial incentives, public projects, housing, logistics parks, and named transfers that affect Articles 25, 36, and 40. Refuse whenever a party claims such relief or the matter may involve one until the exact order and conditions are reviewed."
+    }
+  ],
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act, 1958, s.9(a), as validated by Maharashtra Act XXI of 2019",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/22026/1/the_maharashtra_stamp_act,_1958.pdf",
+      "quoted_text": "Section 9(a) authorises the State Government, by rule or order published in the Official Gazette and in the public interest, to reduce or remit prospectively or retrospectively, in whole or part, duties or penalty or both for instruments, classes or descriptions of instruments, or instruments executed by or in favour of specified classes of persons."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "Shared no-op screening gate for Maharashtra Article 25, 36, and 40 calculator paths. Exact order-specific arithmetic stays closed until its party, project, instrument, certificate, period, anti-duplication, refund, and breach conditions are represented."
+}

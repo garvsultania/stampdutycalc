@@ -67,9 +67,29 @@
       }
     ]
   },
+  "modifiers": [
+    {
+      "modifier_id": "MH-gcc-policy-remission",
+      "required_from": "2025-11-03",
+      "required_to": "2030-11-04"
+    }
+  ],
   "rounding": {
     "mode": "none",
     "nearest": 1
   },
-  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; the current post-2013 Art 36A). The Maharashtra differentiator: for term ≤60 months, 0.25% of [licence_fee_total + non_refundable_deposit + 10% × refundable_deposit]. Inputs: term_months, licence_fee_total (total rent/licence fees over the whole term), non_refundable_deposit, refundable_deposit. NOTE the 10% is a flat interest factor for the WHOLE agreement as the statute reads (not annualised per year) — confirm registrar practice on multi-year terms (Explanation absent). For >60 months, cross-refs the lease (Art 36) — but Art 36 clause (i) [≤5y] does not apply per the statute's '(ii),(iii) or (iv)'; a >60-month L&L is by definition >5y so the lease switch lands in ≥25% bands correctly. EFFECTIVE-DATE: the 0.25% formula is from Mah 8/2013 (w.e.f. 1-5-2013); effective_from is the 2015 coverage floor (PRD §13). The >60-month branch cross-refs the lease → conveyance, which now has a pre-2017 version, so the chain resolves across the whole window without re-versioning this article."
+  "pending_verification": [
+    {
+      "reason": "Every fee, rent, premium, advance, and deposit in the document must be represented by the entered Article 36A payment fields. The engine derives the safe payment scope from an observable completeness answer and refuses any unentered or uncertain payment.",
+      "when": {
+        "not": {
+          "eq": {
+            "field": "licence_payment_scope",
+            "value": "statutory_inputs_confirmed"
+          }
+        }
+      }
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; the current post-2013 Art 36A). The Maharashtra differentiator: for term ≤60 months, 0.25% of [licence_fee_total + non_refundable_deposit + 10% × refundable_deposit]. Inputs: term_months, licence_fee_total (total rent/licence fees over the whole term), non_refundable_deposit, refundable_deposit. The shared contract asks whether the document contains any other payment and derives licence_payment_scope internally only from an explicit 'no'. NOTE the 10% is a flat interest factor for the WHOLE agreement as the statute reads (not annualised per year) — confirm registrar practice on multi-year terms (Explanation absent). For >60 months, cross-refs the lease (Art 36); optional observable lease-completeness answers derive the target's safe scope only when this branch is used. EFFECTIVE-DATE: the 0.25% formula is from Mah 8/2013 (w.e.f. 1-5-2013); effective_from is the 2015 coverage floor (PRD §13)."
 }

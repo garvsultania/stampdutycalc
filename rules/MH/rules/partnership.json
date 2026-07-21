@@ -7,7 +7,7 @@
     "instrument": "partnership_deed",
     "version": {
       "effective_from": "2015-04-24",
-      "effective_to": null,
+      "effective_to": "2024-10-14",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -49,17 +49,51 @@
       "mode": "none",
       "nearest": 1
     },
-    "pending_verification": [
-      {
-        "reason": "STALE — Mah. 9 of 2025 s.2(11), in force 14-10-2024, substituted the Art 47(1)(b) ceiling (\"fifteen thousand\" -> \"fifty thousand\"). This version still caps at Rs 15,000.",
-        "when": {
-          "date_within": {
-            "from": "2024-10-14"
+    "pending_verification": [],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Historical 2015-04-24 through 2024-10-13 constitution rate: cash share_contribution ≤ Rs 50,000 (or none) → Rs 500; above → 1% of contribution, cap Rs 15,000. Art 47 expressly includes LLP and Joint Venture."
+  },
+  {
+    "rule_id": "MH-ART47-partnership",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "47",
+    "instrument": "partnership_deed",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART47-partnership@2015-04-24",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(11), p.3",
+        "article": "47",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 14 October 2024. Section 2(11): in Schedule I, in article 47, in clause (1), in sub-clause (b), for the words 'fifteen thousand' the words 'fifty thousand' shall be substituted."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "share_contribution" },
+      "cases": [
+        {
+          "upto": 50000,
+          "charge": { "kind": "fixed", "amount": "500" }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": { "var": "share_contribution" },
+            "pct": 1,
+            "cap": "50000"
           }
         }
-      }
-    ],
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Constitution: cash share_contribution ≤ Rs 50,000 (or none) → Rs 500; above → 1% of contribution, cap Rs 15,000. NOTE: Art 47 EXPRESSLY includes LLP and Joint Venture — so MH LLP agreements use this rule (see MH-ART47-llp cross-ref). Contrast Karnataka, which has SEPARATE partnership (Art 40) and LLP (Art 40A) articles. Dissolution (Art 47(2)(b) = Rs 500) not separately encoded yet."
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [],
+    "notes_for_reviewer": "From 14 October 2024 the Article 47(1)(b) ceiling is Rs 50,000; the Rs 50,000 contribution threshold and 1% rate are unchanged."
   },
   {
     "rule_id": "MH-ART47-llp",
@@ -69,7 +103,7 @@
     "instrument": "llp_agreement",
     "version": {
       "effective_from": "2015-04-24",
-      "effective_to": null,
+      "effective_to": "2024-10-14",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -89,16 +123,35 @@
       "mode": "none",
       "nearest": 1
     },
-    "pending_verification": [
-      {
-        "reason": "STALE — shares the Art 47 ceiling substituted by Mah. 9 of 2025 s.2(11) w.e.f. 14-10-2024 (\"fifteen thousand\" -> \"fifty thousand\").",
-        "when": {
-          "date_within": {
-            "from": "2024-10-14"
-          }
-        }
-      }
-    ],
-    "notes_for_reviewer": "CONFIDENCE: HIGH (statute expressly includes LLP). Cross-ref to Art 47 partnership: contribution ≤ Rs 50k → Rs 500; else 1% cap Rs 15,000. Input: share_contribution."
+    "pending_verification": [],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (statute expressly includes LLP). Historical cross-reference through 2024-10-13: contribution ≤ Rs 50k → Rs 500; else 1% cap Rs 15,000."
+  },
+  {
+    "rule_id": "MH-ART47-llp",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "47",
+    "instrument": "llp_agreement",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART47-llp@2015-04-24",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 47(1), as amended by Maharashtra Act IX of 2025 ss.1(2), 2(11)",
+        "article": "47",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Article 47(1) includes Limited Liability Partnerships. Maharashtra Act IX of 2025, effective 14 October 2024, substitutes 'fifty thousand' for the ceiling in Article 47(1)(b)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "MH-ART47-partnership"
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [],
+    "notes_for_reviewer": "Current LLP agreements follow the same Article 47 partnership era: contribution ≤ Rs 50,000 → Rs 500; above it → 1%, capped at Rs 50,000."
   }
 ]

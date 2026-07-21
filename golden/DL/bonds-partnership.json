@@ -52,11 +52,12 @@
   {
     "name": "Dissolution of partnership (Art 46(B)) — flat Rs 200",
     "source_note": "Founder Q3: the 'Two hundred rupees' belongs to the dissolution row.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46B-partnership-dissolution", "execution_date": "2024-06-01", "values": {} },
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46B-partnership-dissolution", "execution_date": "2026-07-21", "values": {} },
     "expect": { "total_duty": "200" }
   },
   {
     "name": "LLP agreement — charged as partnership: Rs 10L contribution → cap Rs 5,000",
+    "suite": "arithmetic",
     "source_note": "PENDING_VERIFICATION (practice-based): LLP agreement as Art 46 partnership instrument.",
     "input": { "jurisdiction": "DL", "rule_id": "DL-llp-agreement", "execution_date": "2024-06-01", "values": { "capital": "1000000" } },
     "expect": { "total_duty": "5000" }
@@ -64,18 +65,48 @@
   {
     "name": "Loan/hypothecation (Art 6(a)) — 36-month tenor: 0.5% of Rs 40L = 20,000",
     "source_note": "Both columns quoted in rule. 40,00,000 × 0.5% = 20,000 (< Rs 50,000 cap).",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "4000000", "repayment_period_months": "36" } },
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "4000000", "repayment_period_months": "36" }, "facts": { "security_instrument_type": "hypothecation", "accompanies_bill_of_exchange": "no" } },
     "expect": { "total_duty": "20000" }
   },
   {
     "name": "Loan/hypothecation (Art 6(a)) — cap binds: 0.5% of Rs 2 cr = 1,00,000 → Rs 50,000",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "20000000", "repayment_period_months": "60" } },
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "20000000", "repayment_period_months": "60" }, "facts": { "security_instrument_type": "title_deed_deposit", "accompanies_bill_of_exchange": "no" } },
     "expect": { "total_duty": "50000" }
   },
   {
     "name": "Loan/hypothecation (Art 6(b)) — ≤3-month loan: half of (a) = 0.25%",
     "source_note": "'Half the duty payable under sub-clause (a)': 10,00,000 × 0.25% = 2,500.",
-    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000", "repayment_period_months": "3" } },
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000", "repayment_period_months": "3" }, "facts": { "security_instrument_type": "attested_pledge", "accompanies_bill_of_exchange": "no" } },
     "expect": { "total_duty": "2500" }
+  },
+  {
+    "name": "LLP agreement — user-facing computation refuses practice-based classification",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-llp-agreement", "execution_date": "2026-07-21", "values": { "capital": "1000000" } },
+    "expect": { "error": "Treating an LLP agreement" }
+  },
+  {
+    "name": "Partnership (Art 46(A)(a)) — capital at Rs 500 refuses unresolved fixed cell",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46-partnership", "execution_date": "2026-07-21", "values": { "capital": "500" } },
+    "expect": { "error": "capital does not exceed Rs 500" }
+  },
+  {
+    "name": "Loan/hypothecation — missing exemption classification refuses",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART6-loan-hypothecation", "execution_date": "2024-06-01", "values": { "amount_secured": "1000000", "repayment_period_months": "12" } },
+    "expect": { "error": "security_instrument_type" }
+  },
+  {
+    "name": "Partnership (Art 46(A)(b)) — Rs 501 is the callable neighbour above the unresolved boundary",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46-partnership", "execution_date": "2026-07-21", "values": { "capital": "501" } },
+    "expect": { "total_duty": "5.01" }
+  },
+  {
+    "name": "Partnership — missing capital refuses before selecting an Article 46 cell",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART46-partnership", "execution_date": "2026-07-21", "values": {} },
+    "expect": { "error": "capital" }
+  },
+  {
+    "name": "LLP agreement — practice-based classification refuses even inside the partnership low-capital cell",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-llp-agreement", "execution_date": "2026-07-21", "values": { "capital": "500" } },
+    "expect": { "error": "Treating an LLP agreement" }
   }
 ]

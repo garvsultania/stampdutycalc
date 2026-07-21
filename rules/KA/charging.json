@@ -4,6 +4,16 @@
   "s4": {
     "nominal_duty": "100",
     "transaction_types": ["sale", "mortgage", "settlement"],
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — Karnataka section 4 has not been audited through the required DPAL annual Act and commencement graph from 2021 onward.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
     "source": {
       "type": "act",
       "ref": "Karnataka Stamp Act, 1957, s.4 (nominal duty subst. by Act 8 of 1995 w.e.f. 1-4-1995)",
@@ -12,6 +22,16 @@
     }
   },
   "s5": {
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — Karnataka section 5 has not been audited through the required DPAL annual Act and commencement graph from 2021 onward.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
     "source": {
       "type": "act",
       "ref": "Karnataka Stamp Act, 1957, s.5",
@@ -20,6 +40,16 @@
     }
   },
   "s6": {
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — Karnataka section 6 has not been audited through the required DPAL annual Act and commencement graph from 2021 onward.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
     "source": {
       "type": "act",
       "ref": "Karnataka Stamp Act, 1957, s.6",

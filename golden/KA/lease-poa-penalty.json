@@ -1,7 +1,7 @@
 [
   {
     "name": "KA Lease — ≤1yr residential: 0.5%, capped at Rs 500",
-    "source_note": "Art 30(i): 0.5% of (AAR+premium+fine+money advanced), max Rs 500. base 2,40,000 × 0.5% = 1,200 → cap 500.",
+    "source_note": "The encoded arithmetic is 0.5% capped at Rs 500, but the current annual Act graph, family proviso, and long-term cess model are incomplete, so the user-facing path refuses.",
     "input": {
       "jurisdiction": "KA",
       "rule_id": "KA-ART30-lease",
@@ -18,11 +18,12 @@
       }
     },
     "expect": {
-      "total_duty": "500"
+      "error": "Current lease totals must refuse"
     }
   },
   {
     "name": "KA Lease — ≤1yr residential below the cap",
+    "suite": "arithmetic",
     "source_note": "base 80,000 × 0.5% = 400 (< Rs 500 cap).",
     "input": {
       "jurisdiction": "KA",
@@ -45,6 +46,7 @@
   },
   {
     "name": "KA Lease — ≤1yr commercial: 0.5%, NO cap",
+    "suite": "arithmetic",
     "source_note": "Art 30(ii): commercial has no Rs 500 cap. 2,40,000 × 0.5% = 1,200.",
     "input": {
       "jurisdiction": "KA",
@@ -67,6 +69,7 @@
   },
   {
     "name": "KA Lease — >1 ≤10 years: 1%",
+    "suite": "arithmetic",
     "source_note": "Art 30(iii). base 5,00,000 × 1% = 5,000.",
     "input": {
       "jurisdiction": "KA",
@@ -89,6 +92,7 @@
   },
   {
     "name": "KA Lease — >10 ≤20 years: 2%",
+    "suite": "arithmetic",
     "input": {
       "jurisdiction": "KA",
       "rule_id": "KA-ART30-lease",
@@ -110,6 +114,7 @@
   },
   {
     "name": "KA Lease — >20 ≤30 years: 3%",
+    "suite": "arithmetic",
     "input": {
       "jurisdiction": "KA",
       "rule_id": "KA-ART30-lease",
@@ -131,6 +136,7 @@
   },
   {
     "name": "KA Lease — >30 years: conveyance rate on max(lease base, market value)",
+    "suite": "arithmetic",
     "source_note": "Art 30(vi): 5% of max(5,00,000; 1,00,00,000) = 5% × 1,00,00,000 = 5,00,000. (Perpetuity s.3B cess PENDING, not attached.)",
     "input": {
       "jurisdiction": "KA",
@@ -177,6 +183,7 @@
       },
       "duty_paid": "300000",
       "facts": {
+        "first_sale_flat": "no",
         "ka_area": "urban"
       }
     },

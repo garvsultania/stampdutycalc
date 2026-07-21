@@ -1,10 +1,11 @@
-import type { Citation, LineItem, Modifier, Rule } from "@stampdraft/schema";
+import type { Citation, LineItem, Modifier, ModifierReference, Rule } from "@stampdraft/schema";
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { evalCondition } from "./condition.js";
 import { evalExpr } from "./value-expr.js";
 import { resolveRate } from "./charge.js";
 import type { Snapshot } from "./snapshot.js";
 import { assertFactsPresent } from "./pending.js";
+import { EngineError } from "./errors.js";
 
 export interface ModifierOutcome {
   lines: LineItem[];
@@ -14,6 +15,17 @@ export interface ModifierOutcome {
   applied: Modifier[];
 }
 
+export function modifierReferenceId(reference: ModifierReference): string {
+  return typeof reference === "string" ? reference : reference.modifier_id;
+}
+
+export function modifierReferenceRequiredOn(reference: ModifierReference, date: string): boolean {
+  if (typeof reference === "string") return true;
+  if (reference.required_from !== undefined && date < reference.required_from) return false;
+  if (reference.required_to !== undefined && date >= reference.required_to) return false;
+  return true;
+}
+
 /**
  * Apply a rule's modifiers (concessions and surcharges/cesses) to a base duty,
  * deterministically ordered by `order` then `modifier_id`. Concessions reduce the
@@ -21,9 +33,10 @@ export interface ModifierOutcome {
  * or on a named input value. Each produces its own breakup line with its own
  * citation. Rounding is NOT applied here — it is the caller's final step (§5.5).
  *
- * A modifier id referenced by the rule but not active in the snapshot on this
- * date is legitimately skipped (e.g. a lapsed amnesty). Referential existence is
- * guaranteed by the ruleset validator.
+ * Every referenced modifier is a required temporal dependency. A lapsed or
+ * future-only modifier must be represented by a rule version that does not
+ * reference it, or by an active modifier whose own `applies_when` evaluates to
+ * false. Silently skipping an inactive reference can omit a surcharge.
  */
 export function applyModifiers(
   baseDuty: Num,
@@ -34,9 +47,16 @@ export function applyModifiers(
   executionDate: string,
 ): ModifierOutcome {
   const applicable: Modifier[] = [];
-  for (const id of rule.modifiers) {
+  for (const reference of rule.modifiers) {
+    if (!modifierReferenceRequiredOn(reference, executionDate)) continue;
+    const id = modifierReferenceId(reference);
     const mod = snapshot.modifiersById.get(id);
-    if (!mod) continue; // not active on this date
+    if (!mod) {
+      throw new EngineError(
+        `rule "${rule.rule_id}" requires modifier "${id}", but it is not active in the ` +
+          `${rule.jurisdiction} snapshot on ${executionDate}`,
+      );
+    }
     // Check BEFORE evaluating applicability: if a fact the gate depends on is
     // missing, the honest answer is "ask", not a quiet non-application.
     assertFactsPresent(mod, facts);

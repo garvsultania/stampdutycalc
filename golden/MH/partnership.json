@@ -20,5 +20,16 @@
     "source_note": "Art 47 expressly includes LLP. Cross-ref → 1% of 5,00,000 = 5,000.",
     "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-llp", "execution_date": "2024-06-01", "values": { "share_contribution": "500000" } },
     "expect": { "total_duty": "5000" }
+  },
+  {
+    "name": "MH Partnership — amended cap is Rs 50,000 from 14 October 2024",
+    "source_note": "Maharashtra Act IX of 2025 ss.1(2), 2(11) substitutes Rs 50,000 for the former Rs 15,000 ceiling.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-partnership", "execution_date": "2024-10-14", "values": { "share_contribution": "5000000" } },
+    "expect": { "total_duty": "50000" }
+  },
+  {
+    "name": "MH LLP agreement — current era follows the amended Rs 50,000 cap",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART47-llp", "execution_date": "2026-07-21", "values": { "share_contribution": "5000000" } },
+    "expect": { "total_duty": "50000" }
   }
 ]

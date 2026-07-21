@@ -99,10 +99,42 @@
         }
       ]
     },
+    "modifiers": [
+      "MH-section9-remission-screen",
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      }
+    ],
     "rounding": {
       "mode": "none",
       "nearest": 1
     },
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). Duty = area-based Conveyance rate (Art 25) applied to a term-dependent PERCENTAGE of market value: ≤5y → 10%; >5≤10y → 25%; >10≤29y → 50%; >29y/perpetuity/no-definite → 90%. Boundaries in months: 60 / 120 / 348 (29y=348mo) / else. IMPORTANT: 'market_value' here must be the Explanation-I market value = property market value INCLUDING premium/deposit/security treated as consideration passed on — the questionnaire/Tier-2 must compute it; the cross-ref carries area_type through for the Art 25 rate. No perpetuity escalation needed (clause iv is the catch-all at 90%). Metro cess/LBT PENDING as for conveyance. BACK-CATALOGUE: effective_from moved to the 2015 floor — this article did not change in 2017; only the Conveyance rate it cross-refs did, and the cross-ref resolves per execution date within the snapshot, so no re-versioning is needed here."
+    "pending_verification": [
+      {
+        "reason": "Article 36 market value and term must account for every premium, advance, deposit, and renewal period in the document. The engine derives the safe scope from observable completeness answers and refuses if anything is unentered or uncertain.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "lease_value_scope",
+              "value": "statutory_inclusive"
+            }
+          }
+        }
+      },
+      {
+        "reason": "Lease totals may omit Local Body Tax or another local levy. Compute only for a location positively confirmed free of omitted local surcharges.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "lbt_status",
+              "value": "not_applicable"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). Duty = area-based Conveyance rate (Art 25) applied to a term-dependent PERCENTAGE of market value: ≤5y → 10%; >5≤10y → 25%; >10≤29y → 50%; >29y/perpetuity/no-definite → 90%. Boundaries in months: 60 / 120 / 348 (29y=348mo) / else. IMPORTANT: 'market_value' here must include every premium/deposit/security amount treated as consideration, and term_months must include renewal periods. The shared contract asks whether any such item remains unentered and derives lease_value_scope internally only from two explicit 'no' answers. No perpetuity escalation needed (clause iv is the catch-all at 90%). Metro cess/LBT PENDING as for conveyance. BACK-CATALOGUE: effective_from moved to the 2015 floor — this article did not change in 2017; only the Conveyance rate it cross-refs did, and the cross-ref resolves per execution date within the snapshot, so no re-versioning is needed here."
   }
 ]

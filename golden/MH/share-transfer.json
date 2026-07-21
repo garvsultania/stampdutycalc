@@ -2,7 +2,7 @@
   {
     "name": "MH Share transfer — 2019: pre-amendment 0.25% (central Art 62a)",
     "source_note": "10,00,000 × 0.25% = 2,500. MH Schedule has no share entry → Union law applies.",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2019-06-01", "values": { "consideration": "1000000" } },
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2019-06-01", "values": { "share_value": "1000000" } },
     "expect": { "total_duty": "2500" }
   },
   {
@@ -13,7 +13,7 @@
   },
   {
     "name": "MH Share transfer — boundary: 30-Jun-2020 still 0.25%",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2020-06-30", "values": { "consideration": "1000000" } },
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2020-06-30", "values": { "share_value": "1000000" } },
     "expect": { "total_duty": "2500" }
   },
   {

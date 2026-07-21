@@ -18,9 +18,9 @@
       "verified_by": null,
       "verified_on": null
     },
-    "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.25 },
+    "charge": { "kind": "ad_valorem", "base": { "var": "share_value" }, "pct": 0.25 },
     "rounding": { "mode": "ceil", "nearest": 0.05 },
-    "notes_for_reviewer": "CONFIDENCE: HIGH. Historical version for Flow D. Share transfer is CENTRAL law — verified independently here: the MH Schedule I Art 59 'Transfer' has no shares clause (quoted above), so the Union Art 62(a) applies directly. The rule is duplicated per-jurisdiction because the schema is jurisdiction-scoped; DL/MH/KA copies are identical by design (a 'central' pseudo-jurisdiction would be a schema change — see wave-3 note)."
+    "notes_for_reviewer": "CONFIDENCE: HIGH. Historical version for Flow D. The numeric input is named share_value to match the pre-2020 statutory base exactly; no caller legal conclusion is required. Share transfer is CENTRAL law — verified independently here: the MH Schedule I Art 59 'Transfer' has no shares clause (quoted above), so the Union Art 62(a) applies directly. The rule is duplicated per-jurisdiction because the schema is jurisdiction-scoped; DL/MH/KA copies are identical by design (a 'central' pseudo-jurisdiction would be a schema change — see wave-3 note)."
   },
   {
     "rule_id": "MH-share-transfer",
@@ -43,6 +43,12 @@
     },
     "charge": { "kind": "ad_valorem", "base": { "var": "consideration" }, "pct": 0.015 },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "WHO pays under the amended central regime remains contested, but the duty amount is sound. Preserve the computed amount and surface the incidence caveat.",
+        "severity": "warn"
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (founder-ruled + no competing state entry). 0.015% of consideration, identical to DL/KA — the uniform regime is the point. Gift of shares (consideration 0) → nil. PENDING (same as DL): the payer (transferor vs transferee under amended s.29) is contested in practitioner literature; the AMOUNT is confident. Keep share-certificate ISSUE separate (state schedule territory)."
   }
 ]

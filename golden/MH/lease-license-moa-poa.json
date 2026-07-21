@@ -11,8 +11,11 @@
         "term_months": "60"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -31,8 +34,11 @@
         "term_months": "72"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -51,8 +57,11 @@
         "term_months": "200"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -71,8 +80,11 @@
         "term_months": "360"
       },
       "facts": {
+        "mh_section9_remission_claim": "none_identified",
         "area_type": "municipal_corporation",
-        "metro_cess_city": "no"
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
@@ -91,6 +103,9 @@
         "licence_fee_total": "1200000",
         "non_refundable_deposit": "0",
         "refundable_deposit": "500000"
+      },
+      "facts": {
+        "licence_has_unentered_payment": "no"
       }
     },
     "expect": {
@@ -112,12 +127,49 @@
         "refundable_deposit": "0"
       },
       "facts": {
-        "area_type": "municipal_corporation"
+        "area_type": "municipal_corporation",
+        "licence_has_unentered_payment": "no",
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "no",
+        "lbt_status": "not_applicable"
       }
     },
     "expect": {
       "total_duty": "125000"
     }
+  },
+  {
+    "name": "MH Lease — unentered renewal period refuses the inclusive-value branch",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36-lease",
+      "execution_date": "2024-06-01",
+      "values": { "term_months": "72", "market_value": "10000000" },
+      "facts": {
+        "mh_section9_remission_claim": "none_identified",
+        "area_type": "municipal_corporation",
+        "lease_has_unentered_premium_advance_or_deposit": "no",
+        "lease_has_unentered_renewal_period": "yes",
+        "lbt_status": "not_applicable"
+      }
+    },
+    "expect": { "error": "observable completeness answers" }
+  },
+  {
+    "name": "MH Leave & License — uncertain unentered payment refuses the formula",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART36A-leave-license",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "24",
+        "licence_fee_total": "1200000",
+        "non_refundable_deposit": "0",
+        "refundable_deposit": "500000"
+      },
+      "facts": { "licence_has_unentered_payment": "uncertain" }
+    },
+    "expect": { "error": "observable completeness answer" }
   },
   {
     "name": "MH MOA — not accompanied by AoA: 0.2% of share capital (below cap)",
@@ -128,6 +180,9 @@
       "execution_date": "2024-06-01",
       "values": {
         "share_capital": "100000000"
+      },
+      "facts": {
+        "accompanied_by_aoa": "no"
       }
     },
     "expect": {
@@ -143,6 +198,9 @@
       "execution_date": "2024-06-01",
       "values": {
         "share_capital": "5000000000"
+      },
+      "facts": {
+        "accompanied_by_aoa": "no"
       }
     },
     "expect": {
@@ -158,6 +216,9 @@
       "execution_date": "2024-06-01",
       "values": {
         "share_capital": "100000"
+      },
+      "facts": {
+        "accompanied_by_aoa": "no"
       }
     },
     "expect": {
@@ -187,10 +248,32 @@
       "jurisdiction": "MH",
       "rule_id": "MH-ART48-poa",
       "execution_date": "2024-06-01",
-      "values": {}
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "no",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
     },
     "expect": {
       "total_duty": "500"
+    }
+  },
+  {
+    "name": "MH POA — immovable-property sale authority refuses the flat branch",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART48-poa",
+      "execution_date": "2024-06-01",
+      "values": {},
+      "facts": {
+        "poa_authorizes_immovable_transfer": "yes",
+        "poa_grants_developer_promoter_powers": "no",
+        "poa_document_purpose": "one_person_general"
+      }
+    },
+    "expect": {
+      "error": "Sale/transfer powers"
     }
   }
 ]

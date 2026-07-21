@@ -7,7 +7,7 @@
     "instrument": "works_contract",
     "version": {
       "effective_from": "2015-04-24",
-      "effective_to": null,
+      "effective_to": "2024-10-14",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -73,15 +73,86 @@
     },
     "pending_verification": [
       {
-        "reason": "STALE — Mah. 9 of 2025 s.2(16), in force 14-10-2024, substituted the Art 63 threshold (\"ten lakh\" -> \"five lakh\") and the rate (\"0.1 per cent.\" -> \"0.3 per cent.\"). This version still encodes the pre-amendment 10L/0.1% and is roughly 3x under for current contracts: a Rs 5cr works contract is Rs 1,49,000, not the Rs 49,500 this returns. Refuses from the amendment date; the back-catalogue below that date remains correct and still computes. Founder to verify and encode the new era from the India Code consolidated Act.",
+        "reason": "The source wording does not yet establish whether the Rs 25 lakh cap applies to the entire Rs 500-plus-percentage duty or only the percentage component. Refuse only once the encoded total cap can bind.",
         "when": {
-          "date_within": {
-            "from": "2024-10-14"
+          "cmp": {
+            "expr": { "var": "contract_value" },
+            "op": "gt",
+            "value": 2500500000
           }
         }
       }
     ],
-    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR, both columns). Marginal-with-cap: ≤ Rs 10 lakh → Rs 500; above → Rs 500 + 0.1% of the excess over Rs 10 lakh, TOTAL capped at Rs 25,00,000. Input: contract_value. The cap is read as applying to the whole duty (Rs 500 + the 0.1% component) — confirm. THE WORKS-vs-SERVICE FORK IS HUGE IN MAHARASHTRA: a Rs 5 crore contract is Rs 49,500 as a works contract but Rs 100 as an Art 5(h)(B) service agreement (≈495×) — unlike Delhi (Rs 50 vs Rs 50) and Karnataka (Rs 200 vs Rs 200), where the classification is duty-neutral. Route via the MH-works-vs-service tree; the pre-2015 version (Rs 100 + Rs 100/lakh, max Rs 5 lakh) is a back-catalogue item."
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR, both columns). Historical 2015-04-24 through 2024-10-13 formula: ≤ Rs 10 lakh → Rs 500; above → Rs 500 + 0.1% of the excess over Rs 10 lakh, TOTAL capped at Rs 25,00,000. The cap is read as applying to the whole duty — confirm."
+  },
+  {
+    "rule_id": "MH-ART63-works-contract",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "63",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART63-works-contract@2015-04-24",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(16), p.3",
+        "article": "63",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 14 October 2024. Section 2(16): in Schedule I, in article 63, in column 1, for 'ten lakh' substitute 'five lakh'; and in column 2, for '0.1 per cent.' substitute '0.3 per cent.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "contract_value" },
+      "cases": [
+        {
+          "upto": 500000,
+          "charge": { "kind": "fixed", "amount": "500" }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": {
+              "excess_over_5L": {
+                "op": "-",
+                "args": [
+                  { "var": "contract_value" },
+                  { "lit": 500000 }
+                ]
+              }
+            },
+            "components": [
+              { "kind": "fixed", "amount": "500" },
+              {
+                "kind": "ad_valorem",
+                "base": { "var": "excess_over_5L" },
+                "pct": 0.3
+              }
+            ],
+            "cap": "2500000"
+          }
+        }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The source wording does not yet establish whether the Rs 25 lakh cap applies to the entire Rs 500-plus-percentage duty or only the percentage component. Refuse only once the encoded total cap can bind.",
+        "when": {
+          "cmp": {
+            "expr": { "var": "contract_value" },
+            "op": "gt",
+            "value": 833666666
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "From 14 October 2024 Article 63 charges Rs 500 up to Rs 5 lakh and Rs 500 plus 0.3% of the excess above Rs 5 lakh, subject to the existing Rs 25 lakh ceiling."
   },
   {
     "rule_id": "MH-ART5hB-service-agreement",
@@ -91,7 +162,7 @@
     "instrument": "service_agreement",
     "version": {
       "effective_from": "2015-01-01",
-      "effective_to": null,
+      "effective_to": "2024-10-14",
       "supersedes": null,
       "source": {
         "type": "act",
@@ -111,7 +182,57 @@
       "mode": "none",
       "nearest": 1
     },
-    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Art 5 expressly routes 'agreement for service' here; (h)(B) residual = Rs 100. CAUTION: Art 5 has many specific sub-clauses that override the residual (e.g. (g-a) development agreements = conveyance rate; (h)(A) works-like contracts at 0.1%/0.2% of the contract amount) — the questionnaire must rule those out before landing on (h)(B). Given the 495× works-vs-service gap in MH, mis-routing here is the highest-consequence classification error in the corpus; effective_from set at the 2015 coverage floor (exact amendment date to confirm)."
+    "pending_verification": [
+      {
+        "reason": "The Article 5(h)(B) residual applies only after the high-consequence works-contract and specific Article 5 branches have been ruled out. The engine derives this classification from observable document answers and refuses every affirmative or uncertain path.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "agreement_scope",
+              "value": "residual_no_specific_article"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Historical 2015 coverage-floor through 2024-10-13 Art 5(h)(B) residual = Rs 100. Specific Article 5 clauses override it. The shared input contract derives agreement_scope from observable answers. Exact pre-floor amendment history remains to confirm."
+  },
+  {
+    "rule_id": "MH-ART5hB-service-agreement",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "5(h)(B)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART5hB-service-agreement@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(2), p.2",
+        "article": "5",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 14 October 2024. Section 2(2): in Schedule I, in article 5, in clause (h), in sub-clause (B), in column 2, for the words 'One hundred rupees' the words 'Five hundred rupees' shall be substituted."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "500" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The Article 5(h)(B) residual applies only after the high-consequence works-contract and specific Article 5 branches have been ruled out. The engine derives this classification from observable document answers and refuses every affirmative or uncertain path.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "agreement_scope",
+              "value": "residual_no_specific_article"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "From 14 October 2024 the Article 5(h)(B) residual amount is Rs 500. The observable-answer eligibility guard remains unchanged."
   },
   {
     "rule_id": "MH-ART63-works-contract",

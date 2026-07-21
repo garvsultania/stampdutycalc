@@ -39,5 +39,10 @@
   },
   "modifiers": ["KA-infra-cess-gift"],
   "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "Karnataka gift totals have unresolved surcharge scope: the 10% infrastructure duty may also apply to fixed family-gift duty, and the local-body surcharge instrument scope has not been established. Refuse both family and non-family gift totals until those primary provisions are sourced."
+    }
+  ],
   "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text, both columns). The PRD §5.5 per-state relative-list showcase — and DELIBERATELY DIFFERENT from Maharashtra's: KA family gift is a FIXED area-based amount (Rs 5,000 BBMP/BMRDA/City Corp; Rs 3,000 Town Municipal/Panchayat; Rs 1,000 elsewhere), and KA's family list (father/mother/husband/wife/son/daughter/DAUGHTER-IN-LAW/brothers/sisters/grand children) differs from MH's — proof that generalizing a 'family' list would be a silent correctness bug. gift_relation_ka: 'family' → area-based fixed; else → conveyance rate (5% via cross-ref) + s.3B cess. The cross_ref to conveyance imports Art 20's CHARGE only (not its cess modifier); this rule's own KA-infra-cess-gift adds the 10% cess for non-family gifts. Family-gift cess treatment PENDING (see cess modifier notes). area_type shared with conveyance."
 }

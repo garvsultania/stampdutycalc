@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  ChargingRulesSchema,
   ClassificationTreeSchema,
   ModifierSchema,
   PenaltyRegimeSchema,
@@ -11,6 +12,7 @@ import {
   buildSnapshot,
   classify,
   compute,
+  computeWithTrace,
   computePenalty,
   computeInterStateDifferential,
   resolveClassificationTree,
@@ -200,6 +202,82 @@ describe("transitive safety gates", () => {
     expect(out.citations.map((citation) => citation.ref)).toEqual(["wrapper", "target"]);
   });
 
+  it("exports the exact cross-ref, applied-modifier, and penalty dependency graph", () => {
+    const target = makeRule({ rule_id: "TARGET", charge: { kind: "fixed", amount: "100" } });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      modifiers: ["APPLIED", "INACTIVE"],
+    });
+    const applied = ModifierSchema.parse({
+      modifier_id: "APPLIED",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "10", label: "applied" },
+      order: 1,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "applied modifier", quoted_text: "add ten" },
+      },
+    });
+    const inactive = ModifierSchema.parse({
+      modifier_id: "INACTIVE",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { eq: { field: "special_case", value: "yes" } },
+      effect: { op: "flat_add", amount: "20", label: "inactive" },
+      order: 2,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "inactive modifier", quoted_text: "add twenty" },
+      },
+    });
+    const penalty = PenaltyRegimeSchema.parse({
+      regime_id: "PENALTY",
+      jurisdiction: "DL",
+      penalty: { type: "discretionary_range", min_multiple: 0, max_multiple: 10 },
+      adjudication_path: "Test Act s.1",
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "act", ref: "penalty", quoted_text: "up to ten times" },
+      },
+    });
+    const ruleSet: RuleSet = {
+      rules: [target, wrapper],
+      modifiers: [applied, inactive],
+      penaltyRegimes: [penalty],
+    };
+    const input = {
+      jurisdiction: "DL" as const,
+      rule_id: "WRAPPER",
+      execution_date: "2021-01-01",
+      values: {},
+      facts: { special_case: "no" },
+      duty_paid: "50",
+    };
+
+    const traced = computeWithTrace(ruleSet, input);
+
+    expect(traced.output).toEqual(compute(ruleSet, input));
+    expect(traced.dependencies.map(({ kind, id }) => `${kind}:${id}`)).toEqual([
+      "rule:WRAPPER",
+      "rule:TARGET",
+      "modifier:APPLIED",
+      "penalty:PENALTY",
+    ]);
+    expect(traced.dependencies.find((dependency) => dependency.id === "INACTIVE")).toBeUndefined();
+    expect(traced.dependencies.map((dependency) => dependency.citation.ref)).toEqual([
+      "T",
+      "T",
+      "applied modifier",
+      "penalty",
+    ]);
+  });
+
   it("verified-only mode checks applied modifiers and a requested penalty regime", () => {
     const verifiedRule = makeRule({
       rule_id: "R",
@@ -309,6 +387,106 @@ describe("ruleset validator (append-only + references)", () => {
     const r = makeRule({ rule_id: "R", charge: { kind: "fixed", amount: "100" }, modifiers: ["NOPE"] });
     const issues = validateRuleSet({ rules: [r], modifiers: [], penaltyRegimes: [] });
     expect(issues.some((i) => i.level === "error" && i.message.includes("never defined"))).toBe(true);
+  });
+
+  it("fails when a required modifier is inactive, but permits an explicit future attachment", () => {
+    const futureModifier = ModifierSchema.parse({
+      modifier_id: "FUTURE",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "25", label: "Future surcharge" },
+      order: 10,
+      version: {
+        effective_from: "2020-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "future", quoted_text: "future surcharge" },
+      },
+    });
+    const required = makeRule({
+      rule_id: "REQUIRED",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: ["FUTURE"],
+    });
+    const explicit = makeRule({
+      rule_id: "EXPLICIT",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: [{ modifier_id: "FUTURE", required_from: "2020-01-01" }],
+    });
+    const requiredSet = { rules: [required], modifiers: [futureModifier], penaltyRegimes: [] };
+    const explicitSet = { rules: [explicit], modifiers: [futureModifier], penaltyRegimes: [] };
+
+    expect(validateRuleSet(requiredSet).some((issue) => issue.message.includes("not active throughout"))).toBe(true);
+    expect(() => compute(requiredSet, {
+      jurisdiction: "DL", rule_id: "REQUIRED", execution_date: "2019-01-01", values: {}, facts: {},
+    })).toThrow(/requires modifier "FUTURE".*not active/);
+    expect(validateRuleSet(explicitSet).filter((issue) => issue.level === "error")).toEqual([]);
+    expect(compute(explicitSet, {
+      jurisdiction: "DL", rule_id: "EXPLICIT", execution_date: "2019-01-01", values: {}, facts: {},
+    }).total_duty).toBe("100");
+    expect(compute(explicitSet, {
+      jurisdiction: "DL", rule_id: "EXPLICIT", execution_date: "2021-01-01", values: {}, facts: {},
+    }).total_duty).toBe("125");
+  });
+
+  it("checks cross-reference availability across the full referring era", () => {
+    const target = makeRule({
+      rule_id: "TARGET",
+      charge: { kind: "fixed", amount: "100" },
+      version: {
+        effective_from: "2015-01-01", effective_to: "2020-01-01", supersedes: null,
+        source: { type: "act", ref: "target", quoted_text: "target" }, verified_by: null, verified_on: null,
+      },
+    });
+    const wrapper = makeRule({ rule_id: "WRAPPER", charge: { kind: "cross_ref", rule_id: "TARGET" } });
+    const issues = validateRuleSet({ rules: [target, wrapper], modifiers: [], penaltyRegimes: [] });
+    expect(issues.some((issue) => issue.message.includes('cross_ref target "TARGET" is not active throughout'))).toBe(true);
+  });
+
+  it("applies append-only overlap checks to modifiers, penalties, charging rules, and trees", () => {
+    const source = { type: "act" as const, ref: "x", quoted_text: "x" };
+    const modifierBase = {
+      modifier_id: "M", jurisdiction: "DL" as const, kind: "surcharge_cess" as const,
+      applies_when: { always: true as const },
+      effect: { op: "flat_add" as const, amount: "1", label: "x" }, order: 1,
+    };
+    const modifiers = [
+      ModifierSchema.parse({ ...modifierBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ModifierSchema.parse({ ...modifierBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const penaltyBase = {
+      regime_id: "P", jurisdiction: "DL" as const,
+      penalty: { type: "discretionary_range" as const, min_multiple: 0, max_multiple: 1 },
+      adjudication_path: "s.1",
+    };
+    const penalties = [
+      PenaltyRegimeSchema.parse({ ...penaltyBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      PenaltyRegimeSchema.parse({ ...penaltyBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const chargingBase = {
+      rules_id: "C", jurisdiction: "DL" as const,
+      s4: { nominal_duty: "1", transaction_types: ["sale"], source },
+      s5: { source }, s6: { source },
+    };
+    const chargingRules = [
+      ChargingRulesSchema.parse({ ...chargingBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ChargingRulesSchema.parse({ ...chargingBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const treeBase = {
+      tree_id: "T", jurisdiction: "DL" as const, instrument_class: "x", root: "stop",
+      nodes: { stop: { type: "escalate" as const, reason: "stop" } },
+    };
+    const trees = [
+      ClassificationTreeSchema.parse({ ...treeBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ClassificationTreeSchema.parse({ ...treeBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const issues = validateRuleSet(
+      { rules: [], modifiers, penaltyRegimes: penalties, chargingRules },
+      trees,
+    );
+    for (const family of ["modifier", "penalty regime", "charging rules", "classification tree"]) {
+      expect(issues.some((issue) => issue.where.startsWith(family) && issue.message.includes("open-ended version"))).toBe(true);
+    }
   });
 });
 

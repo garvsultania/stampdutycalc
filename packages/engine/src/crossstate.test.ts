@@ -23,14 +23,18 @@ const allThree = mergeLoads([
  * coincidence of encoding — so it is worth pinning in a test.
  */
 describe("share transfer is uniform across states (Union law, from 1-7-2020)", () => {
-  const at = (jurisdiction: "DL" | "MH" | "KA", rule_id: string, date: string) =>
-    compute(allThree.ruleSet, {
+  const at = (jurisdiction: "DL" | "MH" | "KA", rule_id: string, date: string) => {
+    const beforeUniformRegime = date < "2020-07-01";
+    return compute(allThree.ruleSet, {
       jurisdiction,
       rule_id,
       execution_date: date,
-      values: { consideration: "1000000" },
+      values: beforeUniformRegime && (jurisdiction === "DL" || jurisdiction === "MH")
+        ? { share_value: "1000000" }
+        : { consideration: "1000000" },
       facts: {},
     }).total_duty;
+  };
 
   it("all three states charge an identical 0.015% after 1-Jul-2020", () => {
     const dl = at("DL", "DL-ART62-share-transfer", "2021-06-01");
@@ -63,14 +67,19 @@ describe("inter-state differential with real DL + MH rules (PRD §5.4)", () => {
       rule_id: "MH-ART25-conveyance",
       execution_date: "2024-06-01",
       values: { market_value: "10000000" },
-      facts: { area_type: "municipal_corporation", metro_cess_city: "no" },
+      facts: {
+        area_type: "municipal_corporation",
+        metro_cess_city: "no",
+        lbt_status: "not_applicable",
+        mh_section9_remission_claim: "none_identified",
+      },
     };
     const propertyDL = {
       jurisdiction: "DL" as const,
       rule_id: "DL-ART23-conveyance",
       execution_date: "2024-06-01",
       values: { consideration: "10000000", market_value: "10000000" },
-      facts: { buyer_category: "male", transferee_category: "male" },
+      facts: { transferee_category: "male" },
     };
     const r = computeInterStateDifferential(merged.ruleSet, executionMH, propertyDL);
     expect(r.duty_execution_state).toBe("500000");
@@ -86,14 +95,19 @@ describe("inter-state differential with real DL + MH rules (PRD §5.4)", () => {
       rule_id: "DL-ART23-conveyance",
       execution_date: "2024-06-01",
       values: { consideration: "10000000", market_value: "10000000" },
-      facts: { buyer_category: "male", transferee_category: "male" },
+      facts: { transferee_category: "male" },
     };
     const propertyMH = {
       jurisdiction: "MH" as const,
       rule_id: "MH-ART25-conveyance",
       execution_date: "2024-06-01",
       values: { market_value: "10000000" },
-      facts: { area_type: "municipal_corporation", metro_cess_city: "no" },
+      facts: {
+        area_type: "municipal_corporation",
+        metro_cess_city: "no",
+        lbt_status: "not_applicable",
+        mh_section9_remission_claim: "none_identified",
+      },
     };
     const r = computeInterStateDifferential(merged.ruleSet, executionDL, propertyMH);
     expect(r.differential_payable).toBe("0");

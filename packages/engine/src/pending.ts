@@ -77,6 +77,7 @@ export function assertFactsPresent(mod: Modifier, facts: Record<string, string |
     `modifier "${mod.modifier_id}" depends on fact${missing.length > 1 ? "s" : ""} ` +
       `${missing.map((m) => `"${m}"`).join(", ")}, which ${missing.length > 1 ? "were" : "was"} not provided. ` +
       `Answer it — a missing fact is not the same as the modifier not applying.`,
+    "INPUT_REQUIRED",
   );
 }
 
@@ -86,5 +87,6 @@ export function assertNotPending(flags: PendingFlags): void {
   throw new EngineError(
     `this computation depends on law that is not verified yet, so no figure is returned. ` +
       flags.refuse.join(" | "),
+    "LEGAL_REVIEW_REQUIRED",
   );
 }

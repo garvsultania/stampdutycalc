@@ -1,42 +1,88 @@
-{
-  "rules_id": "MH-charging",
-  "jurisdiction": "MH",
-  "s4": {
-    "nominal_duty": "500",
-    "transaction_types": ["development_agreement", "sale", "lease", "mortgage", "settlement"],
-    "source": {
-      "type": "act",
-      "ref": "Maharashtra Stamp Act, 1958, s.4",
-      "url": "https://www.indiacode.nic.in/bitstream/123456789/22026/1/the_maharashtra_stamp_act,_1958.pdf",
-      "quoted_text": "s.4 'Several instruments used in single transaction of [development agreement,] sale, [lease,] mortgage or settlement' — (1) 'Where, in the case of any [development agreement,] sale, [lease,] mortgage or settlement, several instruments are employed for completing the transaction, the principal instrument only shall be chargeable with the duty prescribed in Schedule I for the conveyance, [development agreement,] [lease,] mortgage or settlement, and each of the other instruments shall be chargeable with a duty of [FIVE HUNDRED RUPEES] instead of the duty (if any) prescribed for it in that Schedule.' (2) 'The parties may determine for themselves which of the instruments so employed shall ... be deemed to be the principal instrument.' (3) 'If the parties fail to determine the principal instrument between themselves, then the officer before whom the instrument is produced may ... determine the principal instrument: Provided that the duty chargeable on the instrument so determined shall be the highest duty which would be chargeable in respect of any of the said instruments employed.'"
-    }
-  },
-  "s5": {
-    "source": {
-      "type": "act",
-      "ref": "Maharashtra Stamp Act, 1958, s.5",
-      "quoted_text": "s.5 'Instruments relating to several distinct matters or transactions': 'Any instrument comprising or relating to several distinct matters or transactions shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters or transactions, would be chargeable under this Act.'"
-    }
-  },
-  "s6": {
-    "source": {
-      "type": "act",
-      "ref": "Maharashtra Stamp Act, 1958, s.6",
-      "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule I': 'Subject to the provisions of section 5, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
-    }
-  },
-  "version": {
-    "effective_from": "2015-01-01",
-    "effective_to": null,
-    "supersedes": null,
-    "source": {
-      "type": "act",
-      "ref": "Maharashtra Stamp Act, 1958, ss.4-6",
-      "url": "https://www.indiacode.nic.in/bitstream/123456789/22026/1/the_maharashtra_stamp_act,_1958.pdf",
-      "quoted_text": "General charging rules of the Maharashtra Stamp Act 1958 (its own statute, not ISA+deltas)."
+[
+  {
+    "rules_id": "MH-charging",
+    "jurisdiction": "MH",
+    "s4": {
+      "nominal_duty": "100",
+      "transaction_types": ["development_agreement", "sale", "lease", "mortgage", "settlement"],
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.4(1), before Maharashtra Act XX of 2025, s.2",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Maharashtra Act XX of 2025, section 2: in section 4(1), for the words 'one hundred rupees' the words 'five hundred rupees' shall be substituted. This identifies the immediately preceding nominal duty as one hundred rupees."
+      }
     },
-    "verified_by": null,
-    "verified_on": null
+    "s5": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.5",
+        "quoted_text": "s.5 'Instruments relating to several distinct matters or transactions': 'Any instrument comprising or relating to several distinct matters or transactions shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters or transactions, would be chargeable under this Act.'"
+      }
+    },
+    "s6": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.6",
+        "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule I': 'Subject to the provisions of section 5, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
+      }
+    },
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2025-04-01",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, ss.4-6, before Maharashtra Act XX of 2025",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "The Maharashtra Act-level charging rules before 1 April 2025, with the section 4(1) non-principal-instrument amount identified as one hundred rupees by the express substitution in Maharashtra Act XX of 2025, section 2."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Historical 2015-floor era: section 4 non-principal instruments bear Rs 100. Maharashtra Act XX of 2025 supplies the closing boundary."
   },
-  "notes_for_reviewer": "CONFIDENCE: HIGH (primary Act text, India Code). MH's s.4 is materially WIDER than Delhi's/Karnataka's: it reaches DEVELOPMENT AGREEMENTS and LEASES as well as sale/mortgage/settlement — a Maharashtra development-agreement set gets s.4 relief where the same set in Delhi would not. Nominal duty Rs 500 (vs KA Rs 100, DL Rs 1). PENDING: the exact amendment date of the 'five hundred rupees' substitution and of the development-agreement/lease insertions (effective_from set at the 2015 floor); if a pre-2015 window is ever needed, version accordingly."
-}
+  {
+    "rules_id": "MH-charging",
+    "jurisdiction": "MH",
+    "s4": {
+      "nominal_duty": "500",
+      "transaction_types": ["development_agreement", "sale", "lease", "mortgage", "settlement"],
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act XX of 2025, s.2, p.1",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "gazette_date": "2025-04-01",
+        "quoted_text": "Section 2: in section 4(1) of the Maharashtra Stamp Act, for the words 'one hundred rupees' the words 'five hundred rupees' shall be substituted. The Act was first published after Governor's assent on 1 April 2025."
+      }
+    },
+    "s5": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.5",
+        "quoted_text": "s.5 'Instruments relating to several distinct matters or transactions': 'Any instrument comprising or relating to several distinct matters or transactions shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters or transactions, would be chargeable under this Act.'"
+      }
+    },
+    "s6": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.6",
+        "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule I': 'Subject to the provisions of section 5, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
+      }
+    },
+    "version": {
+      "effective_from": "2025-04-01",
+      "effective_to": null,
+      "supersedes": "MH-charging@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act XX of 2025, short title and s.2, p.1",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "gazette_date": "2025-04-01",
+        "quoted_text": "Maharashtra Act XX of 2025 was first published after Governor's assent on 1 April 2025. Section 2 substitutes 'five hundred rupees' for 'one hundred rupees' in section 4(1) of the Maharashtra Stamp Act."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Current era: section 4 non-principal instruments bear Rs 500 from the 1 April 2025 publication of Maharashtra Act XX of 2025. Sections 5 and 6 are unchanged by that Act."
+  }
+]

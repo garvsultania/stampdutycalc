@@ -71,8 +71,8 @@
     "expect": { "total_duty": "480000" }
   },
   {
-    "name": "Conveyance — unspecified transferee_category defaults to general rate (6% pre-hike)",
+    "name": "Conveyance — missing transferee category refuses instead of defaulting",
     "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2023-07-01", "values": { "consideration": "5000000", "market_value": "5000000" } },
-    "expect": { "total_duty": "300000" }
+    "expect": { "error": "transferee_category" }
   }
 ]

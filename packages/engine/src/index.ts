@@ -1,4 +1,4 @@
-export { EngineError } from "./errors.js";
+export { EngineError, type EngineErrorCode } from "./errors.js";
 export {
   assertEvidenceBacked,
   collectCorpusEvidenceDependencies,
@@ -12,6 +12,13 @@ export {
   type EvidenceGateOptions,
   type EvidenceCatalog,
 } from "./evidence.js";
+export {
+  assessEvidenceLinkProposal,
+  type EvidenceLinkProposal,
+  type EvidenceLinkProposalAssessment,
+  type ProposedCitationEvidence,
+  type ProposedEvidenceChain,
+} from "./evidence-proposal.js";
 export { D, num, canonical, type Num } from "./money.js";
 export { evalExpr } from "./value-expr.js";
 export { evalCharge, resolveRate, type ChargeCtx } from "./charge.js";
@@ -31,11 +38,25 @@ export {
   resolvePenaltyRegime,
   resolveChargingRules,
   hashSnapshot,
+  createSnapshotArchive,
+  parseSnapshotArchive,
+  hashSnapshotArchive,
+  ruleSetFromSnapshotArchive,
   canonicalJson,
   type RuleSet,
   type Snapshot,
+  type SnapshotArchive,
 } from "./snapshot.js";
-export { compute, type ComputeOptions } from "./compute.js";
+export {
+  compute,
+  computeWithTrace,
+  computeFromSnapshotArchive,
+  type ComputationDependencyKind,
+  type ComputationDependencyTrace,
+  type ComputeOptions,
+  type ComputeTraceResult,
+} from "./compute.js";
+export { assertInputContract, deriveInputFacts } from "./input-contract.js";
 export {
   computeS4,
   computeS5,
@@ -52,6 +73,18 @@ export {
   computeInterStateDifferential,
   type DifferentialResult,
 } from "./differential.js";
+export {
+  assessComputationReleaseCandidate,
+  buildFounderReviewPacket,
+  type CanaryStatus,
+  type ComputationReleaseCandidate,
+  type FounderReviewDisposition,
+  type FounderReviewPacket,
+  type ReleaseCandidateDependency,
+  type ReleaseCandidateDiffReceipt,
+  type ReleaseCandidateReviewContext,
+  type ReleaseCandidateTestReceipts,
+} from "./release-candidate.js";
 export { validateRuleSet, collectCrossRefs, type ValidationIssue } from "./validators.js";
 export { loadStateDir, mergeLoads, type LoadResult } from "./loader.js";
 export {

@@ -37,6 +37,27 @@
       ]
     },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The Article 35 band after 30 years is OCR-ambiguous in the available Schedule reproduction. Refuse terms above 30 years until a clean primary Schedule establishes the boundary and base.",
+        "when": {
+          "cmp": {
+            "expr": { "var": "term_months" },
+            "op": "gt",
+            "value": 360
+          }
+        }
+      },
+      {
+        "reason": "The women/joint conveyance reduction is textually tied to purchases and has not been established for a lease that reaches Article 23 by cross-reference. Omit transferee_category for the verified general-rate lease path.",
+        "when": {
+          "in": {
+            "field": "transferee_category",
+            "values": ["female", "joint"]
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for bands (i)–(v) and premium clauses; band (vi) boundary (encoded > 30y ≤ 100y → 4× AAR) is OCR-AMBIGUOUS in the source ('exceeding 100 years' where sequence implies >30≤100) — VERIFY. Term > 100 years / PERPETUITY deliberately has NO case: the engine throws (escalate-by-error) because the perpetuity base text is truncated in the source (central Sch I uses 1/5 of first-50-years' rent; Delhi text unverified) and perpetuity leases also attract DMC transfer duty on 1/6 of first-50-years' rent (founder Q1) — encode both only after founder supplies the clean text. CONVENTIONS: term_months is an integer (11-month L&L = 11 → band i; 12 months = 1 year → band ii, matching '<1 year' vs 'not less than 1 year'); inputs: term_months, avg_annual_rent (bands ii–vi), total_rent_payable (band i), premium (always required — pass 0 if none). Transfer duty: NOT attached — only a lease IN PERPETUITY is in the DMC s.147 list (founder Q1: 'a 6-year lease gets 3% stamp and no transfer duty'). Cross-refs import the Art 23 charge only; callers should omit transferee_category for leases pending verification that the women reduction extends beyond purchases."
   },
   {
@@ -60,6 +81,11 @@
     },
     "charge": { "kind": "cross_ref", "rule_id": "DL-ART35-lease" },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "Delhi registrar practice and the boundary between an Article 35 agreement to let and a bare Article 5 licence have not been established from current primary material. Refuse leave-and-licence computations until that classification is verified."
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM. Statutory hook is Art 35's 'any agreement to let' language; PENDING_VERIFICATION that Delhi registrar practice charges L&L under Art 35 in all cases (the classification tree already escalates license-with-exclusive-possession grey zones). Same inputs as lease (term_months, license fee as rent). A true bare license without occupation rights may instead be an Art 5 agreement (Rs 50) — that fork belongs in the questionnaire; confirm before adding."
   }
 ]

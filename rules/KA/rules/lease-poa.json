@@ -140,6 +140,16 @@
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — the DPAL annual Act and commencement graph from 2021 onward has not been acquired, and the family-lease proviso plus the long-term infrastructure-cess branch are not represented by the current input/rule model. Current lease totals must refuse until the source graph and classification inputs are complete.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text, both columns). lease_base = avg_annual_rent + premium + fine + money_advanced (money_advanced INCLUDES security deposit, refundable or adjustable, per the Explanation). Term bands in months: ≤12 (≤1yr; residential 0.5% cap Rs 500, commercial/industrial 0.5% no cap) / ≤120 (1%) / ≤240 (2%) / ≤360 (3%) / >360 (conveyance rate on max(lease_base, market_value)). The >30y clause (vi) is in the s.3B 'lease in perpetuity' cess list — cess NOT attached here (most leases aren't perpetuity); attach a conditional cess for the (vi) branch in wave 2. Family-lease proviso (Rs 5,000/3,000/1,000 to wife/husband/father/mother/son/daughter/brother/sister, like gift) NOT yet encoded — questionnaire branch, wave 2."
   },
   {

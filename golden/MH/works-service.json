@@ -18,19 +18,71 @@
   },
   {
     "name": "MH Works contract — cap binds at Rs 25 lakh",
+    "suite": "arithmetic",
     "source_note": "300 cr: 500 + 0.1% × 2,99,90,00,000 = 29,99,500 → capped at Rs 25,00,000.",
     "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "3000000000" } },
     "expect": { "total_duty": "2500000" }
   },
   {
     "name": "MH Service agreement — Art 5(h)(B) residual: Rs 100",
-    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2024-06-01", "values": {} },
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2024-06-01", "values": {}, "facts": { "service_goods_transfer": "no", "service_additional_transaction": "no" } },
     "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "MH Service agreement — uncertain additional transaction refuses residual duty",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2024-06-01", "values": {}, "facts": { "service_goods_transfer": "no", "service_additional_transaction": "uncertain" } },
+    "expect": { "error": "observable document answers" }
   },
   {
     "name": "MH works-vs-service stakes — same Rs 5cr contract: Rs 49,500 as works",
     "source_note": "500 + 0.1% × 4,90,00,000 = 49,500. Compare the service case below: Rs 100 — a ~495x classification fork, unique to MH among the three states.",
     "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "50000000" } },
     "expect": { "total_duty": "49500" }
+  },
+  {
+    "name": "MH Works contract — user-facing computation refuses the unresolved cap cell",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-06-01", "values": { "contract_value": "3000000000" } },
+    "expect": { "error": "cap applies to the entire" }
+  },
+  {
+    "name": "MH Works contract — current threshold is Rs 5 lakh from 14 October 2024",
+    "source_note": "Maharashtra Act IX of 2025 ss.1(2), 2(16) substitutes Rs 5 lakh for Rs 10 lakh and 0.3% for 0.1%.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-10-14", "values": { "contract_value": "500000" } },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Works contract — current Rs 50 lakh formula is Rs 14,000",
+    "source_note": "500 + 0.3% × (50,00,000 − 5,00,000) = 500 + 13,500 = 14,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2024-10-14", "values": { "contract_value": "5000000" } },
+    "expect": { "total_duty": "14000" }
+  },
+  {
+    "name": "MH works-vs-service stakes — current Rs 5 crore works duty is Rs 1,49,000",
+    "source_note": "500 + 0.3% × (5,00,00,000 − 5,00,000) = 1,49,000; the residual service amount is Rs 500, a 298x fork.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2026-07-21", "values": { "contract_value": "50000000" } },
+    "expect": { "total_duty": "149000" }
+  },
+  {
+    "name": "MH Works contract — current encoded arithmetic applies the Rs 25 lakh cap",
+    "suite": "arithmetic",
+    "source_note": "At Rs 100 crore the uncapped current formula exceeds Rs 25 lakh, so the encoded total ceiling returns Rs 25,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2026-07-21", "values": { "contract_value": "1000000000" } },
+    "expect": { "total_duty": "2500000" }
+  },
+  {
+    "name": "MH Works contract — current user-facing computation refuses the unresolved cap cell",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART63-works-contract", "execution_date": "2026-07-21", "values": { "contract_value": "1000000000" } },
+    "expect": { "error": "cap applies to the entire" }
+  },
+  {
+    "name": "MH Service agreement — current Article 5(h)(B) residual is Rs 500",
+    "source_note": "Maharashtra Act IX of 2025 ss.1(2), 2(2) substitutes Rs 500 for Rs 100 from 14 October 2024.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2024-10-14", "values": {}, "facts": { "service_goods_transfer": "no", "service_additional_transaction": "no" } },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Service agreement — current uncertain classification still refuses",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART5hB-service-agreement", "execution_date": "2026-07-21", "values": {}, "facts": { "service_goods_transfer": "uncertain", "service_additional_transaction": "no" } },
+    "expect": { "error": "observable document answers" }
   }
 ]

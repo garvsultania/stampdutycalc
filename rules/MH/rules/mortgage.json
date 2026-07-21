@@ -26,10 +26,32 @@
         "var": "amount_secured"
       }
     },
+    "modifiers": [
+      "MH-section9-remission-screen",
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      },
+      { "modifier_id": "MH-agricultural-loan-remission", "required_from": "2026-01-01" }
+    ],
     "rounding": {
       "mode": "none",
       "nearest": 1
     },
+    "pending_verification": [
+      {
+        "reason": "The transport surcharge reaches usufructuary mortgages in notified cities, but this rule has no sourced subtype/city modifier. Restrict computation to a positively identified non-usufructuary mortgage outside the metro-cess area.",
+        "when": {
+          "not": {
+            "all": [
+              { "eq": { "field": "mortgage_subtype", "value": "non_usufructuary" } },
+              { "eq": { "field": "metro_cess_city", "value": "no" } }
+            ]
+          }
+        }
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Area-based Conveyance rate (Art 25) on the amount secured (cross-ref imports the Art 25 charge, incl. the area_type RateSpec, but NOT its women/metro modifiers). PENDING: mortgage IS in the metro-cess instrument list (sale/gift/mortgage) — a metro-city mortgage-with-possession should also attract the 1% cess; attach MH-metro-cess here once the mortgage cess base is confirmed. BACK-CATALOGUE: effective_from moved to the 2015 floor — this article did not change in 2017; only the Conveyance rate it cross-refs did, and the cross-ref resolves per execution date within the snapshot, so no re-versioning is needed here."
   },
   {
@@ -40,32 +62,148 @@
     "instrument": "mortgage_without_possession",
     "version": {
       "effective_from": "2021-02-09",
-      "effective_to": null,
-      "supersedes": null,
+      "effective_to": "2022-01-20",
+      "supersedes": "MH-ART40b-mortgage-without-possession@2015-01-01",
       "source": {
         "type": "act",
-        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 40(b) (subst. by Mah. Act 3 of 2021, w.e.f. 9-2-2021)",
+        "ref": "Maharashtra Act III of 2021, ss.1(2), 3(b), pp.1-2",
         "article": "40",
-        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
-        "quoted_text": "Sch I Art. 40(b) RAW two-column extraction (AMBIGUOUS — flagged per encoding guardrail): description column '(b) when possession is not given or agreed to be given as aforesaid.' Duty column shows TWO lines: '[0.1 per cent of] the amount secured by such deed, subject to the minimum of one hundred rupees.' AND '0.3 per cent of the amount secured by such deed, subject to the maximum of [twenty lakh rupees]; Provided that, in case of instrument executed in favour of consortium of banks, the duty chargeable shall not exceed fifty lakh rupees.' Footnote: clause (b) substituted by Mah. Act 3 of 2021 (w.e.f. 9-2-2021); PRIOR text was '0.5 percent of the amount secured, minimum one hundred rupees and maximum ten lakh rupees'. Widely-cited current operative figure: 0.3%, max Rs 20 lakh (Rs 50 lakh for a consortium of banks)."
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 9 February 2021. Section 3(b) substitutes Article 40(b): (i) up to Rs 5 lakh, 0.1% subject to a Rs 100 minimum; (ii) in any other case, 0.3% subject to a Rs 10 lakh maximum."
       },
       "verified_by": null,
       "verified_on": null
     },
     "charge": {
-      "kind": "ad_valorem",
-      "base": {
-        "var": "amount_secured"
-      },
-      "pct": 0.3,
-      "min_duty": "100",
-      "cap": "2000000"
+      "kind": "switch",
+      "on": { "var": "amount_secured" },
+      "cases": [
+        {
+          "upto": 500000,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": { "var": "amount_secured" },
+            "pct": 0.1,
+            "min_duty": "100"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "ad_valorem",
+            "base": { "var": "amount_secured" },
+            "pct": 0.3,
+            "cap": "1000000"
+          }
+        }
+      ]
     },
+    "modifiers": ["MH-section9-remission-screen"],
     "rounding": {
       "mode": "none",
       "nearest": 1
     },
-    "notes_for_reviewer": "CONFIDENCE: MEDIUM — flagged per the two-column guardrail. The source duty column shows BOTH a '0.1% min Rs 100' line and a '0.3% max Rs 20 lakh' line for clause (b); the operative figure is widely cited as 0.3% (max Rs 20 lakh; Rs 50 lakh for a consortium of banks) post-Mah 3/2021, and that is encoded (with min Rs 100). PENDING_VERIFICATION: confirm the '0.1%' line is not a distinct sub-tier, and the consortium-of-banks Rs 50 lakh cap (a fact-gated cap not yet modelled — currently the flat Rs 20 lakh cap applies). The prior-era version (0.5%, min 100, max 10 lakh, pre-9-Feb-2021) is a back-catalogue item."
+    "pending_verification": [],
+    "notes_for_reviewer": "Maharashtra Act III of 2021 creates a short-lived era from 9 February 2021 through 19 January 2022: 0.1% up to Rs 5 lakh with a Rs 100 minimum, then 0.3% with a Rs 10 lakh maximum."
+  },
+  {
+    "rule_id": "MH-ART40b-mortgage-without-possession",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "40(b)",
+    "instrument": "mortgage_without_possession",
+    "version": {
+      "effective_from": "2022-01-20",
+      "effective_to": null,
+      "supersedes": "MH-ART40b-mortgage-without-possession@2021-02-09",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act VII of 2022, s.2(3), p.2 (first published 20-Jan-2022)",
+        "article": "40",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 2(3) amends Article 40(b)(ii): the Rs 10 lakh maximum becomes Rs 20 lakh, and an instrument executed in favour of a consortium of banks has a Rs 50 lakh maximum. The Rs 5 lakh threshold, 0.1% lower rate with Rs 100 minimum, and 0.3% upper rate remain."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "mortgagee_bank_scope",
+      "cases": [
+        {
+          "when": "other",
+          "charge": {
+            "kind": "switch",
+            "on": { "var": "amount_secured" },
+            "cases": [
+              {
+                "upto": 500000,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": { "var": "amount_secured" },
+                  "pct": 0.1,
+                  "min_duty": "100"
+                }
+              },
+              {
+                "upto": null,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": { "var": "amount_secured" },
+                  "pct": 0.3,
+                  "cap": "2000000"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "when": "consortium_of_banks",
+          "charge": {
+            "kind": "switch",
+            "on": { "var": "amount_secured" },
+            "cases": [
+              {
+                "upto": 500000,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": { "var": "amount_secured" },
+                  "pct": 0.1,
+                  "min_duty": "100"
+                }
+              },
+              {
+                "upto": null,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": { "var": "amount_secured" },
+                  "pct": 0.3,
+                  "cap": "5000000"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "default": { "kind": "fixed", "amount": "0" }
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "modifiers": [
+      "MH-section9-remission-screen",
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      },
+      { "modifier_id": "MH-agricultural-loan-remission", "required_from": "2026-01-01" }
+    ],
+    "pending_verification": [
+      {
+        "reason": "The Rs 20 lakh or consortium-of-banks Rs 50 lakh ceiling depends on the mortgagee scope. Select consortium of banks or other before computing.",
+        "when": { "eq": { "field": "mortgagee_bank_scope", "value": "uncertain" } }
+      }
+    ],
+    "notes_for_reviewer": "From 20 January 2022 Maharashtra Act VII retains the two-tier rate and raises the ordinary ceiling to Rs 20 lakh, with a Rs 50 lakh consortium-of-banks ceiling."
   },
   {
     "rule_id": "MH-ART40b-mortgage-without-possession",
@@ -95,6 +233,7 @@
       "min_duty": "100",
       "cap": "1000000"
     },
+    "modifiers": ["MH-section9-remission-screen"],
     "rounding": {
       "mode": "none",
       "nearest": 1

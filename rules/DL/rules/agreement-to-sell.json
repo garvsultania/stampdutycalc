@@ -24,8 +24,16 @@
       "on": { "var": "consideration" },
       "scale": 0.9
     },
-    "modifiers": ["DL-transfer-duty-ats", "DL-transfer-duty-ats-hike"],
+    "modifiers": [
+      "DL-transfer-duty-ats",
+      { "modifier_id": "DL-transfer-duty-ats-hike", "required_from": "2023-07-10" }
+    ],
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The municipal transfer-duty scope, 90% base, post-2023 threshold test, and set-off treatment for an agreement to sell in part performance have not been established from the primary MCD material. Refuse this route until that chain is sourced."
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for the stamp leg (Art 23A text is clean: 90% of conveyance duty; encoded as cross_ref scale 0.9 on consideration). Art 23A speaks of 'any union territory' — Delhi (NCT) treatment as UT for this article is settled practice but note it. Central Sch I fn: duty paid under 23A is excluded when computing duty on the completing conveyance (SET-OFF) — the set-off itself is a Flow-D/memo feature, not a charge change; flagged for M3. ROUTE VIA QUESTIONNAIRE: possession delivered → this rule; no possession → DL-ART5c-agreement-to-sell (Rs 50)."
   },
   {
@@ -49,6 +57,11 @@
     },
     "charge": { "kind": "fixed", "amount": "50" },
     "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The supported observable fact pattern for a no-possession agreement has not yet been derived from current Delhi primary material. A caller cannot opt into the residual Article 5(c) result by asserting a legal conclusion; refuse until the questionnaire and registrar scope are sourced."
+      }
+    ],
     "notes_for_reviewer": "CONFIDENCE: MEDIUM. The possession fork (Rs 50 vs 90%-of-conveyance + transfer duty) is enormous and classification-sensitive — MUST be routed by the questionnaire, never defaulted. NOTE the Sch I-A women-reduction text mentions 'Agreement to sale' alongside conveyance — if Delhi practice charges ad valorem duty on certain no-possession ATS variants, this Rs 50 reading is too generous; founder to confirm registrar practice."
   }
 ]
