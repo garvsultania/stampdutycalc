@@ -1,6 +1,14 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { fileURLToPath } from "node:url";
-import { canonicalJson, compute, loadStateDir } from "@stampdraft/engine";
+import { randomUUID } from "node:crypto";
+import {
+  buildSnapshot,
+  canonicalJson,
+  compute,
+  computeFromSnapshotArchive,
+  createSnapshotArchive,
+  loadStateDir,
+} from "@stampdraft/engine";
 import { connect, migrate, Store, type Db } from "./index.js";
 
 const root = (p: string) => fileURLToPath(new URL(p, import.meta.url));
@@ -20,13 +28,20 @@ const conveyance = {
   facts: { transferee_category: "female" },
 };
 
+function conveyanceSnapshot() {
+  return createSnapshotArchive(buildSnapshot(dl.ruleSet, conveyance.jurisdiction, conveyance.execution_date));
+}
+
 beforeAll(async () => {
   db = await connect(undefined); // PGlite in-memory — real Postgres semantics
   await migrate(db);
   store = new Store(db);
   const firm = await store.ensureFirm("Test & Co.");
   firmId = firm.id;
-  await store.addUser(firmId, "lawyer@test.in", "A Lawyer");
+  await store.addUser(firmId, "lawyer@test.in", "A Lawyer", {
+    issuer: "https://identity.test",
+    subject: "lawyer-1",
+  });
 });
 
 afterAll(async () => {
@@ -34,6 +49,26 @@ afterAll(async () => {
 });
 
 describe("firm workspace (PRD Flow E)", () => {
+  it("resolves a stable provider-neutral identity only inside its firm membership", async () => {
+    await expect(store.getFirmUserByIdentity(firmId, "https://identity.test", "lawyer-1")).resolves.toMatchObject({
+      firm_id: firmId,
+      email: "lawyer@test.in",
+    });
+    await expect(store.getFirmUserByIdentity(randomUUID(), "https://identity.test", "lawyer-1")).resolves.toBeNull();
+  });
+
+  it("upgrades a legacy email membership to a stable external identity", async () => {
+    const legacyFirm = await store.createFirm("Legacy Firm");
+    await store.addUser(legacyFirm.id, "legacy@test.in", "Legacy User");
+    await store.addUser(legacyFirm.id, "legacy@test.in", "Legacy User", {
+      issuer: "https://identity.test",
+      subject: "legacy-lawyer",
+    });
+    await expect(
+      store.getFirmUserByIdentity(legacyFirm.id, "https://identity.test", "legacy-lawyer"),
+    ).resolves.toMatchObject({ email: "legacy@test.in" });
+  });
+
   it("creates matters and lists them with computation counts", async () => {
     const m = await store.createMatter({
       firmId, reference: "M-2024-001", title: "Acme HQ purchase", client: "Acme Ltd", createdBy: "lawyer@test.in",
@@ -50,6 +85,21 @@ describe("firm workspace (PRD Flow E)", () => {
       store.createMatter({ firmId, reference: "M-2024-001", title: "Duplicate", createdBy: "lawyer@test.in" }),
     ).rejects.toThrow();
   });
+
+  it("refuses a creator who is not a member of the target firm", async () => {
+    await expect(store.createMatter({
+      firmId,
+      reference: "M-UNAUTHORIZED",
+      title: "Must not be created",
+      createdBy: "outsider@test.in",
+    })).rejects.toThrow(/not a member/);
+
+    await expect(db.query(
+      `INSERT INTO matter (id, firm_id, reference, title, created_by)
+       VALUES ($1, $2, $3, $4, $5)`,
+      [randomUUID(), firmId, "M-DIRECT-UNAUTHORIZED", "Must not be inserted", "outsider@test.in"],
+    )).rejects.toThrow(/foreign key/i);
+  });
 });
 
 describe("audit log (PRD §7)", () => {
@@ -58,7 +108,12 @@ describe("audit log (PRD §7)", () => {
     const output = compute(dl.ruleSet, conveyance);
 
     const rec = await store.recordComputation({
-      firmId, matterId: matter!.id, userEmail: "lawyer@test.in", output, engineVersion: ENGINE_VERSION,
+      firmId,
+      matterId: matter!.id,
+      userEmail: "lawyer@test.in",
+      output,
+      snapshotArchive: conveyanceSnapshot(),
+      engineVersion: ENGINE_VERSION,
     });
 
     expect(rec.total_duty).toBe(output.total_duty);
@@ -66,17 +121,50 @@ describe("audit log (PRD §7)", () => {
     expect(rec.input_values).toEqual(conveyance.values);
     expect(rec.input_facts).toEqual(conveyance.facts);
     expect(rec.extraction_model_version).toBeNull(); // Tier 1 — no model involved
+    expect((await store.getSnapshotArchive(rec.rules_version))?.payload.jurisdiction).toBe("DL");
 
     const matters = await store.listMatters(firmId);
     expect(matters[0]!.computation_count).toBe(1);
   });
 
-  it("REPRODUCES the stored output from {inputs, hash} alone — the §7 claim", async () => {
+  it("uses an explicit Tier 2 record id as an idempotency key", async () => {
+    const output = compute(dl.ruleSet, conveyance);
+    const recordId = randomUUID();
+    const args = {
+      firmId,
+      userEmail: "lawyer@test.in",
+      output,
+      snapshotArchive: conveyanceSnapshot(),
+      engineVersion: ENGINE_VERSION,
+      extractionModelVersion: "extractor-v1",
+      recordId,
+    };
+    const first = await store.recordComputation(args);
+    const second = await store.recordComputation(args);
+    expect(second).toEqual(first);
+    expect((await store.listComputations(firmId)).filter((record) => record.id === recordId)).toHaveLength(1);
+
+    await expect(store.recordComputation({ ...args, engineVersion: "different-engine" }))
+      .rejects.toThrow(/idempotency key conflicts/);
+  });
+
+  it("REPRODUCES from the archive after the live corpus changes — the §7 claim", async () => {
     const recs = await store.listComputations(firmId);
     const rec = recs[0]!;
+    const archived = await store.getSnapshotArchive(rec.rules_version);
+    expect(archived).not.toBeNull();
 
-    // Recompute purely from what the audit retained; nothing else is needed.
-    const replay = compute(dl.ruleSet, {
+    const changedRuleSet = structuredClone(dl.ruleSet);
+    const changedRule = changedRuleSet.rules.find((rule) => rule.rule_id === conveyance.rule_id);
+    if (!changedRule || changedRule.charge.kind !== "ad_valorem" || typeof changedRule.charge.pct === "number") {
+      throw new Error("test fixture no longer has the expected category-selected ad valorem charge");
+    }
+    changedRule.charge.pct.cases[0]!.pct = 9;
+    const changedLiveOutput = compute(changedRuleSet, conveyance);
+    expect(changedLiveOutput.rules_version).not.toBe(rec.rules_version);
+    expect(changedLiveOutput.total_duty).not.toBe(rec.total_duty);
+
+    const replay = computeFromSnapshotArchive(archived!.payload, rec.rules_version, {
       jurisdiction: rec.jurisdiction as "DL",
       rule_id: rec.rule_id,
       execution_date: rec.execution_date,
@@ -96,6 +184,107 @@ describe("audit log (PRD §7)", () => {
     expect(canonicalJson(replay)).toBe(canonicalJson(rec.output));
   });
 
+  it("REFUSES a snapshot whose recomputed hash does not match its storage key", async () => {
+    const payload = canonicalJson(conveyanceSnapshot());
+    const falseHash = `sha256:${"0".repeat(64)}`;
+    await db.query(
+      `INSERT INTO rules_snapshot_archive (rules_version, jurisdiction, payload)
+       VALUES ($1, $2, $3)`,
+      [falseHash, "DL", payload],
+    );
+    await expect(store.getSnapshotArchive(falseHash)).rejects.toThrow(/hash mismatch/);
+  });
+
+  it("REFUSES malformed and missing snapshot archives", async () => {
+    const malformedHash = `sha256:${"1".repeat(64)}`;
+    await db.query(
+      `INSERT INTO rules_snapshot_archive (rules_version, jurisdiction, payload)
+       VALUES ($1, $2, $3)`,
+      [malformedHash, "DL", "{not-json"],
+    );
+    await expect(store.getSnapshotArchive(malformedHash)).rejects.toThrow(/malformed/);
+    await expect(store.getSnapshotArchive(`sha256:${"2".repeat(64)}`)).resolves.toBeNull();
+  });
+
+  it("REFUSES recording when the output points to a different snapshot", async () => {
+    const output = compute(dl.ruleSet, conveyance);
+    const differentSnapshot = structuredClone(conveyanceSnapshot());
+    differentSnapshot.rules[0]!.notes_for_reviewer += " changed archive";
+    await expect(store.recordComputation({
+      firmId,
+      userEmail: "lawyer@test.in",
+      output,
+      snapshotArchive: differentSnapshot,
+      engineVersion: ENGINE_VERSION,
+    })).rejects.toThrow(/does not match snapshot archive/);
+  });
+
+  it("REFUSES cross-firm computation-to-matter references in the repository and database", async () => {
+    const otherFirm = await store.createFirm("Other Firm");
+    await store.addUser(otherFirm.id, "other@test.in", "Other Lawyer", {
+      issuer: "https://identity.test",
+      subject: "other-lawyer",
+    });
+    const otherMatter = await store.createMatter({
+      firmId: otherFirm.id,
+      reference: "OTHER-001",
+      title: "Other firm's matter",
+      createdBy: "other@test.in",
+    });
+    const output = compute(dl.ruleSet, conveyance);
+
+    await expect(store.recordComputation({
+      firmId,
+      matterId: otherMatter.id,
+      userEmail: "lawyer@test.in",
+      output,
+      snapshotArchive: conveyanceSnapshot(),
+      engineVersion: ENGINE_VERSION,
+    })).rejects.toThrow(/matter does not belong/);
+
+    const [existing] = await store.listComputations(firmId);
+    await expect(db.query(
+      `INSERT INTO computation_audit (
+         id, firm_id, matter_id, user_email, jurisdiction, rule_id, execution_date,
+         input_values, input_facts, duty_paid, penalty_months, rules_version,
+         engine_version, extraction_model_version, total_duty, output
+       )
+       SELECT $1, firm_id, $2, user_email, jurisdiction, rule_id, execution_date,
+              input_values, input_facts, duty_paid, penalty_months, rules_version,
+              engine_version, extraction_model_version, total_duty, output
+         FROM computation_audit WHERE id = $3`,
+      [randomUUID(), otherMatter.id, existing!.id],
+    )).rejects.toThrow(/foreign key/i);
+  });
+
+  it("REFUSES an audit author who is not a firm member", async () => {
+    const output = compute(dl.ruleSet, conveyance);
+    await expect(store.recordComputation({
+      firmId,
+      userEmail: "outsider@test.in",
+      output,
+      snapshotArchive: conveyanceSnapshot(),
+      engineVersion: ENGINE_VERSION,
+    })).rejects.toThrow(/not a member/);
+  });
+
+  it("REFUSES an audit insert before its snapshot archive exists", async () => {
+    const recs = await store.listComputations(firmId);
+    const missingHash = `sha256:${"3".repeat(64)}`;
+    await expect(db.query(
+      `INSERT INTO computation_audit (
+         id, firm_id, matter_id, user_email, jurisdiction, rule_id, execution_date,
+         input_values, input_facts, duty_paid, penalty_months, rules_version,
+         engine_version, extraction_model_version, total_duty, output
+       )
+       SELECT $1, firm_id, matter_id, user_email, jurisdiction, rule_id, execution_date,
+              input_values, input_facts, duty_paid, penalty_months, $2,
+              engine_version, extraction_model_version, total_duty, output
+         FROM computation_audit WHERE id = $3`,
+      [randomUUID(), missingHash, recs[0]!.id],
+    )).rejects.toThrow(/snapshot archive .* must exist/);
+  });
+
   it("REFUSES updates at the database level, not by convention", async () => {
     const recs = await store.listComputations(firmId);
     await expect(
@@ -110,11 +299,26 @@ describe("audit log (PRD §7)", () => {
     );
   });
 
+  it("REFUSES snapshot archive updates and deletes at the database level", async () => {
+    const recs = await store.listComputations(firmId);
+    await expect(
+      db.query("UPDATE rules_snapshot_archive SET jurisdiction = $1 WHERE rules_version = $2", ["MH", recs[0]!.rules_version]),
+    ).rejects.toThrow(/append-only/);
+    await expect(
+      db.query("DELETE FROM rules_snapshot_archive WHERE rules_version = $1", [recs[0]!.rules_version]),
+    ).rejects.toThrow(/append-only/);
+  });
+
   it("a correction is a NEW record — the superseded one still stands", async () => {
     const [matter] = await store.listMatters(firmId);
     const corrected = compute(dl.ruleSet, { ...conveyance, facts: { transferee_category: "male" } });
     await store.recordComputation({
-      firmId, matterId: matter!.id, userEmail: "lawyer@test.in", output: corrected, engineVersion: ENGINE_VERSION,
+      firmId,
+      matterId: matter!.id,
+      userEmail: "lawyer@test.in",
+      output: corrected,
+      snapshotArchive: conveyanceSnapshot(),
+      engineVersion: ENGINE_VERSION,
     });
 
     const recs = await store.listComputations(firmId, matter!.id);
