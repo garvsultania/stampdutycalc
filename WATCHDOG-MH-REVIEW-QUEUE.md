@@ -1,0 +1,2681 @@
+# Maharashtra Watchdog Review Queue
+
+Generated deterministically from `WATCHDOG-MH-EVIDENCE-CANDIDATES.json` inputs. Every item remains pending human legal review. An engineering disposition may record that no direct current calculator dependency was identified, but it is not legal approval. Publication stages come from titles; keyword pages are not legal pinpoints; nothing here is citation-eligible or establishes legal effect, completeness, amendment, or commencement.
+
+## Summary
+
+- Archived occurrences considered: **6433**
+- Selected candidate occurrences: **529**
+- Candidate blobs: **526**
+- Enacted-law / bill / notification-order / other: **409 / 13 / 88 / 19**
+
+A reviewer must confirm the instrument identity and legal effect, record an exact quoted pinpoint, and complete the baseline/amendment/commencement chain before creating any calculator evidence link.
+
+## Enacted-law title candidates (409)
+
+- [ ] 2019-08-14 · mh-egazette-part4b · 165 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/08/14 | 2019/08/14 | Part IV-B (Ex. 270)(Aug. 14, 2019) Revenue and Forest Department Maharashtra Stamp Act. No. Mudrank-2013/UOR.19/CR-235/M-1 (Dhoran).— | 0 | View
+  - occurrence: `mh-egazette-part4b/6a75d053d4cbb6f95ccd6a8d77b69ecaec16440256c60f1979689f0409291891`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/41/4181534fcc524fe0c3e88c2c30f04cbaab3464566069eb257b7dd05787007fc3.pdf` (`4181534fcc524fe0c3e88c2c30f04cbaab3464566069eb257b7dd05787007fc3`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2025-10-17 · mh-egazette-part4b · 512 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/10/17 | 2025/10/17 | Part IV-B Ext. No. 388 REVENUE AND FORESTS DEPARTMENT Maharashtra Stamp Act. No. Mudrank-2025/C.R.184/Mudrank-2(Policy) | 0 | View
+  - occurrence: `mh-egazette-part4b/8f3fafdf5d22144dc65c76ddbe11297f0c36a9384cb0d9b068d9c61f5bc9fb8e`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/bd/bdb9add1360b3fd7007a2e50da5e40bee835f8e3cafc98220a7262aff4b3265e.pdf` (`bdb9add1360b3fd7007a2e50da5e40bee835f8e3cafc98220a7262aff4b3265e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; registration p.2; concession_remission p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2015-03-26 · mh-egazette-part8 · 96 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2015/03/26 | 2015/03/26 | Part VIII Ext. 25 (Mah Act III) March 26, 2015 | 0 | View
+  - occurrence: `mh-egazette/7bcaa185104beef55d37851f2bf08046a2184152576dd12aefa3a5d24c7c6afd`
+  - blob: `watchdog-data/blobs/de/ded3fffd490bb37fbe1ed1e7d4eba5d58584432fb59def1333a9da053a18685b.pdf` (`ded3fffd490bb37fbe1ed1e7d4eba5d58584432fb59def1333a9da053a18685b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2015-03-30 · mh-egazette-part8 · 93 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2015/03/30 | 2015/03/30 | Part VIII Extra 26 (Mah. Act IX) March 30, 2015 | 0 | View
+  - occurrence: `mh-egazette/01e4795a65d3ce4e9e6a13e8331b8222b55b949a1a25824cdf71007bdb768e31`
+  - blob: `watchdog-data/blobs/97/97ea9c766c18e756aeb226757cbee4ad6776b48e35dbc07220a4b2dc3896f238.pdf` (`97ea9c766c18e756aeb226757cbee4ad6776b48e35dbc07220a4b2dc3896f238`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; combined keyword pages: 4
+- [ ] 2018-07-27 · mh-egazette-part8 · 61 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/07/27 | 2018/07/27 | Part VIII, Ext. 118 (27-07-2018) Mah. Act No. XLIV of 2018 | 0 | View
+  - occurrence: `mh-egazette/8e012dee20c4c08539b3844ceb8be605f54f407ef4c991cab5bd75b7b0741a82`
+  - blob: `watchdog-data/blobs/f9/f9e29650cbee57f4371760b5a3e5307dd606a04a3df5a393cc75b4c856652621.pdf` (`f9e29650cbee57f4371760b5a3e5307dd606a04a3df5a393cc75b4c856652621`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2018-07-27 · mh-egazette-part8 · 62 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/07/27 | 2018/07/27 | Part VIII, Ext. 119 (27-07-2018) Mah. Act. No. XLV of 2018) | 0 | View
+  - occurrence: `mh-egazette/9924fa148a41999db50ec5ca28a6c9d68ca03d82f1aa842125625c5d751b0a0a`
+  - blob: `watchdog-data/blobs/82/82cfac6443fe4211ddc35036b8bb259cae8b4aaf45436177260dbd993ba01a4a.pdf` (`82cfac6443fe4211ddc35036b8bb259cae8b4aaf45436177260dbd993ba01a4a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+- [ ] 2018-07-27 · mh-egazette-part8 · 63 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/07/27 | 2018/07/27 | Part VIII, Ext. 120 (27-07-2018) Mah. Act No. XLVI of 2018) | 0 | View
+  - occurrence: `mh-egazette/e8babb38385ddfce155b929f4099c4a8f4046f699fead3eecd28815072993452`
+  - blob: `watchdog-data/blobs/af/afffa26a99f3c2f353e16a0ea15115dd09841bc0de8f2517426d7bb433a89d64.pdf` (`afffa26a99f3c2f353e16a0ea15115dd09841bc0de8f2517426d7bb433a89d64`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2018-08-10 · mh-egazette-part8 · 54 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/08/10 | 2018/08/10 | Part VIII 127 (10-8-2018) Maharashtra Act No. LII OF 2018. | 0 | View
+  - occurrence: `mh-egazette/1d232afa99a68717af659efeae804cd234f83f06828ae3c12731e02c4efaed73`
+  - blob: `watchdog-data/blobs/40/409575680799bb5f9d8c774b6c539aaed653f82dbf583e86b31a507ab37bc0ac.pdf` (`409575680799bb5f9d8c774b6c539aaed653f82dbf583e86b31a507ab37bc0ac`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2018-08-10 · mh-egazette-part8 · 55 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/08/10 | 2018/08/10 | Part VIII 126 (10-8-2018) Maharashtra Act No. LII OF 2018. | 0 | View
+  - occurrence: `mh-egazette/d66a60f0f2e2dafa4a268283d496816b85fa630af860f1f2d743881be62dc05f`
+  - blob: `watchdog-data/blobs/91/91da7721ee1e1c32990c9380a287c76f526ac26d92eb57b69727511168a95cbf.pdf` (`91da7721ee1e1c32990c9380a287c76f526ac26d92eb57b69727511168a95cbf`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2018-08-13 · mh-egazette-part8 · 49 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/08/13 | 2018/08/13 | Part VIII (Ext. 130) (13-8-2018) Maharashtra Act No. LVI of 2018. | 0 | View
+  - occurrence: `mh-egazette/4e0069c0600944468662175e60fd0a1f7006974302a92c669b1089bc99e3acad`
+  - blob: `watchdog-data/blobs/ef/efdbdaad561c5da52c378da9c840fc64299ddf2a309949b3d2b7fe2df0746e1e.pdf` (`efdbdaad561c5da52c378da9c840fc64299ddf2a309949b3d2b7fe2df0746e1e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2,3,4; valuation p.2,3,4; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2018-08-13 · mh-egazette-part8 · 50 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/08/13 | 2018/08/13 | Part VIII (Ext. 128) (13-8-2018) Maharashtra Act No. LIV of 2018. | 0 | View
+  - occurrence: `mh-egazette/e963960ab3ecb07e514c5d7259bba01f8de0244383439be7af5da0c62cb12239`
+  - blob: `watchdog-data/blobs/41/414cdd80ec818d30b882c256f1115d9cf244bed039dc0bc2bc1d22ebda06b9fa.pdf` (`414cdd80ec818d30b882c256f1115d9cf244bed039dc0bc2bc1d22ebda06b9fa`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5,6,7,8,9; commencement p.2,4,8; combined keyword pages: 1, 2, 3, 4, 5, 6, 7, 8, 9
+- [ ] 2018-08-20 · mh-egazette-part8 · 48 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/08/20 | 2018/08/20 | Part VIII (Ext. 133) (20-8-2018) Maharashtra Act No. LIX OF 2018 | 0 | View
+  - occurrence: `mh-egazette/095ac4b802901119029e5b179bbcfbc67c06acd5eff7aa90cfdc8ac23277b8b3`
+  - blob: `watchdog-data/blobs/8e/8e136959fe5b28d81b382a45171f75a4b74f518585f468fa812dec55793c4a8c.pdf` (`8e136959fe5b28d81b382a45171f75a4b74f518585f468fa812dec55793c4a8c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2018-10-04 · mh-egazette-part8 · 45 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/10/04 | 2018/10/04 | Part VIII (Ex. 136) (Oct. 4th 2018) Maharashtra Act No. LX of 2018 | 0 | View
+  - occurrence: `mh-egazette/5bca14082a7bd90afa2be1e942f44ea44c2369c07e8fe20fc47d3dee91f40cc8`
+  - blob: `watchdog-data/blobs/94/947e3a5d771c75d490fdb0a57df0c0eab33e28f20124c68a41495c03d71c2e9d.pdf` (`947e3a5d771c75d490fdb0a57df0c0eab33e28f20124c68a41495c03d71c2e9d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2018-10-25 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/10/25 | 2018/10/25 | Part-VIII Ext. 140 (25th October 2018) Further to amend the Marashtra Agricultural Produce Marketing (Development and Regulation) Act, 1963. | 0 | View
+  - occurrence: `mh-egazette/68d3041489dc526e8d2e879f5a6c262fb92a2da747031fe90234d4fa70385005`
+  - blob: `watchdog-data/blobs/10/100669794a7eb96bf8d5b32f6851ac9cb166ffa3a80be1141653a08a0ae425ee.pdf` (`100669794a7eb96bf8d5b32f6851ac9cb166ffa3a80be1141653a08a0ae425ee`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.9,10; amendment p.1,2,5,6,7,8,11,12,13; commencement p.1,5,6; combined keyword pages: 1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13
+- [ ] 2018-10-29 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/10/29 | 2018/10/29 | Part VIII (Ext. 141)(Oct. 29th 2018) Maha. Act No. LXI of 2018 (An Act further to amend the Code of Civil Procedure, 1908) | 0 | View
+  - occurrence: `mh-egazette/88c4ae9b591f4319844530f037af5c213bd29906e2df372489fc83f095299ddc`
+  - blob: `watchdog-data/blobs/aa/aa03c60bff818edf80e15a977502f4ea744b3fea9004480d2ef16e253472f2c1.pdf` (`aa03c60bff818edf80e15a977502f4ea744b3fea9004480d2ef16e253472f2c1`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2018-12-14 · mh-egazette-part8 · 13 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 170 (14th December 2018) Maharashtra Act No. LXIX of 2018 | 0 | View
+  - occurrence: `mh-egazette/3eaf635fd663a0ee18b18505362ebc3f7660ae08ae2498694530f57c11180e18`
+  - blob: `watchdog-data/blobs/9b/9bdce45ad4d353d15ab83386430780aea14c027797d89127c027e7f803698a71.pdf` (`9bdce45ad4d353d15ab83386430780aea14c027797d89127c027e7f803698a71`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2018-12-14 · mh-egazette-part8 · 15 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 167 (14th December 2018) Maharashtra Act No. LXVI of 2018 | 0 | View
+  - occurrence: `mh-egazette/6d049a23a5adec9bb6409655579c5f1bcc0c85a50564cf36833db96a0befe5c0`
+  - blob: `watchdog-data/blobs/30/304c7a43f5a4837a1ad1c89ef5852ac96a7280e1350a6c0e5af9677d4e3aed32.pdf` (`304c7a43f5a4837a1ad1c89ef5852ac96a7280e1350a6c0e5af9677d4e3aed32`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2018-12-14 · mh-egazette-part8 · 16 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 168 (14th December 2018) Maharashtra Act No. LXVII of 2018 | 0 | View
+  - occurrence: `mh-egazette/83ba9cf349f1309bc95c28839c1c2ef1f13200ee1546e33d8d695a9b46d874b3`
+  - blob: `watchdog-data/blobs/45/453fa335730c324acee91ac04ed8dad2922e7da1a52b998a9d379cd93cb6f92c.pdf` (`453fa335730c324acee91ac04ed8dad2922e7da1a52b998a9d379cd93cb6f92c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.5,6,7; concession_remission p.4; amendment p.1,2,3,4,5,6,7,8,9; commencement p.1,2; combined keyword pages: 1, 2, 3, 4, 5, 6, 7, 8, 9
+- [ ] 2018-12-14 · mh-egazette-part8 · 14 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 165 (14th December 2018) Maharashtra Act No. LXIV of 2018 | 0 | View
+  - occurrence: `mh-egazette/999cf72e5cd5af181b054aec9cc6bb4a9d10113ce89fc7448402a89c91126fbd`
+  - blob: `watchdog-data/blobs/39/39576ff6d359cf00d525a613b0337b50f7ce252b618e04c36ee378ba44459f94.pdf` (`39576ff6d359cf00d525a613b0337b50f7ce252b618e04c36ee378ba44459f94`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2018-12-14 · mh-egazette-part8 · 11 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 169 (14th December 2018) Maharashtra Act No. LXVIII of 2018 | 0 | View
+  - occurrence: `mh-egazette/c3ca93d24563534956dce2fc5853d7a1e4ea44862059b1d1df6644e28f1578e2`
+  - blob: `watchdog-data/blobs/4e/4eccc672cfa857fa3c07e1a8c847d6d9dc02a738142e0ec14cdf58aad41584bc.pdf` (`4eccc672cfa857fa3c07e1a8c847d6d9dc02a738142e0ec14cdf58aad41584bc`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2018-12-14 · mh-egazette-part8 · 10 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 166 (14th December 2018) Maharashtra Act No. LXV of 2018 | 0 | View
+  - occurrence: `mh-egazette/d3d6662d8fd2fc7a15f88dab028cdc2cd6d2df36c901e617bc19328f31cafc54`
+  - blob: `watchdog-data/blobs/aa/aa8389d4816af9130a108008b6db0e68a5d8c7d8ad157c77ed2d2b290602cac4.pdf` (`aa8389d4816af9130a108008b6db0e68a5d8c7d8ad157c77ed2d2b290602cac4`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2,3,4; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2018-12-14 · mh-egazette-part8 · 12 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/14 | 2018/12/14 | Part VIII Extra No. 171 (15th December 2018) Maharashtra Act No. LXX of 2018 | 0 | View
+  - occurrence: `mh-egazette/d70d914894e43ff90a68742724aac5a00efc9141d0604359fb0d175608600c3b`
+  - blob: `watchdog-data/blobs/ea/ea451fb33a78281b9af2c6e5c2f4c360923df369f29b9ba3f834ca71d8393e09.pdf` (`ea451fb33a78281b9af2c6e5c2f4c360923df369f29b9ba3f834ca71d8393e09`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2018-12-15 · mh-egazette-part8 · 9 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/15 | 2018/12/15 | Part VIII, Extra No. 173 (Dated 15th December 2018) An Act to amend the Code of Civil Procedure (Maha. Amendment Act, 2018). | 0 | View
+  - occurrence: `mh-egazette/48c2aaabb6da4332e106e52839a299e7f945c931fefc058ec5dbbfe349186661`
+  - blob: `watchdog-data/blobs/79/7988f79f16268b26410f72ee8fa2969fee93fd26befde41e6bfc9d6d188d69dc.pdf` (`7988f79f16268b26410f72ee8fa2969fee93fd26befde41e6bfc9d6d188d69dc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2018-12-15 · mh-egazette-part8 · 8 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/15 | 2018/12/15 | Part VIII (Ext. 172) Dt. 15-12-2018 Maharashtra Act No. LXXI OF 2018. | 0 | View
+  - occurrence: `mh-egazette/f854b722556525ed76632ae8bcb600a1170451900f5267e1fda885ac987c454a`
+  - blob: `watchdog-data/blobs/ef/efea4c206d51b8e798d0ccfda65842d143b44f21545d8016f197c11d275be602.pdf` (`efea4c206d51b8e798d0ccfda65842d143b44f21545d8016f197c11d275be602`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; valuation p.2; amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2018-12-17 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/17 | 2018/12/17 | Part VIII Ex. 175 (17-12-2018) Maharashtra Act No. LXXVII OF 2018. | 0 | View
+  - occurrence: `mh-egazette/126067e019b9798956eb9df9863a1fe41d1206cb4b935b450532d75e226ab9e4`
+  - blob: `watchdog-data/blobs/0d/0ddf2c911356b28d7dbd1e8d4eeba7e33f06f01d8a21a280b327aafacc24ffbd.pdf` (`0ddf2c911356b28d7dbd1e8d4eeba7e33f06f01d8a21a280b327aafacc24ffbd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2018-12-17 · mh-egazette-part8 · 7 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/17 | 2018/12/17 | Part VIII Ext. 177 (17-12-2018) Maharashtra Act No. LXXIII OF 2018. | 0 | View
+  - occurrence: `mh-egazette/16c6ebbe4cbc2d913850af451ecb2d6e3ca9d90de742d2e95a7da9de25ebff81`
+  - blob: `watchdog-data/blobs/64/645991ef1473ed5a7455ca37dc818f215521a5cb8f42aec090719d5875f7f2e5.pdf` (`645991ef1473ed5a7455ca37dc818f215521a5cb8f42aec090719d5875f7f2e5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; surcharge_cess p.2; amendment p.1; combined keyword pages: 1, 2
+- [ ] 2018-12-17 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/17 | 2018/12/17 | Part VIII Extra 174 (17-12-2018) Maharashtra Act No. LXXVI OF 2018. | 0 | View
+  - occurrence: `mh-egazette/81df912f103e6fa8c4ab51eacbeb766caf89adf304da629fd6ee8eb4d9876428`
+  - blob: `watchdog-data/blobs/f5/f5bd989b8ca755c8b159483b9cde2ec6a04face7e7e522592d3a4189e8519434.pdf` (`f5bd989b8ca755c8b159483b9cde2ec6a04face7e7e522592d3a4189e8519434`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4,5,6; amendment p.1,2,3,4,6,7; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2018-12-17 · mh-egazette-part8 · 4 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/17 | 2018/12/17 | Part VIII Ex. 178 (17-12-2018) Maharashtra Act No. LXXV OF 2018. | 0 | View
+  - occurrence: `mh-egazette/c06960760e1d6787db00e4e15dcb5763027a6fef394ca4420c4d7836e08e764f`
+  - blob: `watchdog-data/blobs/3c/3cc3e593dc84b4dd25bda7d3efbee69902fa088f9c4b1ab21c4464d84f02418e.pdf` (`3cc3e593dc84b4dd25bda7d3efbee69902fa088f9c4b1ab21c4464d84f02418e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2018-12-17 · mh-egazette-part8 · 6 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/17 | 2018/12/17 | Part VIII (Ext.-176)(Dec. 17th 2018) (Maha. Act. No. LXXIV of 2018) | 0 | View
+  - occurrence: `mh-egazette/d19c6b2da4c92f48ad814e752a9d79fb2d48e85d8ec81ba6d378391fee691f36`
+  - blob: `watchdog-data/blobs/60/603151a184fb8b814fe545b2adaa506f5052acd5a18d2ec9d851c3efa57c5f4a.pdf` (`603151a184fb8b814fe545b2adaa506f5052acd5a18d2ec9d851c3efa57c5f4a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2018-12-18 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/18 | 2018/12/18 | Part VIII (Ex. 179) (Dec. 18th 2018)(Maha. Act No. LXXVIII of 2018) | 0 | View
+  - occurrence: `mh-egazette/7d7d39a39bd27c684ba51584f68b0699c6ec9893a0d4f57e3be014181ea9da20`
+  - blob: `watchdog-data/blobs/de/de6441bd159e0d3f6634882a2c8d1bd62f934af3a53b0cfdb0d12c47df8149b9.pdf` (`de6441bd159e0d3f6634882a2c8d1bd62f934af3a53b0cfdb0d12c47df8149b9`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+- [ ] 2018-12-24 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2018/12/24 | 2018/12/24 | Part VIII Extra No. 180 (24th December 2018) Maharashtra Act No. LXXIX of 2018 | 0 | View
+  - occurrence: `mh-egazette/e3e63609ebdd907ba23e18abfce4fe9e17462f27b59da44b656092d8e6ca4a48`
+  - blob: `watchdog-data/blobs/d6/d6480dc35e0e79fecb90e459e62ef1d2dcc572bb69c37f20c02ab406da455ead.pdf` (`d6480dc35e0e79fecb90e459e62ef1d2dcc572bb69c37f20c02ab406da455ead`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; concession_remission p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-02-13 · mh-egazette-part8 · 105 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/02/13 | 2019/02/13 | Part VIII Extra 1 (13-2-2019), Revenue Forest Department, Maharashtra Stamp Act, Ordinance No. 1. | 0 | View
+  - occurrence: `mh-egazette/0c154ec82eb45ccfd8493c47823a1f68eafd898b7fac6ec100393f29a4f5cb35`
+  - blob: `watchdog-data/blobs/8b/8bba8962ea78ab3eb9ec8a52d2fcde591ebc79032d7bc389c4fae565efb195f9.pdf` (`8bba8962ea78ab3eb9ec8a52d2fcde591ebc79032d7bc389c4fae565efb195f9`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; concession_remission p.2,3; amendment p.1,2,3; commencement p.1; combined keyword pages: 1, 2, 3
+- [ ] 2019-02-18 · mh-egazette-part8 · 103 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/02/18 | 2019/02/18 | Part VIII Ext. 3,Finance Department Mah. Ordinance N. III of 2019. Further to amend the Mah. Contin. Fund Act | 0 | View
+  - occurrence: `mh-egazette/bf4fa26c1cdcd8bb4c774a12a124bbbf147e593a25e0b9d4958cc60c41dae674`
+  - blob: `watchdog-data/blobs/60/605c75f026a6ba554c44a4409b6aa6d405290f08b9ba97ba2a1f113a46ac1a1a.pdf` (`605c75f026a6ba554c44a4409b6aa6d405290f08b9ba97ba2a1f113a46ac1a1a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,4; commencement p.2; combined keyword pages: 1, 2, 4
+- [ ] 2019-03-05 · mh-egazette-part8 · 94 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/05 | 2019/03/05 | Part VIII Ex. 14 (5-3-2019), HIGHER AND TECHNICAL EDUCATION DEPARTMENT, MAHARASHTRA ORDINANCE No. IV OF 2019 AN ORDINANCE further to amend the Maharashtra Public Universities Act, 2016. | 0 | View
+  - occurrence: `mh-egazette/e24fd6f902bd67fc4f4f4b307e534bee2f7a9e1e81a33155b049dc582d0e1af7`
+  - blob: `watchdog-data/blobs/11/11ef4c0e77021e5a198393367f5f8186ebe22031aad349f41a4ab323ebba5822.pdf` (`11ef4c0e77021e5a198393367f5f8186ebe22031aad349f41a4ab323ebba5822`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-03-06 · mh-egazette-part8 · 92 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/06 | 2019/03/06 | Part VIII Ext No. 16 (6th March 2019), Amendment, Maharashtra Value Added Tax Act and Profession Tax Act, Ordinance, 2019. | 0 | View
+  - occurrence: `mh-egazette/e3a3910bcc88bf4019aef49ca86309f59a01415abcab556b7b47b2559c2de96f`
+  - blob: `watchdog-data/blobs/70/70cfa1a4e99c9b2390bbffad77bdbb716dceb90763a06a7c5299de8e598909fc.pdf` (`70cfa1a4e99c9b2390bbffad77bdbb716dceb90763a06a7c5299de8e598909fc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.4; amendment p.1,2,3,4; commencement p.1,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2019-03-08 · mh-egazette-part8 · 90 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/08 | 2019/03/08 | (1) Part VIII Ext. 18 : Maharashtra Act No. I of 2019, Maharashtra (Supplementary) Appropriation Act, 2019. | 0 | View
+  - occurrence: `mh-egazette/3d63e621e73aba0f7e9b07489ba43b6f17e9d8edc54d806387eaead501e77dd3`
+  - blob: `watchdog-data/blobs/a8/a8dabd7b0ba28754699a72c15c03f221b87ca092a5241951b04e203663575e32.pdf` (`a8dabd7b0ba28754699a72c15c03f221b87ca092a5241951b04e203663575e32`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.6; combined keyword pages: 3, 6
+- [ ] 2019-03-08 · mh-egazette-part8 · 89 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/08 | 2019/03/08 | Part VIII Ext. No. 19 (8th March 2019) Maharashtra Act No. II of 2019 An Act to provide for the withdrawal of certain sums from and out of the Consolidated Fund of the State for the services and purposes of a part of the Financial Year 2019-2020 | 0 | View
+  - occurrence: `mh-egazette/6983a3cc28dc186d398e289096082d41626788f8edece0d5e263690c4d14ca4c`
+  - blob: `watchdog-data/blobs/ac/ac7af3c3bea0c3b763bc59901f162f20c2609817aab29e6a235d3d8ec9e8ed0e.pdf` (`ac7af3c3bea0c3b763bc59901f162f20c2609817aab29e6a235d3d8ec9e8ed0e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; combined keyword pages: 4
+- [ ] 2019-03-08 · mh-egazette-part8 · 91 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/08 | 2019/03/08 | Part VIII Extra No. 17 (8 March 2019) : Revenue and Forests Department, Maharashtra Ordinance No. VII of 2019 (futher to amend the Maharashtra Stamp Act) | 0 | View
+  - occurrence: `mh-egazette/b7a53a2aef60c10abd44175724a5ab65e89b78805e99bbfd6b08426694096ca4`
+  - blob: `watchdog-data/blobs/07/07a887a247aeab1454ad0abb9c20cec22106b9b53bcf2280f2308569f41d4499.pdf` (`07a887a247aeab1454ad0abb9c20cec22106b9b53bcf2280f2308569f41d4499`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3,4; concession_remission p.2,3,4; amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2019-03-09 · mh-egazette-part8 · 88 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/09 | 2019/03/09 | Part VIII Ext. No. 22 (9th March 2019) Maharashtra Ordinance No. X of 2019 further to amend the Maharashtra Co=operative Societies Act, 1960 | 0 | View
+  - occurrence: `mh-egazette/1b3d5485c48f333dd831302c537115ec8fdb1a2936b6b255f9bce9ec82e60108`
+  - blob: `watchdog-data/blobs/e4/e4aee0ef1a35afe32841f1b4adaa8694903c7d01b41c81b4d484eda7f7aea4e1.pdf` (`e4aee0ef1a35afe32841f1b4adaa8694903c7d01b41c81b4d484eda7f7aea4e1`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,3,4; amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2019-03-09 · mh-egazette-part8 · 86 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/09 | 2019/03/09 | Part VIII Ext. No. 20 (9th March 2019) Maharashtra Ordinance No. VIII of 2019 to amend the Maharashtra Metropolitan Region Development Authority Act, 2016 | 0 | View
+  - occurrence: `mh-egazette/417844c7fb07eb41adfe136a5ae5b392039c0c765a884b72a187e18f74082584`
+  - blob: `watchdog-data/blobs/d0/d03fa3f9bb7d0073570a2e8e583b62016d2d33880da795214afb6dd09aa95802.pdf` (`d03fa3f9bb7d0073570a2e8e583b62016d2d33880da795214afb6dd09aa95802`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-03-09 · mh-egazette-part8 · 87 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/09 | 2019/03/09 | Part VIII Ext. No. 21 (9th March 2019) Maharashtra Ordinance No. IX of 2019 further to amend the Maharashtra Co-operative Societies Act, 1960 | 0 | View
+  - occurrence: `mh-egazette/7a0eaada9db5bcbde0cd29435016cf101e74f4fd56e553dfc2ec6dc69116ad6a`
+  - blob: `watchdog-data/blobs/32/321f96ca7de22656f1527a4d165ee9d05ed929f60652fcc4922ed46cf7c7dff7.pdf` (`321f96ca7de22656f1527a4d165ee9d05ed929f60652fcc4922ed46cf7c7dff7`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4,5,6,7,8,10,12,13,14,15; amendment p.1,2,6,7,8,11,12,15,16,17; commencement p.1,6,7,8,11,12,15; combined keyword pages: 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17
+- [ ] 2019-03-10 · mh-egazette-part8 · 85 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/03/10 | 2019/03/10 | Part VIII Extra No. 24 (10th March 2019),HIGHER AND TECHNICAL EDUCATION DEPARTMENT,MAHARASHTRA ORDINANCE No. XII OF 2019. amend the Spicer Adventist University Act, 2014. | 0 | View
+  - occurrence: `mh-egazette/4d85bb5c9a39fcfd40af94bce9d1c43d25792351c8f9142ee6814dd3e08af4af`
+  - blob: `watchdog-data/blobs/8f/8f199b08c17a4ff51e1150472ae67e8eaae9952efb69639b3960467c5b5fd1e9.pdf` (`8f199b08c17a4ff51e1150472ae67e8eaae9952efb69639b3960467c5b5fd1e9`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-05-20 · mh-egazette-part8 · 83 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/05/20 | 2019/05/20 | Part VIII Extra No. 25 (20th May 2019) MAHARASHTRA ORDINANCE No. XIII OF 2019. To amend the Maharashtra State Reservation for Socially and Educationally Backward Classes (SEBC) Act, 2018. | 0 | View
+  - occurrence: `mh-egazette/e042d804adee11bcb733abda3f471edd2b65239dc11372a108cfcdb6869c8eed`
+  - blob: `watchdog-data/blobs/ca/ca1e15a36c8e185484c6f12cb8e726742af0cc2590ec7959fbf4a63ef5a820ee.pdf` (`ca1e15a36c8e185484c6f12cb8e726742af0cc2590ec7959fbf4a63ef5a820ee`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,5,6; commencement p.2,4; combined keyword pages: 1, 2, 4, 5, 6
+- [ ] 2019-06-25 · mh-egazette-part8 · 65 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/06/25 | 2019/06/25 | Part VIII Ext. 40 (24-6-2019), Maharashtra Act No. III of 2019, An Act to amend the Maharashtra State Reservation........ for Socially and Educationally Backward Classes (SEBC) Act, 2018. | 0 | View
+  - occurrence: `mh-egazette/2c415a086ff5dc537963f7dded01ddb8d58a1a00a3787c7e8243ffbbdc7a0d02`
+  - blob: `watchdog-data/blobs/4d/4d064c2ddbc832fbe4bd4f8ea2108633af1b13bbd5d74fd36db244bc7df530d0.pdf` (`4d064c2ddbc832fbe4bd4f8ea2108633af1b13bbd5d74fd36db244bc7df530d0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-06-29 · mh-egazette-part8 · 59 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/06/29 | 2019/06/29 | Part VIII (Ext. 50) (1-7-2019), Maharashtra Act No. V of 2019, (First published, after having received the assent of the Governor in the "Maharashtra Government Gazette", on the 29th June 2019.) | 0 | View
+  - occurrence: `mh-egazette/1c1c2f86ac0baa9fa569e9c5a1f179b8de2a3396d8883b6bc78c94d56ecdf2b9`
+  - blob: `watchdog-data/blobs/be/be1ec4972aa317001dd6dfcefa855b3ab1a4e750fc70f94a3d86293624349a6a.pdf` (`be1ec4972aa317001dd6dfcefa855b3ab1a4e750fc70f94a3d86293624349a6a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 2, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2019-06-29 · mh-egazette-part8 · 58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/06/29 | 2019/06/29 | Part VIII (Ext. 51) (1-7-2019), MAHARASHTRA ACT NO. VI OF 2019.(First published, after having received the assent of the Governor in the“Maharashtra Government Gazette”, on the 29th June 2019.) | 0 | View
+  - occurrence: `mh-egazette/521d8a000a01b2f6c214063c179c3ad25e177b64afbd7b3456765148aea8fa78`
+  - blob: `watchdog-data/blobs/7e/7e3d8321497ca9f544daaa61e5848b948735e2d28f45a38dfd1c8aa7cf69d025.pdf` (`7e3d8321497ca9f544daaa61e5848b948735e2d28f45a38dfd1c8aa7cf69d025`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2019-06-29 · mh-egazette-part8 · 57 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/06/29 | 2019/06/29 | Part VIII (Ex. 49)(June 29th 2019)(Maha.Act. No. IV of 2019) | 0 | View
+  - occurrence: `mh-egazette/ddda0d3d25caee919a4821490c53513aa1a7aad9ac9f3e37d97c2b9845e8a75d`
+  - blob: `watchdog-data/blobs/94/94b294deba716a7bac956d99bd493fe8eb394d3ce01c79f481d686c4ccf024c3.pdf` (`94b294deba716a7bac956d99bd493fe8eb394d3ce01c79f481d686c4ccf024c3`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2019-07-03 · mh-egazette-part8 · 54 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/03 | 2019/07/03 | Part VIII Extra No. 54 (3rd July 2019) Maharashtra Act No. VII of 2019, An Act further to amend the Maharashtra State Reservation of the Governor ............ for Socially and Educationally Backward Classes (SEBC) Act, 2018 | 0 | View
+  - occurrence: `mh-egazette/f85fe0eafc819f0cc5b88d29c15d54eaa2f30e6d0ab4313843533c0d0d56adaf`
+  - blob: `watchdog-data/blobs/b0/b08eca2b1f5b545c11147e54077b1dd4060095b1635e56d26b2ee68784941cb3.pdf` (`b08eca2b1f5b545c11147e54077b1dd4060095b1635e56d26b2ee68784941cb3`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-07-04 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/04 | 2019/07/04 | Part VIII Extra No. 55 (4th July 2019) Maharashtra Act No. VIII of 2019. | 0 | View
+  - occurrence: `mh-egazette/897acc91220bed2fd161bbd5bb80b8cedc0d7196d1e6a5684e25b5b0e0a231b7`
+  - blob: `watchdog-data/blobs/a1/a15a1d5a7510ab25ae19471da8b3dbf3c3fdc37d9ef21710bd3f33245dca57bc.pdf` (`a15a1d5a7510ab25ae19471da8b3dbf3c3fdc37d9ef21710bd3f33245dca57bc`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2019-07-08 · mh-egazette-part8 · 51 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/08 | 2019/07/08 | Part VIII Extra No. 57 (8th July 2019) Maharashtra Act No. X of 2019 An Act further to amend the Maharashtra Public Universities Act, 2016. | 0 | View
+  - occurrence: `mh-egazette/5bf6c9a9f13c60e792ffecf8aa1e983e580102eb62afbc1656d9e5f2f96a1ded`
+  - blob: `watchdog-data/blobs/2e/2ef4f66c8e2c8386d15799daf77c1d2108f70abce1481664a6c758b20fc03c57.pdf` (`2ef4f66c8e2c8386d15799daf77c1d2108f70abce1481664a6c758b20fc03c57`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-07-08 · mh-egazette-part8 · 49 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/08 | 2019/07/08 | Part VIII Extra No. 56 (8th July 2019) Maharashtra Act No. IX of 2019, An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund.............year ending on the thirty-first day of March 2020. | 0 | View
+  - occurrence: `mh-egazette/6524975404992e067df98cb74489eb5ad8644d66fe0ef033609eb34417d9705f`
+  - blob: `watchdog-data/blobs/66/66ee75ea5a687e8797ceb8458764b9066fb0feff7e6332739724710884a391a3.pdf` (`66ee75ea5a687e8797ceb8458764b9066fb0feff7e6332739724710884a391a3`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2019-07-08 · mh-egazette-part8 · 50 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/08 | 2019/07/08 | Part VIII Ext. No. 58 (July 8th 2019) Maharashtra Act No. XI of 2019 | 0 | View
+  - occurrence: `mh-egazette/693047c2f3dbe7b1811da5a288fb4de72ee2e4d3bb5b54cc56c3dcbf40ff9295`
+  - blob: `watchdog-data/blobs/94/94668921fbe9b2aa21292ff920bb290c61ae07c71cfd3450064e63da5f25437e.pdf` (`94668921fbe9b2aa21292ff920bb290c61ae07c71cfd3450064e63da5f25437e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,5,6; commencement p.2,5; combined keyword pages: 1, 2, 3, 5, 6
+- [ ] 2019-07-08 · mh-egazette-part8 · 48 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/08 | 2019/07/08 | Part VIII Extra No. 59 (8th July 2019) Maharashtra Act No. XII of 2019, An Act to provide for establishment, incorporation and requlation of Sri Balaji University, Pune. | 0 | View
+  - occurrence: `mh-egazette/84d6a5fd7ccab7ae518d8e824ef7b2201d2ea79dd30c09d396fd2456361063e5`
+  - blob: `watchdog-data/blobs/9b/9bdcee5dd59d70c178a9387a833be356e601692ef6d570ff5d2083c319e7f6f6.pdf` (`9bdcee5dd59d70c178a9387a833be356e601692ef6d570ff5d2083c319e7f6f6`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 2, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2019-07-08 · mh-egazette-part8 · 52 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/08 | 2019/07/08 | Part VIII Extra No. 60 (8th July 2019) Maharashtra Act No. XIII of 2019, An Act to provide for etablishment, incorporation and requlation of the Ramdeobaba University, Nagpur | 0 | View
+  - occurrence: `mh-egazette/e22fe5b501f51f8d7ef4eed773655d0f60cd8fa53d49315a85afbf1f99ebeebc`
+  - blob: `watchdog-data/blobs/12/129c2b21ffa3aa97004ec2cff69623deea08e5494b1c5ea308292ad8ea29485d.pdf` (`129c2b21ffa3aa97004ec2cff69623deea08e5494b1c5ea308292ad8ea29485d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,18,20; combined keyword pages: 1, 7, 9, 10, 12, 13, 14, 15, 18, 20
+- [ ] 2019-07-09 · mh-egazette-part8 · 47 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/09 | 2019/07/09 | Part VIII (Ex. 63)(July 9th 2019) (Maha. Act No. XVI of 2019) | 0 | View
+  - occurrence: `mh-egazette/0c2d1d4cb8fbdbf79add850a4ecf0b157ce77e206a2bdfd0fcb3c422051ff1db`
+  - blob: `watchdog-data/blobs/63/63ce06998cb1482b587f3bfe7ad1ac270a98c484f6fbc2c56c8db701d554e1e9.pdf` (`63ce06998cb1482b587f3bfe7ad1ac270a98c484f6fbc2c56c8db701d554e1e9`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,3; commencement p.1; combined keyword pages: 1, 2, 3
+- [ ] 2019-07-09 · mh-egazette-part8 · 46 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/09 | 2019/07/09 | Part VIII (Ex. 62)(July 9th 2019) (Maha. Act No. XV of 2019) | 0 | View
+  - occurrence: `mh-egazette/3624b49f156682d2a59929c2ff9cfb15a68f8f8ad208131c4931607a198b7095`
+  - blob: `watchdog-data/blobs/e5/e5ce31ac03fdceb96eaaba07a53633503a421bb63c7fadaa6991ea4a319dfe25.pdf` (`e5ce31ac03fdceb96eaaba07a53633503a421bb63c7fadaa6991ea4a319dfe25`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.5,6,7,8,11,12; commencement p.2,5,10; combined keyword pages: 2, 5, 6, 7, 8, 10, 11, 12
+- [ ] 2019-07-09 · mh-egazette-part8 · 45 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/09 | 2019/07/09 | Part VIII (Ex. 61)(July 9th 2019) (Maha. Act No. XIV of 2019) | 0 | View
+  - occurrence: `mh-egazette/ee57b3410ca9f2b2ed41337e9ea671a0ce1a9c6eee8a7e6018fc0b8023ddb33a`
+  - blob: `watchdog-data/blobs/3c/3c815cf267a0665e18926daabd765e28e40208c6a72647cc7a55a3b99cf96302.pdf` (`3c815cf267a0665e18926daabd765e28e40208c6a72647cc7a55a3b99cf96302`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.1; combined keyword pages: 1, 2, 3, 4
+- [ ] 2019-07-17 · mh-egazette-part8 · 44 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/17 | 2019/07/17 | Part VIII (Ex. 64)(Maha. Act No. XVII of 2019) | 0 | View
+  - occurrence: `mh-egazette/4d4b68be8f3d445aefd28706889deba1d7e2f2c475437cddb2c8d39f5a953dfb`
+  - blob: `watchdog-data/blobs/77/775d833dff1ab1466524aa1ff74d67781e08807515409245e7854987056fc265.pdf` (`775d833dff1ab1466524aa1ff74d67781e08807515409245e7854987056fc265`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 37 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 68 (23rd July 2019) Maharashtra Act No. XXI of 2019, An Act further to amend the Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/0be6a0832e1bb0501ecd9896d9139266058c3b9f2e3d0d511557dc80d637bf7b`
+  - blob: `watchdog-data/blobs/c8/c87ee26797fc298726c1fc0f198e0a6bd71acd869730700bda19c6704a6899a0.pdf` (`c87ee26797fc298726c1fc0f198e0a6bd71acd869730700bda19c6704a6899a0`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; concession_remission p.2,3; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-07-23 · mh-egazette-part8 · 43 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 74 (23rd July 2019) Maharashtra Act No. XXVII of 2019, An Act further to amend the Maharashtra Industrial Development Act, 1961. | 0 | View
+  - occurrence: `mh-egazette/264074579320781d5abb7042d1324bca293583151c5ab9f35011da0f84503485`
+  - blob: `watchdog-data/blobs/90/903f5e5f695fde6e04bab8f9f8ef1045be9f6f41f5e789549bcd30fdd5ea0f36.pdf` (`903f5e5f695fde6e04bab8f9f8ef1045be9f6f41f5e789549bcd30fdd5ea0f36`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2019-07-23 · mh-egazette-part8 · 38 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 69 (23rd July 2019) Maharashtra Act No. XXII of 2019, An Act to amend the Spicer Adventist University Act, 2014. | 0 | View
+  - occurrence: `mh-egazette/29b376d31319cba8f883a6de744c1c4124d7d75bd379a8e9f42aa5d95463a7f2`
+  - blob: `watchdog-data/blobs/f1/f1612d1aca59019ac39b65a37132437694d9c8db27853058a5ce83acaf9cd714.pdf` (`f1612d1aca59019ac39b65a37132437694d9c8db27853058a5ce83acaf9cd714`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 71 (23rd July 2019) Maharashtra Act No. XXIV of 2019, An Act further to amend the Mumbai Municipal Corporatio Act. | 0 | View
+  - occurrence: `mh-egazette/32d02c2d00a9a9daaf5ecfa45d30b9ce03508626581e08be62b2593205a1aa50`
+  - blob: `watchdog-data/blobs/6d/6d829495ca441dbc62c72d55a8294fbdb65893583cba80a39bbd8fa94118b9e9.pdf` (`6d829495ca441dbc62c72d55a8294fbdb65893583cba80a39bbd8fa94118b9e9`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 42 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 73 (23rd July 2019) Maharashtra Act No. XXVI of 2019, An Act to provide for establishement, incorporation and regulation of the MGM University, Aurangabad | 0 | View
+  - occurrence: `mh-egazette/5a8a5fe5b21bf418b3f0c0b24e9c71aa73f672cd3fd31d138665588e60cc60c3`
+  - blob: `watchdog-data/blobs/37/3781de3e27c3ef40530c376f032638e287212f1fd8cf8a44a566b68f42c7946b.pdf` (`3781de3e27c3ef40530c376f032638e287212f1fd8cf8a44a566b68f42c7946b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 2, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2019-07-23 · mh-egazette-part8 · 35 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 66 (23rd July 2019) Maharashtra Act No. XIX of 2019, An Act further to amend the Maharashtra Agricultural Lands (Ceiling on Holdings) Act, 1961 | 0 | View
+  - occurrence: `mh-egazette/6983b33cfe34d996f0878e5f7ee2d4f3b6e207cbd0727a341752628f0948b1b5`
+  - blob: `watchdog-data/blobs/9c/9ca3cd996631efa5eddf9d9f2beae9a30b251f4ebc088b1c79bf80b33a22fa56.pdf` (`9ca3cd996631efa5eddf9d9f2beae9a30b251f4ebc088b1c79bf80b33a22fa56`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 39 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 70 (23rd July 2019) Maharashtra Act No. XXIII of 2019, An Act further to amend the Maharashtra Co-operative Soceities Act, 1960. | 0 | View
+  - occurrence: `mh-egazette/6e96766eee9818fc0618ccc57ea6402132110ad19226025e5d0fc6a1a90497f6`
+  - blob: `watchdog-data/blobs/ef/ef76fc139c2ae9b3b3a2a8a8a7c395910c608f3de6e8ae6af7660cd8a30575d0.pdf` (`ef76fc139c2ae9b3b3a2a8a8a7c395910c608f3de6e8ae6af7660cd8a30575d0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4,5,6,7,8,10,12,13,14,15; amendment p.1,2,6,7,8,11,12,15; commencement p.1,6,7,8,11,12,15; combined keyword pages: 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15
+- [ ] 2019-07-23 · mh-egazette-part8 · 34 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 65, Maharashtra Act No. XVIII of 2019, An Act further to amend the Mumbai Municipal Corporatio Act and the Maharashtra Municipal Corporations Act. | 0 | View
+  - occurrence: `mh-egazette/8ae039e45a750e8be87b1a0e3aa9bed81e493cee5d9dd26fba82ef53e63690ac`
+  - blob: `watchdog-data/blobs/1a/1af1910d6af9ad8369b875d81fba5ba1e37487358b2307dadbd7242d8e746372.pdf` (`1af1910d6af9ad8369b875d81fba5ba1e37487358b2307dadbd7242d8e746372`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 36 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 67 (23rd July 2019) Maharashtra Act No. XX of 2019, An Act further to amend the Maharashtra Increase Land Revenue and Special Assessement Act, 1974 | 0 | View
+  - occurrence: `mh-egazette/ef4d0df89f0313ae13a4477012ff2a7b3125c3041ae1273119489a26e250ebed`
+  - blob: `watchdog-data/blobs/01/01809224ee43cf1a38154df6e56e53d4f9791dd30d803282708f40e6d1a00df7.pdf` (`01809224ee43cf1a38154df6e56e53d4f9791dd30d803282708f40e6d1a00df7`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-07-23 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/07/23 | 2019/07/23 | Part VIII Ext. No. 72 (23rd July 2019) Maharashtra Act No. XXV of 2019, An Act further to amend the Pandharpur Temples Act, 1973. | 0 | View
+  - occurrence: `mh-egazette/f1c73a557a25fc41b0eb08af6fe816e14b38db5103658d681816a2e5234f1ddd`
+  - blob: `watchdog-data/blobs/51/5134ffe6f49272c20e1d9a8c1ceff5fff9ff9350534217db733febf3e2b483d9.pdf` (`5134ffe6f49272c20e1d9a8c1ceff5fff9ff9350534217db733febf3e2b483d9`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2019-08-22 · mh-egazette-part8 · 28 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/08/22 | 2019/08/22 | Part VIII Extra No. 81 (22-08-2019) Urban Development Department, Maharashtra Ordinance No. XX of 2019, further to amend the Mumbai Municipal Corporation Act, the Maharashtra Municipal Corporation Act and the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/53602398414f1472ec47907a627ee123e5151b1a9798e03aa074072333cfefc2`
+  - blob: `watchdog-data/blobs/05/0503a8123c0573da2f48ba3408530f69c2c4c23587e40d07c994d5e6f56719cc.pdf` (`0503a8123c0573da2f48ba3408530f69c2c4c23587e40d07c994d5e6f56719cc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2019-08-26 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/08/26 | 2019/08/26 | Part VIII Extra No. 84 (26th August 2019) Maharashtra Act No. XXVIII of 2019, An Act t amend the Maharashtra Educational Institutions (Regulation of Fee) Act, 2011 | 0 | View
+  - occurrence: `mh-egazette/4bbcddfbfcc42fa220f21952c444ed72edd41e7c3e4d62dd07d63052eff390e9`
+  - blob: `watchdog-data/blobs/4b/4b7fb12a751bbde3f590b6153a61cf4810fac2dc074101fb5382d99944134daa.pdf` (`4b7fb12a751bbde3f590b6153a61cf4810fac2dc074101fb5382d99944134daa`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.4; concession_remission p.2; amendment p.1,2,3,4,5; commencement p.3; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2019-09-18 · mh-egazette-part8 · 20 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/09/18 | 2019/09/18 | Part VIII Extra No. 88 (18-09-2019) Home Department, Maharashtra Ordinance No. XXV of 2019, Further to amend the Maharashtra Prohibition Act. | 0 | View
+  - occurrence: `mh-egazette/78e7295d43acce268eae15e333b6773374a9b4e4d0a8ceee42da9409a7648992`
+  - blob: `watchdog-data/blobs/4d/4db6ac899743e401cfdaf59b8ad1e9be5d5a44a7d4a3ec8d6a600e5b9809839b.pdf` (`4db6ac899743e401cfdaf59b8ad1e9be5d5a44a7d4a3ec8d6a600e5b9809839b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5,6; commencement p.1; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2019-09-20 · mh-egazette-part8 · 19 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/09/20 | 2019/09/20 | Part VIII Extra No. 89 (20-09-2019) Rural Development Department, Maharashtra Ordinance No. XXVI of 2019, Further to amend the Mah. Viilage Panchayat Act .............. and Panchayat Samitis Act, 1961. | 0 | View
+  - occurrence: `mh-egazette/1c2536f88ec7403a54c269c65364de3225ad2fecff879d71325ecc76a543bbeb`
+  - blob: `watchdog-data/blobs/3b/3be166d6454fbfe342bd6f9a4c81b22987b9f10683310bd403eac25008fe0fbb.pdf` (`3be166d6454fbfe342bd6f9a4c81b22987b9f10683310bd403eac25008fe0fbb`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,5; commencement p.2; combined keyword pages: 1, 2, 3, 5
+- [ ] 2019-11-08 · mh-egazette-part8 · 18 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/11/08 | 2019/11/08 | Part VIII Ext. 90 (8th November 2019) Maharashtra Act No. XXIX of 2019 | 0 | View
+  - occurrence: `mh-egazette/ba204e141ec49b23ccf0b7d73456f8cfc2d1e2a45b610754ed686fe4570bde0a`
+  - blob: `watchdog-data/blobs/4c/4c07047db8249e5c99343bf9fc05c122fab654b8e3eb893ed60bf2bb8b48ebe7.pdf` (`4c07047db8249e5c99343bf9fc05c122fab654b8e3eb893ed60bf2bb8b48ebe7`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2019-12-12 · mh-egazette-part8 · 16 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/12 | 2019/12/12 | Part VIII (Ex. 92) (Dated the 12th December 2019) (Finance Departmnent) (Maharashtra Ordinance No. XXVII of 2019) (Further to amend the Maharashtra Contingency Fund Act). | 0 | View
+  - occurrence: `mh-egazette/41fdb6ae1fd2ed9f225af3d96f6aba71431663cf18f5bfe87b3ba78d1fe95adf`
+  - blob: `watchdog-data/blobs/f8/f83662ca860ad2b406a010e9f65aea52f8d536158f45a2833d050713828a7b5d.pdf` (`f83662ca860ad2b406a010e9f65aea52f8d536158f45a2833d050713828a7b5d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-12-12 · mh-egazette-part8 · 15 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/12 | 2019/12/12 | Part VIII (Ex. 92) (Dated the 12th December 2019) (Finance Department) (Maharashtra Ordinance No. XXVII of 2019) (An Ordinance) (Further to amend the Maharashtra Contingency Fund Act). | 0 | View
+  - occurrence: `mh-egazette/681d0a5bf14b983fe89b7a7cb80406b45a72b61d0cb4176d7e14ad059aa2d155`
+  - blob: `watchdog-data/blobs/f8/f83662ca860ad2b406a010e9f65aea52f8d536158f45a2833d050713828a7b5d.pdf` (`f83662ca860ad2b406a010e9f65aea52f8d536158f45a2833d050713828a7b5d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2019-12-26 · mh-egazette-part8 · 4 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/26 | 2019/12/26 | Part VIII, Extra Ordinary Gazette No. 104, Dated 26th December 2019. Maharashtra Act No. XXXIV of 2019 | 0 | View
+  - occurrence: `mh-egazette/21ef7cadb69c1725c85c181c96f1ed0d02b0883b7b6f4cc1db1456af8a68e275`
+  - blob: `watchdog-data/blobs/7a/7a70010c5eb079a825488af9e4dbdd5776fb5db9ee37737daac88d468cf464f1.pdf` (`7a70010c5eb079a825488af9e4dbdd5776fb5db9ee37737daac88d468cf464f1`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-12-26 · mh-egazette-part8 · 6 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/26 | 2019/12/26 | Part VIII, Extra Ordinary Gazette No. 105, Dated 26th December 2019. Maharashtra Act No. XXXV of 2019 | 0 | View
+  - occurrence: `mh-egazette/82b6be6040acd8524e0656f2d58078ab896d1b2f73d673d9cecc7444cb761ac1`
+  - blob: `watchdog-data/blobs/46/469ccb7c4b99f036103c6ba19782d1a89e2aec6bb896145871d02f92876770ad.pdf` (`469ccb7c4b99f036103c6ba19782d1a89e2aec6bb896145871d02f92876770ad`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-12-26 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/26 | 2019/12/26 | Part VIII (Extra No.100) (Dated the 26th December 2019) (MAHARASHTRA ACT NO.XXX OF 2019. (First published, after having received the assent of the Governor in the "Maharashtra Government Gazette", on the 26th December 2019). | 0 | View
+  - occurrence: `mh-egazette/a4a71b708f4b9027c8c2b4349696e00477a569ca48074a69756c67cce07fbb21`
+  - blob: `watchdog-data/blobs/d9/d9e2fc01610397156586380cbb243508bc1eac7e0e159f8f4f36ba32431de373.pdf` (`d9e2fc01610397156586380cbb243508bc1eac7e0e159f8f4f36ba32431de373`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2019-12-26 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/26 | 2019/12/26 | Part VIII, Extra Ordinary Gazette No. 103, Dated 26th December 2019. Maharashtra Act No. XXXIII of 2019 | 0 | View
+  - occurrence: `mh-egazette/bd39018e00ceabca0472061c59833d6b3ea99fe77b53d9b3b578e30ae9cd1f36`
+  - blob: `watchdog-data/blobs/db/dbbee78906fb3d1c5620d5aed287954e5150c78c48748e0367aec3804d69033f.pdf` (`dbbee78906fb3d1c5620d5aed287954e5150c78c48748e0367aec3804d69033f`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2; combined keyword pages: 2
+- [ ] 2019-12-26 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/26 | 2019/12/26 | Part VIII, Extra Ordinary Gazette No. 102, Dated 26th December 2019. Maharashtra Act No. XXXII of 2019 | 0 | View
+  - occurrence: `mh-egazette/fec72e4d891096bc50d0e53d80923a62253007371a5c6d3f907f63fe78b55c45`
+  - blob: `watchdog-data/blobs/8e/8ed3d62775a9c61425483719ab270dac6215d21f446d731cdee2417a602e0809.pdf` (`8ed3d62775a9c61425483719ab270dac6215d21f446d731cdee2417a602e0809`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2019-12-31 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/12/31 | 2019/12/31 | Part VIII Ext. 106 (31st December 2019) Maharashtra Act No. XXXVI of 2019, The Maharashtra Municipal Corporation Act | 0 | View
+  - occurrence: `mh-egazette/2f0d2ed3864518af508c60467a8609efc0682b054864f3eae8dadbd1033b06d7`
+  - blob: `watchdog-data/blobs/ea/ea7408d5fe59eb59cfa72289a003f21341c53f13a6fa9294a3df99b878e4f66c.pdf` (`ea7408d5fe59eb59cfa72289a003f21341c53f13a6fa9294a3df99b878e4f66c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2020-02-04 · mh-egazette-part8 · 102 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/02/04 | 2020/02/04 | Part VIII Ext. 4 (4th Feb 2020) Urban Development Department, Maharashtra Ordinance No. IV of 2020, Maharashtra Muncipal Councils, Nagar Panchayats and Industrial Townships Act, 1965 | 0 | View
+  - occurrence: `mh-egazette/d1eab32fa2b162fc07ba11f5abfa2b8bed94369cdf35477d33ff0d9a695eab1d`
+  - blob: `watchdog-data/blobs/7f/7f585445177bbcec600167e208f2e5b510449c05ee229b75b8068d8a08b94098.pdf` (`7f585445177bbcec600167e208f2e5b510449c05ee229b75b8068d8a08b94098`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.1,2,3,4; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2020-02-05 · mh-egazette-part8 · 101 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/02/05 | 2020/02/05 | Part VIII Ext. 5 (5th Feb. 2020) Finance Department, Maharashtra Ordinance No. V of 2020, Amend the Maharashtra Goods and Services Tax (Amendment) Act, 2019 | 0 | View
+  - occurrence: `mh-egazette/ff55b392a30cd48dcd9d2492624043d0d742d0497946eabccb65711f3a5a718d`
+  - blob: `watchdog-data/blobs/8b/8b2f4e2aa72973892a82b79441e42b024677637936e309209472137f921e79da.pdf` (`8b2f4e2aa72973892a82b79441e42b024677637936e309209472137f921e79da`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2020-02-20 · mh-egazette-part8 · 100 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/02/20 | 2020/02/20 | Part VIII Extra No. 6 (20-02-2020) Finance Department, Maharashtra Ordinance No. VI of 2020, Further to amend the Maharashtra Contigency Fund Act. | 0 | View
+  - occurrence: `mh-egazette/cad446e915f8212dcdbce43e0d20ea5b13bf704280eb9fd80dab4db24498570f`
+  - blob: `watchdog-data/blobs/22/224479a2e0c5fbfa279e96c3ff2ca6a39f53da75ed5c3cbc69cf0fdc52cfa4d5.pdf` (`224479a2e0c5fbfa279e96c3ff2ca6a39f53da75ed5c3cbc69cf0fdc52cfa4d5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.3; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2020-03-04 · mh-egazette-part8 · 89 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/04 | 2020/03/04 | Part VIII Ext. 21 (4-3-2020) (final), प्राधिकृत प्रकाशन, Maharashtra Act I of 2020 | 0 | View
+  - occurrence: `mh-egazette/37e9bf2ca21e56737d865cb6ed8cc7d61920ccb41a4d9a5de3e176eda9a06809`
+  - blob: `watchdog-data/blobs/35/35a7a691457ce5a221fb4c91e806a93e99b8933aafa3dbaa59607ef1474fcdc6.pdf` (`35a7a691457ce5a221fb4c91e806a93e99b8933aafa3dbaa59607ef1474fcdc6`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2020-03-05 · mh-egazette-part8 · 84 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/05 | 2020/03/05 | Part VIII Extra No. 22 (05-03-2020) Maharashtra Act No. II of 2020, An Act further to amend the Maharashtra Village Panchayat Act. | 0 | View
+  - occurrence: `mh-egazette/a82798b68cece5544406fcdffc4de40222213a2d60f7e9bc59152b9fa3d42bd8`
+  - blob: `watchdog-data/blobs/df/df917acad2a6a9796d3a84e6b634dbf11e44c2c2cca9fdbce2164fbfa01523b3.pdf` (`df917acad2a6a9796d3a84e6b634dbf11e44c2c2cca9fdbce2164fbfa01523b3`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2,4,5; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2020-03-09 · mh-egazette-part8 · 83 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/09 | 2020/03/09 | Part VIII (Ex. 23) (Dated the 9th March 2020) MAHARASHTRA ACT No. III OF 2020. (First published, after having received the assent of the Governor in the "Maharashtra Government Gazettee" on the 9th March 2020.) | 0 | View
+  - occurrence: `mh-egazette/1e7f70f649ff81853e1145abc69f89efc1e771cc6864b46aa3ffbde22dd7320f`
+  - blob: `watchdog-data/blobs/b3/b3a279381edd302a0130117ac5557ccbedfba65341e329a4e2d01a3e1266b688.pdf` (`b3a279381edd302a0130117ac5557ccbedfba65341e329a4e2d01a3e1266b688`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.3; amendment p.4; commencement p.1,3,4; combined keyword pages: 1, 3, 4
+- [ ] 2020-03-11 · mh-egazette-part8 · 82 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/11 | 2020/03/11 | Part VIII (Ext.24) (11th March 2020) (Maha. Act No. IV of 2020) | 0 | View
+  - occurrence: `mh-egazette/758bd9cc729b23fa5b9f9f1673ed316f33efc0de4b702abf975e1421d6076594`
+  - blob: `watchdog-data/blobs/99/994ba408fce318851e4b44b6bfca292e81ef36628cbde96eda224098fd73bd7d.pdf` (`994ba408fce318851e4b44b6bfca292e81ef36628cbde96eda224098fd73bd7d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2020-03-12 · mh-egazette-part8 · 76 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext.28) (12th March 2020) (Maha. Act No. VII of 2020) | 0 | View
+  - occurrence: `mh-egazette/41540e52099e19a3767f12250d4c8a7faee7e4570dd2874a35b6cc776969f298`
+  - blob: `watchdog-data/blobs/e5/e5452705b8385c92d2bfc5819bc216d07415e872ec537fd2ef8e42b7d4bd9644.pdf` (`e5452705b8385c92d2bfc5819bc216d07415e872ec537fd2ef8e42b7d4bd9644`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-03-12 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext. 31) (12th March 2020) (Maha. Act No. X of 2020) | 0 | View
+  - occurrence: `mh-egazette/46a2547d300fab01aac518bd155f4584a6d7f4441f78a627476aa45210d3ea46`
+  - blob: `watchdog-data/blobs/d8/d8a1501ebcfad4a5a8cae1fef4ad2f49f287aa32f9b4fcc349c838bcd1635926.pdf` (`d8a1501ebcfad4a5a8cae1fef4ad2f49f287aa32f9b4fcc349c838bcd1635926`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2020-03-12 · mh-egazette-part8 · 74 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext.29) (12th March 2020) (Maha. Act No. VIII of 2020) | 0 | View
+  - occurrence: `mh-egazette/91213acb08dfd89dece87374960b5066e70c9e6e39abdb2563f32f7f112185df`
+  - blob: `watchdog-data/blobs/0e/0e65f1f7b6c55284b51550fe526d60b75b68038df10f5cf7c7ede17e14005eba.pdf` (`0e65f1f7b6c55284b51550fe526d60b75b68038df10f5cf7c7ede17e14005eba`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2020-03-12 · mh-egazette-part8 · 75 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext.30) (12th March 2020) (Maha. Act No. IX of 2020) | 0 | View
+  - occurrence: `mh-egazette/cbf21cee690d0f8a5366876ecace8a7b2a87246e308f8dfa9b3875a9d1fcc31f`
+  - blob: `watchdog-data/blobs/c8/c8dea425c275eec669a535ffeeac11dec2e7a92a53baa88717c8eddcfe2492fd.pdf` (`c8dea425c275eec669a535ffeeac11dec2e7a92a53baa88717c8eddcfe2492fd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2020-03-12 · mh-egazette-part8 · 77 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext.26) (12th March 2020) (Maha. Act No. V of 2020) | 0 | View
+  - occurrence: `mh-egazette/d2d7aa2e201063089e8be708364faa5337538aeb3c1b8f4c4c827aad686e006e`
+  - blob: `watchdog-data/blobs/d4/d4e41207b34bfb457d54d6caf9505f84d302ce0d5d6c052f4a2f97f54c6fb7ae.pdf` (`d4e41207b34bfb457d54d6caf9505f84d302ce0d5d6c052f4a2f97f54c6fb7ae`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-03-12 · mh-egazette-part8 · 78 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/12 | 2020/03/12 | Part VIII (Ext.27) (12th March 2020) (Maha. Act No. VI of 2020) | 0 | View
+  - occurrence: `mh-egazette/e1d24e26afd16978436dc708cf19ecf1fe6539f94758e24855db22fda82b2640`
+  - blob: `watchdog-data/blobs/bf/bf82581a2bc31116d708a064adba000b4f6ee21d12ac61d5c187087bfc8fad34.pdf` (`bf82581a2bc31116d708a064adba000b4f6ee21d12ac61d5c187087bfc8fad34`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-03-14 · mh-egazette-part8 · 69 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/14 | 2020/03/14 | Part VIII (Ex.35) (Dated 14th March 2020) MAHARASHTRA ACT No. XII OF 2020. (First published, after having received the assent of the Governor in the“Maharashtra Government Gazette”, on the 14th March 2020). An Act further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/40cf6ea55fe2174474e8665f1f2f9f836cd9111828995d7c0e1d9af70e7dc822`
+  - blob: `watchdog-data/blobs/24/2488bc43ba630e39a68e59a21ba22daeb9df8e9d5c797641c11148dd8697fc59.pdf` (`2488bc43ba630e39a68e59a21ba22daeb9df8e9d5c797641c11148dd8697fc59`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2020-03-14 · mh-egazette-part8 · 70 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/14 | 2020/03/14 | Part VIII (Ex.34) (Dated 14th March 2020) MAHARASHTRA ACT No. XI OF 2020. (First published, after having received the assent of the Governor in the "Maharashtra Government Gazette", on the 14th March 2020). An Act further to amend the Maharashtra Agricultural Produce Marketing (Development and Regulation) Act, 1963. | 0 | View
+  - occurrence: `mh-egazette/4cf617682da2ddc0fad0e3ac67b30a6fb19ea240828adbd063b9e404e07eb551`
+  - blob: `watchdog-data/blobs/35/3501027c49b2c63a86b7e64527505d25116532a3f604c7374d471b0080e6f7df.pdf` (`3501027c49b2c63a86b7e64527505d25116532a3f604c7374d471b0080e6f7df`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2020-03-18 · mh-egazette-part8 · 65 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/18 | 2020/03/18 | Part VIII, Extra Ordinary Gazette No. 39, Dated 18th March 2020 Mah. Act No. 14 of 2020 | 0 | View
+  - occurrence: `mh-egazette/2582eebd67f4fcee7b88da00260b5114c84b40da40eb1dd152203caaae5dbe69`
+  - blob: `watchdog-data/blobs/96/96414942e8395179078ba7fa8b7812062ae0fc7fe0004b2828840bc982eb37ea.pdf` (`96414942e8395179078ba7fa8b7812062ae0fc7fe0004b2828840bc982eb37ea`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2020-03-18 · mh-egazette-part8 · 68 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/18 | 2020/03/18 | Part VIII (Ex. 38) (Dated the 18th March 2020) Maharashtra Act No. XIII OF 2020. (First published after having received the assent of the Governor in the “Maharashtra Government Gazette”, on the 18th March 2020.) An Act further to amend the Maharashtra Nurses Act, 1966. | 0 | View
+  - occurrence: `mh-egazette/3536d9b2fdfd1c878c2b6cc09806868c87242b33902fb05df23d6bd30786a487`
+  - blob: `watchdog-data/blobs/f9/f913df7d0cfb3b1b171b95f3fe3f7d38265660e0faba3135fb72915da499e60b.pdf` (`f913df7d0cfb3b1b171b95f3fe3f7d38265660e0faba3135fb72915da499e60b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,5; amendment p.1,2,3,4,5; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2020-03-18 · mh-egazette-part8 · 67 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/18 | 2020/03/18 | Part VIII Extra Ordinary Gazette No. 40 Dated 18th March 2020 Mah. Act No. XV of 2020 | 0 | View
+  - occurrence: `mh-egazette/d8c4f042d38c3c9bd44f8b921372cb46b55446d552c37b16bf1346dd75b7ebcd`
+  - blob: `watchdog-data/blobs/d4/d4fe8f0bb3c993fd3da9e724487695be40ab8192b1017fe9d748fe0aeaa0277b.pdf` (`d4fe8f0bb3c993fd3da9e724487695be40ab8192b1017fe9d748fe0aeaa0277b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2020-03-18 · mh-egazette-part8 · 66 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/18 | 2020/03/18 | Part VIII, Extra Ordinary Gazette No. 41, Dated 18th March 2020 Mah. Act No. 16 of 2020 | 0 | View
+  - occurrence: `mh-egazette/f1bbf72112238b4dc9bd2665669d48cd91451f18a0d8c4a258a544190f255e36`
+  - blob: `watchdog-data/blobs/50/50e41ff65b5bca58c12ee5de9e6056dd2121f28688865b3e8d2b6a7ac9a93070.pdf` (`50e41ff65b5bca58c12ee5de9e6056dd2121f28688865b3e8d2b6a7ac9a93070`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2020-03-30 · mh-egazette-part8 · 64 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/03/30 | 2020/03/30 | MAHARASHTRA ACT No. XVII OF 2020. Part VIII Extra No.42 Dated 30th March 2020 | 0 | View
+  - occurrence: `mh-egazette/b644fb2e6b4c2823b8829abdc5cde5132173576ee64a6d52cad69a525f87e84d`
+  - blob: `watchdog-data/blobs/77/776e74b244a0486e3f6987c85d64ba7a2843abfecbb9e7ba0d3037030ae4310d.pdf` (`776e74b244a0486e3f6987c85d64ba7a2843abfecbb9e7ba0d3037030ae4310d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2020-08-24 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/08/24 | 2020/08/24 | Part VIII, Ext. No. 53 Maharashatra Ordinance No. XIV of 2020 further to amend the Maharashtra Contingency Fund Act. | 0 | View
+  - occurrence: `mh-egazette/976eab83174ac6e40772eaed5ddae73858690327dd6f0c1db4c154e212601a11`
+  - blob: `watchdog-data/blobs/7e/7ed5442b6e94b208a3f7d7dd151e41009a0aaebb7938befbd6bea1b0da0d41ed.pdf` (`7ed5442b6e94b208a3f7d7dd151e41009a0aaebb7938befbd6bea1b0da0d41ed`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2020-09-10 · mh-egazette-part8 · 38 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/09/10 | 2020/09/10 | Part VIII Extra No. 68 (10th Sept. 2020) (Maharashtra Act No. XVIII of 2020) | 0 | View
+  - occurrence: `mh-egazette/3b8e187cb765a7642ad073a919e27aacbc99b82479a4296a42c83d5fadc34679`
+  - blob: `watchdog-data/blobs/85/8540b4c5424c7cbe476d868fabaa3b7ba34c7037dd159e374dc249f7152fa19b.pdf` (`8540b4c5424c7cbe476d868fabaa3b7ba34c7037dd159e374dc249f7152fa19b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2020-09-14 · mh-egazette-part8 · 37 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/09/14 | 2020/09/14 | Part VIII, Extra Ordinary Gazette No. 69 Dated 14th September 2020 Maharashtra Act No. XIX of 2020 | 0 | View
+  - occurrence: `mh-egazette/404b17a8e36cbd20cfb2ce1110fb6efe90bc7c2d6b9090884fa6f6becd84546e`
+  - blob: `watchdog-data/blobs/b8/b85b5c58b029b552a63b63707be8a3e972fa5cbb5bf6224927e4b4ed405a17b8.pdf` (`b85b5c58b029b552a63b63707be8a3e972fa5cbb5bf6224927e4b4ed405a17b8`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-09-15 · mh-egazette-part8 · 36 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/09/15 | 2020/09/15 | Part VIII Extra No. 70, An Act further to amend the Maharashtra State Tax on Professions Trade, callings and Employment Act, 1975. | 0 | View
+  - occurrence: `mh-egazette/89493c8422ec06eb3f0afd65271791c670edfab7cd9a225e7d2242afa43339ae`
+  - blob: `watchdog-data/blobs/76/766b72a4f941135a000139100d7594ddd2eeca493863557569750e9d462d2816.pdf` (`766b72a4f941135a000139100d7594ddd2eeca493863557569750e9d462d2816`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-09-15 · mh-egazette-part8 · 35 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/09/15 | 2020/09/15 | Part VIII Extra No. 71, An Act further to amend the Maharashtra Apartment Ownership Act, 1970. | 0 | View
+  - occurrence: `mh-egazette/cc43557535866a28ff1cf114c4145af06a8234781bd4aeba36887333a4a0d933`
+  - blob: `watchdog-data/blobs/2c/2c5dc6ff5b3126029c623ec73f5e1c9213e11a3a5e1f9f3c879cdde8e5d7605f.pdf` (`2c5dc6ff5b3126029c623ec73f5e1c9213e11a3a5e1f9f3c879cdde8e5d7605f`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2020-09-29 · mh-egazette-part8 · 30 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/09/29 | 2020/09/29 | Part VIII (Ex. 76)(Sept. 29th 2020) (Maha. Act No. XXV of 2020) | 0 | View
+  - occurrence: `mh-egazette/1abd1016190581d7e12c69855edba5c00f9a00a73742d42a453b9872c4176e1e`
+  - blob: `watchdog-data/blobs/e4/e4533012615a49c2d9d535f8bb53141042f25d2df99c2d744627ae827a252ae0.pdf` (`e4533012615a49c2d9d535f8bb53141042f25d2df99c2d744627ae827a252ae0`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-10-05 · mh-egazette-part8 · 29 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/10/05 | 2020/10/05 | Part VIII, Ext. No. 77, dated 5th October 2020 Maharashtra Act No. XXVI of 2020 | 0 | View
+  - occurrence: `mh-egazette/92e36933967819d28abd33d20e961ad2a49a19fc352713fd3e2ce5cc97d8966b`
+  - blob: `watchdog-data/blobs/1f/1f3fb48b80fcfe42da90db5b81e3705806220b34725afed34e57603aa819a40d.pdf` (`1f3fb48b80fcfe42da90db5b81e3705806220b34725afed34e57603aa819a40d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2020-10-12 · mh-egazette-part8 · 27 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/10/12 | 2020/10/12 | Part VIII (Ex. 78) (12-10-2020)(Maha. Act. No. XXVII of 2020).pmd | 0 | View
+  - occurrence: `mh-egazette/81c48d6c0140d70d090da41b7565ddb94e6492f8e1f5d023ca76f5e94f38d31d`
+  - blob: `watchdog-data/blobs/fa/fa13fa0efa7b3a90c603378ed0331e90b17a0ff9c57b982eb999987753b19614.pdf` (`fa13fa0efa7b3a90c603378ed0331e90b17a0ff9c57b982eb999987753b19614`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2020-10-12 · mh-egazette-part8 · 28 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/10/12 | 2020/10/12 | Part VIII (Ex. 79) (12-10-2020)(Maha. Act. No. XXVIII of 2020).pmd | 0 | View
+  - occurrence: `mh-egazette/c3b338901b73e27d2d428f8981583f41d4ecd1598afa13c1ba78cb5a4e1ee16c`
+  - blob: `watchdog-data/blobs/70/70f51c4f1e28d170ecf83044e80747485042ae24d885780676c3334b900a18b6.pdf` (`70f51c4f1e28d170ecf83044e80747485042ae24d885780676c3334b900a18b6`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-11-02 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/11/02 | 2020/11/02 | Part VIII Ex. No. 83 (2nd Nove. 2020) Maharashtra Ordinance No. XIX of 2020. An Ordinance further to amend the Maharashtra Municipal Corporations Act and the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/1d95eb05883932e553a10506ab6e838b5074e7e2f06d0fc919b6c8abd98f6c35`
+  - blob: `watchdog-data/blobs/5f/5f74d07806fc7a19c5b3324bee36a6cb13053de941f3250ece4566f452f5c282.pdf` (`5f74d07806fc7a19c5b3324bee36a6cb13053de941f3250ece4566f452f5c282`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2020-11-02 · mh-egazette-part8 · 23 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/11/02 | 2020/11/02 | Part VIII Ext . No. 82 (2nd Nove. 2020) Maharashtra Ordinance No. XVIII of 2020 An Ordinance further to amend the Maharashtra Co-operative Societies Act, 1960 | 0 | View
+  - occurrence: `mh-egazette/29ea7885bcc83a0ea2b5c32a4f8204f339ad0d3e1b3f1106f573f6e38538714e`
+  - blob: `watchdog-data/blobs/f6/f6f2b6dda5a0c94b9a8bbd3f934a5e6fc1f4a976b10b6fa980c490b2ce819e5b.pdf` (`f6f2b6dda5a0c94b9a8bbd3f934a5e6fc1f4a976b10b6fa980c490b2ce819e5b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2020-12-14 · mh-egazette-part8 · 15 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/14 | 2020/12/14 | Part VIII Ext. 89 (Municipal Cor. Act L. A. 46) (14-12-2020) | 0 | View
+  - occurrence: `mh-egazette/64f47e5682d01b7fe96fd3c8421aa2986c32818c6fae1a677ec11edb847a8312`
+  - blob: `watchdog-data/blobs/0a/0a726807e6c34d30c3fcba0455caa7c2bf44c3b268970a309b58c1945b598561.pdf` (`0a726807e6c34d30c3fcba0455caa7c2bf44c3b268970a309b58c1945b598561`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2020-12-17 · mh-egazette-part8 · 8 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/17 | 2020/12/17 | Part VIII, Extra Ordinary Gazette No. 98, Dated 17th December 2020 Maharashtra Act No. XXIX of 2020 (Maharashtra (Third Supplementary) Appropriation Act,2020) | 0 | View
+  - occurrence: `mh-egazette/7b429429d1d6c25fd0f8ea150c07bff09ae8d153779c64edd701862866f4fd2d`
+  - blob: `watchdog-data/blobs/f6/f6b0055d2fa6ce73f94ac1686f8ee22502ef06c7c45cfa3def4b524751052cd8.pdf` (`f6b0055d2fa6ce73f94ac1686f8ee22502ef06c7c45cfa3def4b524751052cd8`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; combined keyword pages: 4
+- [ ] 2020-12-28 · mh-egazette-part8 · 6 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 105) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXVI of 2020 | 0 | View
+  - occurrence: `mh-egazette/047461702bc59258e20943b0e8f9a12a53b043eab722af849f759be06a0c881d`
+  - blob: `watchdog-data/blobs/1f/1f5bbe1c7edf1dbe242244dda3c659f085d2cf0443f6c9addb679dc33dc37329.pdf` (`1f5bbe1c7edf1dbe242244dda3c659f085d2cf0443f6c9addb679dc33dc37329`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,7,9,10,13; concession_remission p.13; amendment p.13,14; commencement p.1,12,13,15,19,20; combined keyword pages: 1, 2, 7, 9, 10, 12, 13, 14, 15, 19, 20
+- [ ] 2020-12-28 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 99) (Dated 29th December 2020) MAHARASHTRA ACT No. XXX of 2020 | 0 | View
+  - occurrence: `mh-egazette/40a78f856be465f684cd045a4f1bbd80e1879eb3e0f9d7dc0290b8e152fc8d43`
+  - blob: `watchdog-data/blobs/83/836a3a44a113c25c0dc3695fb2b4709b679cd5bb45ec80efead015fbdc6dfc4b.pdf` (`836a3a44a113c25c0dc3695fb2b4709b679cd5bb45ec80efead015fbdc6dfc4b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2020-12-28 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 103) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXIV of 2020 | 0 | View
+  - occurrence: `mh-egazette/4daaab2da41760fba133d4128a89c00f637e3677d5e9edd6abcfabe76e6a67dd`
+  - blob: `watchdog-data/blobs/82/8262f8cb2e792c3e241f6ca42fda483209e2fff671931407a39e4c1e4a235016.pdf` (`8262f8cb2e792c3e241f6ca42fda483209e2fff671931407a39e4c1e4a235016`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-12-28 · mh-egazette-part8 · 7 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 104) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXV of 2020 | 0 | View
+  - occurrence: `mh-egazette/8ccaa1dd87707408aa6f80c2f7dee8b5604c715a4961be25a0cb90ae2574fa15`
+  - blob: `watchdog-data/blobs/f5/f516503576901ec9eb69cf74947e5fa767eb9cd6a7cf09eeb7c0335fe37c254e.pdf` (`f516503576901ec9eb69cf74947e5fa767eb9cd6a7cf09eeb7c0335fe37c254e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.5,13,16,22,23,24,30,33,34,38,42,44,47; valuation p.5; concession_remission p.48; amendment p.21,31,33,35,44,46; commencement p.2,41,44,48,49,50,52,56; combined keyword pages: 2, 5, 13, 16, 21, 22, 23, 24, 30, 31, 33, 34, 35, 38, 41, 42, 44, 46, 47, 48, 49, 50, 52, 56
+- [ ] 2020-12-28 · mh-egazette-part8 · 4 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 100) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXI of 2020 | 0 | View
+  - occurrence: `mh-egazette/9308028e4a1127b935744f71f868e53221ea67376d36c9400e4b68a8cd570992`
+  - blob: `watchdog-data/blobs/d4/d4bbdf4a47b20dbae65e5383f14104c666dace9749c51c1012db529e29c23784.pdf` (`d4bbdf4a47b20dbae65e5383f14104c666dace9749c51c1012db529e29c23784`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2020-12-28 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 102) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXIII of 2020 | 0 | View
+  - occurrence: `mh-egazette/b311f8f7f15f4fd90bbb1743e0b363e797eb7b17aaa1a09f8f5e6551bec45b23`
+  - blob: `watchdog-data/blobs/07/073209cee0f098088f5a9eefc6fc5b1078db2224b75b5527ff2612ad62718f31.pdf` (`073209cee0f098088f5a9eefc6fc5b1078db2224b75b5527ff2612ad62718f31`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2,3,4; surcharge_cess p.2,3,4; amendment p.1,2,3,4,5; commencement p.2,3,4; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2020-12-28 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2020/12/28 | 2020/12/28 | Part VIII (Ex. 101) (Dated 28th December 2020) MAHARASHTRA ACT No. XXXII of 2020 | 0 | View
+  - occurrence: `mh-egazette/d7f318a1c1dcd634bd7f4195ab64a4dd10e880389e3314001fc11fa79614564a`
+  - blob: `watchdog-data/blobs/28/28055397c3c7fcc8d57da764f8ff1f3fecd4b1f4d756d999ca26e9e8ae52f6a2.pdf` (`28055397c3c7fcc8d57da764f8ff1f3fecd4b1f4d756d999ca26e9e8ae52f6a2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2021-01-13 · mh-egazette-part8 · 74 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/01/13 | 2021/01/13 | Part VIII, Extra Ordinary Gazette No.1, Maharashtra Act No.I of 2021, | 0 | View
+  - occurrence: `mh-egazette/72f359ebdd291b9b594cced1f50755522c3e94783a0142fcf6270742cdfa2145`
+  - blob: `watchdog-data/blobs/70/70eb50f08ddd4924fca0331999ad3ae417d77b94ffa6a085a04b93528f8c37ce.pdf` (`70eb50f08ddd4924fca0331999ad3ae417d77b94ffa6a085a04b93528f8c37ce`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2021-03-10 · mh-egazette-part8 · 66 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/10 | 2021/03/10 | Part VIII Ext. No. 8 (10th March 2021) Maharashtra Act No. II of 2021, An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March, 2021 | 0 | View
+  - occurrence: `mh-egazette/439e4b04899aef1a96fc5773266cc7b3fefc57ca2b4bc4c57842cc2ace9fd7f0`
+  - blob: `watchdog-data/blobs/53/53524c25d41777f817f1ec538e45a189bbbb0dcf668d053dc24d660a39b574c0.pdf` (`53524c25d41777f817f1ec538e45a189bbbb0dcf668d053dc24d660a39b574c0`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-03-12 · mh-egazette-part8 · 64 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/12 | 2021/03/12 | Part VIII (Ex. 11) (12-3-2021) Maharashtra Act No. IV of 2021, An Act amend the Maharashtra Gunthewari Developments ..... Act 2021 | 0 | View
+  - occurrence: `mh-egazette/61ff8499f97b5d441e259c5661051ef41317fc1986a050173827388eceffadf6`
+  - blob: `watchdog-data/blobs/41/4136b51fa0266f0ce702053c5536340a8af06460a724254810bf52541944ee20.pdf` (`4136b51fa0266f0ce702053c5536340a8af06460a724254810bf52541944ee20`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-03-12 · mh-egazette-part8 · 65 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/12 | 2021/03/12 | Part VIII Ext. 10 (Law and Judiciary) Mah. Act No. III of 2021 Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/85d7bfa69f5af559a0c730f848b18c53c4dfad7dec6b1ef6bc769c9937f0196e`
+  - blob: `watchdog-data/blobs/3c/3ce0b0e5497d8a275fe9331343c841e9552b2445c715453e342f51ae19a3257f.pdf` (`3ce0b0e5497d8a275fe9331343c841e9552b2445c715453e342f51ae19a3257f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2021-03-15 · mh-egazette-part8 · 63 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/15 | 2021/03/15 | Part VIII Ext. No. 12 (15th March 2021) Maharashtra Act No. V of 2021, First published after having received the assent of the Governor in the Maharashtra Government Gazette, on the 15th March 2021 | 0 | View
+  - occurrence: `mh-egazette/afae73a427d5cac9df2364494352495a338d4a751a8f440b71316910dbc36903`
+  - blob: `watchdog-data/blobs/a3/a3d8a0418989d552bf52874278f4c126b138423a3a4d94ffa8169b4b366ab223.pdf` (`a3d8a0418989d552bf52874278f4c126b138423a3a4d94ffa8169b4b366ab223`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2021-03-23 · mh-egazette-part8 · 61 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/23 | 2021/03/23 | Part VIII Ext. 13 (23-3-21), Maharashtra Act No. VI OF 2021. | 0 | View
+  - occurrence: `mh-egazette/6bff0265f71650876abf10cc340566b46758ccabff3c6bb7f68cc40ef6743cf1`
+  - blob: `watchdog-data/blobs/e8/e8133b22a515e033b72817116c7a502ca33703dc140c57e74bff57196c543788.pdf` (`e8133b22a515e033b72817116c7a502ca33703dc140c57e74bff57196c543788`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-03-23 · mh-egazette-part8 · 62 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/23 | 2021/03/23 | Part VIII Ext. No. 14 (Maharashtra Act No. VII of 2021) | 0 | View
+  - occurrence: `mh-egazette/b2affd7a86509d8fb2547ba77eab322f3264b7ba39c56f7d219c666a4f6e0393`
+  - blob: `watchdog-data/blobs/2d/2da0fdbdea3bb05b416b1e00d466e6725b019157200825684214072c80efbaeb.pdf` (`2da0fdbdea3bb05b416b1e00d466e6725b019157200825684214072c80efbaeb`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 60 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 20 (05-07-2021) Further to amend the Maharashtra Official Languages Act, 1964 | 0 | View
+  - occurrence: `mh-egazette/4ade37bba23916fbdef38c32a53fe21cfc2e47422fd36638718be5080e28e091`
+  - blob: `watchdog-data/blobs/5a/5ac0c2bd43d68ff19e6b01dee27d94b9af24f6656c2b6df5dde5b472d46394e6.pdf` (`5ac0c2bd43d68ff19e6b01dee27d94b9af24f6656c2b6df5dde5b472d46394e6`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 15 (05-07-2021) Further to amend the Maharashtra (Urban Areas) Protection and Preservation of Trees Act, 1975 | 0 | View
+  - occurrence: `mh-egazette/6382429caaa08a971d1bd2916422b2263b085e11d6edb1fa29abb7de59dc460a`
+  - blob: `watchdog-data/blobs/7e/7ed3755d81417d07e311145227d7428c5c7157dcaad3430e1ae0d3d20d4bee3c.pdf` (`7ed3755d81417d07e311145227d7428c5c7157dcaad3430e1ae0d3d20d4bee3c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 54 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 16 (05-07-2021) Further to amend the Maharashtra Paragana and Kulkarni Watans (Abolition) Act, the Maharashtra Service Inams (Useful to Community) Abolition Act, the Mahatrashtra Merged .......... Act, 1962 | 0 | View
+  - occurrence: `mh-egazette/68147d32650dcaa90b9b57c6cab23d13ae75e354019940800ddbe460fc0e48f3`
+  - blob: `watchdog-data/blobs/d5/d523e8beb1e3ff3ef5285043da14aa6526a707ef4c573f466314ad1930e75c4e.pdf` (`d523e8beb1e3ff3ef5285043da14aa6526a707ef4c573f466314ad1930e75c4e`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2,3,4,5,6; valuation p.2,3,4,5,6,7; amendment p.1,2,3,4,5,7; commencement p.2,3,4,5; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2021-07-05 · mh-egazette-part8 · 56 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 21 (05-07-2021) Further to amend the Maharashtra Maharashtra Public Universities Act, 2016 | 0 | View
+  - occurrence: `mh-egazette/ab59d876fb3879e73d6a519a827201e935e86f5d402782c2d3d5af96c8e2bdb8`
+  - blob: `watchdog-data/blobs/ed/ed288c1deb3b0bf718ddc4ddae9edd6e8d02684b6bdab47b24011aad75c0557b.pdf` (`ed288c1deb3b0bf718ddc4ddae9edd6e8d02684b6bdab47b24011aad75c0557b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 55 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 19 (05-07-2021) Further to amend the Maharashtra Goods and Services Taxs Act, 2017 | 0 | View
+  - occurrence: `mh-egazette/b89070a9262c0e2b6ecfc0eeb57ec8ae980a13124fe0b71c02b93a09a734f84b`
+  - blob: `watchdog-data/blobs/99/99920aa5e2824ae307133feae9fd00562a05c529b430133182bddf5e78bfe775.pdf` (`99920aa5e2824ae307133feae9fd00562a05c529b430133182bddf5e78bfe775`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 18 (05-07-2021) Further to amend the Maharashtra Nurses Act, 1966 | 0 | View
+  - occurrence: `mh-egazette/e337a920bc08874bc4ff58e8d06c7bdd105ae3955db01449de15823b7c79190e`
+  - blob: `watchdog-data/blobs/ed/ed56e97bec943eb3d6eb93b772933f65a0f9f8b95f439094337340cab23d61d4.pdf` (`ed56e97bec943eb3d6eb93b772933f65a0f9f8b95f439094337340cab23d61d4`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-05 · mh-egazette-part8 · 59 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/05 | 2021/07/05 | Part VIII Extra No. 17 (05-07-2021) Further to amend the Maharashtra Co-operative Societies Act, 1960 | 0 | View
+  - occurrence: `mh-egazette/f44e07048a318f8e53f2aee867e93eaf1fc85c7dfccb0fff249d237cbb716297`
+  - blob: `watchdog-data/blobs/19/1983587cce20e2244d8a45ca4ac2ac1d27ef4dd93feba0d7bc7fac3373d7bc12.pdf` (`1983587cce20e2244d8a45ca4ac2ac1d27ef4dd93feba0d7bc7fac3373d7bc12`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-15 · mh-egazette-part8 · 48 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/15 | 2021/07/15 | Maharashtra Act No. VIII of 2021 Maharashtra (Second supplementary) Appropriation Act, 2021 | 0 | View
+  - occurrence: `mh-egazette/2abb4db9327b9aff9f704ed63d53c5b502c38ebc08c11dec037716c89ffc93d3`
+  - blob: `watchdog-data/blobs/32/320e0edffbd79c6a0ff2c8d5b412140901d0bc9436d7f394e10eaf3ec66157f1.pdf` (`320e0edffbd79c6a0ff2c8d5b412140901d0bc9436d7f394e10eaf3ec66157f1`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2021-07-16 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII Ext. No. 28 Dated the 16th July 2021 : Maharashtra Act No. IX | 0 | View
+  - occurrence: `mh-egazette/23555f63923e8dba048c6269749b617f567004410bb349419c0df10cea7dde7e`
+  - blob: `watchdog-data/blobs/78/78b27a53934265c4ac94404654c6623904b214069436d787339cf44ff1b7c94b.pdf` (`78b27a53934265c4ac94404654c6623904b214069436d787339cf44ff1b7c94b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-16 · mh-egazette-part8 · 46 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII Ext. No. 31 Final : Maharashtra Act No. XII | 0 | View
+  - occurrence: `mh-egazette/4b12e56a63c07d106bf68cbe848b3e279048098660b3b00552c135bea9997cad`
+  - blob: `watchdog-data/blobs/99/99ca16a06f33a6a34edc2d5f95f01457520a915cdcf51827d9e65f8fb48c4b4f.pdf` (`99ca16a06f33a6a34edc2d5f95f01457520a915cdcf51827d9e65f8fb48c4b4f`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-16 · mh-egazette-part8 · 45 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII (Ex. 32) (Dated 16th July 2021) : MAHARASHTRA ACT No. XIII OF 2021 An Act further to amend the Maharashtra Goods and Services Tax Act, 2017. | 0 | View
+  - occurrence: `mh-egazette/918ee85f62182bb7073fb86c34e8d29e9df58d2708951bdc605504578d006274`
+  - blob: `watchdog-data/blobs/84/848e9651895cdb3ca0d4bdea282bfd7ccd288737864410d436a70534e68652fc.pdf` (`848e9651895cdb3ca0d4bdea282bfd7ccd288737864410d436a70534e68652fc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-16 · mh-egazette-part8 · 42 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII Ex. No. 29 (16-7-2021) : Maharashtra Act No. X | 0 | View
+  - occurrence: `mh-egazette/c4515320c5260715668721d4374fced2d6a544c471056d014af711c07d8fee01`
+  - blob: `watchdog-data/blobs/c4/c4e0804c9c1099ff165bbd5794756192719ce0ee93b364723a0f674b84a73b31.pdf` (`c4e0804c9c1099ff165bbd5794756192719ce0ee93b364723a0f674b84a73b31`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2,3,4,5,6; valuation p.2,3,4,5,6; amendment p.1,2,3,4,5; commencement p.2,3,4,5; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2021-07-16 · mh-egazette-part8 · 47 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII (Ex. 33) (Dated 16th July 2021) : Maharashtra Act No. XIV | 0 | View
+  - occurrence: `mh-egazette/d7003ac436b4be6f1a492f338de273830ab52f03aa9965819c0c04463e2309ac`
+  - blob: `watchdog-data/blobs/a0/a0b1ed9d04bdedb44388f57b8a3443c39faf102e86925f99cc87cd9733848024.pdf` (`a0b1ed9d04bdedb44388f57b8a3443c39faf102e86925f99cc87cd9733848024`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2021-07-16 · mh-egazette-part8 · 44 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Pt VIII Ex. 34 : Maharashtra Act No. XV | 0 | View
+  - occurrence: `mh-egazette/d71c8bd5a447277cd6c8e0fce83b60b18077a26153492c6e3fc2a3495c088a36`
+  - blob: `watchdog-data/blobs/aa/aaf634a916398f0324ae2c4096d27efea94e9761fa4225c2a4668073aca0656d.pdf` (`aaf634a916398f0324ae2c4096d27efea94e9761fa4225c2a4668073aca0656d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.13,15,17,20; concession_remission p.11,20; amendment p.21; commencement p.2,19,20,22,27,29; combined keyword pages: 2, 11, 13, 15, 17, 19, 20, 21, 22, 27, 29
+- [ ] 2021-07-16 · mh-egazette-part8 · 43 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/16 | 2021/07/16 | Part VIII Ext. 30 : (Maharashtra Act No. XI) | 0 | View
+  - occurrence: `mh-egazette/eecfaf5f3909ff8e3271eb06781f9775e0f4f8b24c91c6c9da59e6043aca51d3`
+  - blob: `watchdog-data/blobs/35/35c3dc2f4b1b22d9d0968a658cb65a7afbf0a6133ed4a8eb482bc425700a7b84.pdf` (`35c3dc2f4b1b22d9d0968a658cb65a7afbf0a6133ed4a8eb482bc425700a7b84`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-07-22 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/07/22 | 2021/07/22 | Part VIII Ext. No. 35 (22nd July 2021) Maharashtra Act No. XVI of 2021 | 0 | View
+  - occurrence: `mh-egazette/5d8307c37e5e4546458283f8caafb8c7d5ecd03005261343edbfd19db9ed58cb`
+  - blob: `watchdog-data/blobs/c1/c1e5ad869209d4d9f7f3e280dd7902236dd756141ffd0ffbed1c14558c50c5cd.pdf` (`c1e5ad869209d4d9f7f3e280dd7902236dd756141ffd0ffbed1c14558c50c5cd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2021-09-30 · mh-egazette-part8 · 37 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/09/30 | 2021/09/30 | Part VIII (Extra No. 38) (30-09-2021) Urban Development Department, An Ordinance No. IV of 2021, Further to maned the Maharashtra Municipal Corporation Act | 0 | View
+  - occurrence: `mh-egazette/cc8fdb325b22b78257e33e501313d22b70214c46dd49dd273c9db3a26ef32cce`
+  - blob: `watchdog-data/blobs/36/3605b17ed1735503432bff4888a756b3552bd073c5ee5c6387a2d627f068fee5.pdf` (`3605b17ed1735503432bff4888a756b3552bd073c5ee5c6387a2d627f068fee5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-11-23 · mh-egazette-part8 · 29 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/11/23 | 2021/11/23 | Part VIII (Ex.46) (Dated 23rd November 2021) AGRICULTURE, ANIMAL HUSBANDRY, DAIRY DEVELOPMENT AND FISHERIES DEPARTMENT (MAHARASHTRA ORDINANCE No. XII OF 2021.) AN ORDINANCE further to amend the Maharashtra Marine Fishing Regulation Act, 1981. | 0 | View
+  - occurrence: `mh-egazette/c4e07388a31c5385a7b8b1a7e7dff778fe7227f56b6c81df3ae14af26e057d7b`
+  - blob: `watchdog-data/blobs/9d/9d8b37b1f60f9dc96978c31a491f0ca58d71f175ec6cb6b6cb124628f4e2776d.pdf` (`9d8b37b1f60f9dc96978c31a491f0ca58d71f175ec6cb6b6cb124628f4e2776d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-12-06 · mh-egazette-part8 · 26 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/06 | 2021/12/06 | Part VIII (Ex.48) (Dated the 6th December 2021) RURAL DEVELOPMENT DEPARTMENT (MAHARASHTRA ORDINANCE No. XIV OF 2021.) AN ORDINANCE (further to amend the Maharashtra Village Panchayats Act and the Maharashtra Zilla Parishads and Panchayat Samitis Act, 1961.) | 0 | View
+  - occurrence: `mh-egazette/5022b62e4be0ac25dea747ff68c64d1dca377dc94d53a8a6e824dfa2e29fc161`
+  - blob: `watchdog-data/blobs/ec/ec396b9666c8c739136aad77ba2a740b3b58ca3d4adf992a35a0768439d70ba1.pdf` (`ec396b9666c8c739136aad77ba2a740b3b58ca3d4adf992a35a0768439d70ba1`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-12-06 · mh-egazette-part8 · 27 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/06 | 2021/12/06 | Part VIII (Ex.49) (Dated the 6th December 2021) URBAN DEVELOPMENT DEPARTMENT (MAHARASHTRA ORDINANCE No. XV OF 2021.) AN ORDINANCE further to amend the Mumbai Municipal Corporation Act, the Maharashtra Municipal Corporations Act and the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965). | 0 | View
+  - occurrence: `mh-egazette/bf1f09b00d895e04063c5b618b9bc188f4193c2e01b7b9b3cab457e418035e87`
+  - blob: `watchdog-data/blobs/d3/d31eac1774063aa9302f417002d47258404d71ec6bb0d4681fec081f9d436646.pdf` (`d31eac1774063aa9302f417002d47258404d71ec6bb0d4681fec081f9d436646`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-12-24 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/24 | 2021/12/24 | Part VIII Extra No. 70 (24-12-2021) L. A. Bi.. No. XXXIX of 2021, Further to amend the Maharashtra Co-operative Societies Act, 1960. | 0 | View
+  - occurrence: `mh-egazette/80fde9f4ff0fd450144377cf8706f0867c2333867661763c555d587d0dbcca16`
+  - blob: `watchdog-data/blobs/15/153d0f9c461c10745d4eb5d86d050a7ae484daa5cd733fb436d518a670cccb7d.pdf` (`153d0f9c461c10745d4eb5d86d050a7ae484daa5cd733fb436d518a670cccb7d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,3,4,7,8,9; concession_remission p.8; amendment p.1,2,3,4,5,7,8,9; combined keyword pages: 1, 2, 3, 4, 5, 7, 8, 9
+- [ ] 2021-12-30 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/30 | 2021/12/30 | Part VIII Ext. No. 73 (30th December 2021) MAHARASHTRA ACT NO. XVII OF 2021. | 0 | View
+  - occurrence: `mh-egazette/3363a1fe785c661ed046dfcb1548e269f293003618015a40ef4bcacc66a5ffdd`
+  - blob: `watchdog-data/blobs/9f/9f4f8e4e1bc95bf8d2037e7ca0045a085edd0ff4197c705f553be757c493230a.pdf` (`9f4f8e4e1bc95bf8d2037e7ca0045a085edd0ff4197c705f553be757c493230a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2021-12-30 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/30 | 2021/12/30 | Part VIII Ext. No. 47 (30th November 2021) Urban Development Department, Maharashtra Ordinance No. XIII of 2021, furthe to amend the Mumbai Municipal Corporation Act. | 0 | View
+  - occurrence: `mh-egazette/9be257faea08808c39a49132929bddbc1ce1248b8c52a3ecf74ca80c695c21b2`
+  - blob: `watchdog-data/blobs/cc/ccce3cddc67ef8016974ac49e437c1e7da8d4f1db4e2ea30e470b55f732dea78.pdf` (`ccce3cddc67ef8016974ac49e437c1e7da8d4f1db4e2ea30e470b55f732dea78`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2022-01-17 · mh-egazette-part8 · 88 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/17 | 2022/01/17 | भाग आठ असा. क्र. २ (१७-०१-२०२२), MAHARASHTRA ACT No. II of 2022 | 0 | View
+  - occurrence: `mh-egazette/cd3cf578c91a90574ea1c0e83446e4a9bee7834fb3e46f2a3eaec3ca8a26e960`
+  - blob: `watchdog-data/blobs/34/34388a1f362781d5cdb225f0a85fd1d58a2523124f5f1b7b11a33cc6d53d4aae.pdf` (`34388a1f362781d5cdb225f0a85fd1d58a2523124f5f1b7b11a33cc6d53d4aae`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-17 · mh-egazette-part8 · 87 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/17 | 2022/01/17 | भाग आठ असा. क्र. १ (१७-०१-२०२२), MAHARASHTRA ACT No. I of 2022 | 0 | View
+  - occurrence: `mh-egazette/fcbc471ceed2f3f94d31ab6cc2f523811dcd96cb12409f0f88f30f10509edd41`
+  - blob: `watchdog-data/blobs/56/56328e0b0692ff874275fc6b6c2c574f4b868f8a8943acd341d1d12379c034d1.pdf` (`56328e0b0692ff874275fc6b6c2c574f4b868f8a8943acd341d1d12379c034d1`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-20 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.3) (Date 20-1-2022) MAHARASHTRA ACT No. III OF 2022 | 0 | View
+  - occurrence: `mh-egazette/23ce07a1af98ed7814096b4acceb40ceedd93781676f78904af0250971f1fccf`
+  - blob: `watchdog-data/blobs/27/2766ca260fbd52e01fbd077cf3292240c9684643ed4896ad246a9d6fecd3a433.pdf` (`2766ca260fbd52e01fbd077cf3292240c9684643ed4896ad246a9d6fecd3a433`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-20 · mh-egazette-part8 · 83 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.6) (Date 20-1-2022) MAHARASHTRA ACT No. VI OF 2022 | 0 | View
+  - occurrence: `mh-egazette/29e160c01f4820adda6f05565bca8e4509bdca7466db41ff8eea46d19fd9b864`
+  - blob: `watchdog-data/blobs/7d/7de295225db920025cf854552a3afb218eacd396b535d9b9f4cf326ace9aaef8.pdf` (`7de295225db920025cf854552a3afb218eacd396b535d9b9f4cf326ace9aaef8`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2022-01-20 · mh-egazette-part8 · 85 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.8) (Date 20-1-2022) MAHARASHTRA ACT No. VIII OF 2022 | 0 | View
+  - occurrence: `mh-egazette/6842286a05109142efd8f393cd6c6b954c4c44a1f3ec3507ee213b4d1ff30c04`
+  - blob: `watchdog-data/blobs/0e/0ecaab50b71d8bebb7b8829eff77cbdcdd85de73a525b8aeb73c586b48d61278.pdf` (`0ecaab50b71d8bebb7b8829eff77cbdcdd85de73a525b8aeb73c586b48d61278`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.1,2; amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+- [ ] 2022-01-20 · mh-egazette-part8 · 84 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.7) (Date 20-1-2022) MAHARASHTRA ACT No. VII OF 2022 | 0 | View
+  - occurrence: `mh-egazette/78eba1eda656979c0e4dc2d8d87d1c088518fc1be65433bcdaa34bdf870fac1a`
+  - blob: `watchdog-data/blobs/75/75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1.pdf` (`75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.1; amendment p.1; combined keyword pages: 1
+- [ ] 2022-01-20 · mh-egazette-part8 · 86 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.9) (Date 20-1-2022) MAHARASHTRA ACT No. IX OF 2022 | 0 | View
+  - occurrence: `mh-egazette/7c0973d34d9b10f0c7de7b2ed3becf690c250d2a278ddb9675e67a59b03e76fa`
+  - blob: `watchdog-data/blobs/50/50b570e0d4452a4a879b931ce06b217e946fe44073ee6dadb887ccc38f9eb495.pdf` (`50b570e0d4452a4a879b931ce06b217e946fe44073ee6dadb887ccc38f9eb495`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; valuation p.25; concession_remission p.29; commencement p.2,12,32,33; combined keyword pages: 2, 3, 12, 25, 29, 32, 33
+- [ ] 2022-01-20 · mh-egazette-part8 · 81 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.4) (Date 20-1-2022) MAHARASHTRA ACT No. IV OF 2022 | 0 | View
+  - occurrence: `mh-egazette/8e886aae303855b48b64164aca99db5ed79e428ab725eb7aea9d45f3c3d2fc4a`
+  - blob: `watchdog-data/blobs/53/53ebb22368000d670c5532f05302a525ae82fbe3e64e4c2f5b10f65f884c7a82.pdf` (`53ebb22368000d670c5532f05302a525ae82fbe3e64e4c2f5b10f65f884c7a82`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-01-20 · mh-egazette-part8 · 82 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/20 | 2022/01/20 | Part VIII, (Ex.5) (Date 20-1-2022) MAHARASHTRA ACT No. V OF 2022 | 0 | View
+  - occurrence: `mh-egazette/fb48e238fc9d2d883a4fc95e0d4ba8a044627a200e90a4dddc78ef35f9537645`
+  - blob: `watchdog-data/blobs/28/28d633b3d2787c0e9c1e41d8ab64c6b98415d50d6fdcf79e630179c1213f0cf5.pdf` (`28d633b3d2787c0e9c1e41d8ab64c6b98415d50d6fdcf79e630179c1213f0cf5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-25 · mh-egazette-part8 · 77 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.14) (Date 25-1-2022) MAHARASHTRA ACT No. XVI OF 2022. | 0 | View
+  - occurrence: `mh-egazette/2a2d42ccc53b8e765789e8d995f063d82e11e2ddd62aac1f6986d8a1883cb482`
+  - blob: `watchdog-data/blobs/34/34bab09b54d8d84537834a976e6594938ec68667055790332eab405529ebf535.pdf` (`34bab09b54d8d84537834a976e6594938ec68667055790332eab405529ebf535`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.5,10; amendment p.1,2,3,4,5,6,11; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6, 10, 11
+- [ ] 2022-01-25 · mh-egazette-part8 · 75 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.15) (Date 25-1-2022) MAHARASHTRA ACT No. XVII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/39e36f2aae6c87824ebd3d435a8a2c0ad8bd2a34ce483d57c7abfb4e0373009a`
+  - blob: `watchdog-data/blobs/e5/e5ecfa17c9425e2c81387ea1bf0d62d0ff46884ae63040d4fb016d801a05f574.pdf` (`e5ecfa17c9425e2c81387ea1bf0d62d0ff46884ae63040d4fb016d801a05f574`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; commencement p.2,3; combined keyword pages: 2, 3
+- [ ] 2022-01-25 · mh-egazette-part8 · 79 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.17) (Date 25-1-2022) MAHARASHTRA ACT No. XII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/6ffdec9d4e8cf8047112e9d5dd51d952aaa37945b71f6bcb84f3628bce6c04ce`
+  - blob: `watchdog-data/blobs/64/64ce83f39e3fe3da5190406318c7421272d6f4d4dbcfdf67cdb6fed088f78d37.pdf` (`64ce83f39e3fe3da5190406318c7421272d6f4d4dbcfdf67cdb6fed088f78d37`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2022-01-25 · mh-egazette-part8 · 74 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.13) (Date 25-1-2022) MAHARASHTRA ACT No. XV OF 2022. | 0 | View
+  - occurrence: `mh-egazette/719845b3533e0cef59c5ed49c01c17002db8dd21563941f9e712cf28ec0b1867`
+  - blob: `watchdog-data/blobs/bf/bf2038fd0c6024d14cffd7c9604486444981a0e92c9db3e3b881fb628d053425.pdf` (`bf2038fd0c6024d14cffd7c9604486444981a0e92c9db3e3b881fb628d053425`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-25 · mh-egazette-part8 · 73 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.11) (Date 25-1-2022) MAHARASHTRA ACT No. XIII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/7881243c8192be5628bb4e6e4748e42833621a3994ab56d46deb1951e1e56185`
+  - blob: `watchdog-data/blobs/ed/ed3f521bb2a25295e8bf193dd6b707433c06a7e32067b8e7c5c0ad36bfb8c5a2.pdf` (`ed3f521bb2a25295e8bf193dd6b707433c06a7e32067b8e7c5c0ad36bfb8c5a2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2022-01-25 · mh-egazette-part8 · 72 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.10) (Date 25-1-2022) MAHARASHTRA ACT No. X OF 2022. | 0 | View
+  - occurrence: `mh-egazette/a038a2355d89cac1fb98900c452e2d830ca5c0b2144b2774a6b1f125a3768510`
+  - blob: `watchdog-data/blobs/c7/c79ac41d083719e96861aa65ace2d35c5c8f5c08c95135215c95d89c9ca83bbe.pdf` (`c79ac41d083719e96861aa65ace2d35c5c8f5c08c95135215c95d89c9ca83bbe`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-25 · mh-egazette-part8 · 76 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.12) (Date 25-1-2022) MAHARASHTRA ACT No. XIV OF 2022. | 0 | View
+  - occurrence: `mh-egazette/e21da213cd60d29514465491b5dd4633e3a497b70d61d97e9961814d8425aafe`
+  - blob: `watchdog-data/blobs/1b/1b79fa469e4e2f1dbd86c312828609614692a91607178a2c64bfe1667d3fa3af.pdf` (`1b79fa469e4e2f1dbd86c312828609614692a91607178a2c64bfe1667d3fa3af`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2022-01-25 · mh-egazette-part8 · 78 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/25 | 2022/01/25 | Part VIII, (Ex.16) (Date 25-1-2022) MAHARASHTRA ACT No. XI OF 2022. | 0 | View
+  - occurrence: `mh-egazette/f4bc9d1b3b16f02a07b21638341128c36c6a6800b40338d5230230ee4dbe445b`
+  - blob: `watchdog-data/blobs/b4/b434fe2defac781eedf46561c5ce208c120e2b636a82915b3c5edbae7ad14f60.pdf` (`b434fe2defac781eedf46561c5ce208c120e2b636a82915b3c5edbae7ad14f60`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-01-31 · mh-egazette-part8 · 71 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/01/31 | 2022/01/31 | Part VIII Extra Ordinary Gazette No. 18, Dated 31st January 2022 Maharashtra Act No. XVIII of 2022 | 0 | View
+  - occurrence: `mh-egazette/aaad9c1732baefe6d5c8c3a11ad0b98cbc977625bfc7de939d8c3d1c7f036417`
+  - blob: `watchdog-data/blobs/5c/5c309304377415a15561c00724ecb1a6ccb581723c077fa354488d790393920a.pdf` (`5c309304377415a15561c00724ecb1a6ccb581723c077fa354488d790393920a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2022-02-01 · mh-egazette-part8 · 70 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/02/01 | 2022/02/01 | Part VIII Extra No. 19 (01-02-2022) Maharashtra Act No. XIX of 2022 | 0 | View
+  - occurrence: `mh-egazette/2356f85b2025088a8c8248170f9e4c103151a31640a3fc77ad546cbd21de3549`
+  - blob: `watchdog-data/blobs/95/95e24641f96d78c4d40aedfe3d207f66cca67dedad0eb234ad75ebe3d28a0afe.pdf` (`95e24641f96d78c4d40aedfe3d207f66cca67dedad0eb234ad75ebe3d28a0afe`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-02-01 · mh-egazette-part8 · 69 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/02/01 | 2022/02/01 | Part VIII Extra No. 20 (01-02-2022) Maharashtra Act No. XX of 2022 | 0 | View
+  - occurrence: `mh-egazette/d7d51ac6834e8c3dc2ba8cbb890ee595f65b2126428c482c9d214319788a6eea`
+  - blob: `watchdog-data/blobs/35/35e82d1fbf55a1121f56d7acb8bddfd6385ecaa32ce9c7087f55626c46064b28.pdf` (`35e82d1fbf55a1121f56d7acb8bddfd6385ecaa32ce9c7087f55626c46064b28`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2022-02-17 · mh-egazette-part8 · 66 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/02/17 | 2022/02/17 | Part VIII Extra. No. 23 (17-02-2022) Urban Development Department, Maharahtra Ordinance No. II of 2022, Further to amend the Mumbai Municipal Corporation Act. | 0 | View
+  - occurrence: `mh-egazette/25c9e413cda9845db27621d7620be753b60f6518805104c40e15c38547cb0581`
+  - blob: `watchdog-data/blobs/c2/c27720674c4c0f8a9986b7d409c83d2861d256e20b2963a9c81dde8a17376e78.pdf` (`c27720674c4c0f8a9986b7d409c83d2861d256e20b2963a9c81dde8a17376e78`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2022-03-11 · mh-egazette-part8 · 59 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/11 | 2022/03/11 | Part VIII Extra No. 31 (11-03-2022) Maharashtra Act No. XXII of 2022, An act further to amend the Maharashtra Village Panchayat Act ........ Samitis Act, 2022 | 0 | View
+  - occurrence: `mh-egazette/b5647e0b941cd93449d5aaaad8220bf3d51c8218f4e557c6c7e5901f9540cdb0`
+  - blob: `watchdog-data/blobs/86/86d3d6580b5f351f34780b0e3c4d61acabc50302d07a06b99d5957274aaaed2b.pdf` (`86d3d6580b5f351f34780b0e3c4d61acabc50302d07a06b99d5957274aaaed2b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-03-11 · mh-egazette-part8 · 58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/11 | 2022/03/11 | Part VIII Extra No. 30 (11-03-2022) Maharashtra Act No. XXI of 2022, An act further to amend the Mumbai Municipal Corporation Act, the Maharashtra Municipal ........... Act, 1965 | 0 | View
+  - occurrence: `mh-egazette/f9b1232e1c5a5f41c23d3007caa298f4c7c522445094d962923e48741592426d`
+  - blob: `watchdog-data/blobs/fe/fe2ec8996aab39e6f879b9e9f2dda86667f1a5caaa396f2a7be517d877d7d3fe.pdf` (`fe2ec8996aab39e6f879b9e9f2dda86667f1a5caaa396f2a7be517d877d7d3fe`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.3; combined keyword pages: 1, 2, 3
+- [ ] 2022-03-15 · mh-egazette-part8 · 57 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/15 | 2022/03/15 | Part VIII Extra No. 32 (15-03-2022) Maharashtra Act No. XXIII of 2022, An Act to authorise payment and Appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty first day of March 2022. | 0 | View
+  - occurrence: `mh-egazette/79dd2b933b18949c71af33da858aa77741a6664c2b521153a56e8b66a5e69d66`
+  - blob: `watchdog-data/blobs/e9/e941648771548b7ffc362ed302950073ab74af867bd023e83ffd54a0bca873fb.pdf` (`e941648771548b7ffc362ed302950073ab74af867bd023e83ffd54a0bca873fb`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2022-03-17 · mh-egazette-part8 · 54 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/17 | 2022/03/17 | भाग आठ, असा. क्रमांक ३५, MAHARASHTRA ACT No. XXIV OF 2022 गुरुवार, मार्च १७, २०२२/फाल्गुन २६, शके १९४३ | 0 | View
+  - occurrence: `mh-egazette/af798bc013548c8ab54309122a32bd2be02cff0d38b9a9acefc8a8416067011b`
+  - blob: `watchdog-data/blobs/63/63b301a5c38afdcbdc4e5f794181e153ff25d37e8540bb65640f9db639b9234c.pdf` (`63b301a5c38afdcbdc4e5f794181e153ff25d37e8540bb65640f9db639b9234c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2022-03-21 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/21 | 2022/03/21 | Part VIII Ext. No. 37 (21st March 2022) MAHARASHTRA ACT NO. XXVI OF 2022 | 0 | View
+  - occurrence: `mh-egazette/51c9740b472ff7c26a0a0931f58642101825ac34e9437cd8cb4b2992d0d8187b`
+  - blob: `watchdog-data/blobs/88/88250484607b19f883d6445def183b69da1574b8c93c5762e870a3bed095df9e.pdf` (`88250484607b19f883d6445def183b69da1574b8c93c5762e870a3bed095df9e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-03-21 · mh-egazette-part8 · 52 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/21 | 2022/03/21 | भाग आठ, असा. क्रमांक ३६, Maharashtra Act No. XXV of 2022 सोमवार, मार्च २१, २०२२/फाल्गुन ३०, शके १९४३ | 0 | View
+  - occurrence: `mh-egazette/8537b3437cb4aa4488085b88c51499edf0ccdf95b9ae1d3192d77af6b7239d48`
+  - blob: `watchdog-data/blobs/50/50e1b8bf021bf97f3b23ad6255e91765964eadd9c05d3ed3dd1eb8237a07b655.pdf` (`50e1b8bf021bf97f3b23ad6255e91765964eadd9c05d3ed3dd1eb8237a07b655`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: surcharge_cess p.1,2,3,4; concession_remission p.3; amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-03-28 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/28 | 2022/03/28 | Part VIII Ext. 45 (28-3-2022) (Final),MAHARASHTRA ACT No. XXVII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/a67c3f54e9149391a2fb43e59b328c1b8c3123d341650c1825e3d4d81c4fe62c`
+  - blob: `watchdog-data/blobs/50/50d2b54295b5ecccaf11e5199fc448fdc84799d05b184a7a5dfcaf1ba83a3e99.pdf` (`50d2b54295b5ecccaf11e5199fc448fdc84799d05b184a7a5dfcaf1ba83a3e99`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2022-03-28 · mh-egazette-part8 · 44 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/03/28 | 2022/03/28 | Part VIII Ext. 48 (28-3-2022) (Final),MAHARASHTRA ACT No. XXX OF 2022. | 0 | View
+  - occurrence: `mh-egazette/c6f9c983867c020153d08e973ebacec5c8a86a0739c67cb6cf802215a1516acd`
+  - blob: `watchdog-data/blobs/30/30476ecf5bfd72dcebd6d80901d588761fa693448fbbbd64b2dde602886814bf.pdf` (`30476ecf5bfd72dcebd6d80901d588761fa693448fbbbd64b2dde602886814bf`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2022-04-07 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/04/07 | 2022/04/07 | Part VIII Ext. 49 (7-4-2022) MAHARASHTRA ACT No. XXXI OF 2022. | 0 | View
+  - occurrence: `mh-egazette/0879f07c78439e206e2410fb1c8454b08e9f57fb87f0dd6e2223266996c7520a`
+  - blob: `watchdog-data/blobs/67/673691af79297598027b4373ba5f4f419912c35ace4f2aa67a226b2cc99d7ce8.pdf` (`673691af79297598027b4373ba5f4f419912c35ace4f2aa67a226b2cc99d7ce8`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.3; commencement p.5; combined keyword pages: 3, 5
+- [ ] 2022-04-07 · mh-egazette-part8 · 39 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/04/07 | 2022/04/07 | Part VIII Ext. 50 (7-4-2022) MAHARASHTRA ACT No. XXXII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/9656e7a406c5db7f496ca29a1e349bcf572882c1b68cb5bed2b1b18357f937bb`
+  - blob: `watchdog-data/blobs/7b/7be7a36892acf56fe29c1899adeaf27092c97af814630c598cfe008dc2f92ca1.pdf` (`7be7a36892acf56fe29c1899adeaf27092c97af814630c598cfe008dc2f92ca1`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.1,2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2022-04-13 · mh-egazette-part8 · 38 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/04/13 | 2022/04/13 | Part VIII (Ex. 51) (Date 13-4-2022) MAHARASHTRA ACT No. XXXIII OF 2022. (first published, after having received the assent of the Governor in the “Maharastra Government Gazette”, on the 13th April 2022) An Act further to amend the Maharashtra Educational Institutions (Regulation of Fee) Act, 2011. | 0 | View
+  - occurrence: `mh-egazette/d8bb7b0aa71104b02e259c34a6aea418c836f9b528d49a01a190f85ff1b95ade`
+  - blob: `watchdog-data/blobs/d2/d2890f7d9d2842c953ea506763d50617f250d89d837c5df71baa042a76da3f15.pdf` (`d2890f7d9d2842c953ea506763d50617f250d89d837c5df71baa042a76da3f15`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2022-04-19 · mh-egazette-part8 · 37 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/04/19 | 2022/04/19 | भाग आठ, असादारण क्रमांक ५२, MAHARASHTRA ACT No. XXXIV OF 2022, TUESDAY, 19 APRIL 2022 | 0 | View
+  - occurrence: `mh-egazette/0032f5b770714bd86f7ba37d095618395ec4943f7ddbb83507ff8a57f1271f49`
+  - blob: `watchdog-data/blobs/15/15a550adf8b51930032e3ebdcf54bbd809f7c8e7f3f3091bedf3455990f88c6b.pdf` (`15a550adf8b51930032e3ebdcf54bbd809f7c8e7f3f3091bedf3455990f88c6b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,6; commencement p.2,6; combined keyword pages: 1, 2, 3, 4, 6
+- [ ] 2022-05-10 · mh-egazette-part8 · 36 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/05/10 | 2022/05/10 | Part VIII, Ex. No. 53, Dated 10th May 2022, Maharashtra Act No. XXXV of 2022 | 0 | View
+  - occurrence: `mh-egazette/ff9ae4420b74dd54df5c231e14ef8ffa72ecf147cda6c17c4247942ffb87f0e3`
+  - blob: `watchdog-data/blobs/a4/a453004209479fd822f39c5cbf275e597cc22959a059cd7f822adc220e39b95e.pdf` (`a453004209479fd822f39c5cbf275e597cc22959a059cd7f822adc220e39b95e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,5,16,18,23,24,31,32,33,35,37,50,52,53,56,58,60,62,64; valuation p.5; concession_remission p.10; amendment p.23,34,35,37,50,51; commencement p.2,50,54,56,67,71,73,74,75; combined keyword pages: 2, 3, 5, 10, 16, 18, 23, 24, 31, 32, 33, 34, 35, 37, 50, 51, 52, 53, 54, 56, 58, 60, 62, 64, 67, 71, 73, 74, 75
+- [ ] 2022-05-12 · mh-egazette-part8 · 35 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/05/12 | 2022/05/12 | Pt. VIII Ext. 54 (12-5-2022), MAHARASHTRA ACT No. XXXVI OF 2022. | 0 | View
+  - occurrence: `mh-egazette/09dbe354bf59246065e93ba33260ca67be3aa7f2ca27b022d99ffe50556e19a1`
+  - blob: `watchdog-data/blobs/70/70e2a07b507a498af0e39a9c43d93f2be927a57d6d947bc9cfd817a56de546f5.pdf` (`70e2a07b507a498af0e39a9c43d93f2be927a57d6d947bc9cfd817a56de546f5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,21; combined keyword pages: 1, 3, 8, 10, 11, 12, 14, 15, 16, 20, 21
+- [ ] 2022-05-13 · mh-egazette-part8 · 34 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/05/13 | 2022/05/13 | Part VIII Extra No. 55 (13-05-2022) Maharashtra Act No. XXXVII of 2022, An Act to provide for establishment, incorporation and regulation of the Dr. P. A. Inamdar University ........therewith or incidental thereto | 0 | View
+  - occurrence: `mh-egazette/d07895d9df30abd22f1ac8e0dbe2a4b98465e6a62545e1342220b86cfbd8e5f4`
+  - blob: `watchdog-data/blobs/cb/cb3615f37662bcf678d2982a6e8f919bd46534e134a69548f4b8855bf260bd8c.pdf` (`cb3615f37662bcf678d2982a6e8f919bd46534e134a69548f4b8855bf260bd8c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,21; combined keyword pages: 1, 3, 8, 10, 11, 12, 14, 15, 16, 20, 21
+- [ ] 2022-07-14 · mh-egazette-part8 · 33 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/07/14 | 2022/07/14 | Part-VIII, Extra 57, (Dated 14th July 2022) URBAN DEVELOPMENT DEPARTMENT MAHARASHTRA ORDINANCE No. IV OF 2022. AN ORDINANCE further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/9c400b167beb71eeb4ce20003601710c8c22ea14f1cf0d38958c6b1b6075d738`
+  - blob: `watchdog-data/blobs/93/93319bec6c4a808d94ca6a752f830325e46d88199868490963ecf71069db36fb.pdf` (`93319bec6c4a808d94ca6a752f830325e46d88199868490963ecf71069db36fb`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-07-14 · mh-egazette-part8 · 32 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/07/14 | 2022/07/14 | Part-VIII, Extra 56, (Dated 14th July 2022) RURAL DEVELOPMENT DEPARTMENT MAHARASHTRA ORDINANCE No. III OF 2022. AN ORDINANCE further to amend the Maharashtra Zilla Parishads and Panchayat Samitis Act, 1961. | 0 | View
+  - occurrence: `mh-egazette/d54a3b5a5bad9ec27d7bf81c51eea04f80267272e23e70aa1b035d69c36cef87`
+  - blob: `watchdog-data/blobs/b9/b9197bae219c0bd23c66fc28920acb2460d25947939b37815ea419f1a0a06f43.pdf` (`b9197bae219c0bd23c66fc28920acb2460d25947939b37815ea419f1a0a06f43`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2022-07-27 · mh-egazette-part8 · 31 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/07/27 | 2022/07/27 | Part VIII (Ex. 58) (Dated the 27th July 2022) RURAL DEVELOPMENT DEPARTMENT MAHARASHTRA ORDINANCE No. V OF 2022. AN ORDINANCE further to amend the Maharashtra Village Panchayats Act. | 0 | View
+  - occurrence: `mh-egazette/579f96613f677967636feecc03049031f2ef1b5c31a1a15e594b828b5e861b82`
+  - blob: `watchdog-data/blobs/c7/c777d8b62cd8dbbb96426952d7e39a803000ebc17f289260aa8eb3d7984dbca3.pdf` (`c777d8b62cd8dbbb96426952d7e39a803000ebc17f289260aa8eb3d7984dbca3`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-08-26 · mh-egazette-part8 · 15 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/08/26 | 2022/08/26 | Part VIII (Ex. 74) (Dated the 26-8-2022) MAHARASHTRA ACT No. XXXIX OF 2022. | 0 | View
+  - occurrence: `mh-egazette/7116ac30b3f4780988cc2324408b9cf8d7057e59eb53bf9fc52f27da3c9768b1`
+  - blob: `watchdog-data/blobs/09/09e7c70312e927f43d991c55afbf0e6f0b260f3dbcadea1b1ef57ed3b4ea7c73.pdf` (`09e7c70312e927f43d991c55afbf0e6f0b260f3dbcadea1b1ef57ed3b4ea7c73`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; concession_remission p.7; amendment p.1,2,4,5,6,7,8; commencement p.1,2,7; combined keyword pages: 1, 2, 3, 4, 5, 6, 7, 8
+- [ ] 2022-08-26 · mh-egazette-part8 · 14 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/08/26 | 2022/08/26 | Part VIII (Ex. 73) (Dated the 26-8-2022) MAHARASHTRA ACT No. XXXVIII OF 2022. | 0 | View
+  - occurrence: `mh-egazette/7fe8cb01d0e1ab5a83bad4f3878578da4c2bcf6d7799185b449ed14a2c04ac66`
+  - blob: `watchdog-data/blobs/f2/f249bae34c58a4588a7f06fc8a98dd977b138a8eaeab1afee7345276a03926be.pdf` (`f249bae34c58a4588a7f06fc8a98dd977b138a8eaeab1afee7345276a03926be`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2022-08-26 · mh-egazette-part8 · 16 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/08/26 | 2022/08/26 | Part VIII Extra 75 Date 26th Aug. 2022) MAHARASHTRA ACT No. XL OF 2022. | 0 | View
+  - occurrence: `mh-egazette/8bb3ac18b731b211d09f193b1be3cf6f318a62d47059c49a223e4f825ea76a38`
+  - blob: `watchdog-data/blobs/af/afce816faa7b12450d44234f2eb3e26db1aaf04937815a5253e61c77e1d12458.pdf` (`afce816faa7b12450d44234f2eb3e26db1aaf04937815a5253e61c77e1d12458`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2022-08-29 · mh-egazette-part8 · 12 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/08/29 | 2022/08/29 | भाग आठ, असाधारण क्रमांक ७६, MAHARASHTRA ACT No. XLII OF 2022, अंक ३६ सोमवार, २९ ऑगस्ट २०२२ | 0 | View
+  - occurrence: `mh-egazette/0e5b8f75af5204026ef3936d62eec51c82f2289ec4e2c9b8976bbda336ebddfc`
+  - blob: `watchdog-data/blobs/fd/fde15cf99e8968a41e8bd1ff27433f64ad211e53cbcf8e54f0b966b4244a1886.pdf` (`fde15cf99e8968a41e8bd1ff27433f64ad211e53cbcf8e54f0b966b4244a1886`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2022-08-29 · mh-egazette-part8 · 13 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/08/29 | 2022/08/29 | भाग आठ, असाधारण क्रमांक ७७, MAHARASHTRA ACT No. XLI OF 2022, अंक ३६(२) सोमवार, २९ ऑगस्ट २०२२ | 0 | View
+  - occurrence: `mh-egazette/123056d84cb9b024d2caed6aec3e101cc063211e7491fe7c30228a72ecd5cae8`
+  - blob: `watchdog-data/blobs/e3/e382f3ec51a023df17f6ab2b8bed3cc04b0b620a153573b9f1a4d74e3bfdc5cd.pdf` (`e382f3ec51a023df17f6ab2b8bed3cc04b0b620a153573b9f1a4d74e3bfdc5cd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2022-09-08 · mh-egazette-part8 · 10 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/09/08 | 2022/09/08 | Part VIII, Extra Ordinary Gazette No. 79, Dated 8th September 2022 Maharashtra Act No. XLIV of 2022 | 0 | View
+  - occurrence: `mh-egazette/35a8c42549649a62acea9b1606526cf4988600455ae798a0366d09ad47db1b41`
+  - blob: `watchdog-data/blobs/48/486533950c13a974a629ed636d3a7b6f6a713b135306ebb60d78b2d3bfb02603.pdf` (`486533950c13a974a629ed636d3a7b6f6a713b135306ebb60d78b2d3bfb02603`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-09-08 · mh-egazette-part8 · 11 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/09/08 | 2022/09/08 | Part VIII, Extra Ordinary Gazette No. 80, Dated 8th September 2022 Maharashtra Act No. XLV of 2022 | 0 | View
+  - occurrence: `mh-egazette/439bded19dd60738ca65c93e3a8e428285dd0f71d1640e6fcf367b141eba28ab`
+  - blob: `watchdog-data/blobs/b6/b6e0a1c6d02865a05bf2b113ba3ec964aa715423c94ad7e743aec7fa9ee140fa.pdf` (`b6e0a1c6d02865a05bf2b113ba3ec964aa715423c94ad7e743aec7fa9ee140fa`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4; commencement p.2; combined keyword pages: 2, 4
+- [ ] 2022-09-08 · mh-egazette-part8 · 9 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/09/08 | 2022/09/08 | Part VIII, Extra Ordinary Gazette No. 78, Dated 8th September 2022 Maharashtra Act No. XLIII of 2022 | 0 | View
+  - occurrence: `mh-egazette/9a8dc1d894d5c9738504d9e55def4fabc2249fdcbbbc18fba8e52ce24dbecde5`
+  - blob: `watchdog-data/blobs/fa/fa3d99198cc10e9bb89a9fd88724261f4811da04630a42fa1d04501879323ad7.pdf` (`fa3d99198cc10e9bb89a9fd88724261f4811da04630a42fa1d04501879323ad7`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.1,3; combined keyword pages: 1, 2, 3
+- [ ] 2022-09-12 · mh-egazette-part8 · 8 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/09/12 | 2022/09/12 | भाग आठ, असा., क्रमांक ८२, MAHARASHTRA ACT No. XLVI OF 2022. Monday, 12th September 2022. | 0 | View
+  - occurrence: `mh-egazette/34754adaea4b7c5e10cd58c6af011732328eb5015d2e65a72121274b0974698f`
+  - blob: `watchdog-data/blobs/50/509200c4fcaf3f2d9ca26e5569b3e689b4f5b94ae8e2654f050b6c6c8e97a611.pdf` (`509200c4fcaf3f2d9ca26e5569b3e689b4f5b94ae8e2654f050b6c6c8e97a611`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2022-09-12 · mh-egazette-part8 · 7 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/09/12 | 2022/09/12 | Part VIII (Ex. 83) (Dated the 12th September 2022) Maharashtra Act No. XLVII of 2022 | 0 | View
+  - occurrence: `mh-egazette/53789f88a120395bca3e244f8198d264bce7ebd024d352a3c6d5e09ea16c8993`
+  - blob: `watchdog-data/blobs/0b/0bb44a46229d2c141ffe897852cc334904c74ca9147f7be9738262f6ee0099b6.pdf` (`0bb44a46229d2c141ffe897852cc334904c74ca9147f7be9738262f6ee0099b6`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2022-11-24 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/11/24 | 2022/11/24 | Part VIII Ex. No. 87, Dated 24th November 2022, Higher and Technical Education Department, Maharashtra Ordinance No. XIII of 2022, THE YASHWANTRAO CHAVAN MAHARASHTRA OPEN UNIVERSITY ACT, 1989 | 0 | View
+  - occurrence: `mh-egazette/3b07f605e62460c64ea0a0879bf278303944a32921cbaa20cf96445bf2222ad4`
+  - blob: `watchdog-data/blobs/b4/b4883e0b05081133b7d0c972974a4e39bb7621ae5405db01456b4660061e85c9.pdf` (`b4883e0b05081133b7d0c972974a4e39bb7621ae5405db01456b4660061e85c9`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5,6,8; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6, 8
+- [ ] 2022-11-24 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/11/24 | 2022/11/24 | Part VIII Ex. No. 86, Dated 24th November 2022, Urban Development Department, Maharashtra Ordinance No. XII of 2022, Mumbai Municipal Corporation Act | 0 | View
+  - occurrence: `mh-egazette/6b02b7ac830135d6dca6afe4753d6347c7e2fdb649934d24f1b3e0b2efe7576d`
+  - blob: `watchdog-data/blobs/85/851a97ec1e6ed8618b340c673ca330089d671b5a8744363010b2dfcd92e5f8f3.pdf` (`851a97ec1e6ed8618b340c673ca330089d671b5a8744363010b2dfcd92e5f8f3`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2022-12-02 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2022/12/02 | 2022/12/02 | भाग आठ, असा क्र. ८८, डिसेंबर २, २०२२, MAHARASHTRA ACT No. XLVIII OF 2022. An Act further to amend the Maharashtra Housing and Area Development Act, 1976. | 0 | View
+  - occurrence: `mh-egazette/ea92a0eb2421227fbaf65da3702089007000c91949a2452267c4afe8777ce3eb`
+  - blob: `watchdog-data/blobs/8e/8e4ce79a21561d41f0e1b245c13e74c101076edc8716a76bf525551aa64cc2fb.pdf` (`8e4ce79a21561d41f0e1b245c13e74c101076edc8716a76bf525551aa64cc2fb`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; valuation p.2; amendment p.1,4; commencement p.3; combined keyword pages: 1, 2, 3, 4
+- [ ] 2023-01-03 · mh-egazette-part8 · 118 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/03 | 2023/01/03 | Part-VIII, Ext. 1, (Dated 3rd January 2023) MAHARASHTRA ACT No. I OF 2023 An Act further to amend the Mumbai Municipal Corporation Act. | 0 | View
+  - occurrence: `mh-egazette/1820d4e1a2e73ebc8feb94b284318032412bec0c76f42c6ab15d0c5ad6bb8c1d`
+  - blob: `watchdog-data/blobs/4b/4bfb41f61ab4c1d822f3c04b1f30d30aa34e76cd4e3a48429f3593c5f603702c.pdf` (`4bfb41f61ab4c1d822f3c04b1f30d30aa34e76cd4e3a48429f3593c5f603702c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-01-03 · mh-egazette-part8 · 119 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/03 | 2023/01/03 | Part-VIII, Ext. 2, (Dated 3rd January 2023) MAHARASHTRA ACT No. II OF 2023. An Act further to amend the Maharashtra Agricultural Produce Marketing (Development and Regulation) Act, 1963. | 0 | View
+  - occurrence: `mh-egazette/9677fe9039b41d0917abdae71d66e2c25ccfe468d268a735c03d114d8ff688a4`
+  - blob: `watchdog-data/blobs/4b/4b6f74405565fba1ff5fdb0f264d6cc947812ca722763b5264a3672425786257.pdf` (`4b6f74405565fba1ff5fdb0f264d6cc947812ca722763b5264a3672425786257`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2023-01-05 · mh-egazette-part8 · 117 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/05 | 2023/01/05 | Part-VIII, Ext. 3, (Dated 5th January 2023) MAHARASHTRA ACT No. III OF 2023. An Act to provide for establishment, incorporation and regulation of the Universal Ai University, Karjat, for the development and advancement of higher education in the State of Maharashtra and for matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/2ce833ef7624dad44c103669cbd1c7391ad7d486a68a47a90092e549195ace32`
+  - blob: `watchdog-data/blobs/1d/1d1c4ac79a4d38ad99d34309e1a4d0a0e828f4b3118c7cfe82e4f0c0f7f5f159.pdf` (`1d1c4ac79a4d38ad99d34309e1a4d0a0e828f4b3118c7cfe82e4f0c0f7f5f159`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,22; combined keyword pages: 1, 8, 10, 11, 12, 14, 15, 16, 20, 22
+- [ ] 2023-01-06 · mh-egazette-part8 · 115 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/06 | 2023/01/06 | Part-VIII, Ext. 5, (Dated 6th January 2023) MAHARASHTRA ACT No. V OF 2023. An Act to provide for establishment, incorporation and regulation of the Pimpri Chinchwad University, Pune, for the development and advancement of higher education in the State of Maharashtra and for matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/76c06cac07f5c5e7b8c127fb15892715da867ec004922e6b7e2a877597c635c1`
+  - blob: `watchdog-data/blobs/82/8212d8e3bac7dbe4d4bfb47f521ce6dbc2cb7a015a550266da612ce83a735305.pdf` (`8212d8e3bac7dbe4d4bfb47f521ce6dbc2cb7a015a550266da612ce83a735305`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,22; combined keyword pages: 1, 8, 10, 11, 12, 14, 15, 16, 20, 22
+- [ ] 2023-01-06 · mh-egazette-part8 · 116 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/06 | 2023/01/06 | Part-VIII, Ext. 4, (Dated 6th January 2023) MAHARASHTRA ACT No. IV OF 2023. An Act to provide for establishment, incorporation and regulation of the JSPM University, Pune, for the development and advancement of higher education in the State of Maharashtra and for matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/d64c00f67cac90eb91758d5fe61491ca7324cc97921e99797345725ec84d1cc1`
+  - blob: `watchdog-data/blobs/eb/eb01eeaab5b2e425b3b7afdcd98977d7d0a6b4b00447a4a276cf2ff78da43acc.pdf` (`eb01eeaab5b2e425b3b7afdcd98977d7d0a6b4b00447a4a276cf2ff78da43acc`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,16,20,22; combined keyword pages: 1, 3, 8, 10, 11, 12, 14, 15, 16, 20, 22
+- [ ] 2023-01-11 · mh-egazette-part8 · 114 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/11 | 2023/01/11 | Part VIII Extra No. 6 (11-01-2023) Maharashtra Act No. VI of 2023 | 0 | View
+  - occurrence: `mh-egazette/5e54f54ce8baf6989313432223b3c3cf045b57dfe515b707b411be425822056b`
+  - blob: `watchdog-data/blobs/2c/2c540580777fbcf4ac4cf44a28bbeda79313b15477406b132e31c60ed3d70dc0.pdf` (`2c540580777fbcf4ac4cf44a28bbeda79313b15477406b132e31c60ed3d70dc0`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5,6,7; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2023-01-11 · mh-egazette-part8 · 113 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/11 | 2023/01/11 | Part VIII Extra No. 7 (11-01-2023) Maharashtra Act No. VII of 2023 | 0 | View
+  - occurrence: `mh-egazette/5f14667cd701483dcd2e250b98f2e862762c041470c6e4175fb653b897d2833b`
+  - blob: `watchdog-data/blobs/6a/6a46b33c296d89fa237aac7ea8685e6dfcdd1992080dbee50e5b75ad561b3e7b.pdf` (`6a46b33c296d89fa237aac7ea8685e6dfcdd1992080dbee50e5b75ad561b3e7b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2023-01-13 · mh-egazette-part8 · 112 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/13 | 2023/01/13 | Pt VIII Ex. No. 9 (13-1-23),MAHARASHTRA ACT No. IX OF 2023.,An Act to amend the Regularisation of Unauthorised Developments in the City of Ulhasnagar Act, 2006. | 0 | View
+  - occurrence: `mh-egazette/9ab9763a77c67ca8ed3dd5cd7793309fe8c4dfc774c6e2aed161ff94ee183b72`
+  - blob: `watchdog-data/blobs/7a/7a164e16de6b48301db04b15df6542d71704135f6fca8db1187ce98a578c4c88.pdf` (`7a164e16de6b48301db04b15df6542d71704135f6fca8db1187ce98a578c4c88`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-01-13 · mh-egazette-part8 · 111 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/13 | 2023/01/13 | Part-VIII, Ext. 8, (Dated 13th January 2023) MAHARASHTRA ACT No. VIII OF 2023. An Act to amend the Maharashtra Creation of Supernumerary Posts and Appointment of Selected Candidates Act, 2022. | 0 | View
+  - occurrence: `mh-egazette/fdbb24df464285ff5e8773469248e99e82540db0ab374e76d002bc39ceb06428`
+  - blob: `watchdog-data/blobs/83/832f225dd7278da2c85e483dac26f7e9c3fb8fde1da466eda214d440e1343a86.pdf` (`832f225dd7278da2c85e483dac26f7e9c3fb8fde1da466eda214d440e1343a86`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,5; amendment p.1; combined keyword pages: 1, 3, 5
+- [ ] 2023-01-20 · mh-egazette-part8 · 110 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/20 | 2023/01/20 | PART VIII, EXTRA No. 10, MAHARASHTRA ACT No. X OF 2023, FRIDAY, 20TH JANUARY 2023 | 0 | View
+  - occurrence: `mh-egazette/83f50f84725c3235c02732490b1a571c140850cd6a59a3270bab381f3084f3bd`
+  - blob: `watchdog-data/blobs/44/44c75a4c0f911e965b86371d7b3d37c1a29cca1c573f4e2bea8413efd42fb436.pdf` (`44c75a4c0f911e965b86371d7b3d37c1a29cca1c573f4e2bea8413efd42fb436`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.10,12,13,15; concession_remission p.8,16; amendment p.16; commencement p.2,14,16,17,21,23; combined keyword pages: 2, 8, 10, 12, 13, 14, 15, 16, 17, 21, 23
+- [ ] 2023-01-23 · mh-egazette-part8 · 109 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/01/23 | 2023/01/23 | Part VIII Extra No. 11 (23-01-2023) Maharashtra Act No. XI of 2023 | 0 | View
+  - occurrence: `mh-egazette/7f9cb14308f892153459dca32394342bd6d98f4af061489354decbeb49043674`
+  - blob: `watchdog-data/blobs/58/58d77ca38055387477550c1750b41ee05391cca6559b7fe31fde17f5618a6976.pdf` (`58d77ca38055387477550c1750b41ee05391cca6559b7fe31fde17f5618a6976`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-03-13 · mh-egazette-part8 · 101 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/03/13 | 2023/03/13 | भाग आठ, असा., क्रमांक १९, MAHARASHTRA ACT No. XII OF 2023. सोमवार, १३ मार्च २०२३. | 0 | View
+  - occurrence: `mh-egazette/954b0154a1620ac94258385d2db3502be680de60d0c30d03e2a9196513d61891`
+  - blob: `watchdog-data/blobs/81/81df54e8bc62f123f28c2734cf9cc6b196b6548092d7801f96c30e9a451335da.pdf` (`81df54e8bc62f123f28c2734cf9cc6b196b6548092d7801f96c30e9a451335da`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.3; registration p.3; combined keyword pages: 3
+- [ ] 2023-03-24 · mh-egazette-part8 · 88 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/03/24 | 2023/03/24 | Part VIII, Extra No. 32, MAHARASHTRA ACT No. XVI OF 2023 Friday, 24th March 2023. | 0 | View
+  - occurrence: `mh-egazette/bd2dfe4e6b74ab8dc447997f2a17ec8598d0bb52b1efaa14dadfcc2c35e34979`
+  - blob: `watchdog-data/blobs/4c/4c68402218c3133ee80482bdb96b57849fece10bf2acfa64394fadb3d01b1842.pdf` (`4c68402218c3133ee80482bdb96b57849fece10bf2acfa64394fadb3d01b1842`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2023-03-29 · mh-egazette-part8 · 86 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/03/29 | 2023/03/29 | Part VIII (Ex. 34) (29-3-2023) MAHARASHTRA ACT No. XVII OF 2023. An Act to authorise payment and appropriation of certain sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March 2024. | 0 | View
+  - occurrence: `mh-egazette/81984c46516c57098e5136f45db7c2450676486b2a7b805a2ee333b90e38f404`
+  - blob: `watchdog-data/blobs/8d/8d8f8889987eb95e96e6342881ca7ba2eb09bb48fe0c0c2625df56ea68e6157a.pdf` (`8d8f8889987eb95e96e6342881ca7ba2eb09bb48fe0c0c2625df56ea68e6157a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2023-04-06 · mh-egazette-part8 · 84 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/06 | 2023/04/06 | Part-VIII, Ext. 35, (Dated 6th April 2023) MAHARASHTRA ACT NO. XIX OF 2023. An Act further to amend the Maharashtra State Tax on Professions, Trades, Callings and Employments Act, 1975. | 0 | View
+  - occurrence: `mh-egazette/4aea01d8815932af95c3fc47e36072b9f096a6027d73dedbcf6f7b3393dd7ab7`
+  - blob: `watchdog-data/blobs/7c/7c2f5cd83977591118a64fa12971f2be34c4c541446347c777a0dad2db67b8bc.pdf` (`7c2f5cd83977591118a64fa12971f2be34c4c541446347c777a0dad2db67b8bc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2; amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+- [ ] 2023-04-06 · mh-egazette-part8 · 85 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/06 | 2023/04/06 | Part-VIII, Ext. 36, (Dated 6th April 2023) MAHARASHTRA ACT No. XVIII OF 2023. An Act to provide for settlement of arrears of tax, interest, penalty or late fee which were levied, payable or imposed, respectively, under various Acts administered by the Goods and Services Tax Department and for the matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/a7386cb8acf89ef7a2efd418d2a94f461cfd784e6f177db8aee61c2b98514957`
+  - blob: `watchdog-data/blobs/24/24f1af0dd67c50e5e9f16a7f56920afba9fce9f4b10e28eba05554cdcf5442b0.pdf` (`24f1af0dd67c50e5e9f16a7f56920afba9fce9f4b10e28eba05554cdcf5442b0`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.5,6,7,8,10,13,14; commencement p.2,12; combined keyword pages: 2, 5, 6, 7, 8, 10, 12, 13, 14
+- [ ] 2023-04-11 · mh-egazette-part8 · 83 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/11 | 2023/04/11 | भाग आठ, असा., क्रमांक ३७, MAHARASHTRA ACT No. XX OF 2023 Tuesday, 11th April 2023 | 0 | View
+  - occurrence: `mh-egazette/42e78130fb7b45f9e868d66623c9c604e87df5401265146ca60b4271dea0d3c1`
+  - blob: `watchdog-data/blobs/6c/6ccc6c1db862cd5d193b34c87aaf1efc55e91dc31d8b614794c9dc4623433c55.pdf` (`6ccc6c1db862cd5d193b34c87aaf1efc55e91dc31d8b614794c9dc4623433c55`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5,6; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2023-04-21 · mh-egazette-part8 · 82 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/21 | 2023/04/21 | Part VIII Ext. No. 38, Maharashtra Act No. XXI of 2023. Friday, 21st April 2023. | 0 | View
+  - occurrence: `mh-egazette/f9acd0d6ffe6017f04cc568c1b49ba57dbfbe264c210d07e2901c8ff4767fd13`
+  - blob: `watchdog-data/blobs/19/19f0adeecfff88d8aefe90c4b96ca7b9d91d291e597639a90d8b295ec28f83e8.pdf` (`19f0adeecfff88d8aefe90c4b96ca7b9d91d291e597639a90d8b295ec28f83e8`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-04-26 · mh-egazette-part8 · 81 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/26 | 2023/04/26 | Part VIII (Ex. 39) (Date 26-4-2023) MAHARASHTRA ACT No. XXII OF 2023. (First published, after having received the assent of the Governor in the “Maharashtra Government Gazette”, on the 26th April 2023). An Act further to amend the Maharashtra State Board of Technical Education Act, 1997. | 0 | View
+  - occurrence: `mh-egazette/f92a15e6f946e66ee7d9621158e5a2a4327aa6dbcd50ca95a3c3b7ff5a55bf67`
+  - blob: `watchdog-data/blobs/e6/e6acb7c3f3d5dae5374d04f4aa7d1b6df7ce0dbfe466445d278507c578be9afa.pdf` (`e6acb7c3f3d5dae5374d04f4aa7d1b6df7ce0dbfe466445d278507c578be9afa`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,4,5,6,7,8,9,10,11; commencement p.7,11; combined keyword pages: 1, 2, 4, 5, 6, 7, 8, 9, 10, 11
+- [ ] 2023-04-28 · mh-egazette-part8 · 79 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/28 | 2023/04/28 | Part-VIII, Ext. 40, (Dated 28th April 2023) MAHARASHTRA ACT No. XXIII OF 2023 An Act to constitute Goseva Ayog for the preservation, protection and welfare of cattle, and for supervision of Institutions engaged therein, in the State of Maharashtra and to provide for the matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/2faa3dbbf887c2f86f05e2b2c6f8e9bfefb43d49240a63aafd42eb0f1261995b`
+  - blob: `watchdog-data/blobs/3a/3a707ffdab166c4d66205fcc094a03bc3ab946bd4e38e849844618045e7ec5ef.pdf` (`3a707ffdab166c4d66205fcc094a03bc3ab946bd4e38e849844618045e7ec5ef`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,6; commencement p.1,6,9; combined keyword pages: 1, 2, 6, 9
+- [ ] 2023-04-28 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/04/28 | 2023/04/28 | Part-VIII, Ext. 41, (Dated 28th April 2023) RURAL DEVELOPMENT DEPARTMENT MAHARASHTRA ORDINANCE No. I OF 2023. AN ORDINANCE further to amend the Maharashtra Village Panchayats Act and the Maharashtra Zilla Parishads and Panchayat Samitis Act, 1961. | 0 | View
+  - occurrence: `mh-egazette/7d114c23f2cc7d0d894ef0f972732cf9b55a39c40036ad96b7e5ce9e8c7f7495`
+  - blob: `watchdog-data/blobs/0e/0eadb4536fb7ad41e1a2eb31df06705871a0e1f0cbef46f91f2efbed11ce809c.pdf` (`0eadb4536fb7ad41e1a2eb31df06705871a0e1f0cbef46f91f2efbed11ce809c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2023-05-11 · mh-egazette-part8 · 78 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/05/11 | 2023/05/11 | Part VIII, Extra Ordinary Gazette No. 42, dated 11th may 2023, Maharashtra Act No. XXIV of 2023, Maharashtra Fire Prevention and Life Safety Measures Act, 2006 | 0 | View
+  - occurrence: `mh-egazette/0605fcf9d3cc2589c36e76a57114c92b24f6d5ca28e14405bde593e2ea04f069`
+  - blob: `watchdog-data/blobs/fd/fddfb1919b7738d882c8c1be80495c8447e2dff2c79a1019d4dc4e0148cd4d8d.pdf` (`fddfb1919b7738d882c8c1be80495c8447e2dff2c79a1019d4dc4e0148cd4d8d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5,11,36,37; registration p.37; valuation p.36,37; amendment p.1,2,3,5,6,7,8,9,10,11,12; commencement p.1,5,11; combined keyword pages: 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 36, 37
+- [ ] 2023-05-22 · mh-egazette-part8 · 77 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/05/22 | 2023/05/22 | Part-VIII, Ext. 43, (Dated 22nd May 2023) MAHARASHTRA ACT No. XXV OF 2023. An Act further to amend the Pandharpur Temples Act, 1973. | 0 | View
+  - occurrence: `mh-egazette/53b0ae0e985541f036cc3f8138136acd0d490b12a97d466f0b5ffaa7092df87f`
+  - blob: `watchdog-data/blobs/bb/bb00aca338c11273cf8ef6058accf031a108b2f04d48663b84a84821d5ed82b0.pdf` (`bb00aca338c11273cf8ef6058accf031a108b2f04d48663b84a84821d5ed82b0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-06-07 · mh-egazette-part8 · 76 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/06/07 | 2023/06/07 | भाग आठ, असा., क्रमांक ४४, MAHARASHTRA ACT No. XXVI OF 2023 wEDNESDAY, 7TH JUNE 2023. | 0 | View
+  - occurrence: `mh-egazette/2ff455ade1b7b32c5941d4a7fed0ee4baaf43353ad777ab43ef2291715425037`
+  - blob: `watchdog-data/blobs/06/06e45d0f176fd84bab7b6770337d193175cdace7190fc35c85b39fa141d44e1d.pdf` (`06e45d0f176fd84bab7b6770337d193175cdace7190fc35c85b39fa141d44e1d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-06-19 · mh-egazette-part8 · 74 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/06/19 | 2023/06/19 | Part-VIII, Ext. 46, (Dated 19th June 2023) URBAN DEVELOPMENT DEPARTMENT MAHARASHTRA ORDINANCE No. III OF 2023. AN ORDINANCE further to amend the Maharashtra Regional and Town Planning Act, 1966. | 0 | View
+  - occurrence: `mh-egazette/ac93a20f1e7baeea1d0c85d793b4d258487357be20874502c7a275d7547fa280`
+  - blob: `watchdog-data/blobs/51/51796d43690ce599c12be8c88e7caca321840428bd9bd322190a1708ce22755a.pdf` (`51796d43690ce599c12be8c88e7caca321840428bd9bd322190a1708ce22755a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.1; combined keyword pages: 1, 2, 3
+- [ ] 2023-06-21 · mh-egazette-part8 · 73 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/06/21 | 2023/06/21 | Part-VIII, Ext. 47, (Dated 21st June 2023) MAHARASHTRA ACT No. XXVII OF 2023. An Act further to amend the Maharashtra Police Act. | 0 | View
+  - occurrence: `mh-egazette/09dc726769cd8269cce32c15a48945dc2dfed38d163dc29e027d9bd8b92c9e5c`
+  - blob: `watchdog-data/blobs/ea/ea06d77243271d5d7d33280652a0b12bb6da48089e2a09594131a311279a8330.pdf` (`ea06d77243271d5d7d33280652a0b12bb6da48089e2a09594131a311279a8330`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-06-27 · mh-egazette-part8 · 72 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/06/27 | 2023/06/27 | Part VIII (Ex.48) (Dated 27-6-2023) MAHARASHTRA ACT No. XXVIII OF 2023. (First published, after having received the assent of the President in the “ Maharashtra Government Gazette ”, on the 27th June 2023). | 0 | View
+  - occurrence: `mh-egazette/f7bf1fc4b55615e721cfc56ca46e2d55560af5c53a0bc4904788d14cbbf77dbe`
+  - blob: `watchdog-data/blobs/15/15b0e46761ae696576c4ac5ef4017f22c4957089d41cbfb0675d424cc581b111.pdf` (`15b0e46761ae696576c4ac5ef4017f22c4957089d41cbfb0675d424cc581b111`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4; surcharge_cess p.5; commencement p.2,3,10; combined keyword pages: 2, 3, 4, 5, 10
+- [ ] 2023-07-25 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/07/25 | 2023/07/25 | Part VIII (Ex.70) (Dated 25-7-2023) MAHARASHTRA ACT No. XXX OF 2023. (First published, after having received the assent of the Governor in the “Maharashtra Government Gazette’’, on the 25th July, 2023). | 0 | View
+  - occurrence: `mh-egazette/056c9df725851af9bb7b65311d137f82d4d7591c6faaf23aad342b2edb9aaf17`
+  - blob: `watchdog-data/blobs/97/9783a7ef92bbbcb37b34456c7d0d8a85f32f43f86e8279373fc866df266f4d03.pdf` (`9783a7ef92bbbcb37b34456c7d0d8a85f32f43f86e8279373fc866df266f4d03`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2023-07-27 · mh-egazette-part8 · 47 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/07/27 | 2023/07/27 | Part-VIII, Ext. 74, (Dated 27th July 2023) MAHARASHTRA ACT No. XXXI OF 2023. An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March 2024. | 0 | View
+  - occurrence: `mh-egazette/d88bfdaa92c33d7f94baf80b0b6cff02160a4a508c3696220a040a37d2ea3535`
+  - blob: `watchdog-data/blobs/7d/7d7b7a005cf1ae745e053fce7bf0d70a8f658ef6a6f2fcd00680a3f25c132d9f.pdf` (`7d7b7a005cf1ae745e053fce7bf0d70a8f658ef6a6f2fcd00680a3f25c132d9f`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2023-07-28 · mh-egazette-part8 · 45 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/07/28 | 2023/07/28 | Part VIII (Ex.76) (Dated 28-7-2023) MAHARASHTRA ACT No. XXXII OF 2023. (First published, after having received the assent of the Governor in the “Maharashtra Government Gazette”, on the 28th July 2023). An Act further to amend the Maharashtra Goods and Services Tax Act, 2017. | 0 | View
+  - occurrence: `mh-egazette/597c38b491b28fc4755a3649ff38a9a97751f1e0d9ce73267200cf207a416c7c`
+  - blob: `watchdog-data/blobs/1c/1cbf6be9962bd83b64995da48c0b0c356c83f8d3232dd64d6421392bc7392a6d.pdf` (`1cbf6be9962bd83b64995da48c0b0c356c83f8d3232dd64d6421392bc7392a6d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,5,6; concession_remission p.3,5,7; amendment p.1,2,3,4,5,6; commencement p.1,2; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2023-08-07 · mh-egazette-part8 · 36 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/07 | 2023/08/07 | भाग आठ, असा., क्रमांक ८४, MAHARASHTRA ACT No. XXXIII OF 2023 MONDAY 7TH AUGUST 2023. | 0 | View
+  - occurrence: `mh-egazette/9296e8769cfc80ce5ad924ccdbf417337c3b126b55a49caf43d04f045a46f4be`
+  - blob: `watchdog-data/blobs/16/167cfbbd0257275833c0a685964c02e88b35188547b6e8fe1b6c7c6f6eeff715.pdf` (`167cfbbd0257275833c0a685964c02e88b35188547b6e8fe1b6c7c6f6eeff715`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.4,5; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2023-08-14 · mh-egazette-part8 · 35 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/14 | 2023/08/14 | Part VIII, Extra Ordinary Gazette No. 88, dated 14th August 2023, Maharashtra Act No. XXXVII of 2023, An Act to make special provisions for payment of compensation for loss of life of, or injury to, humans and cattle and damage to crops and property caused by certain wild animals and for matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/52761f142e4f5037cd7a5efbdd8c7899f3d5eb28fd882470721ed908a3721659`
+  - blob: `watchdog-data/blobs/a1/a1a41f651b1d2d975215ed35ea551e49feeaf749edb61e2db9e9125cc23753a4.pdf` (`a1a41f651b1d2d975215ed35ea551e49feeaf749edb61e2db9e9125cc23753a4`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.1,3,4; combined keyword pages: 1, 3, 4
+- [ ] 2023-08-14 · mh-egazette-part8 · 33 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/14 | 2023/08/14 | Part VIII, Extra Ordinary Gazette No. 87, dated 14th August 2023, Maharashtra Act No. XXXVI of 2023, An Act further to amend the Maharashtra Regional and Town Planning Act, 1966. | 0 | View
+  - occurrence: `mh-egazette/8119d9dafbb9e9ea25605f64ae41d60207e52f12fffe7d3bdd30e685e64cb06a`
+  - blob: `watchdog-data/blobs/4b/4b7204f3830a098cd93dfbedb63ced7fa5d2f5cf27dcac4174de0f984ba0efb8.pdf` (`4b7204f3830a098cd93dfbedb63ced7fa5d2f5cf27dcac4174de0f984ba0efb8`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+- [ ] 2023-08-14 · mh-egazette-part8 · 34 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/14 | 2023/08/14 | Part VIII, Extra Ordinary Gazette No. 86, dated 14th August 2023, Maharashtra Act No. XXXV of 2023, An Act to provide for extension of a period for submitting validity certificate by persons elected on reserved seats of member, Sarpanch, Councillor, President and member and Chairman in certain general or bye-elections to Village Panchayats, Zilla Parishads and Panchayat Samitis and for matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/ed26360b8880642522c4e8710ea75d589cd57c369581b2261edf8aa9f3b79f98`
+  - blob: `watchdog-data/blobs/7d/7dde1b9db76a5d7b0d4ab4b9eba60935ba115dc95e660127f27025d7c4235f0b.pdf` (`7dde1b9db76a5d7b0d4ab4b9eba60935ba115dc95e660127f27025d7c4235f0b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,3; combined keyword pages: 2, 3
+- [ ] 2023-08-14 · mh-egazette-part8 · 32 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/14 | 2023/08/14 | Part VIII, Extra Ordinary Gazette No. 85, dated 14th August 2023, Maharashtra Act No. XXXIV of 2023, An Act to create an effective Single Window System for delivery of services related to issuing of permissions required for establishing and operating industries; to enhance State’s competitiveness on trade and investments; to develop an ecosystem to ensure Ease of Doing Business including grievance redressal mechanism in the State; and to develop and maintain a portal for providing all necessary information required for investment in the State of Maharashtra and for the matters connected therewith or incidental thereto. | 0 | View
+  - occurrence: `mh-egazette/fababba640d1ac6acb2118e05341538f8c9b21d24b1a1b04f36277773a60c958`
+  - blob: `watchdog-data/blobs/75/7585743ac10a6bcaed1e60492fd5dda80cd7b51f0d05658420df1d007738d383.pdf` (`7585743ac10a6bcaed1e60492fd5dda80cd7b51f0d05658420df1d007738d383`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.7; commencement p.2,7,8; combined keyword pages: 2, 7, 8
+- [ ] 2023-08-18 · mh-egazette-part8 · 31 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/18 | 2023/08/18 | भाग आठ, असा., क्रमांक ९०, MAHARASHTRA ACT No. XXXIX OF 2023. FRIDAY, 18TH AUGUST 2023. | 0 | View
+  - occurrence: `mh-egazette/474009895d8167971257fffc3bec1e9f46e5bb114ca8dd63c4854980984134fa`
+  - blob: `watchdog-data/blobs/ef/ef56b376a8e2c58c7b5e6c186e550d860f1e449d1166872af1fa2d757ed28e1f.pdf` (`ef56b376a8e2c58c7b5e6c186e550d860f1e449d1166872af1fa2d757ed28e1f`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,22; combined keyword pages: 1, 8, 10, 11, 12, 14, 15, 16, 20, 22
+- [ ] 2023-08-18 · mh-egazette-part8 · 30 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/18 | 2023/08/18 | Part VIII, Extra No. 89, MAHARASHTRA ACT No. XXXVIII OF 2023. An Act to provide for establishment, incorporation and regulation of the MIT Vishwaprayag University, Solapur for the development and advancement of higher education in the State of Maharashtra and for matters connected therewith or incidental thereto. Fiday, 18th August 2023. | 0 | View
+  - occurrence: `mh-egazette/bfc888971aa67df0841532e655610e30d3fd9a76f061eeb31f73cedc90bc0b07`
+  - blob: `watchdog-data/blobs/7d/7d678136b1cf6f38ad2ab6f9cd8634f2e705e408844e6ecb4d8c8a18c22894cc.pdf` (`7d678136b1cf6f38ad2ab6f9cd8634f2e705e408844e6ecb4d8c8a18c22894cc`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.8,10,11,14; concession_remission p.14; amendment p.14,15; commencement p.1,12,14,16,20,22; combined keyword pages: 1, 8, 10, 11, 12, 14, 15, 16, 20, 22
+- [ ] 2023-08-21 · mh-egazette-part8 · 29 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/21 | 2023/08/21 | Part VIII, Ext. NO. 92, Maharashtra Act NO. XL of 2023. An Act further to amend the Maharashtra Animal and Fisheries Sciences University Act, 1998. | 0 | View
+  - occurrence: `mh-egazette/5916c6375fd808f211fb354d3c8659e333f79bde24e9a55b70344a860dc46b4b`
+  - blob: `watchdog-data/blobs/63/63b2791df22437524b205d0ba9108ec45ca2462b6e165fe74f640fd5876989a4.pdf` (`63b2791df22437524b205d0ba9108ec45ca2462b6e165fe74f640fd5876989a4`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; amendment p.1,2,3,4,6; combined keyword pages: 1, 2, 3, 4, 6
+- [ ] 2023-08-24 · mh-egazette-part8 · 26 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/24 | 2023/08/24 | Part VIII, Extra No. 94, Maharashtra Act No. XLII of 2023. An Act further to amend the Maharashtra Co-operatives Societies Act, 1960. Thursday, 24th August 2023. | 0 | View
+  - occurrence: `mh-egazette/01dad667005b5e8b25945e779a7811c667eb90d39d40e31fb65e64b94b0f4091`
+  - blob: `watchdog-data/blobs/0e/0eea9a31f5d16ff68bcda246ccab1a7858a043f90e8526867d14165f71808413.pdf` (`0eea9a31f5d16ff68bcda246ccab1a7858a043f90e8526867d14165f71808413`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2023-08-24 · mh-egazette-part8 · 27 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/24 | 2023/08/24 | Part VIII, Extra No. 93, MAHARASHTRA ACT No. XLI OF 2023. Laxminarayan Innovation Technological (LIT) University, Nagpur Act, 2023. Thursday, 24th August 2023. | 0 | View
+  - occurrence: `mh-egazette/b3b7dca441d399563d74e9ea24848be0fe31ef6b3050773d7988b6f326e0078b`
+  - blob: `watchdog-data/blobs/6e/6edf0103df4d15551514c0c8a7de0cdb66b4fcf3bd3aa1a81520ed354da2666a.pdf` (`6edf0103df4d15551514c0c8a7de0cdb66b4fcf3bd3aa1a81520ed354da2666a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,5,16,18,20,23,24,31,32,34,35,48,50,54,55,57,58,59,60,61,62; valuation p.5; concession_remission p.10; amendment p.23,33,34,36,48,49; commencement p.2,48,51,52,53,59,64,67,69,70,71; combined keyword pages: 2, 3, 4, 5, 10, 16, 18, 20, 23, 24, 31, 32, 33, 34, 35, 36, 48, 49, 50, 51, 52, 53, 54, 55, 57, 58, 59, 60, 61, 62, 64, 67, 69, 70, 71
+- [ ] 2023-08-25 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/25 | 2023/08/25 | Part VIII, Extra No. 95, MAHARASHTRA ACT No. XLIII OF 2023. An Act further to amend the Maharashtra (Urban Areas) Protection and Preservation of Trees Act, 1975 Friday, 25th August 2023. | 0 | View
+  - occurrence: `mh-egazette/552e4de6ae49fe1095d0b2bd504d795e5f12bb2b498bafdb5ba98dc2bd8009e5`
+  - blob: `watchdog-data/blobs/2e/2e3fd27e04e3f2e51588c8273cd5db2501a699d94f9181786d4dbf77fccaaa1b.pdf` (`2e3fd27e04e3f2e51588c8273cd5db2501a699d94f9181786d4dbf77fccaaa1b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-08-25 · mh-egazette-part8 · 25 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/08/25 | 2023/08/25 | Part VIII, Ext. No. 96, MAHARASHTRA ACT No. XLIV OF 2023. An Act to enact and amend the Municipal Corporation of the City of Pune Taxation Rules framed under the Maharashtra Municipal Corporations Act, with retrospective effect. Friday, 25th August 2023. | 0 | View
+  - occurrence: `mh-egazette/fd2e9587423022cf4f7488771ea77370f014872a12c468ea69caadde9fda6d1a`
+  - blob: `watchdog-data/blobs/66/6651ddab4ef40530749bca25c8edd29daf0281f1264b4b652bc90c58f3933dd0.pdf` (`6651ddab4ef40530749bca25c8edd29daf0281f1264b4b652bc90c58f3933dd0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2023-09-26 · mh-egazette-part8 · 23 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/09/26 | 2023/09/26 | Part VIII, Extra No. 97, MAHARASHTRA ORDINANCE No. VII OF 2023. Maharashtra Goods and Services Tax Act, 2017. Tuesday, 26th September 2023. | 0 | View
+  - occurrence: `mh-egazette/d80acb4056f55b4bad8953f25f3eca91ceb64789a732fa7f7f26cf9fe11b1d75`
+  - blob: `watchdog-data/blobs/e9/e9a45fcedc3dd8905742b7e5aabdffacfdbdd6c4d72b35e7ce001df37f334461.pdf` (`e9a45fcedc3dd8905742b7e5aabdffacfdbdd6c4d72b35e7ce001df37f334461`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4; amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2023-10-03 · mh-egazette-part8 · 22 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/10/03 | 2023/10/03 | भाग आठ, असा. क्रमांक ९८, MAHARASHTRA ACT No. XLV OF 2023 An Act further to amend the Maharashtra National Law University Act, 2014 Tuesday, 3rd October 2023. | 0 | View
+  - occurrence: `mh-egazette/a3cf1c0c8be4e2f246562064e49f863f22d13b870ad5a56048cc93790ec83062`
+  - blob: `watchdog-data/blobs/4c/4c8761ad778af8bbea8048d6f8c83a0f2430f1936c6eb80cf722261adb019e83.pdf` (`4c8761ad778af8bbea8048d6f8c83a0f2430f1936c6eb80cf722261adb019e83`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-10-23 · mh-egazette-part8 · 20 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/10/23 | 2023/10/23 | Part VIII, Extra Ordinary Gazette No. 100, Dated 23rd October 2023, HOUSING DEPARTMENT, MAHARASHTRA ORDINANCE No. IX OF 2023., An Ordinance further to amend the Maharashtra Apartment Ownership Act, 1970 | 0 | View
+  - occurrence: `mh-egazette/a446f5edce4bedbaa17e9ebaac7c784cf9a368307c0f8ffc8b2616971581a7f0`
+  - blob: `watchdog-data/blobs/02/027df8b5ef7215d9d1f977745952c0111a287a0b4495d90f771fc2b1284c8186.pdf` (`027df8b5ef7215d9d1f977745952c0111a287a0b4495d90f771fc2b1284c8186`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2023-11-20 · mh-egazette-part8 · 19 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/11/20 | 2023/11/20 | Part VIII Ext. 101, Maharashtra Act No. XLVI of 2023. An Act further to amend the Bombay City Civil Court Act, 1948. Monday, 20th November 2023 | 0 | View
+  - occurrence: `mh-egazette/b3d2799596ded505119aef9d79c0a236f60904d6b24e123ba5469149b614172b`
+  - blob: `watchdog-data/blobs/4b/4bc8771cd89d6ec8cceb07f1b899bed98a3a9fa05a41f7424d41f3b4066e905c.pdf` (`4bc8771cd89d6ec8cceb07f1b899bed98a3a9fa05a41f7424d41f3b4066e905c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2023-12-18 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/12/18 | 2023/12/18 | Part-8 (18-12-2023) Publication of the Maharashtra (Third Supplementary) Appropriation Act, 2023 ( Maha. Act. No. XLVII of 2023) under the authority of the Governor. First published after having received the assent of the Governor in the Maharashtra Government Gazette by Secretary (legislation) to Government, Law and Judiciary Department. Extra-ordinary No.114, Ank-61. | 27 | View
+  - occurrence: `mh-egazette/e0d39b620f6bee9209ae72aac9fb95c7368622c98baaf5004efda433c64278c4`
+  - blob: `watchdog-data/blobs/5f/5fd86ec01daee5f803ef744a816d7cccf060ff885952983fccc39807b14d88a5.pdf` (`5fd86ec01daee5f803ef744a816d7cccf060ff885952983fccc39807b14d88a5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2024-01-03 · mh-egazette-part8 · 99 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/03 | 2024/01/03 | Part VIII, Extra No. 4, MAHARASHTRA ACT No. IV OF 20024 An Act to repeal the Maharashtra Casinos (Control and Tax) Act, 1976 Wednesday, 3rd January 2024. | 0 | View
+  - occurrence: `mh-egazette/4a1fdfcc28554c7dafedef3f925a20bc6ee192beecda73e74828282f87a0d9cc`
+  - blob: `watchdog-data/blobs/9b/9bd1d576ee5b650c9c8765cdc3eb250f9d703d0173870675fe4994411e8fbfdd.pdf` (`9bd1d576ee5b650c9c8765cdc3eb250f9d703d0173870675fe4994411e8fbfdd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2024-01-03 · mh-egazette-part8 · 96 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/03 | 2024/01/03 | भाग आठ, असा. क्रमांक १, MAHARASHTRA ACT No. I OF 2024 An Act further to amend the Maharashtra Goods and Services Tax Act, 2017 Wednesday, 3rd January 2024 | 0 | View
+  - occurrence: `mh-egazette/9fb867a6a6a7559b792ffa44397a2eeb98ed38ab4b43f78ce6d138d912f23023`
+  - blob: `watchdog-data/blobs/af/af6d428ab4c2cc6bc4fb5f936cd2c9acb60a70ed3b5f00d1959aef7759424d5f.pdf` (`af6d428ab4c2cc6bc4fb5f936cd2c9acb60a70ed3b5f00d1959aef7759424d5f`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-01-03 · mh-egazette-part8 · 97 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/03 | 2024/01/03 | बाग आठ, असा. क्रमांक २, MAHARASHTRA ACT No. II OF 2024 An Act further to amend the Maharashtra Public Universities Act, 2016. Wednesday 3rd January 20024 | 0 | View
+  - occurrence: `mh-egazette/c70851507b690b29099046a0cd6779ead4a767f2684e0299050d09f1c50b010c`
+  - blob: `watchdog-data/blobs/ea/ea99ca95e29e52bda2a32e0684d3c0ed3695cd606b9080fc3666f5d9427ee804.pdf` (`ea99ca95e29e52bda2a32e0684d3c0ed3695cd606b9080fc3666f5d9427ee804`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-01-03 · mh-egazette-part8 · 98 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/03 | 2024/01/03 | Part VIII, Extra No. 3, Maharashtra Act No. II of 2024 An Act further to amend the Maharashtra Apartment Ownership Act, 1970. Wednesday, 3rd January 2024. | 0 | View
+  - occurrence: `mh-egazette/ce3b29a916e732460fa4957c788e0de17b626bec61918d14a67da01b1077f3ef`
+  - blob: `watchdog-data/blobs/e0/e0e956284f770e0dd312443a7b7bd03ab414da144a8588eb849cde34fad3eae4.pdf` (`e0e956284f770e0dd312443a7b7bd03ab414da144a8588eb849cde34fad3eae4`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-01-15 · mh-egazette-part8 · 94 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/15 | 2024/01/15 | Part VIII, Extra No. 6, CO-OPERATION, MARKETING AND TEXTILES DEPARTMENT, An Ordinance further to amend the Maharashtra Co-operative Societies Act, 1960. Monday 15th January 2024. | 0 | View
+  - occurrence: `mh-egazette/a02b30eccc9d91868b493147c986b5ad8e14764f5b8386b3b35d780bbc0629f4`
+  - blob: `watchdog-data/blobs/02/02f2e936a7f64c80cffab52ce481e217babf91ec2d67d1558f005bc4309e8f64.pdf` (`02f2e936a7f64c80cffab52ce481e217babf91ec2d67d1558f005bc4309e8f64`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-01-19 · mh-egazette-part8 · 88 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 17, Maharashtra Slum Areas (Improvement, Clearance and Redevelopment) (Second Amendment) Act, 2023 (Mah. Act No. XV of 2024) Dated 19th January 2024. | 0 | View
+  - occurrence: `mh-egazette/0b1a9f9a3e92968a0f4323173782222159a8f9f0fb0b65671fe6d86fb766587b`
+  - blob: `watchdog-data/blobs/e3/e3a45a7b4d949c19084a2c8eb9f994a194f7180be7de8155f5494a4104446575.pdf` (`e3a45a7b4d949c19084a2c8eb9f994a194f7180be7de8155f5494a4104446575`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-01-19 · mh-egazette-part8 · 83 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 7, Maharashtra Bovine Breeding (Regulation) Act, 2023 (Mah. Act No. V of 2024), dated 19th January 2024 | 0 | View
+  - occurrence: `mh-egazette/1cd725f700a754e6bf88b19c09bef77c329f7f6c4e059e35b44c032e0bb07b0b`
+  - blob: `watchdog-data/blobs/1f/1f5c070501cfb77980dff47a2626c3d98f0b6ccbd7655cf37787af52faca512d.pdf` (`1f5c070501cfb77980dff47a2626c3d98f0b6ccbd7655cf37787af52faca512d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,5,7,8,9,11; concession_remission p.11; commencement p.2,3,4,5,6,12; combined keyword pages: 2, 3, 4, 5, 6, 7, 8, 9, 11, 12
+- [ ] 2024-01-19 · mh-egazette-part8 · 90 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 13, Maharashtra Marathi Bhasha Vidyapeeth Act, 2023 (Mah. Act No. XI of 2024), dated 19th January 2024. | 0 | View
+  - occurrence: `mh-egazette/2c979567775e6d398ea2f96d6545498fc0ce1f2a446d3c20359806a71d9c3cb1`
+  - blob: `watchdog-data/blobs/57/570a7656861448aa2f7d0e20e9c7abfa8ea6520d07f64a8a3490fb41f763ac79.pdf` (`570a7656861448aa2f7d0e20e9c7abfa8ea6520d07f64a8a3490fb41f763ac79`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,14,16,18,21,22,29,30,32,33,36,53,55,56,59,61,63,65,66,67,68,75; valuation p.5; concession_remission p.8; amendment p.20,31,32,34,53,54; commencement p.1,53,57,59,65,70,74,75; combined keyword pages: 1, 3, 4, 5, 8, 14, 16, 18, 20, 21, 22, 29, 30, 31, 32, 33, 34, 36, 53, 54, 55, 56, 57, 59, 61, 63, 65, 66, 67, 68, 70, 74, 75
+- [ ] 2024-01-19 · mh-egazette-part8 · 92 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 11, G. H. Raisoni International Skill Tech University, Pune, Act, 2023 (Mah. Act No. IX of 2024), dated 19th January 2024 | 0 | View
+  - occurrence: `mh-egazette/4235bf9752f20e9ce0f4524bf5d65e1fc4240c3ca4646594b8c39aa3c603529e`
+  - blob: `watchdog-data/blobs/dc/dc791d78070149b76521c4b0b2da6d08f5c7a09b91665e7a6317b3df344fbf9c.pdf` (`dc791d78070149b76521c4b0b2da6d08f5c7a09b91665e7a6317b3df344fbf9c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.10,12,13,15; concession_remission p.8,16; amendment p.16; commencement p.2,14,16,17,21,23; combined keyword pages: 2, 8, 10, 12, 13, 14, 15, 16, 17, 21, 23
+- [ ] 2024-01-19 · mh-egazette-part8 · 86 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 8, dated 19th January 2024 Maharashtra Agricultural Lands (Ceiling on Holdings) (Amendment) Act, 2023 (Mah. Act No. VI of 2024) | 0 | View
+  - occurrence: `mh-egazette/5bd0ba3d85502fda566fda640ff4f610d812701ddcfe55496857e2ad50a279bd`
+  - blob: `watchdog-data/blobs/d6/d6f1933a24a7cdcad0071cfc6c112190871923a8931ebba5dfd3151b1937f9eb.pdf` (`d6f1933a24a7cdcad0071cfc6c112190871923a8931ebba5dfd3151b1937f9eb`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.3; valuation p.3; amendment p.1,2,3; commencement p.3; combined keyword pages: 1, 2, 3
+- [ ] 2024-01-19 · mh-egazette-part8 · 91 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 9, Maharashtra International Sports University (Amendment) Act, 2023 (Mah. Act. No. VII of 2024), dated 19th January 2024. | 0 | View
+  - occurrence: `mh-egazette/a68b3e38621b50807939b78ae797a73e58818609bb8033c4122a8efe94ad5699`
+  - blob: `watchdog-data/blobs/d5/d5bfc9cfc405a21978294b615ed827cfaaf7c49e1693d3162f6f1c9a06643194.pdf` (`d5bfc9cfc405a21978294b615ed827cfaaf7c49e1693d3162f6f1c9a06643194`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-01-19 · mh-egazette-part8 · 87 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Part VIII, Ext. No. 14, Maharashtra State Board of Art Education Act, 2023 (Mah. Act No. XII of 2024) Dated 19th January 2024. | 0 | View
+  - occurrence: `mh-egazette/aa54c352956539a48cee4a34ad13e3bdd9d2117842bb3ddffb0cd5889a294ebe`
+  - blob: `watchdog-data/blobs/99/991be8bc0d2823fb30be4103c61a17ce2764a206b6fc8931ec21299c9dbe3552.pdf` (`991be8bc0d2823fb30be4103c61a17ce2764a206b6fc8931ec21299c9dbe3552`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; valuation p.18; concession_remission p.23; commencement p.2,14,25; combined keyword pages: 2, 3, 14, 18, 23, 25
+- [ ] 2024-01-19 · mh-egazette-part8 · 93 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Part VIII, Extra Ordinary Gazette No. 10, Dated 19th January 2024, Maharashtra Private Universities (Establishment and Regulation) Act, 2023 (Mah. Act No. VIII of 2024), | 0 | View
+  - occurrence: `mh-egazette/bd8f243fc2610bfbda7fc6e170380178ec118f24b02ed109a5421dd5d8781620`
+  - blob: `watchdog-data/blobs/39/399ba91aff9f5d164bf0345428e0ebb5ae28c7b72536ee5564485185c08809c6.pdf` (`399ba91aff9f5d164bf0345428e0ebb5ae28c7b72536ee5564485185c08809c6`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,13,15,17,19; concession_remission p.19; amendment p.1,7,20,22; commencement p.2,8,18,21,27,29,30; combined keyword pages: 1, 2, 3, 4, 7, 8, 13, 15, 17, 18, 19, 20, 21, 22, 27, 29, 30
+- [ ] 2024-01-19 · mh-egazette-part8 · 85 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext 12, G.H. Raisoni Skill Tech University, Nagpur Act, 2023 (Mah. Act No. X of 2024), Dated 19th January 2024., Maharashtra Act No. X of 2024. (First Published, after having received the assent of the Governor in the "Maharashtra Government Gazette", on the 19th January 2024. | 0 | View
+  - occurrence: `mh-egazette/d1e8e677368ea04aeaa147d2e27ea88214d3874a69235d4b00f289f5c8ce1adf`
+  - blob: `watchdog-data/blobs/e9/e9d0c4b05b79c74a94257c56c7585eff71161da738954b5857b07c07ea456a28.pdf` (`e9d0c4b05b79c74a94257c56c7585eff71161da738954b5857b07c07ea456a28`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.10,12,13,15; concession_remission p.8,16; amendment p.16; commencement p.2,14,16,17,21,23; combined keyword pages: 2, 8, 10, 12, 13, 14, 15, 16, 17, 21, 23
+- [ ] 2024-01-19 · mh-egazette-part8 · 89 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 16, dated 19th January 2024 Universal SkillTech University, Vasai Act, 2023 (Mah. Act No. XIV of 2024), | 0 | View
+  - occurrence: `mh-egazette/df669094356a2178724ee49770ce715e3296c2984b66b6bef608536457d55011`
+  - blob: `watchdog-data/blobs/d9/d92a3c5a835eb0ce1ee3fbbb1c84a0a018732e416b94bd79f3f48af37cb2ce13.pdf` (`d92a3c5a835eb0ce1ee3fbbb1c84a0a018732e416b94bd79f3f48af37cb2ce13`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.10,12,13,15; concession_remission p.8,16; amendment p.16; commencement p.2,14,16,17,21,23; combined keyword pages: 2, 8, 10, 12, 13, 14, 15, 16, 17, 21, 23
+- [ ] 2024-01-19 · mh-egazette-part8 · 84 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/01/19 | 2024/01/19 | Pt. VIII Ext. 15, dated 19th January 2024 Maharashtra Electricity Duty (Amendment) Act, 2023 (Mah. Act No. XIII of 2024), | 0 | View
+  - occurrence: `mh-egazette/fc05e0d10ffcd81f201d54ea21b1d20bcf9ac70bccb66ece8200bd060c2d2b8a`
+  - blob: `watchdog-data/blobs/6d/6de978423611174e04a0d3e8b7c7fe66d465f641fdf63f1d64ab5041d45e872c.pdf` (`6de978423611174e04a0d3e8b7c7fe66d465f641fdf63f1d64ab5041d45e872c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-02-15 · mh-egazette-part8 · 82 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/02/15 | 2024/02/15 | Part VIII, Extra No. 18, URBAN DEVELOPMENT DEPARTMENT, An Ordinance further to amend the Mumbai Municipal Corporation Act. Thursday, 15th February 2024. | 0 | View
+  - occurrence: `mh-egazette/3822a9fe9a161ae552ba428063d943fc3adb23d7de4d2db679f17f13093be5e3`
+  - blob: `watchdog-data/blobs/ed/edc3069f357e406cb4044bc9d8af1a4df7831aff5fee7fb2e35ba0a342c240d5.pdf` (`edc3069f357e406cb4044bc9d8af1a4df7831aff5fee7fb2e35ba0a342c240d5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-02-26 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/02/26 | 2024/02/26 | Part VIII (Ex.23) (Dated 26-2-2024) MAHARASHTRA ACT No. XVI OF 2024 (First published, after having received the assent of the Governor in the “Maharashtra Government Gazette”, on the 26th February 2024). | 0 | View
+  - occurrence: `mh-egazette/c8ba336df15d1ec8ac29afc8c6741ee05b486a10aa19d0b9b20712ce4ba7346f`
+  - blob: `watchdog-data/blobs/b8/b8bebc7f57e73a9fa2b048ca962f56bcdb926a5507ccd1cad9039318eae26d0a.pdf` (`b8bebc7f57e73a9fa2b048ca962f56bcdb926a5507ccd1cad9039318eae26d0a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,3,5,6,7; combined keyword pages: 2, 3, 5, 6, 7
+- [ ] 2024-02-29 · mh-egazette-part8 · 72 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/02/29 | 2024/02/29 | Part VIII (Ex.28) (Dated 29-2-2024) MAHARASHTRA ACT NO. XVII OF 2024. (First published, after having received the assent of the Governor in the “Maharashtra Government Gazette”, on the 29th February, 2024). An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March 2024. | 0 | View
+  - occurrence: `mh-egazette/8bd58eb65086f4c22ae2a2c6a48db61a7b12f7532bcc74ee091244cda5512a72`
+  - blob: `watchdog-data/blobs/49/4901e7fde4d0105fded3f987bbac2cb6752fc7c4be854ad9f5cdf5345b813058.pdf` (`4901e7fde4d0105fded3f987bbac2cb6752fc7c4be854ad9f5cdf5345b813058`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.5; combined keyword pages: 4, 5
+- [ ] 2024-03-15 · mh-egazette-part8 · 67 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/15 | 2024/03/15 | Part VIII, Extra No. 32, Urban Development Department Maharashtra Ordinance No. III of 2024 An Ordinance further to amend the Maharashtra Regional and Town Planning Act, 1966 Friday, 15th March 2024. | 0 | View
+  - occurrence: `mh-egazette/3444354b87480d2946540ac27db5d53bf9bd079229b955b408c2e137308644c6`
+  - blob: `watchdog-data/blobs/1a/1a9f79987f5c5c9a4655b968f1ccb918a08759b00d25724bd008671040fcf097.pdf` (`1a9f79987f5c5c9a4655b968f1ccb918a08759b00d25724bd008671040fcf097`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,4; commencement p.2; combined keyword pages: 1, 2, 4
+- [ ] 2024-03-15 · mh-egazette-part8 · 68 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/15 | 2024/03/15 | Part VIII, Ext. No. 32, URBAN DEVELOPMENT DEPARTMENT, MAHARASHTRA ORDINANCE No. III OF 2024 An Ordinance further to amend the Maharashtra Regional and Town Planning Act, 1966 Friday, 15 March 2024. | 0 | View
+  - occurrence: `mh-egazette/69661b356f183eccd815b4b9d648da67554ff3c4bbae37186054dc02417059de`
+  - blob: `watchdog-data/blobs/12/121c9fcefeff3dc502eb734d4cf5ed6d6fda693731323d93ec4238fed67c9bb3.pdf` (`121c9fcefeff3dc502eb734d4cf5ed6d6fda693731323d93ec4238fed67c9bb3`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,4; commencement p.2; combined keyword pages: 1, 2, 4
+- [ ] 2024-03-16 · mh-egazette-part8 · 66 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/16 | 2024/03/16 | भाग आठ, असा. क्रमांक ३३, MAHARASHTRA ORDINANCE No. IV OF 2024 An Ordinance to amend the Maharashtra State Skills University Act, 2021. Satruday, 16th March 2024. | 0 | View
+  - occurrence: `mh-egazette/f4c83212074753d7db7c8407ba413e0c1b2ec1457ee21f023920d67de04b2313`
+  - blob: `watchdog-data/blobs/11/11d3660d70b429ca43ee0ead9e069552080bb9183586260cac7461fc46d4b949.pdf` (`11d3660d70b429ca43ee0ead9e069552080bb9183586260cac7461fc46d4b949`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-03-18 · mh-egazette-part8 · 63 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. 38, MAHARASHTRA ACT No. XXII OF 2024. An Act further to amend the Mumbai Municipal Corporation Act Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/1c118a46af506e897f9872bd1609978dac91d13f3d26f447498996d5eb412f67`
+  - blob: `watchdog-data/blobs/53/5319e7aee25191231a5ae9963853a2430db84487f75e95e0f06a8a685515ac31.pdf` (`5319e7aee25191231a5ae9963853a2430db84487f75e95e0f06a8a685515ac31`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2024-03-18 · mh-egazette-part8 · 64 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. No. 39, MAHARASHTRA ACT No. XXIII OF 2024 An Act further to amend the Maharashtra Municipal Corporation Act Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/4efed19e1967c0859f8b718d1f0940d6abf2f431eb39fa4cd44c4a13386bb507`
+  - blob: `watchdog-data/blobs/d0/d06afaa09e211aede3d4e9bf45e72b2c8f0f03cb35f2f15a9f3c6e81f2f76741.pdf` (`d06afaa09e211aede3d4e9bf45e72b2c8f0f03cb35f2f15a9f3c6e81f2f76741`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2024-03-18 · mh-egazette-part8 · 59 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. No. 35, MAHARASHTRA ACT No. XIX OF 2024. An Act further to amend the Maharashtra Co-operative Societies Act, 1960. Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/599e543373116f24ecd957c2b0ccc67bb8b74f2b66c82c7ad53dd683a6908b4b`
+  - blob: `watchdog-data/blobs/ae/ae16cd70a5e2db8f9f906f5d3aea98c772fe4822757f109687cfb99014176d6a.pdf` (`ae16cd70a5e2db8f9f906f5d3aea98c772fe4822757f109687cfb99014176d6a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,3; combined keyword pages: 1, 3
+- [ ] 2024-03-18 · mh-egazette-part8 · 61 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | PART VIII, EXT. No. 36, MAHARASHTRA ACT No. XX OF 2024 An Act to amend the Maharashtra Private Universities (Establishment and Regulation) Act, 2023. Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/72404da48ea78d427338240a86cdda6873d6e7049e09dd3223eae732891eedbf`
+  - blob: `watchdog-data/blobs/fd/fdf358cbd4edb785cda5c95d8485e7d7d00b8d94c570fb7f76af818b070f991a.pdf` (`fdf358cbd4edb785cda5c95d8485e7d7d00b8d94c570fb7f76af818b070f991a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2024-03-18 · mh-egazette-part8 · 58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. No. 40, MAHARASHTRA ACT No. XXIV OF 2024 An Act to provide for the withdrawal of certain sums from and out of the Consolidated Fund of the State for the services and purposes of a part of the Financial Year 2024-2025. Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/a8a51fb7012c98047c01c6737495a700ec497cd75da35b5f042e280c1afb6360`
+  - blob: `watchdog-data/blobs/b3/b30926ecfd2a3817ef25dae29244aee5782d89d9fb3801782836d351bbda598c.pdf` (`b30926ecfd2a3817ef25dae29244aee5782d89d9fb3801782836d351bbda598c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.6; combined keyword pages: 4, 6
+- [ ] 2024-03-18 · mh-egazette-part8 · 60 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. NO. 34, MAHARASHTRA ACT No. XVIII OF 2024 An Act further to amend the Dr. Babasaheb Ambedkar Technolocial University Act, 2014. Monday 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/a8ccae90e73fac7b4f607b3cf0c58f7b567c9bb77096f12ed17451e48b5bd3f0`
+  - blob: `watchdog-data/blobs/4d/4dceeeebade2b0f8c0dbdae30f42667b5638ae5400b24bd4a6b240d5248f6595.pdf` (`4dceeeebade2b0f8c0dbdae30f42667b5638ae5400b24bd4a6b240d5248f6595`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-03-18 · mh-egazette-part8 · 65 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | Part VIII, Ext. No. 41, MAHARASHTRA ACT No. XXV OF 2024. An Act further to amend the Maharashtra Labour Welfare Fund Act. Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/c79617f16c538c43b52d144341e097af8ca7aefa5bf974937c61c1afcc5092e6`
+  - blob: `watchdog-data/blobs/d0/d0e8e8fe7943c7994b7f27acfe5bacbf0b300b9a2e5c2f05b2d689c0f7a18bb7.pdf` (`d0e8e8fe7943c7994b7f27acfe5bacbf0b300b9a2e5c2f05b2d689c0f7a18bb7`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2024-03-18 · mh-egazette-part8 · 62 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/03/18 | 2024/03/18 | PART VIII, EXT. No. 37, MAHARASHTRA ACT No. XXI OF 2024. An Act further to amend the Maharashtra Police Act. Monday, 18th March 2024. | 0 | View
+  - occurrence: `mh-egazette/d358304a83bd146d7a2080795f0b84db1e4fbd3ce2eae2c023c53f182260d8a0`
+  - blob: `watchdog-data/blobs/ed/ed64b893208a8900e083c8b45de2def466990f623735c36c33d052d247ea62cd.pdf` (`ed64b893208a8900e083c8b45de2def466990f623735c36c33d052d247ea62cd`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-07-05 · mh-egazette-part8 · 51 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/05 | 2024/07/05 | Part VIII, Extra No. 46, MAHARASHTRA ACT No. XXVI OF 2024 Maharashtra Public Universities (Amendment) Act, 2024. Friday, 5th July 2024. | 0 | View
+  - occurrence: `mh-egazette/7d21622c66a8fd622516ea4e6e373c2ce669b3c70214e7864cf205a2c51f9a9e`
+  - blob: `watchdog-data/blobs/48/485c252895c58ca4700245deb593c8b504a83ff1cfc4d5086e4bea6eb35f0989.pdf` (`485c252895c58ca4700245deb593c8b504a83ff1cfc4d5086e4bea6eb35f0989`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-07-18 · mh-egazette-part8 · 47 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/18 | 2024/07/18 | Part VIII, Extra-Ordinary Gazette No. 56, Dated 18th July 2024 Maharashtra Act No. XXVII of 2024, Maharashtra Appropriation Act, 2024 | 0 | View
+  - occurrence: `mh-egazette/ed5b4b8f6ef674d984dab1dc39671059c67618293ef5af92d1c2e9a26f607e31`
+  - blob: `watchdog-data/blobs/84/84b5c950beec212a676aa84f4dbea163c7b90474adb7982bea28f7a7f74acf8f.pdf` (`84b5c950beec212a676aa84f4dbea163c7b90474adb7982bea28f7a7f74acf8f`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2024-07-25 · mh-egazette-part8 · 45 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/25 | 2024/07/25 | भाग आठ, असा क्र. ५७, Maharashtra Act No. XXVIII of 2024, (First published, after having received the assentof the Governor n the Maharashtra Government Gazette on the 25th July 2024., Dated 25th July 2024. | 0 | View
+  - occurrence: `mh-egazette/d978858ae03c08d9fff01410735afc89db1924a63096152d3fe102bf62674f65`
+  - blob: `watchdog-data/blobs/ed/edeb669d8e9168ebb85e364183ffc5adf114a62857a1dc228f3eff7d3ed429a2.pdf` (`edeb669d8e9168ebb85e364183ffc5adf114a62857a1dc228f3eff7d3ed429a2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2024-07-31 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Ext. No. 63, MAHARASHTRA ACT No. XXXIV OF 2024 An Act further to amend the Maharashtra Public Trusts Act. Wednesday, 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/0aa1d9aa492bbf2d8d35920312f30764935f6aa02c356b07bd9cc89d2c17fd03`
+  - blob: `watchdog-data/blobs/e2/e2a100a2c42bd465dc4418941f4a6301abf652ddad17756e21930875bf8bffc0.pdf` (`e2a100a2c42bd465dc4418941f4a6301abf652ddad17756e21930875bf8bffc0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.4; amendment p.1,2,3; combined keyword pages: 1, 2, 3, 4
+- [ ] 2024-07-31 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Ext. No. 62, MAHARASHTRA ACT No. XXXIII OF 2024 An Act to anend the Maharashtra State Skills University Act, 2021. Wednesday, 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/15c004d7070e3749e3c766926aeaa570d026796346509a79fe98693ad4dd05f7`
+  - blob: `watchdog-data/blobs/17/17aff61255499215307b7581a416fb4907508b70a72cf72bef8e2aa6d992ef0a.pdf` (`17aff61255499215307b7581a416fb4907508b70a72cf72bef8e2aa6d992ef0a`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-07-31 · mh-egazette-part8 · 43 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Ext. No. 58, MAHARASHTRA ACT No. XXIX OF 2024 An Act further to amend the Maharashtra Regional and Town Planning Act, 1966. Wednesday 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/82d91e948613ab439ce63de276499161287e9108d20da5796edbd3faec3065e6`
+  - blob: `watchdog-data/blobs/e2/e2e4426817fcc8347e45e16c80da2aa0b4763fd388548c7f646116f8262d7d28.pdf` (`e2e4426817fcc8347e45e16c80da2aa0b4763fd388548c7f646116f8262d7d28`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2024-07-31 · mh-egazette-part8 · 44 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Ext. No. 59, MAHARASHTRA ACT No. xxx OF 2024 An Act further o amend the Maharashtra Unaided Private Professional Educational Institutions Act, 2015. Wednesday 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/d256c2978817113df935208c7f70cc4b19f3ec3994ad72a2cb286a5800f06626`
+  - blob: `watchdog-data/blobs/cf/cf80d93d828b96339248fe8bd76a91266448636bc62f7926c0cbd50f690fbca1.pdf` (`cf80d93d828b96339248fe8bd76a91266448636bc62f7926c0cbd50f690fbca1`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-07-31 · mh-egazette-part8 · 39 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Extra No. 60, MAHARASHTRA ACT No. XXXI OF 2024. An Act to prevent unfair means in the competitive examinations and to provide for matters connected therewith or incidental thereto. 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/f508dff600f8161d3fdcd509e50fe4fb54a5fe22a59ad10e8043f87e36777766`
+  - blob: `watchdog-data/blobs/86/8605e767d500a10310052ed8db9444e92e6cf1e459d8c80ef223b5943e9aafc5.pdf` (`8605e767d500a10310052ed8db9444e92e6cf1e459d8c80ef223b5943e9aafc5`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.6; commencement p.2,7; combined keyword pages: 2, 6, 7
+- [ ] 2024-07-31 · mh-egazette-part8 · 42 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/07/31 | 2024/07/31 | Part VIII, Extra No. 61, MAHARASHTRA ACT No. XXXII OF 2024. An Act further to amend certain tax laws in operation in the State of Maharashtra. Wednesday 31st July 2024. | 0 | View
+  - occurrence: `mh-egazette/fa5d6763372b2bd5962ed8d31d9d34600c25a8cdecacbeca31cfedf8304eebf4`
+  - blob: `watchdog-data/blobs/40/408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2.pdf` (`408bcde0f7740a5187da504c95ccd444874c7897e2022c229434aa0a8eaf00b2`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2024-08-07 · mh-egazette-part8 · 38 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/08/07 | 2024/08/07 | PART VIII, Ext. No. 64, MAHARASHTRA ACT No. XXXV OF 2024. An Act to enact a law to unify, consolidate and amend the laws relating to the self-financed private skills universities in the State of Maharashtra and to provide for establishment, incorporation and regulation of self-financed private skills universities for development and advanced of skill education and for matters connected therewith or incidental thereto. Wednesday 7th August 2024. | 0 | View
+  - occurrence: `mh-egazette/608c1a4a630b5de24aa6255a4e89db62726c80ef8b0130504d33b48464555007`
+  - blob: `watchdog-data/blobs/5f/5f48a5fe7ccf7c7b0eb296a2a61448fb4fe5a4e666c6a31db46dcfe2c7b50ffa.pdf` (`5f48a5fe7ccf7c7b0eb296a2a61448fb4fe5a4e666c6a31db46dcfe2c7b50ffa`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,15,18,19,20,22,32,33; concession_remission p.13,22; amendment p.1,7,23,25,31; commencement p.2,7,21,24,29,30,31; combined keyword pages: 1, 2, 3, 4, 7, 13, 15, 18, 19, 20, 21, 22, 23, 24, 25, 29, 30, 31, 32, 33
+- [ ] 2024-08-16 · mh-egazette-part8 · 37 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/08/16 | 2024/08/16 | Part VIII Ext. 65, URBAN DEVELOPMENT DEPARTMENT, MAHARASHTRA ORDINANCE No. V OF 2024., AN ORDINANCE, the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. Date 16th August 2024. | 0 | View
+  - occurrence: `mh-egazette/50b50f57261c6d012c95de7fd1942f449e7b51dbcd4e9eef2ae0846ead5bd8dd`
+  - blob: `watchdog-data/blobs/4a/4ab1de49822c3e9a32235067dcd519f38df637d8c948997317a38be485878fc2.pdf` (`4ab1de49822c3e9a32235067dcd519f38df637d8c948997317a38be485878fc2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2024-08-29 · mh-egazette-part8 · 36 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/08/29 | 2024/08/29 | Part VIII, Extra No. 66, GENERAL ADMINISTRATION DEPARTMENT, MAHARASHTRA ORDINANCE No. VI OF 2024. An Ordinance further to amend the Maharashtra Government Servants Regulation of Transfers and Prevention of Delay in Discharge of Official Duties Act, 2005. Thursday, 29th August 2024. | 0 | View
+  - occurrence: `mh-egazette/b5e6547a26f7f8d3d5b54143f38a9d72d13431fa9e8f7201e56f792bb98f8b1a`
+  - blob: `watchdog-data/blobs/ea/ea8062152d0d518117621c69bc31719640fd8c581a1371c6d7c92de60e9d6eaa.pdf` (`ea8062152d0d518117621c69bc31719640fd8c581a1371c6d7c92de60e9d6eaa`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-09-06 · mh-egazette-part8 · 35 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/09/06 | 2024/09/06 | Part VIII, Extra Ordinary Gazette No. 67, dated 6th September 2024, Maharashtra Ordinance No. VII of 2024, Maharashtra Felling of Trees (Regulation) Act, 1964 | 0 | View
+  - occurrence: `mh-egazette/7a8e0c7ae1668e27a63be9378df392efc7f7cf581141953a0e100b5a408714ca`
+  - blob: `watchdog-data/blobs/09/09f6f60fd33fe05201c56ee3082c05b5e22afee0105f779a0d8ff6752e013625.pdf` (`09f6f60fd33fe05201c56ee3082c05b5e22afee0105f779a0d8ff6752e013625`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-09-24 · mh-egazette-part8 · 34 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/09/24 | 2024/09/24 | Part VIII, Extra No. 68, REVENUE AND FORESTS DEPARTMENT An Ordinance further to amend the Hyderabad Abolition of Inams and Cash Grants Act, 1954. Tuesday, 24th September 2024. | 0 | View
+  - occurrence: `mh-egazette/e6431bafad20536fe1b5d39b4f441a326e1bd75811197eb12c6086854bc65edc`
+  - blob: `watchdog-data/blobs/6d/6d916cff94ea51f1c52dddb2f89148ce61bff68ecd27eb58636231bd96a425e2.pdf` (`6d916cff94ea51f1c52dddb2f89148ce61bff68ecd27eb58636231bd96a425e2`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.2,3; amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2024-10-07 · mh-egazette-part8 · 33 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/10/07 | 2024/10/07 | Part VIII, Extra No. 69, FINANCE DEPARTMENT, AN ORDINANCE further to amend the Maharashtra Goods and Services Tax Act, 2017. Monday, 7th October 2024. | 0 | View
+  - occurrence: `mh-egazette/9f7b871a6a6441c59d80681b781b50d105daf41c7251477ae6fe4cb2070d5d76`
+  - blob: `watchdog-data/blobs/fe/fe8c477959909d847cefe9ff10c05f16b97ae630fcebbdb76c425e3729f885ea.pdf` (`fe8c477959909d847cefe9ff10c05f16b97ae630fcebbdb76c425e3729f885ea`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,10,13; concession_remission p.10,12,14; amendment p.1,2,3,4,5,6,8,9,10,11,12,13,14,15; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15
+- [ ] 2024-10-14 · mh-egazette-part8 · 30 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/10/14 | 2024/10/14 | Part VIII, Ext. No. 72, REVENUE AND FORESTS DEPARTMENT, MAHARASHTRA ORDINANCE No. XII OF 2024. AN ORDINANCE FURTHER TO AMEND THE MAHARASHTRA STAMP ACT. MONDAY, 14TH OCTOBER 2024. | 0 | View
+  - occurrence: `mh-egazette/0e9d0fb2bb8e839d47a9c8a1f571501984da449d58515e2283f824ab567b94ec`
+  - blob: `watchdog-data/blobs/d5/d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4.pdf` (`d53cbfeb364dd7fb3edd51bffcfdfa038ed89b700e1c3acbf2a0626f880852b4`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,4; amendment p.1,2,4; commencement p.2; combined keyword pages: 1, 2, 4
+- [ ] 2024-10-14 · mh-egazette-part8 · 31 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/10/14 | 2024/10/14 | भाग आठ, असा. क्रमांक ७०, TOURISM AND CULTURAL AFFAIRS DEPARTMENT, MAHARASHTRA ORDINANCE No. X OF 2024. AN ORDINANCE to amend the Maharashtra Ancient Monuments and Archaeological Sites and Remains Act, 1960. सोमवार, १४ ऑक्टोबर २०२४. | 0 | View
+  - occurrence: `mh-egazette/6b6c85fde64e0fa556fc0def4fa1e8483f8553a43b9ab20c414dfc5a30008165`
+  - blob: `watchdog-data/blobs/9a/9a9fe96ba475bd7299f7f6398781caaad354446f7a45ab7f2cf3cc8b40316581.pdf` (`9a9fe96ba475bd7299f7f6398781caaad354446f7a45ab7f2cf3cc8b40316581`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2024-10-15 · mh-egazette-part8 · 29 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/10/15 | 2024/10/15 | Part VIII, Ext. No. 74, REVENUE AND FORESTS DEPARTMENT, AN ORDINANCE further to amend the Maharashtra Prevention of Fragmentation and Consolidation of Holdings Act. Tuesday, 15th October 2024. | 0 | View
+  - occurrence: `mh-egazette/0deabdafe8635a906539dd0e8b8048d5940a3cb93101914decedea480cd69cab`
+  - blob: `watchdog-data/blobs/4c/4c62ba8dfcab314799cc5f149c257bb866ece2ba1b3fa0a114467cc84fa8bc6d.pdf` (`4c62ba8dfcab314799cc5f149c257bb866ece2ba1b3fa0a114467cc84fa8bc6d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.2,3; amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2024-10-15 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/10/15 | 2024/10/15 | Part VIII, Ext. No. 73, HIGHER AND TECHNICAL EDUCATION DEPARTMENT, AN ORDINANCE further to amend the Maharashtra Public Libraries Act, 1967. Tuesday, 15th October 2024. | 0 | View
+  - occurrence: `mh-egazette/a79d86f77b1bab8e355345eebdb58746c97b92337712c1a0325029993c9a2045`
+  - blob: `watchdog-data/blobs/cc/cc99b3855068282d58c20303fc10e985e0f0491e18f1d2ef97c3bcb39b99dc06.pdf` (`cc99b3855068282d58c20303fc10e985e0f0491e18f1d2ef97c3bcb39b99dc06`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,6; commencement p.2; combined keyword pages: 1, 2, 3, 4, 6
+- [ ] 2024-12-24 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/12/24 | 2024/12/24 | Part VIII, Extra Ordinary Gazette No. 98, Dated 24th December 2024, MAHARASHTRA ACT No. XXXVI OF 2024, Maharashtra (Third Supplementary) Appropriation Act, 2024 | 0 | View
+  - occurrence: `mh-egazette/c08e46e6db9de3968cbb29617174cec1dc063f160da7d67d4594a046b2e0ea87`
+  - blob: `watchdog-data/blobs/61/614d254545fd36a4032c2c21ed6c6af439e747740e1e484ae3bda809bcf0cbcd.pdf` (`614d254545fd36a4032c2c21ed6c6af439e747740e1e484ae3bda809bcf0cbcd`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.6; combined keyword pages: 4, 6
+- [ ] 2025-01-01 · mh-egazette-part8 · 26 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext No. 11, Date 1st Jan. 2025, MAHARASHTRA ACT No. XI OF 2025., An Act further to amend the Maharashtra National Law University Act, 2014. | 0 | View
+  - occurrence: `mh-egazette/0ac2b81ddf061b9aeb3e871ecd0233cfd807083180c8b635f6258468e120c56d`
+  - blob: `watchdog-data/blobs/50/50f48993f45fdd154a9beb6f9e333ef2756e21bb1e3df8ad3a46aac7633ae20c.pdf` (`50f48993f45fdd154a9beb6f9e333ef2756e21bb1e3df8ad3a46aac7633ae20c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 29 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 5, MAHARASHTRA ACT No. V OF 2025. An Act further to amend the Maharashtra Prevention of Fragmentation and Consolidation of Holdings Act. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/149b1df80f31683182605483abbfdc28f6c810cfc588f4ae88bed64ba6ee184a`
+  - blob: `watchdog-data/blobs/31/310af4e9822859c880e00374b50589ae5cf34a71a2c08f169be3e673acdf3283.pdf` (`310af4e9822859c880e00374b50589ae5cf34a71a2c08f169be3e673acdf3283`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 27 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext No. 12, Date 1st Jan. 2025, MAHARASHTRA ACT No. XII OF 2025., An Act further to amend the Maharashtra State Skills University Act, 2021. | 0 | View
+  - occurrence: `mh-egazette/186e82cc2e79d9532c873920bf99c97510a665f12cd5b3001b6c17b8d2b9f3eb`
+  - blob: `watchdog-data/blobs/a0/a07e5337207ad59a35722da914536b7a6b3d93187a68b5e95c59997bfc464cba.pdf` (`a07e5337207ad59a35722da914536b7a6b3d93187a68b5e95c59997bfc464cba`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 34 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 10, MAHARASHTRA ACT No. X OF 2025. An Act further to amend the Maharashtra Value Added Tax Act, 2002. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/36183951b4c46b9de15723fc469d5aa78378686693e12ef65d17f60abf36e42d`
+  - blob: `watchdog-data/blobs/46/46378b3b428bd2d82b9f72adbaef07260b588f8cffb14c0e768d29ee4dd2da0f.pdf` (`46378b3b428bd2d82b9f72adbaef07260b588f8cffb14c0e768d29ee4dd2da0f`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2025-01-01 · mh-egazette-part8 · 30 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 6, MAHARASHTRA ACT No. VI OF 2025 An Act to amend the Maharashtra Ancient Monuments and Archaeological Sites and Remains Act, 1960. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/4b7038c8f93a6cde1941a1037a8a45ffb6cb950baaeb86ad735acf0f3f8adf70`
+  - blob: `watchdog-data/blobs/3f/3f2b7f5fc68888b173d895d60bf67ff35884cafe103e80e8d6ff812275381a98.pdf` (`3f2b7f5fc68888b173d895d60bf67ff35884cafe103e80e8d6ff812275381a98`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2025-01-01 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 13, MAHARASHTRA ACT No. XIII OF 2025. An Act further to amend the Maharashtra Public Libraries Act, 1967. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/4dee5b4665fd319f3249d804960ed229bb56181332df9f150cd5c1fb69986f11`
+  - blob: `watchdog-data/blobs/0d/0daf6a5234c87dd50865ca461fd9c6649c965df5ce42dc19a277965d92595bc2.pdf` (`0daf6a5234c87dd50865ca461fd9c6649c965df5ce42dc19a277965d92595bc2`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2025-01-01 · mh-egazette-part8 · 22 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. 2, MAHARASHTRA ACT No. II OF 2025. An Act further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. Wednesday 1st January 2025 | 0 | View
+  - occurrence: `mh-egazette/52e3f37d4e9474e92a2f8311b4c1b26ef4471aa2ca17090724cdde8afd66799e`
+  - blob: `watchdog-data/blobs/51/51dafd9aa56c2ca437b6e7ee9ed17cccf84bb674fdbe9a974e32bdc12aaa1f6d.pdf` (`51dafd9aa56c2ca437b6e7ee9ed17cccf84bb674fdbe9a974e32bdc12aaa1f6d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 25 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 14, MAHARASHTRA ACT No. XIV OF 2025. An Act further to amend the Maharashtra Public Universities Act, 2016. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/6e85583eecbb7ee23ee7a91f18f45bf631278c2d3857cd4fce7eb97cba461956`
+  - blob: `watchdog-data/blobs/59/5954a8fff35234f8541ae2ed0858ce25b4fc468ecd1a19fafcebdff98549081d.pdf` (`5954a8fff35234f8541ae2ed0858ce25b4fc468ecd1a19fafcebdff98549081d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 32 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 8, MAHARASHTRA ACT No. VIII OF 2025. An Act further to amend the Maharashtra Goods and Services Tax Act, 2017. Wednesday 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/818152b689ffcf3c6fb2d52457d1901a43d046f20c210c328592eba30008329a`
+  - blob: `watchdog-data/blobs/b3/b3bf33c229079d0dd75e84dabebe50f85fe305716bbf79e9c041cfcf4b7e498a.pdf` (`b3bf33c229079d0dd75e84dabebe50f85fe305716bbf79e9c041cfcf4b7e498a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4,10; concession_remission p.10,12; amendment p.1,2,3,4,5,6,8,9,10,11,12; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12
+- [ ] 2025-01-01 · mh-egazette-part8 · 33 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 9, MAHARASHTRA ACT No. IX OF 2025. An Act further to amend the Maharashtra Stamp Act. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/926ed6d1af92dc08b2ef8379aed71eb6827ff0c1776298605a765e915f02ed70`
+  - blob: `watchdog-data/blobs/d2/d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034.pdf` (`d2e954fd3263b4b25faff58010dacd1941b64346a6d840d6863933d8220c6034`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,4; amendment p.1,2,4; commencement p.2; combined keyword pages: 1, 2, 4
+- [ ] 2025-01-01 · mh-egazette-part8 · 28 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext No. 15, Date 1st Jan. 2025, MAHARASHTRA ACT No. XV OF 2025., An Act further to amend the Maharashtra Private Universities (Establishment and Regulation) Act, 2023. | 0 | View
+  - occurrence: `mh-egazette/a124e7d8afcd2d9bef52f773714dfb1f76cc5add5619c122bda9645ade666028`
+  - blob: `watchdog-data/blobs/84/840cdb9a89cee1a76a80dd72041c199c081e5e9e91a05e711d57fc68770e264b.pdf` (`840cdb9a89cee1a76a80dd72041c199c081e5e9e91a05e711d57fc68770e264b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 23 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext No. 1, Date 1st Jan. 2025, MAHARASHTRA ACT No. I OF 2025., An Act to provide for temporary postponement of elections of the President,Vice-President and Chairmen of the Subjects Committees of certain Zilla Parishads and the Chairmen and Deputy Chairmen of certain Panchayat Samitis on account of ensuing general elections to the State Legislative Assembly. | 0 | View
+  - occurrence: `mh-egazette/a26f828af352d0766b83ef2ce57de0f289da7aff55d11c3e680099456a169950`
+  - blob: `watchdog-data/blobs/32/32201f71ac7deba888824a838a9b3f002e2ebdc88f30147693250c7c0c2868e2.pdf` (`32201f71ac7deba888824a838a9b3f002e2ebdc88f30147693250c7c0c2868e2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,4; combined keyword pages: 2, 4
+- [ ] 2025-01-01 · mh-egazette-part8 · 31 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 7, MAHARASHTRA ACT No. VII OF 2025. An Act further to amend the Hyderabad Abolition of Inams and Cash Grants Act, 1954. Wednesday, 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/df4e1cac451fde89b62678eaf7d917394db88ee10b75c22ea79421da7e157792`
+  - blob: `watchdog-data/blobs/c2/c291e28a6365386229d3ab8481c1843863488cfd0ae4516dd64a7e7b55bbede4.pdf` (`c291e28a6365386229d3ab8481c1843863488cfd0ae4516dd64a7e7b55bbede4`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 20 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | भाग आठ, असा क्र. ३, MAHARASHTRA ACT NO. III OF 2025, An Act further to amend Shree Siddhi Vinayak Ganpati Temple Trust (Prabhadevi) Act, 1980. Dated 1st Jan. 2025. | 0 | View
+  - occurrence: `mh-egazette/e7da07f13add57eb7c8afba53d68c4fed929d2da26aca7263765cc73e36ab05b`
+  - blob: `watchdog-data/blobs/c7/c7966785b3c23bb32df1501641e6b5b190889135794ec965d62d9d69b8ee7011.pdf` (`c7966785b3c23bb32df1501641e6b5b190889135794ec965d62d9d69b8ee7011`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-01-01 · mh-egazette-part8 · 21 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/01/01 | 2025/01/01 | Part VIII, Ext. No. 4, MAHARASHTRA ACT No. IV OF 2025 An Act further to amend the Maharashtra Government Servants Regulation of Transfers and Prevention of Delay in Discharge of Official Duties Act, 2005. Wednesday 1st January 2025. | 0 | View
+  - occurrence: `mh-egazette/fe6a52ca31bb7a7495a8c76a2cf77b1c8b94e65e5e4c5bf6d93f0a85759c555b`
+  - blob: `watchdog-data/blobs/18/183a25d7e9cfc9867b26399fe41f4784927b49b4e3318d7b4f2be6238ce2f6ad.pdf` (`183a25d7e9cfc9867b26399fe41f4784927b49b4e3318d7b4f2be6238ce2f6ad`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-03-12 · mh-egazette-part8 · 17 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/03/12 | 2025/03/12 | Part VIII Extra No. 18, MAHARASHTRA ACT No. XVI OF 2025. An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the service and purposes of the year ending on the thirty-first day of March 2025. Wednesday, 12th March 2025. | 0 | View
+  - occurrence: `mh-egazette/63e6e43068038e92a38848ec7cb04f01d6dec7bc3b95ea24b0bb2b433881e5cf`
+  - blob: `watchdog-data/blobs/0d/0d837c1edfaa1667a8d814f92c821cf6847cc6098e27c473e84aeaedad4848be.pdf` (`0d837c1edfaa1667a8d814f92c821cf6847cc6098e27c473e84aeaedad4848be`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.6; combined keyword pages: 4, 6
+- [ ] 2025-03-21 · mh-egazette-part8 · 9 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/03/21 | 2025/03/21 | भाग आठ, असा. क्रमांक २६, MAHARASHTRA ACT No. XVII OF 2025 An act to provide for settlement of certain arrears of tax, interest, penalty or late fee which were levied, imposed or payable under various Acts implemented by the Department of Goods and Services Tax, Government of Maharashtra and incidental thereto. Friday, 21st March 2025. | 0 | View
+  - occurrence: `mh-egazette/44aeade00dfc7f1331371152c0feecc88bce5ac2b7b01fe4ba7d48a02553cf2c`
+  - blob: `watchdog-data/blobs/ff/ff8a68f9b8153aff288ea3d7f6f34c83872db990443435419c29fc5907accf7d.pdf` (`ff8a68f9b8153aff288ea3d7f6f34c83872db990443435419c29fc5907accf7d`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.6,7,8,9,12; commencement p.6,7,8,11; combined keyword pages: 6, 7, 8, 9, 11, 12
+- [ ] 2025-03-27 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/03/27 | 2025/03/27 | Part VIII, Ex. No.30, MAHARASHTRA ACT No.XVIII OF 2025, An Act further to amend the Maharashtra Government Gazette, on the 27th March 2025. | 0 | View
+  - occurrence: `mh-egazette/134f43b0faf40f339f3b1f58e2ba15e597ab5fcfe7dca02f0ae51dcbd9334eb9`
+  - blob: `watchdog-data/blobs/e6/e684783378c9f6373b3860ff34297b33cb5ac98c8b29b37ddaea712d5dbb0506.pdf` (`e684783378c9f6373b3860ff34297b33cb5ac98c8b29b37ddaea712d5dbb0506`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; valuation p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-03-31 · mh-egazette-part8 · 4 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/03/31 | 2025/03/31 | Part VIII, Ex. No.31, MAHARASHTRA ACT NO. XIX OF 2025, An act to authorise Dated 31st March 2025. | 0 | View
+  - occurrence: `mh-egazette/c1c92f1d362d9c13ca186c21c720ced4a08e8633f94a718b56b2859012508247`
+  - blob: `watchdog-data/blobs/0a/0a551c245492e02ea0fedd17e1c17aef5786cd3e8b6cb3979c9822437e36e4fa.pdf` (`0a551c245492e02ea0fedd17e1c17aef5786cd3e8b6cb3979c9822437e36e4fa`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2025-04-01 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/01 | 2025/04/01 | Part VIII, Ext No. 32, Dated 1st April 2025, MAHARASHTRA ACT No. XX OF 2025.,An Act further to amend the Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/2f729dd6779c3d1deefbc0a3afa0ad2f8f5cbf9678914b54633a08bdf35d6d2d`
+  - blob: `watchdog-data/blobs/5c/5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa.pdf` (`5cf517646e3cf2fa6b2a699b3356ee03ea86ae142ae4968d3e09f21034026caa`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; valuation p.3; amendment p.1,2,3; commencement p.3; combined keyword pages: 1, 2, 3
+- [ ] 2025-04-01 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/01 | 2025/04/01 | Part VIII, Ext No. 34, Dated 1st April 2025, MAHARASHTRA ACT No. XXII OF 2025. | 0 | View
+  - occurrence: `mh-egazette/51d730e541b247b53c0f72a17dbc8ebff94892edd64a24bca9ceda03d6d5e6ff`
+  - blob: `watchdog-data/blobs/ae/ae911e1ef6caa7dfccee026afce5d1b6886469cb5aaceead1bc5f912455ff9ed.pdf` (`ae911e1ef6caa7dfccee026afce5d1b6886469cb5aaceead1bc5f912455ff9ed`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-04-01 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/01 | 2025/04/01 | Part VIII Ext. 33 (1-4-2025) MAHARASHTRA ACT No. XXI OF 2025. An Act further to amend the Maharashtra Motor Vehicles Tax Act. | 0 | View
+  - occurrence: `mh-egazette/babdf2dec201163396f18a2ebc44a19a1fd31b0be79575f82f7da435a35bf7b4`
+  - blob: `watchdog-data/blobs/b3/b3f24f7955d01ba56b93fcbd3604f23c9f47750c8f019c6e2824566fd489ea98.pdf` (`b3f24f7955d01ba56b93fcbd3604f23c9f47750c8f019c6e2824566fd489ea98`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2, 3
+- [ ] 2025-04-15 · mh-egazette-part8 · 195 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/15 | 2025/04/15 | Part VIII, Ex. No. 35, Urban Development Department, Maharashtra Ordinance No.I of 2025. further to amend the Maharashtra Municpal Councils, Nagar Panchayats and Industrail Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/ae71126244e92eb41e84e9eebf11ea2ffac0e1535a3da205c8a5bfe48ca8db5d`
+  - blob: `watchdog-data/blobs/d7/d7ebc87df448e25203e27e047da736f50c0e705cace7ec2fbec66da39c9af138.pdf` (`d7ebc87df448e25203e27e047da736f50c0e705cace7ec2fbec66da39c9af138`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2025-04-28 · mh-egazette-part8 · 194 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 38, MAHARASHTRA ACT No. XXV OF 2025. An Act further to amend the Maharashtra Mathadi, Hamal and other Manual Workers (Regulation of Employment and Welfare) Act, 1969. Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/131667b3985ed0c98e43d7bb56b296c0a4e91170dc975697e0c8b0f9597b03de`
+  - blob: `watchdog-data/blobs/e1/e1950d82cf274c4670080b562a1736ec1581b310a1a184336c47c33fd5952ed8.pdf` (`e1950d82cf274c4670080b562a1736ec1581b310a1a184336c47c33fd5952ed8`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2025-04-28 · mh-egazette-part8 · 190 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 37, MAHARASHTRA ACT No. XXIV OF 2025. An Act to provide for the regulation of private placement agencies engaged in the business of placement activities for job seekers and for matters connected therewith or incidental thereto. Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/7113bb17a8608c4334eef1013cccb5d7accef347b8ac890895eb9ef1ebd44af3`
+  - blob: `watchdog-data/blobs/aa/aaeb70c6437b2378a0fd4b64ba1c08c18832c583666962675cf9f072abeceb08.pdf` (`aaeb70c6437b2378a0fd4b64ba1c08c18832c583666962675cf9f072abeceb08`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2,3,4,5,6; commencement p.1,3,7; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2025-04-28 · mh-egazette-part8 · 192 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 36, MAHARASHTRA ACT No. XXIII OF 2025. An Act further to amend the Registration Act, 1908, in its application to the State of Maharashtra. Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/79a17f4c5f4e822d2429225b4973133bfd48be0703d0a61d9b3b26e688d0da20`
+  - blob: `watchdog-data/blobs/41/41facb279bfef49e9da856257f9b653ba10b67b8427d4a3339a3938c0169659e.pdf` (`41facb279bfef49e9da856257f9b653ba10b67b8427d4a3339a3938c0169659e`)
+  - title categories: registration, amendment; specificity: direct_domain_term
+  - content keyword matches: registration p.1; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-04-28 · mh-egazette-part8 · 189 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 40, MAHARASHTRA ACT No. XXVII OF 2025 An Act further to amend the Maharashtra Krishna Valley Development Corporation Act, 1996 Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/93ad125afbc6ca8d7c1fca446ee682d809d69547ebe3e4863d9ee8327b1024cd`
+  - blob: `watchdog-data/blobs/d4/d4ab848e3391a5b2812582f2513080a8b2bcec322ff5b944d8d8ac0352a7bb17.pdf` (`d4ab848e3391a5b2812582f2513080a8b2bcec322ff5b944d8d8ac0352a7bb17`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-04-28 · mh-egazette-part8 · 193 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 41, MAHARASHTRA ACT No. XXVIII OF 2025 An Act further to amend the Maharashtra Highways Act Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/a2b46b08001acb0fc3ba6034537b657948917da5621f204e3dc7b6d8c7473d43`
+  - blob: `watchdog-data/blobs/28/280399bfe9b5581a010b820b477ac2525773ff49da86a2baf8add5bb2cc24253.pdf` (`280399bfe9b5581a010b820b477ac2525773ff49da86a2baf8add5bb2cc24253`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-04-28 · mh-egazette-part8 · 191 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/04/28 | 2025/04/28 | Part VIII, Ext. No. 39, MAHARASHTRA ACT No. XXVI OF 2025 An Act further to amend the Maharashtra Private Security Guards (Regulation of Employment and Welfare) Act, 1981. Monday, 28th April 2025. | 0 | View
+  - occurrence: `mh-egazette/ecef8acc673cdc80c00b613216636917714f65ab47387b98ef5f5daccfb21b9d`
+  - blob: `watchdog-data/blobs/ee/eee948cbd4ddf29d8a7fb860b91a6061dd01811f4df5b302cdcafa469e3e1450.pdf` (`eee948cbd4ddf29d8a7fb860b91a6061dd01811f4df5b302cdcafa469e3e1450`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-06-09 · mh-egazette-part8 · 184 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/06/09 | 2025/06/09 | Part VIII, Ex. No. 46, MAHARASHRA ACT No.XXIX OF 2025, Dated 9 June 2025, | 0 | View
+  - occurrence: `mh-egazette/e0d20d8ed3b86c4b50212d8e2633397a2d0106b2fdddfbb9d843b8f85ebf7a8a`
+  - blob: `watchdog-data/blobs/c9/c9e354f2635dd8cfc4ceda4292a4023ee523d176852d0545d736bac51e3d50a0.pdf` (`c9e354f2635dd8cfc4ceda4292a4023ee523d176852d0545d736bac51e3d50a0`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-07-10 · mh-egazette-part8 · 168 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/10 | 2025/07/10 | Part VIII, Ext. No. 62, MAHARASHTRA ACT No. XXXI OF 2025. An Act further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. Thursday, 10th July 2025. | 0 | View
+  - occurrence: `mh-egazette/13633a693e7b4f1886de56ed697150ea2da2370cf23b70f1d1f9153fea5439cd`
+  - blob: `watchdog-data/blobs/02/02262924ed995f9fb893dd9b40ea18d317f17f8f8a4c580a2af1c5bbdbee4ff0.pdf` (`02262924ed995f9fb893dd9b40ea18d317f17f8f8a4c580a2af1c5bbdbee4ff0`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-07-10 · mh-egazette-part8 · 166 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/10 | 2025/07/10 | Part VIII, Ext. No. 61, MAHARASHTRA ACT No. XXX OF 2025. Thursday, 10th July 2025. | 0 | View
+  - occurrence: `mh-egazette/465c29e5bdde8dcf66c7c8d44b1bddb4ee8450cc3c36d073e835db0f3bda96a2`
+  - blob: `watchdog-data/blobs/05/05f9e2eb4b84c672634fe53a804d12c14ea11a253ee41b1e6a46f3431bd44e44.pdf` (`05f9e2eb4b84c672634fe53a804d12c14ea11a253ee41b1e6a46f3431bd44e44`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,3; combined keyword pages: 2, 3
+- [ ] 2025-07-10 · mh-egazette-part8 · 169 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/10 | 2025/07/10 | Part VIII, Ext. No. 63, MAHARASHTRA ACT No. XXXII OF 2025 An Act further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. Thursday, 10th July 2025. | 0 | View
+  - occurrence: `mh-egazette/cdd95c7adc65f8be91dd87d744be3c7e11f3030fc37288aebe9f184a51c2816c`
+  - blob: `watchdog-data/blobs/2d/2d974716c2cceb55b298532a89e58450482d86f0047761ff41a87479cc1554f5.pdf` (`2d974716c2cceb55b298532a89e58450482d86f0047761ff41a87479cc1554f5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2; amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-07-10 · mh-egazette-part8 · 167 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/10 | 2025/07/10 | Part VIII, Ext. No. 64, MAHARASHTRA ACT No. XXXIII OF 2025 An Act to provide for establishment of the Nashik-Trimbakeshwar Kumbh Mela Authority for organization and management of Kumbh Mela ad allied activities in Nashik and Trimbakeshwar talukas and other areas in Nashik Division at the interval of every years and for matters connected therewith or incidental thereto. Thursday, 10th July 2025. | 0 | View
+  - occurrence: `mh-egazette/d69793cb4cb0e45cbba3ba73c14d5614146e2444f4ea64d52f359fdab0447846`
+  - blob: `watchdog-data/blobs/43/434bdf4646b5f44608903bf56578634f8ceaf33fc34536ccb666ef61bf0a2053.pdf` (`434bdf4646b5f44608903bf56578634f8ceaf33fc34536ccb666ef61bf0a2053`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.9; commencement p.2,3,9,12; combined keyword pages: 2, 3, 9, 12
+- [ ] 2025-07-14 · mh-egazette-part8 · 165 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/14 | 2025/07/14 | Part VIII, Ext. No. 65, MAHARASHTRA ACT No. XXXIV OF 2025 Monday, 14th July 2025. | 0 | View
+  - occurrence: `mh-egazette/ac40431fae0aee53c85a058a6bad5ab5a7192b037ad00877c597d3cece26f51f`
+  - blob: `watchdog-data/blobs/b0/b02cecf3666af149ac962e4fae82d2415663be7e92264cbae23544a5c04005e7.pdf` (`b02cecf3666af149ac962e4fae82d2415663be7e92264cbae23544a5c04005e7`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.6; combined keyword pages: 6
+- [ ] 2025-07-16 · mh-egazette-part8 · 161 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/16 | 2025/07/16 | Part VIII, Ext. No. 69, MAHARASHTRA ACT No. XXXV OF 2025 An Act further to amend the Maharashtra Unaided Private Professional Educational Institutions (Regulation of Admissions and Fees) Act, 2015. Wednesday, 16th July 2025. | 0 | View
+  - occurrence: `mh-egazette/1ca0da8f0f5c2a730bd9b936b6a8a2eee959ee99bb3c0a387efc8fe80e8e38fc`
+  - blob: `watchdog-data/blobs/5a/5a6256c80f3b2d7519b29d4941ccf48efe45d47125a9c5041f7329234d84f43b.pdf` (`5a6256c80f3b2d7519b29d4941ccf48efe45d47125a9c5041f7329234d84f43b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-07-17 · mh-egazette-part8 · 160 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/17 | 2025/07/17 | Part VIII, Ext. No. 71, MAHARASHTRA ACT No. XXXVII OF 2025 THURSDAY, 17TH JULY 2025 | 0 | View
+  - occurrence: `mh-egazette/7c867b244a9963c6b344438da247f694851ed5d46086f0f7929720bd4b2133f6`
+  - blob: `watchdog-data/blobs/97/97e26932562edca5488703081b271f34060b8454aeae94aeb02b29e43eb9a11b.pdf` (`97e26932562edca5488703081b271f34060b8454aeae94aeb02b29e43eb9a11b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,7; combined keyword pages: 2, 7
+- [ ] 2025-07-17 · mh-egazette-part8 · 159 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/17 | 2025/07/17 | Part VIII, Ext. No. 70, MAHARASHTRA ACT No. XXXVI OF 2025 Thursday, 17th July 2025. | 0 | View
+  - occurrence: `mh-egazette/db85cfbda9e69667f532e7974bf045cd3f702ec7c6be2804bde0acd26e405d9e`
+  - blob: `watchdog-data/blobs/dc/dca7bfcd440d8c09c0d99b257237641b064a4bf38b47c7f65b77a99f0608dc53.pdf` (`dca7bfcd440d8c09c0d99b257237641b064a4bf38b47c7f65b77a99f0608dc53`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: commencement p.2,7; combined keyword pages: 2, 7
+- [ ] 2025-07-18 · mh-egazette-part8 · 158 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/18 | 2025/07/19 | Part VIII, Ext. No. 72, Maharashtra Act No. XXXVIII of 2025. Friday, 18th July 2025. | 0 | View
+  - occurrence: `mh-egazette/c1e5d74aa778bb8fc1c17a2a2a854aae93dacb046d7028c4b79fcbc4c750e4c0`
+  - blob: `watchdog-data/blobs/d2/d29c82b0943892c5a129721856c70d08b887a0175e743e85bfb7ccdb1efcc841.pdf` (`d29c82b0943892c5a129721856c70d08b887a0175e743e85bfb7ccdb1efcc841`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2,4; commencement p.2,3,7; combined keyword pages: 2, 3, 4, 7
+- [ ] 2025-07-30 · mh-egazette-part8 · 157 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/30 | 2025/07/30 | Part VIII, Ext. 73, MAHARASHTRA ACT No. XXXIX 2025 An Act further to amend the Maharashtra Goods and Services Tax Act, 2017. Wednesday, 30th July 2025. | 0 | View
+  - occurrence: `mh-egazette/51ad6772ff61be15a2171eb198cedb5a3d144934cd8d1626b439af02711bdc0f`
+  - blob: `watchdog-data/blobs/43/43c9fff5f50ead4733f479ceb658bd3257c9adc6d149185373715ccd9df2e523.pdf` (`43c9fff5f50ead4733f479ceb658bd3257c9adc6d149185373715ccd9df2e523`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2; surcharge_cess p.2; concession_remission p.3; amendment p.1,2,3,4; commencement p.1; combined keyword pages: 1, 2, 3, 4
+- [ ] 2025-07-30 · mh-egazette-part8 · 156 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/30 | 2025/07/30 | Part VIII, Ext. No. 75, MAHARASHTRA ACT No. XLI OF 2025. An Act to amend the Maharashtra Control of Organised Crime Act, 1999. Wednesday, 30th July 2025. | 0 | View
+  - occurrence: `mh-egazette/9b7b4bfd83bc762c17974efd295a23f48e575f96156edf2f239b4fdc805ec90d`
+  - blob: `watchdog-data/blobs/a7/a78562c6438eb5abc0378271b08f77367ba02f44cb2697f70324027e37a5c696.pdf` (`a78562c6438eb5abc0378271b08f77367ba02f44cb2697f70324027e37a5c696`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2025-07-30 · mh-egazette-part8 · 155 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/07/30 | 2025/07/30 | Part VIII, Ext. No. 74, MAHARASHTRA ACT No. XL OF 2025 An Act to amend the Maharashtra Settlement of Arrears of Tax, Interest, Penalty or Late Fee (Payable by Public Sector Undertaking Companies) Act, 2025. Wednesday, 30th July 2025. | 0 | View
+  - occurrence: `mh-egazette/ad5f1436110bb30d40333b36a9b2c832226d9a7c8c5e67f501346411ebe0104d`
+  - blob: `watchdog-data/blobs/e6/e6ac8b73e5e878aa05a09fdccd90d7fd612b9c0f66ae681c8ca2eecf1171cbdf.pdf` (`e6ac8b73e5e878aa05a09fdccd90d7fd612b9c0f66ae681c8ca2eecf1171cbdf`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-08-29 · mh-egazette-part8 · 153 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/08/29 | 2025/08/29 | Part VIII, Ext. No. 77, MAHARASHTRA ACT No. XLIII OF 2025 An Act further to amend the Maharashtra Village Panchayats Act. Friday, 29th August 2025. | 0 | View
+  - occurrence: `mh-egazette/2ecb89e82b45adbc6205bb2899a93698e872d2bf9f8de5538173d16332380473`
+  - blob: `watchdog-data/blobs/be/be832502c61bdcda64e57e80955cf899f4ffe74d049a8a6a04f77f9894ea7035.pdf` (`be832502c61bdcda64e57e80955cf899f4ffe74d049a8a6a04f77f9894ea7035`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2025-08-29 · mh-egazette-part8 · 154 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/08/29 | 2025/08/29 | Part VIII, Ext. No. 78, MAHARASHTRA ACT No. XLIV OF 2025 An Act further to amend the Maharashtra Regional and Town Planning Act, 1966. Friday, 29th August 2025. | 0 | View
+  - occurrence: `mh-egazette/710a4f170d9bc613ed3550a11446114c90b895f89a0b2ec6ac264b0efa53861a`
+  - blob: `watchdog-data/blobs/a9/a958923d04f1da1bcf887fbc65cfb4520272c534b82ea078b9921ce42b682869.pdf` (`a958923d04f1da1bcf887fbc65cfb4520272c534b82ea078b9921ce42b682869`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.7,9,11; concession_remission p.8; amendment p.1,2,5,9,10,11,12,13,14; commencement p.4,11,12,14; combined keyword pages: 1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14
+- [ ] 2025-08-29 · mh-egazette-part8 · 152 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/08/29 | 2025/08/29 | Part VIII Ext. No. 76, MAHARASHTRA ACT No. XLII OF 2025 An Act further to amend the Maharashtra Slum Areas (Improvement, Clearance and Redevelopment) Act, 1971 Friday, 29th August 2025. | 0 | View
+  - occurrence: `mh-egazette/cbb60672ac60c310191dfcb91b205478d46e7e075529c6ce80b77e11ae9757d7`
+  - blob: `watchdog-data/blobs/c8/c8c51e7490cfc12e233babe9b7cd5f117cb5875cb211246878911a6d0d5813eb.pdf` (`c8c51e7490cfc12e233babe9b7cd5f117cb5875cb211246878911a6d0d5813eb`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,4; commencement p.4; combined keyword pages: 1, 2, 4
+- [ ] 2025-09-01 · mh-egazette-part8 · 151 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/09/01 | 2025/09/01 | Part VIII, Ext. No. 80, MAHARASHTRA ACT No. XLV OF 2025 An Act further to amend the Maharashtra Private Universities (Establishment and Regulation) Act, 2023. Monday, 1st September 2025. | 0 | View
+  - occurrence: `mh-egazette/c81db018ae94ae63811c18b2921022dfdbadd85cdc46c8ac524e96549fd8b88a`
+  - blob: `watchdog-data/blobs/f6/f612b4c3fb8c3d6318d5e2c4183330286e96f8a35423ec821f724e97879c188e.pdf` (`f612b4c3fb8c3d6318d5e2c4183330286e96f8a35423ec821f724e97879c188e`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-09-01 · mh-egazette-part8 · 150 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/09/01 | 2025/09/01 | Part VIII, Ext. No. 79, LAW AND JUDICIARY DEPARTMENT, MAHARASHTRA ORDINANCE No. VII OF 2025 An Ordinance further to amend the Maharashtra Public Trusts Act. Monday, 1st September 2025. | 0 | View
+  - occurrence: `mh-egazette/ce43181c2fddc0d0c5d892a161964796000649c631f87d384e1770ed2b2fd19e`
+  - blob: `watchdog-data/blobs/be/bef183480407934fb2132bcdd4c50ea5dfc8bda398be75198326165361daac7f.pdf` (`bef183480407934fb2132bcdd4c50ea5dfc8bda398be75198326165361daac7f`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.5; amendment p.1,2,3,4,5,6; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2025-10-01 · mh-egazette-part8 · 149 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/10/01 | 2025/10/01 | भाग आठ, असा. क्रमांक ८१, INDUSTRIES, ENERGY, LABOUR AND MINING DEPARTMENT, MAHARASHTRA ORDINANCE No. VIII OF 2025. AN ORDINANCE further to amend the Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service0 Act, 2017. Wednesday, 1st October 2025. | 0 | View
+  - occurrence: `mh-egazette/636923d48b33378d7fd5052ff9b6a85e8e33f9c79440245929ab669b0be840e3`
+  - blob: `watchdog-data/blobs/b7/b7bcc0dcc6be34514260573be55e281802f2bf3c8ccef7a48f2093e78aff7e5a.pdf` (`b7bcc0dcc6be34514260573be55e281802f2bf3c8ccef7a48f2093e78aff7e5a`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; concession_remission p.3; amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2025-11-03 · mh-egazette-part8 · 146 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/11/03 | 2025/11/03 | भाग आठ, असाधारण क्रमांक ८५, Rural Development Deepartment, Maharashtra Ordinance No. XII of 2025, An Ordinance, Further to amend the maharashtra Village Panchayats Act and the Maharashtra Zilla Parishads and Panchayat Samitis Act, 1961, दिनांक ३ नोव्हेंबर २०२५. | 0 | View
+  - occurrence: `mh-egazette/3c243035e756f322defcd1cf5b4575894e94a9f1b4a177a70466cd3f91c64a40`
+  - blob: `watchdog-data/blobs/d5/d5cb72a252c6307c6a5782ffe6697239132409c9def319f9d8845d38bd119053.pdf` (`d5cb72a252c6307c6a5782ffe6697239132409c9def319f9d8845d38bd119053`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2025-11-03 · mh-egazette-part8 · 145 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/11/03 | 2025/11/03 | भाग आठ, असाधारण क्रमांक ८४, Urban Development Department, Maharashtra Ordinance No. XI of 2025, An Ordinance, Further to amend the Mumbai Municipal Corporations Act, the Maharashtra Municipal Corporation Act and the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. दिनांक ३ नोव्हेंबर २०२५. | 0 | View
+  - occurrence: `mh-egazette/70b946bc1dab6a07a73da59b747c1258bec837be2ce3351824bfcca5f647cd9a`
+  - blob: `watchdog-data/blobs/fe/fed7c355db71140fa8c66015953785e45786a340f66edad38f3243f7aac2024c.pdf` (`fed7c355db71140fa8c66015953785e45786a340f66edad38f3243f7aac2024c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2025-11-03 · mh-egazette-part8 · 147 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/11/03 | 2025/11/03 | भाग आठ, असाधारण क्रमांक ८३, Revenue and Forests Department, Maharashtra Ordinance No. X of 2025, An Ordinanace, Further to amend the Maharashtra Prevention of Fragmentation and Consolidation of Holdings Act ACt. दिनांक ३ नोव्हेंबर २०२५. | 0 | View
+  - occurrence: `mh-egazette/e404d2bbe0825d2f50b8a9640c7f6e2a28c5c993a6db9b0f84ce2184666018a0`
+  - blob: `watchdog-data/blobs/59/5908e54bc8fd8ede8d1dc1fd85d138209e81f18336561e1a43ab15e21fa286b1.pdf` (`5908e54bc8fd8ede8d1dc1fd85d138209e81f18336561e1a43ab15e21fa286b1`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.3; concession_remission p.3; amendment p.1,2,3,4; commencement p.2,3; combined keyword pages: 1, 2, 3, 4
+- [ ] 2025-11-28 · mh-egazette-part8 · 144 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/11/28 | 2025/11/28 | Part VIII, Ext. 86, ERRATUM, Maharashtra Unaided Private professional Educational Institutions Act, 2025. Friday, 28th November 2025. | 0 | View
+  - occurrence: `mh-egazette/2e4e7673c08d114c7ee4c80a5b056026b10401ff389f515b6cd58f006698158d`
+  - blob: `watchdog-data/blobs/fb/fbbe47cc2887dbda12d7d675b73eb83492a98a02dfa655a5f16f0471b1604395.pdf` (`fbbe47cc2887dbda12d7d675b73eb83492a98a02dfa655a5f16f0471b1604395`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1; combined keyword pages: 1
+- [ ] 2025-12-08 · mh-egazette-part8 · 139 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/08 | 2025/12/08 | HB-2421 Part VIII Extra 87 Date 8-12-2025, Publication of Maharashtra Lokayukta Act, 2023 (Mah. Act No. XLVI of 2025) by Secretary (Legislation) to Government Law and Judiciary Department. Extra Ordinary No. 87, Ank 40. | 27 | View
+  - occurrence: `mh-egazette/bde7e8e481d4c16981786f3aae2eac740a0d723009b5c6a647f193eaa418cd63`
+  - blob: `watchdog-data/blobs/29/290bc929f44d650e75a057260ad61eb2202f18b6e59709cf0b0e65ce33c40387.pdf` (`290bc929f44d650e75a057260ad61eb2202f18b6e59709cf0b0e65ce33c40387`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2025-12-15 · mh-egazette-part8 · 121 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/15 | 2025/12/15 | Part VIII, Ext. No. 110, MAHARASHTRA ACT No. XLVII OF 2025 An Act to provide for effective prevention of certain unlawful activities of Left Wing Extremist organizations or similar organizations and for matters connected therewith or incidental thereto. Monday, 15th December 2025. | 0 | View
+  - occurrence: `mh-egazette/3f4738464c1138ac0f0a4646e57de576ef8d3bc87a170ee95b1b8750b4d3bda1`
+  - blob: `watchdog-data/blobs/d6/d618ff83951a0e4734d5a5dbddba3e2c9faf70b5b79b31f35b0903bf3e21cc1b.pdf` (`d618ff83951a0e4734d5a5dbddba3e2c9faf70b5b79b31f35b0903bf3e21cc1b`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.8; combined keyword pages: 8
+- [ ] 2025-12-26 · mh-egazette-part8 · 118 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/26 | 2025/12/26 | भाग आठ, असा. क्रमांक ११५, MAHARASHTRA ACT No. L OF 2025. An Act to amend the Maharashtra Lokayukta Act, 2023 Friday, 26th December 2025. | 0 | View
+  - occurrence: `mh-egazette/1457a1e77e28a004ff17699af5ede3546da5c9818148a2297417b0d8511e9ba1`
+  - blob: `watchdog-data/blobs/2a/2aabb7a7be227a76045850771d83a8cf2f28c654cd9ca4c2fe5f0362697f0a0e.pdf` (`2aabb7a7be227a76045850771d83a8cf2f28c654cd9ca4c2fe5f0362697f0a0e`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-26 · mh-egazette-part8 · 117 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/26 | 2025/12/26 | Part VIII, Ext. No. 116, MAHARASHTRA ACT No. LI OF 2025 An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March 2026. Friday, 26th December 2025. | 0 | View
+  - occurrence: `mh-egazette/6cd34f9ba05c0f8e31ab33ae944d8ae0d4a7de44368b73158e687196dcc24898`
+  - blob: `watchdog-data/blobs/9c/9c29c497abd7df67ceee32201bc271f82abeed6d3afc1b7abc474a8575318998.pdf` (`9c29c497abd7df67ceee32201bc271f82abeed6d3afc1b7abc474a8575318998`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2025-12-26 · mh-egazette-part8 · 120 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/26 | 2025/12/26 | PART VIII, Ext. No. 112, RURAL DEVELOPMENT DEPARTMENT, MAHARASHTRA ORDINANCE No. XIV OF 2025 An Ordinance further to amend the Maharashtra Zilla Parishads and Panchayat Samities Act, 1961. Friday, 26th December 2025. | 0 | View
+  - occurrence: `mh-egazette/aa6aa4111767bcda8cef35ac492a14700af7dd623ac86e921bdaa224a00d0837`
+  - blob: `watchdog-data/blobs/a0/a058184443e16c37b65a498e8f00ea3d1c1a862ea1d35bcd8b3bd9bc987bd42b.pdf` (`a058184443e16c37b65a498e8f00ea3d1c1a862ea1d35bcd8b3bd9bc987bd42b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-26 · mh-egazette-part8 · 119 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/26 | 2025/12/26 | भाग आठ, असा. क्रमांक ११३, MAHARASHTRA ACT No. XLVIII OF 2025. An Act further to amend the Maharashtra Village Panchayats Act and the Maharashtra Zilla Parishads and Panchayat Samitis Act, 1961. Friday, 26th December 2025. | 0 | View
+  - occurrence: `mh-egazette/b7aa15c97d86e3ee21e0e5fbee5306289f4df47b07af9724d1c27880d3032eac`
+  - blob: `watchdog-data/blobs/72/72ecbf24f5d9b724e6b7550e75d85f59511c0a996af3c0e6fe57fd484b3eb0ab.pdf` (`72ecbf24f5d9b724e6b7550e75d85f59511c0a996af3c0e6fe57fd484b3eb0ab`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2025-12-26 · mh-egazette-part8 · 115 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/26 | 2025/12/26 | Part VIII Ex. 111 (26-12-2025),URBAN DEVELOPMENT DEPARTMENT,MAHARASHTRA ORDINANCE No. XIII OF 2025. AN ORDINANCE, further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. | 0 | View
+  - occurrence: `mh-egazette/d5465e5925b8e392515c47a99a27904a677268aacd96b141424dd671656bc7de`
+  - blob: `watchdog-data/blobs/69/696c330a4c21132da915e1d5ab9c4efd1a4d64d2fd500aecef183c13ef8b2e81.pdf` (`696c330a4c21132da915e1d5ab9c4efd1a4d64d2fd500aecef183c13ef8b2e81`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.1,2; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-31 · mh-egazette-part8 · 107 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 123, Maharashtra Act No. LVIII of 2025 An Act further to amend the Maharashtra Public Universities Act, 2016 Wednesday 31st December 2026 | 0 | View
+  - occurrence: `mh-egazette/2d906d7fee57055324ff301af27549f9f272cf341201e11b596b8160a04b159f`
+  - blob: `watchdog-data/blobs/cc/ccd0de3e6f3dcdbc70d309db19d5109d448f2a32abd2f4b1c98765c61b528c63.pdf` (`ccd0de3e6f3dcdbc70d309db19d5109d448f2a32abd2f4b1c98765c61b528c63`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-31 · mh-egazette-part8 · 103 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 117, MAHARASHTRA ACT No. LII OF 2025. An Act further to amend the Maharashtra Agricultural Produce Marketing (Development and Regulation) Act, 1963. | 0 | View
+  - occurrence: `mh-egazette/38eecde68849683d1f4e507112187a16b6c0a9b76df2dc1489a5f66bc9756881`
+  - blob: `watchdog-data/blobs/ac/ac37db817138f5d6de6ec536c44d0b5c24553b932be03e2222a8b0753f225afc.pdf` (`ac37db817138f5d6de6ec536c44d0b5c24553b932be03e2222a8b0753f225afc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3; amendment p.1,2,4,5,6; commencement p.2,6; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2025-12-31 · mh-egazette-part8 · 101 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | PART VIII, Ext. No. 126, MAHARASHTRA ACT No. LXI OF 2025 An Act further to amend the Hyderabad Abolition of Inams and Cash Grants Act, 1954 Wednesday, 31st December 2025. | 0 | View
+  - occurrence: `mh-egazette/3f0531cf499e944ae966af1f6283cc793cb3ab320c67654e988c39ff19b6c32a`
+  - blob: `watchdog-data/blobs/4a/4a9bce61f0a16404c96f3c1868dc991ace32fd865835c69b5695e16020cd4f6b.pdf` (`4a9bce61f0a16404c96f3c1868dc991ace32fd865835c69b5695e16020cd4f6b`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-12-31 · mh-egazette-part8 · 113 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII Ext NO. 125 (English) Both House, MAHARASHTRA ACT No. LX OF 2025. | 0 | View
+  - occurrence: `mh-egazette/45af6ba3b1f643a84adaa11fd3f03c4c26ac8c8735bdaebf522f536cf032f67e`
+  - blob: `watchdog-data/blobs/03/03a56163d1beacfb147a24f903fb1dbf7ac302bd07c450e0f082b060a92021df.pdf` (`03a56163d1beacfb147a24f903fb1dbf7ac302bd07c450e0f082b060a92021df`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-12-31 · mh-egazette-part8 · 114 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII Ext No. 127 English, MAHARASHTRA ACT No. LXII OF 2025. | 0 | View
+  - occurrence: `mh-egazette/496233d6944c0d4994d1bfb32897d8a6b1a9ea99c9515751e9a70c5078125cfb`
+  - blob: `watchdog-data/blobs/a4/a46727bf1895a82c298fbf11877b1d31c12cf4ca8d374b0982cbdba870fc7f22.pdf` (`a46727bf1895a82c298fbf11877b1d31c12cf4ca8d374b0982cbdba870fc7f22`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2025-12-31 · mh-egazette-part8 · 104 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 129, MAHARASHTRA ACT No. LXIV OF 2025 An Act further to amend the Mamlatdars Courts Act, 1906. Wednesday, 31st December 2025. | 0 | View
+  - occurrence: `mh-egazette/6049edd37d128aa073fcadd5ec53f00bfbae0a732f183e4a13f9088e1a19af97`
+  - blob: `watchdog-data/blobs/58/58afd24b5d2b8b651db57713bbd3cf37bd742c662814f570cd4d84d3fcabc221.pdf` (`58afd24b5d2b8b651db57713bbd3cf37bd742c662814f570cd4d84d3fcabc221`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-12-31 · mh-egazette-part8 · 102 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. 130, MAHARASHTRA ACT No. LXV OF 2025 An Act further to amend the Maharashtra Ownership Flats (Regulation of the promotion of construction, sale, management and transfer) Act, 1963. Wednesday, 31st December 2025. | 0 | View
+  - occurrence: `mh-egazette/7c8314a984496df9adbe7b63a35bc3e1137f5a632547c31ec42bcd8b6e689bf5`
+  - blob: `watchdog-data/blobs/a8/a8e26caa84f11e3fd0564769ec5f3b63a8902a131ba148f8c60e0c50986d0ab5.pdf` (`a8e26caa84f11e3fd0564769ec5f3b63a8902a131ba148f8c60e0c50986d0ab5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2,3; commencement p.2,3; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-31 · mh-egazette-part8 · 105 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 131, MAHARASHTRA ACT No. LXVI OF 2025 An Act further to amend the Maharashtra Slum Areas (Improvement, Clearance and Redevelopment) Act, 1971. Wednesday, 31st December 2025. | 0 | View
+  - occurrence: `mh-egazette/a2c55502fb19f986398de96bbebbe71714d21c5f61c1c0df15710198624e66a8`
+  - blob: `watchdog-data/blobs/29/2947e082892307915fd50716938044fdf878849660a7bc8b958401ea6d011c31.pdf` (`2947e082892307915fd50716938044fdf878849660a7bc8b958401ea6d011c31`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-12-31 · mh-egazette-part8 · 106 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 128, MAHARASHTRA ACT No. LXIII OF 2025 An Act further to amend the Maharashtra Stamp Act. Wednesday, 31st December 2025. Wednesday, 31st December 2025. | 0 | View
+  - occurrence: `mh-egazette/ab1dd66839a9d226c621aafff3c434587ae509d4f9121d0d10f1452aa54c6d8a`
+  - blob: `watchdog-data/blobs/d8/d88647b0475abef4850293586cbf14d3b2d72e8ede13afe7ebcb863f465271b1.pdf` (`d88647b0475abef4850293586cbf14d3b2d72e8ede13afe7ebcb863f465271b1`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; amendment p.1,2; commencement p.1; combined keyword pages: 1, 2
+  - engineering scope triage: no_direct_current_calculator_dependency_identified; human legal review still required
+  - instrument summary: Maharashtra Act LXIII of 2025 amends sections 32C, 53 and 53A and inserts section 53B, including an administrative appeal route and Rs 1,000 application fee; commencement requires a separate Gazette notification.
+  - rationale: No current rule, modifier, charging section, penalty regime, or classification tree computes an appeal application fee or the amended adjudication/appeal procedure. The unlocated commencement notification remains a distinct source-chain item.
+  - revisit if: StampDraft adds adjudication or appeal-fee workflows, a commencement notification is acquired, or legal review identifies a transitive effect on an enabled computation.
+- [ ] 2025-12-31 · mh-egazette-part8 · 109 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII Ext.-119 (31-12-2025) HB-1263 English, MAHARASHTRA ACT NO. LIV OF 2025. | 0 | View
+  - occurrence: `mh-egazette/cbdd4df16c2ac6ce164f997702ff65b3c658d55c4ef71b8cfb83ffb89bca435d`
+  - blob: `watchdog-data/blobs/5b/5b39d0feadbf11a6f2eec66024289db2046c1812af7dca5e9e9f45581e515dea.pdf` (`5b39d0feadbf11a6f2eec66024289db2046c1812af7dca5e9e9f45581e515dea`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2026-01-21 · mh-egazette-part8 · 100 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/01/21 | 2026/01/21 | भाग आठ, असा. क्रमांक १, MAHARASHTRA ACT No. I OF 2026 An Act further to amend the Maharashtra Prevention of Begging Act Wednesday, 21st January 2026. | 0 | View
+  - occurrence: `mh-egazette/35f2f19ca12bd6fe9eda18bf2eff34261016cde8f15dd086f155332462a62d01`
+  - blob: `watchdog-data/blobs/df/df9edbd11777c98a2af5e3231ae0ef3e46f5c30245324dc8611c19b9117161fc.pdf` (`df9edbd11777c98a2af5e3231ae0ef3e46f5c30245324dc8611c19b9117161fc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2026-02-18 · mh-egazette-part8 · 99 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/02/18 | 2026/02/18 | Part VIII Ext. No. 2 ( H 2897 Ordinance I) (Eng), HIGHER AND TECHNICAL EDUCATION DEPARTMENT, MAHARASHTRA ORDINANCE No. I OF 2026. AN ORDINANCE, further to amend the Maharashtra Public Universities Act, 2016. | 0 | View
+  - occurrence: `mh-egazette/0cff9074086fb43e53ad5cc9b307c21702eba329314c7fd9bf857c6d59e87159`
+  - blob: `watchdog-data/blobs/08/082e78501d00017ed02c5e6a424d090a537013bfe60f9ff3a87693f296e7f519.pdf` (`082e78501d00017ed02c5e6a424d090a537013bfe60f9ff3a87693f296e7f519`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.1,2; combined keyword pages: 1, 2, 3
+- [ ] 2026-02-22 · mh-egazette-part8 · 98 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/02/22 | 2026/02/22 | Part VIII, Ex. No.3, Higher and Technical Education Department, Maharashtra Ordinance No.II of 2026, An Ordinance further to amend the Maharashtra Unaided Private Fees ) Act, 2015. | 0 | View
+  - occurrence: `mh-egazette/129f2b9b257763b7f1914b2b6e21ea912135999790c3fe04d46c1ebf52a08944`
+  - blob: `watchdog-data/blobs/a8/a89716f967be931776d1eee23f462fd0c16a184102c7e74d693147ed2e16c146.pdf` (`a89716f967be931776d1eee23f462fd0c16a184102c7e74d693147ed2e16c146`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.6; amendment p.1,2,3,4,8,13,15,16,17,18; commencement p.2,4; combined keyword pages: 1, 2, 3, 4, 6, 8, 13, 15, 16, 17, 18
+- [ ] 2026-03-10 · mh-egazette-part8 · 86 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/10 | 2026/03/10 | Part VIII, Ext. No. 14, MAHARASHTRA ACT No. II OF 2026. An Act further to amend the Maharashtra Settlement of Arrears of Tax, Interest, Penalty or Late Fee Act, 2025. Tuesday, 10th March 2026. | 0 | View
+  - occurrence: `mh-egazette/9103f9a601521bbec76b4889648e0a6bb36ead1deb262698e18a25ff72d55454`
+  - blob: `watchdog-data/blobs/ca/cac4363d9747911872a752dad04487608a00d4949aa275c77ff55a29bb18e649.pdf` (`cac4363d9747911872a752dad04487608a00d4949aa275c77ff55a29bb18e649`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-03-10 · mh-egazette-part8 · 87 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/10 | 2026/03/10 | Part VIII, Ext. No. 15, MAHARASHTRA ACT No. III OF 2026 An Act to authorise payment and appropriation of certain further sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-first day of March 2026. Tuesday, 10th March 2026. | 0 | View
+  - occurrence: `mh-egazette/d49b7e109de1b445e80a108e140052689e7dd2b726df427aee0fa53e56827a8b`
+  - blob: `watchdog-data/blobs/9e/9e7c62b66e28a226b6eff273fa1337536b791239eccc36cdf5e81a7e6d5d0c89.pdf` (`9e7c62b66e28a226b6eff273fa1337536b791239eccc36cdf5e81a7e6d5d0c89`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.4; registration p.4; combined keyword pages: 4
+- [ ] 2026-03-13 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/13 | 2026/03/13 | Part VIII, Ext No. 21, Dated 13th March 2026, MAHARASHTRA ACT NO. V OF 2026. | 0 | View
+  - occurrence: `mh-egazette/8e5612ccf71299c4b6c7ca260417bc4e2c4f318f10f971b145ab7711baa957f2`
+  - blob: `watchdog-data/blobs/53/53c22265b8135d1ef571c6442eb261181f6e46b068292d172d16e696fa4db105.pdf` (`53c22265b8135d1ef571c6442eb261181f6e46b068292d172d16e696fa4db105`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-03-13 · mh-egazette-part8 · 79 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/13 | 2026/03/13 | Part VIII, Ext No. 20, Dated 13th March 2026, MAHARASHTRA ACT NO. IV OF 2026. | 0 | View
+  - occurrence: `mh-egazette/b0694201a2d25f2b0fea067027914f6f6abf6c1fd5112d4fcc1dcf7bcb66eb40`
+  - blob: `watchdog-data/blobs/63/63e2993d5a73581d12612f1811bd0d1493077923e60d95f3f8545011f46bde52.pdf` (`63e2993d5a73581d12612f1811bd0d1493077923e60d95f3f8545011f46bde52`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.4,5,16,18,19; amendment p.25; commencement p.2,25; combined keyword pages: 2, 4, 5, 16, 18, 19, 25
+- [ ] 2026-03-17 · mh-egazette-part8 · 73 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/17 | 2026/03/17 | Part VIII, Ext. No. 28, MAHARASHTRA ACT No. VI OF 2026 An Act further to amend the Maharashtra Municipal Councils, Nagar Panchayats and Industrial Townships Act, 1965. Tuesday, 17th March 2026. | 0 | View
+  - occurrence: `mh-egazette/89edd4ecad32fd37c5c2919bc2670cec6926f2dc44323e6e4ec699318217f686`
+  - blob: `watchdog-data/blobs/ce/cebe305f7ace435b910899e33e098f412b58e1215044a385bb780809083cf5a8.pdf` (`cebe305f7ace435b910899e33e098f412b58e1215044a385bb780809083cf5a8`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-03-17 · mh-egazette-part8 · 74 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/17 | 2026/03/17 | Part VIII, Ext. No. 29, MAHARASHTRA ACT No. VII OF 2026. An Act further to amend the Maharashtra Unaided Private Professional Educational Institutions (Regulation of Admissions and Fees) Act, 2015. Tuesday, 17th March 2026. | 0 | View
+  - occurrence: `mh-egazette/bb5b2e79d862526216ce10d722ff87d1a9dd89173a2f11abf1d6f6fbe4e27bf8`
+  - blob: `watchdog-data/blobs/f7/f778af272705860ce4dc020cae29bf6729ec6d5f14418e9f641c960fc610e030.pdf` (`f778af272705860ce4dc020cae29bf6729ec6d5f14418e9f641c960fc610e030`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.6; amendment p.1,2,3,4,8,13,15,16; commencement p.2,4,16; combined keyword pages: 1, 2, 3, 4, 6, 8, 13, 15, 16
+- [ ] 2026-03-20 · mh-egazette-part8 · 69 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/20 | 2026/03/20 | Part VIII, Ext. No. 32, MAHARASHTRA ACT No. VIII OF 2026 An Act to authorise payment and appropriaton of certain sums from and out of the Consolidated Fund of the State for the services and purposes of the year ending on the thirty-fist day of March 2027. Friday, 20th March 2026 | 0 | View
+  - occurrence: `mh-egazette/82f9ddf157aaf6b68e0621261f129658ef868656e7805194319d6ef3c8785b35`
+  - blob: `watchdog-data/blobs/a6/a6a9b2b7e6fd9a45cd8fbc8e8b4465b932862deefcabe3208aa6b6de70ad7aff.pdf` (`a6a9b2b7e6fd9a45cd8fbc8e8b4465b932862deefcabe3208aa6b6de70ad7aff`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.5; registration p.5; concession_remission p.8; combined keyword pages: 5, 8
+- [ ] 2026-03-23 · mh-egazette-part8 · 68 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/23 | 2026/03/23 | Part VIII, Ext No.34, Dated 23rd Mrch 2026, MAHARASHTRA ACT No. IX OF 2026. | 0 | View
+  - occurrence: `mh-egazette/3cb057270c3b1eb1d2b14cfab0abc1cce4417e1129494bdde5f9c0d7c23b44ad`
+  - blob: `watchdog-data/blobs/26/260f1df1cfd02daa3d177229482ebfdf157352367d2622a6aabfb243265a4cae.pdf` (`260f1df1cfd02daa3d177229482ebfdf157352367d2622a6aabfb243265a4cae`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-03-25 · mh-egazette-part8 · 60 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/25 | 2026/03/25 | Part VIII, Ext. No. 37, MAHARASHTRA ACT No. X OF 2026 An Act further to amend the Maharashtra Public Universities Act, 2016. Wednesday, 25th March 2026. | 0 | View
+  - occurrence: `mh-egazette/42d8102cac93c00ef1dec5cca0c2f21f144e82282e5e3ab7fae85b766cdc6f45`
+  - blob: `watchdog-data/blobs/9c/9c8a527df4e22b723832807d216a5dfa09aada4b63ea9b4a3c10ff71b143f868.pdf` (`9c8a527df4e22b723832807d216a5dfa09aada4b63ea9b4a3c10ff71b143f868`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-03-25 · mh-egazette-part8 · 61 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/25 | 2026/03/25 | Part VIII, Ext. No. 38, MAHARASHTRA ACT No. XI OF 2026 Maharashtra Land Revenue Code, 1966. Wednesday, 25th March 2026. | 0 | View
+  - occurrence: `mh-egazette/5f7686a512c81accd371eb1942cd4b46dfd8b04e31ec8d45552987ff5948e49a`
+  - blob: `watchdog-data/blobs/f7/f79d432a3d15a3241d7a376e1a60d5389581fa6ee31ee6a099c177ee58faf2b2.pdf` (`f79d432a3d15a3241d7a376e1a60d5389581fa6ee31ee6a099c177ee58faf2b2`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-03-25 · mh-egazette-part8 · 64 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/25 | 2026/03/25 | Part VIII, Ext. No. 39, Dated 25th March 2026, MAHARASHTRA ACT No. XII of 2026., | 0 | View
+  - occurrence: `mh-egazette/9d61755ab63b0923bbeec7525ee2efdca995d5b5a2a3a460211a3aed4ed97190`
+  - blob: `watchdog-data/blobs/37/37e54691c819db614debc4d909b9582b0da5419e94ab53408781b059cc162dee.pdf` (`37e54691c819db614debc4d909b9582b0da5419e94ab53408781b059cc162dee`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.1; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-04-07 · mh-egazette-part8 · 57 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 44, Dated 7th April 2026, MAHARASHTRA ACT No. XIV OF 2026. | 0 | View
+  - occurrence: `mh-egazette/08afc986a71d2260bfead7beeec19e025c3d34ed5a936e2610b40bbec1241eb2`
+  - blob: `watchdog-data/blobs/29/29e1d6d094016532e63e91d5b10781aeb7e2916978b234eda411a284d54cb739.pdf` (`29e1d6d094016532e63e91d5b10781aeb7e2916978b234eda411a284d54cb739`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2026-04-07 · mh-egazette-part8 · 56 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 43, MAHARASHTRA ACT No. XIII OF 2026 An Act further to amend the Maharashtra Stamp Act. Tuesday, 7th April 2026. | 0 | View
+  - occurrence: `mh-egazette/3d275f4c5fa0b33e29a565889820bee278af10f61acebd4a0d7e3785d4e91e18`
+  - blob: `watchdog-data/blobs/97/9712bff1efbbba5231a53defb1ed4f373d60f2b3994cba4e506af07c27a524b0.pdf` (`9712bff1efbbba5231a53defb1ed4f373d60f2b3994cba4e506af07c27a524b0`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+  - engineering scope triage: no_direct_current_calculator_dependency_identified; human legal review still required
+  - instrument summary: Maharashtra Act XIII of 2026 amends section 52A thresholds and the authorities deciding stamp-refund allowance applications.
+  - rationale: The current computation graph calculates duty and encoded penalty outputs, not section 52A refund allowance or administrative decision authority. No current numeric rule references section 52A.
+  - revisit if: StampDraft adds refund or allowance workflows, or legal review identifies an effect on an enabled duty or penalty dependency.
+- [ ] 2026-04-07 · mh-egazette-part8 · 55 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 45, MAHARASHTRA ACT No. XV OF 2026 An Act further to amend the Maharashtra Motor Vehicles Tax Act Tuesday, 7th April 2026. | 0 | View
+  - occurrence: `mh-egazette/45095f5da75e4e4b079e421c7aa909d8f536517368feb37721f12db7f0294539`
+  - blob: `watchdog-data/blobs/fc/fc71cadc83e51563c35068740c778bd6765b7a7464115eb57d735d9b3913372c.pdf` (`fc71cadc83e51563c35068740c778bd6765b7a7464115eb57d735d9b3913372c`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-04-07 · mh-egazette-part8 · 58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 46, Dated 7th April 2026, MAHARASHTRA ACT No. XVI OF 2026. | 0 | View
+  - occurrence: `mh-egazette/594d92812a56b21eda372a3d4521cbcb7f18575799f7070cac5607e4d95b8822`
+  - blob: `watchdog-data/blobs/4a/4a36cc172a9ec340e378154f0ed4cb09ba892b28d5cc09884de981b8f44e636e.pdf` (`4a36cc172a9ec340e378154f0ed4cb09ba892b28d5cc09884de981b8f44e636e`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.1; amendment p.1; combined keyword pages: 1
+- [ ] 2026-04-15 · mh-egazette-part8 · 53 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/15 | 2026/04/15 | Part VIII, Ext No. 48, Dated 15th April 2026, Maharashtra Act No. XVIII of 2026. | 0 | View
+  - occurrence: `mh-egazette/08440372dd738ec9d655a9d4bdd3c7819c8cd20cf7e7de8dd9ea2859a4457bd5`
+  - blob: `watchdog-data/blobs/9d/9d5854c400832c7035043930aa9d2ebf2d03a57d860a7e6be749964e62bc4260.pdf` (`9d5854c400832c7035043930aa9d2ebf2d03a57d860a7e6be749964e62bc4260`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: valuation p.2,3,4; amendment p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-04-15 · mh-egazette-part8 · 51 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/15 | 2026/04/15 | Part VIII, Ext No. 47, Dated 15th April 2026, Maharashtra Act No. XVII of 2026. | 0 | View
+  - occurrence: `mh-egazette/23d6c05ef2d1f0e2e1918b30edcdddbc9389cd6e538fce62ceaefd8a0491609b`
+  - blob: `watchdog-data/blobs/1d/1dcba47c743b9480176ed120fbe870c218225bf16aae52362cba3e1839d1a11c.pdf` (`1dcba47c743b9480176ed120fbe870c218225bf16aae52362cba3e1839d1a11c`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.3,4; amendment p.1,2,3,4; commencement p.4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-04-15 · mh-egazette-part8 · 54 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/15 | 2026/04/15 | Part VIII, Ext No. 50, Dated 15th April 2026, Maharashtra Act No. XX of 2026. | 0 | View
+  - occurrence: `mh-egazette/3dcb49121a6b6ad1b362de476876fb7e73ee71d482eb6bd91ca8c8914c0835de`
+  - blob: `watchdog-data/blobs/b6/b6f7f1311aeb029e9579963ce620fe95b084632b6a19cc216974b24fa7d5a6b7.pdf` (`b6f7f1311aeb029e9579963ce620fe95b084632b6a19cc216974b24fa7d5a6b7`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; concession_remission p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-04-15 · mh-egazette-part8 · 52 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/15 | 2026/04/15 | Part VIII, Ext No. 51, Dated 15th April 2026, Maharashtra Act No. XXI of 2026. | 0 | View
+  - occurrence: `mh-egazette/c4ccf19441f1fac06482450af9bd835d2f5833b804b35abd65a8e8d11f483a2e`
+  - blob: `watchdog-data/blobs/0f/0f500e38adbc839a8c9b9d999510a18f4a32752b36e659e2bcd383cc6e9823ac.pdf` (`0f500e38adbc839a8c9b9d999510a18f4a32752b36e659e2bcd383cc6e9823ac`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: stamp p.2,3,4; valuation p.2,3,4; amendment p.1,2,3,4,5,6; commencement p.5,6; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2026-04-15 · mh-egazette-part8 · 50 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/15 | 2026/04/15 | Part VIII, Ext No. 49, Dated 15th April 2026, Maharashtra Act No. XIX of 2026. | 0 | View
+  - occurrence: `mh-egazette/dc085f9907af1d9afef94e174a88541d408c682f8a52010c06824ade2af5c505`
+  - blob: `watchdog-data/blobs/99/99b67b3bbe39ba1923bebbaf2e3f7abcbd5c23211e8e40bd5807c76823262940.pdf` (`99b67b3bbe39ba1923bebbaf2e3f7abcbd5c23211e8e40bd5807c76823262940`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-04-20 · mh-egazette-part8 · 49 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/20 | 2026/04/20 | Part VIII, Ext. No. 52, MAHARASHTRA ACT No. XXII OF 2026, Monday 20 APril 2026 | 0 | View
+  - occurrence: `mh-egazette/70128ff91b4901392153569c3e339d12d8afe4f8814617ae0df8db30e6525e15`
+  - blob: `watchdog-data/blobs/0c/0cd0fa308b9a55fd6171d17cddeca7e4384d5899f2b1200fea6161a2e9890e24.pdf` (`0cd0fa308b9a55fd6171d17cddeca7e4384d5899f2b1200fea6161a2e9890e24`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: concession_remission p.2; amendment p.3; combined keyword pages: 2, 3
+- [ ] 2026-05-20 · mh-egazette-part8 · 48 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/05/20 | 2026/05/20 | Part VII Ext. 53 (Act. NO. 23) Dated 20 May 2026, MAHARASHTRA ACT No. XXIII OF 2026., An Act to amend the Maharashtra Private Skills Universities (Establishment and Regulation) Act, 2024 | 0 | View
+  - occurrence: `mh-egazette/8080d71c58cab90400b43a39ef73460c28a4c26945b7fd34eab06a878a63aedf`
+  - blob: `watchdog-data/blobs/0d/0d01bc60d72107f315d241ba86eac505c8bec1a60258106cc24ba6c1bfacdf74.pdf` (`0d01bc60d72107f315d241ba86eac505c8bec1a60258106cc24ba6c1bfacdf74`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-05-25 · mh-egazette-part8 · 47 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/05/25 | 2026/05/25 | भाग आठ, असाधारण क्रमांक ५५, (सोमवार, दिनांक २५ मे २०२६/ज्येष्ठ ४, शके १९४८), TRIBAL DEVELOPMENT DEPARTMENT, Maharashtra Ordinance No. IV of 2026, to amend the Maharashtra State Commission for Scheduled Tribes Act, 2025. | 0 | View
+  - occurrence: `mh-egazette/57ddfc8ae69be488be8e11c8fa4038de2a2a244b49e974e0971fc97eac9fc584`
+  - blob: `watchdog-data/blobs/51/51a581dc41a78ab9a89edcea73f1e16ccdb585d32dc641717251253c01bdeed5.pdf` (`51a581dc41a78ab9a89edcea73f1e16ccdb585d32dc641717251253c01bdeed5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2026-05-25 · mh-egazette-part8 · 46 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/05/25 | 2026/05/25 | भाग आठ, असाधारण क्रमांक ५४, (सोमवार, दिनांक २५ मे २०२६/ज्येष्ठ ४, शके १९४८), SOCIAL JUSTICE AND SPECIAL ASSISTANCE DEPARTMENT, Maharashtra Ordinance No. III of 2026, to amend the Maharashtra State Commission for Scheduled Castes Act, 2025. | 0 | View
+  - occurrence: `mh-egazette/84a53b9d84f32a3220f24ce9a6186f49472b14d95e11cc16b197c62663272a7e`
+  - blob: `watchdog-data/blobs/ee/ee1cf0ca72dcc95e618516d17f6969597d975227b9ef9fbfcc7ab00d4020b2a6.pdf` (`ee1cf0ca72dcc95e618516d17f6969597d975227b9ef9fbfcc7ab00d4020b2a6`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2026-06-16 · mh-egazette-part8 · 42 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/06/16 | 2026/06/16 | Part VIII Ext. 60 (Ordi. No. 8) (16-6-2026), PLANNING DEPARTMENT, MAHARASHTRA ORDINANCE No. VIII OF 2026. AN ORDINANCE, further to amend the Maharashtra Employment Guarantee Act, 1977. | 0 | View
+  - occurrence: `mh-egazette/0b6580dc8946c22fefd0730097bafd1eb993174b5b875f70b85d9184bb34b599`
+  - blob: `watchdog-data/blobs/6c/6cca7c33094e600e7b5dd5ce7919b6ccdc1debd771776d8367f066bc0cfb73c7.pdf` (`6cca7c33094e600e7b5dd5ce7919b6ccdc1debd771776d8367f066bc0cfb73c7`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2026-06-16 · mh-egazette-part8 · 43 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/06/16 | 2026/06/16 | Part VIII ExtNo. 58, HIGHER AND TECHNICAL EDUCATION DEPARTMENT, MAHARASHTRA ORDINANCE No. VI OF 2026. AN ORDINANCE further to amend the Maharashtra Public Universities Act, 2016. | 0 | View
+  - occurrence: `mh-egazette/1f6ed1f77a2fd04ea7d3b12050c7e0788ab31e8c2d36c55840a01b301940b4a2`
+  - blob: `watchdog-data/blobs/77/77289864fa313f40f5b4d3f6a11b408f6b6db93dc5d39c01257837d17e494395.pdf` (`77289864fa313f40f5b4d3f6a11b408f6b6db93dc5d39c01257837d17e494395`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2026-06-16 · mh-egazette-part8 · 41 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/06/16 | 2026/06/16 | Part VIII Ext No. 59 (16-6-2026), INDUSTRIES, ENERGY, LABOUR AND MINING DEPARTMENT, MAHARASHTRA ORDINANCE No. VII OF 2026. AN ORDINANCE further to amend the Maharashtra Industrial Development Act, 1961. | 0 | View
+  - occurrence: `mh-egazette/9b65aa4af40e37fb79d77424246c05493868ba0f056d38b647495a2a88c33426`
+  - blob: `watchdog-data/blobs/33/3328ba6388176bf41f69ffd27d4d83701191aa215c14c4eb4636d2f2e09472c5.pdf` (`3328ba6388176bf41f69ffd27d4d83701191aa215c14c4eb4636d2f2e09472c5`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3; commencement p.2; combined keyword pages: 1, 2, 3
+- [ ] 2026-06-17 · mh-egazette-part8 · 40 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/06/17 | 2026/06/17 | Part VIII, Ex. No. 61, Urban Development Department, Maharashtra Ordinance No. IX of 2026, Township Act, 1965, Dated 17th June 2026. | 0 | View
+  - occurrence: `mh-egazette/487f47bbd31351ca504c724478d68a6ffc5595a6a45cdf869220972b826951f7`
+  - blob: `watchdog-data/blobs/95/95ed7157936047e93a56bcf71d0690c376b3a2e055de9d65e5c6f3d8e7e7e732.pdf` (`95ed7157936047e93a56bcf71d0690c376b3a2e055de9d65e5c6f3d8e7e7e732`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2,3; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-07-03 · mh-egazette-part8 · 23 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/03 | 2026/07/03 | Part VIII, Ext. No. 77, MAHARASHTRA ACT No. XXV OF 2026 An Act to amend the Maharashtra State Commission for Scheduled Tribes Act, 2025. Friday, 3rd July 2026. | 0 | View
+  - occurrence: `mh-egazette/10afa707960ddf7ec2481552de14b07ac76a5747fe4de45fbe5505d1427592f5`
+  - blob: `watchdog-data/blobs/a6/a69557ee783250e274691b9103071921a6009acf863d03f3b80e356503506d92.pdf` (`a69557ee783250e274691b9103071921a6009acf863d03f3b80e356503506d92`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-07-03 · mh-egazette-part8 · 24 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/03 | 2026/07/03 | Part VIII, Ext. No. 78, MAHARASHTRA ACT NO. XXVI of 2026 Maharashtra Government Servants Regulation of Transfers and prevention of Delay in Discharge of Official Duties Act, 2005. शुक्रवार, ३ जुलै २०२६. | 0 | View
+  - occurrence: `mh-egazette/27f5234fab0dd0d3bfcb8a398efa7fb4bab5b7cb725885b85a16d7623f8e8099`
+  - blob: `watchdog-data/blobs/b5/b5d1046957b9ab2dd978a82c2521b920d549afd6c5ffbc8c3a5398d716cc8393.pdf` (`b5d1046957b9ab2dd978a82c2521b920d549afd6c5ffbc8c3a5398d716cc8393`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-07-03 · mh-egazette-part8 · 20 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/03 | 2026/07/03 | Part VIII, Ext. No.76, MAHARASHTRA ACT No. XXIV OF 2026 Friday, 3rd July 2026. | 0 | View
+  - occurrence: `mh-egazette/d3be0e5210032a8439c16b7bd938f4703601654afe123b75a9168592d4edb63c`
+  - blob: `watchdog-data/blobs/9f/9facea7fcc54c1233df2135064d7a72a0ae02ffa916cc18f944b6e15dbeb4d28.pdf` (`9facea7fcc54c1233df2135064d7a72a0ae02ffa916cc18f944b6e15dbeb4d28`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2026-07-07 · mh-egazette-part8 · 19 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/07 | 2026/07/07 | Part VIII, Ext. No. 88, MAHARASHTRA ACT No. XXVII OF 2026 An Act further to amend the Maharashtra Goods and Services Tax Act, 2017. Tuesday, 7th July 2026. | 0 | View
+  - occurrence: `mh-egazette/0d4dd9496bcc8693abc408cdcf8c4e29fc60de3766e3c564d422585eef7f9bd3`
+  - blob: `watchdog-data/blobs/06/06bc132a87a276f681f2ddf9314d0781c00422dc8733aff811e049676ac3001d.pdf` (`06bc132a87a276f681f2ddf9314d0781c00422dc8733aff811e049676ac3001d`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-07-13 · mh-egazette-part8 · 3 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | भाग आठ, असा. क्रमांक १०१, MAHARASHTRA ACT No. XXXII OF 2026 An Act further to amend the Maharashtra Private Skills Universities Act, 2024. Monday, 13th July 2026. | 0 | View
+  - occurrence: `mh-egazette/2b0ac30f74b4146863456fd007b81677cad1898ea88369d8edca8c2357144f35`
+  - blob: `watchdog-data/blobs/40/400794e25161ec42f2611226d5fb8e51deb5251f201c5abd59c585c45dc57bb4.pdf` (`400794e25161ec42f2611226d5fb8e51deb5251f201c5abd59c585c45dc57bb4`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: registration p.2; amendment p.1,2; combined keyword pages: 1, 2
+- [ ] 2026-07-13 · mh-egazette-part8 · 1 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | Part VIII, Ext No. 99, Dated 13th July 2026, MAHARASHTRA ACT No. XXX OF 2026. | 0 | View
+  - occurrence: `mh-egazette/3e6cb7c3ae50f9576cc9878730c772bfc90e872f7be866459fa08c1934f7e920`
+  - blob: `watchdog-data/blobs/bf/bfa71d32b251647a2845182803228e2f8b1c2d59f339607c1cd6f76ce87545fb.pdf` (`bfa71d32b251647a2845182803228e2f8b1c2d59f339607c1cd6f76ce87545fb`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-07-13 · mh-egazette-part8 · 5 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | Part VIII, Ext. 97, MAHARASHTRA ACT No. XXVIII OF 2026 An Act further to amend the Maharashtra Employment Guarantee Act, 1977. Monday, 13th July 2026. | 0 | View
+  - occurrence: `mh-egazette/6c0da4335a7fd486296413d252cf603359d5352cf249a7279b71bf380cb36e13`
+  - blob: `watchdog-data/blobs/29/291c24083bf53010714e58f99b70ac6c1921cf41d9cd64ffa5e7b03ebdd7b1dc.pdf` (`291c24083bf53010714e58f99b70ac6c1921cf41d9cd64ffa5e7b03ebdd7b1dc`)
+  - title categories: amendment; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2,3,4; commencement p.2,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2026-07-13 · mh-egazette-part8 · 4 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | Part VIII, Ext. No. 100, MAHARASHTRA ACT No. XXXI OF 2026 An Act further to amnd the Maharashtra Public Universities Act, 2016. Monday, 13th July 2026. | 0 | View
+  - occurrence: `mh-egazette/7d6db8b6fa6df7ad0529b93b6f32a8e817331e9773494ab9140567aaf0ff8f54`
+  - blob: `watchdog-data/blobs/ef/efe272fcc9f8072b7d26422ceccea1c9fbfed9b42f37b23a2469660bad1f5783.pdf` (`efe272fcc9f8072b7d26422ceccea1c9fbfed9b42f37b23a2469660bad1f5783`)
+  - title categories: ; specificity: enacted_law_backstop
+  - content keyword matches: amendment p.1,2; commencement p.2; combined keyword pages: 1, 2
+- [ ] 2026-07-13 · mh-egazette-part8 · 2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | Part VIII, Ext. 98, MAHARASHTRA ACT No. XXIX OF 2026 AN ACT further to amend the Maharashtra Stamp Act. Monday, 13th July 2026. | 0 | View
+  - occurrence: `mh-egazette/8d961b163b9dec4e142958fda64a406ffc397996654af8559b36af7d869fe310`
+  - blob: `watchdog-data/blobs/d3/d35351ab370a71c4aea47e76dc482a3c95061528b1392e1051a5552f97228557.pdf` (`d35351ab370a71c4aea47e76dc482a3c95061528b1392e1051a5552f97228557`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; amendment p.1; combined keyword pages: 1, 2
+  - engineering scope triage: no_direct_current_calculator_dependency_identified; human legal review still required
+  - instrument summary: Maharashtra Act XXIX of 2026 adds an explanation to section 48(1)'s proviso concerning refund treatment for other instruments, including development agreements charged like agreements for sale.
+  - rationale: The current computation graph does not calculate section 48 refunds. This disposition does not conclude that the amendment is irrelevant to future refund, development-agreement, or agreement-for-sale product work.
+  - revisit if: StampDraft adds refund or development-agreement workflows, changes agreement-for-sale scope, or legal review identifies a transitive effect on an enabled computation.
+
+## Bill title candidates (13)
+
+- [ ] 2019-02-25 · mh-egazette-part8 · 100 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/02/25 | 2019/02/25 | Part VIII Ext. No. 5 (25-2-2019), L.A. BILL No. I OF 2019. Further to amend the the Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/c1eced91a722ae3ff75b8f001ec37e20ee1a92aa531821adafb75a152f0b01c5`
+  - blob: `watchdog-data/blobs/d4/d48e4ca421e2e2eb4427f2df55ea8bf1df160b9ecf7d91ce35cf5d6b9cfa1e7c.pdf` (`d48e4ca421e2e2eb4427f2df55ea8bf1df160b9ecf7d91ce35cf5d6b9cfa1e7c`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3,4; concession_remission p.2,4; amendment p.1,2,3,4; commencement p.2; combined keyword pages: 1, 2, 3, 4
+- [ ] 2019-06-19 · mh-egazette-part8 · 80 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2019/06/19 | 2019/06/19 | Part VIII Ext. No 28 (19-6-2019), L.A. Bill No. XIV of 2019. A bill further to amend the Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/152e7fc3ca593f927610419f78dbf0d7e594ffa8a83b39f3b0054e29eb2fd702`
+  - blob: `watchdog-data/blobs/10/101a7ef11272e1c592e0ea0762d4676845880f312a31bacc8b1241d02902ffa3.pdf` (`101a7ef11272e1c592e0ea0762d4676845880f312a31bacc8b1241d02902ffa3`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3,4,5; concession_remission p.2,3,4; amendment p.1,2,3,4,5; commencement p.2; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2021-03-02 · mh-egazette-part8 · 71 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/03/02 | 2021/03/02 | भाग आठ असा. क्र. 3 (02-03-2021) L. A. Bill No. I of 2021, Further to amend the Maharashtra Stamp Act. | 0 | View
+  - occurrence: `mh-egazette/53c4f4b52351f08c95391ffdf0d0b79188370ee8ebe0631e58a3494a0cc48ef8`
+  - blob: `watchdog-data/blobs/9d/9d9d9cfd954b7fccfad8000519c8ab1c769a66a1b6b9f44cf2c900b545745902.pdf` (`9d9d9cfd954b7fccfad8000519c8ab1c769a66a1b6b9f44cf2c900b545745902`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-12-23 · mh-egazette-part8 · 6 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/23 | 2021/12/23 | Part VIII Extra No. 68 (23-12-2021) L. A. Bill No. XXXVII of 2021, Further to amend the Maharashtra Stamp Act | 0 | View
+  - occurrence: `mh-egazette/a131316276a9696e96f7eb948939c1c75814b35496ec16f660376a572ecb0194`
+  - blob: `watchdog-data/blobs/f9/f9d46e41150423fdc2405f6b86d7526044f0b89ce7ffea0c27f95a8b0432fd55.pdf` (`f9d46e41150423fdc2405f6b86d7526044f0b89ce7ffea0c27f95a8b0432fd55`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,5,6; amendment p.1,5,6; commencement p.5; combined keyword pages: 1, 5, 6
+- [ ] 2021-12-23 · mh-egazette-part8 · 7 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2021/12/23 | 2021/12/23 | Part VIII Extra No. 69 (23-12-2021) L. A. Bill No. XXXVIII of 2021, Further to amend the Maharashtra Stamp Act | 0 | View
+  - occurrence: `mh-egazette/f9ecf309b25672d8a4c15be377c19d730730fcb51de31fb4d2534a579f699f39`
+  - blob: `watchdog-data/blobs/10/10ad4eb6a20bd148480396ac00020622d46195ab9a2bc82383b497fe36db3953.pdf` (`10ad4eb6a20bd148480396ac00020622d46195ab9a2bc82383b497fe36db3953`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3,4; amendment p.1,2,3,4; commencement p.1; combined keyword pages: 1, 2, 3, 4
+- [ ] 2023-07-25 · mh-egazette-part8 · 50 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2023/07/25 | 2023/07/25 | Part VIII (Ex.64) (Dated 25-7-2023) L. A. BILL No. XXVII OF 2023. A BILL further to amend the Registration Act, 1908, in its application to the State of Maharashtra. | 0 | View
+  - occurrence: `mh-egazette/73c207d0b4ace10f09bb5ea25f1ccb93705526c13a342b2f1a038ba58aceb239`
+  - blob: `watchdog-data/blobs/e3/e3c679b5be8a82c00d089de53ff9e699d9f8292720d21125d354a799c591cdee.pdf` (`e3c679b5be8a82c00d089de53ff9e699d9f8292720d21125d354a799c591cdee`)
+  - title categories: registration, amendment; specificity: direct_domain_term
+  - content keyword matches: registration p.1,3,4; amendment p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2024-12-17 · mh-egazette-part8 · 8 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2024/12/17 | 2024/12/17 | HB-2149-BILL No. XXXI-(17-12-2024)L. A. BILL No. XXXI OF 2024. A BILL further to amend the Maharashtra Stamp Act. Ext. Ord. No. 92 No. 32(2). | 27 | View
+  - occurrence: `mh-egazette/87fae1678a71701e58d96c195efea2b8513aa680793e0663b8b4bd55ea5987e3`
+  - blob: `watchdog-data/blobs/f3/f32a78849868e46b4ab1adbe9148e6b9c080b6af2bc0de77c98bf5b7e90072de.pdf` (`f32a78849868e46b4ab1adbe9148e6b9c080b6af2bc0de77c98bf5b7e90072de`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,4,5,6; amendment p.1,2,4,5; commencement p.2; combined keyword pages: 1, 2, 4, 5, 6
+- [ ] 2025-03-18 · mh-egazette-part8 · 15 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/03/18 | 2025/03/18 | Part VIII, Ext. No. 20, L. A. BILL No. XXIII OF 2025. A Bill further to amend the Maharashtra Stamp Act. Tuesday, 18th March 2025. | 0 | View
+  - occurrence: `mh-egazette/061d154ae1c68f980438e35452e35d9245e49fd50b930b0072f822928dedec41`
+  - blob: `watchdog-data/blobs/31/310a01a40e97f9aeb91e5c880f9f010656066c58137b46c277fe6754b6ec98b3.pdf` (`310a01a40e97f9aeb91e5c880f9f010656066c58137b46c277fe6754b6ec98b3`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3,4,5,6; valuation p.3; amendment p.1,2,3,4,6; commencement p.3; combined keyword pages: 1, 2, 3, 4, 5, 6
+- [ ] 2025-12-10 · mh-egazette-part8 · 132 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/10 | 2025/12/10 | HB-2457 Part 8 Extra 103 Date 10-12-2025, Publication of bill Further to amend the Maharashtra Stamp Act, as L.A. Bill No. CIII of 2025 by Minister for Revenue. Extra Ord. No. 103, No.42(4). | 27 | View
+  - occurrence: `mh-egazette/8aedcc201a7ab7dc85f3302fb015102c1aa2b164cf1fff5d0ba56a6f87da4d46`
+  - blob: `watchdog-data/blobs/d9/d91ca540f2233ee28a10000594fc3177a1acd979f525bf8fe0fc2800a03fabf7.pdf` (`d91ca540f2233ee28a10000594fc3177a1acd979f525bf8fe0fc2800a03fabf7`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; valuation p.3; amendment p.1,2,3; commencement p.1; combined keyword pages: 1, 2, 3
+- [ ] 2025-12-10 · mh-egazette-part8 · 128 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/10 | 2025/12/10 | HB-2457 Part 8 Extra 103 Date 10-12-2025, Publication of a bill further to amend the Maharashtra Stamp Act. as L.A. Bill No. CIII of 2025 by Minister for Revenue. Extra Ord. No. 103, No. 42(4). | 27 | View
+  - occurrence: `mh-egazette/a87ca2abb6327e083be23144d04dd265dfb0610aa9139a6844913adccb7a10e2`
+  - blob: `watchdog-data/blobs/b6/b6c15ff4650e3eb8f8923fff8a1536aca57e423b76085f9d378e4ecc4a8e87c0.pdf` (`b6c15ff4650e3eb8f8923fff8a1536aca57e423b76085f9d378e4ecc4a8e87c0`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; valuation p.3; amendment p.1,2,3; commencement p.1; combined keyword pages: 1, 2, 3
+- [ ] 2026-03-05 · mh-egazette-part8 · 89 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/03/05 | 2026/03/05 | Part VIII, Ext. 13, L.A. BILL No. IX OF 2026 A BILL further to amend the Maharashtra Stamp Act Thursday, 5th March 2026. | 0 | View
+  - occurrence: `mh-egazette/0844d360376d8dbbdc22e31daeda4152c43ad0d562d297406db633f7252d3549`
+  - blob: `watchdog-data/blobs/77/77cac8d1984a7a18218b1807e06cc228eb6fc7e6f3e817d86d55233af6013b61.pdf` (`77cac8d1984a7a18218b1807e06cc228eb6fc7e6f3e817d86d55233af6013b61`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; registration p.2,3; valuation p.3; amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2026-06-30 · mh-egazette-part8 · 28 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/06/30 | 2026/06/30 | Part VIII, Ext. No. 72, L. A. BILL No. XLV OF 2026 A BILL further to amend the Maharashtra Stamp Act. Tuesday, 30th June 2026. | 0 | View
+  - occurrence: `mh-egazette/b555fc1b7f53dc6d478a875ca609c298434a854a3f2c56f6d38f694435edebc7`
+  - blob: `watchdog-data/blobs/38/3835d7f1039ab958b7da3d8b100a5880c7663e64c376b57cd48edc4cf552a9fa.pdf` (`3835d7f1039ab958b7da3d8b100a5880c7663e64c376b57cd48edc4cf552a9fa`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2,3; registration p.3; amendment p.1,3; combined keyword pages: 1, 2, 3
+- [ ] 2026-07-07 · mh-egazette-part8 · 17 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/07 | 2026/07/07 | Part VIII, Ext. No. 86, L. A. BILL No. LVI OF 2026. A BILL further to amend the Maharashtra Stamp Act. Tuesday, 7th July 2026. | 0 | View
+  - occurrence: `mh-egazette/38a750ab36cf21a6e12de7721541276803e74aea4b219ad175ecdb1204f17d4f`
+  - blob: `watchdog-data/blobs/4b/4b5fa152c0c16ef4ddd4fb89a6093cbbd8d22dfa6d9694740d0fd4d1fb05e674.pdf` (`4b5fa152c0c16ef4ddd4fb89a6093cbbd8d22dfa6d9694740d0fd4d1fb05e674`)
+  - title categories: stamp, amendment; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,3,4; amendment p.1,3; combined keyword pages: 1, 3, 4
+
+## Notification/order title candidates (88)
+
+- [ ] 2019-03-02 · mh-egazette-part4b · 364 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/03/02 | 2019/03/02 | Pt. IV-B Ext 72 (Final) (2 March 2019),महसूल व वन विभाग,महाराष्ट्र मुद्रांक अधिनियम, आदेश क्र. मुद्रांक 2018/943/प्र.क्र. 88/म-1 | 0 | View
+  - occurrence: `mh-egazette-part4b/8293f19b04f3ea2e29e0428985e09ea787ee3e045f56a6c20fa79b2c14908c00`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f4/f477419623b75feef79117eafe4251efbbb15ab488ddb4af145e904e5cb861a6.pdf` (`f477419623b75feef79117eafe4251efbbb15ab488ddb4af145e904e5cb861a6`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.7,8,9,11; registration p.9; valuation p.7; concession_remission p.2,4,7,8,9; combined keyword pages: 2, 4, 7, 8, 9, 11
+- [ ] 2019-07-06 · mh-egazette-part4b · 217 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/07/06 | 2019/07/06 | Part IV-B Extra No. 219 (06-07-2019) महसूल व वन विभाग, आदेश, क्रमांक मुद्रांक. 2018/अनौ. क्र. 10/प्र.क्र. 55/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/298a10f51cc25aed769dcee9e6842ed28c0e604f9821cfe6981475f53e1ddacb`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/d8/d8d65c0afbc1f03d725fdc6bba7119cffdabff5e1d3eb7fa9d7589608a063482.pdf` (`d8d65c0afbc1f03d725fdc6bba7119cffdabff5e1d3eb7fa9d7589608a063482`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; concession_remission p.2; combined keyword pages: 2
+- [ ] 2019-07-06 · mh-egazette-part4b · 218 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/07/06 | 2019/07/06 | Part IV-B Extra No. 220 (06-07-2019) महसूल व वन विभाग, आदेश, क्रमांक मुद्रांक. 2019/149/प्र.क्र. 54/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/c32ea59ee04e914395a3b60c16971ed33f2b737f558787c87fc8cce53d59fc90`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/3d/3d4156625a385b8cebd6e93670d217d97abbaafce31dc8f69d0590566f08be5a.pdf` (`3d4156625a385b8cebd6e93670d217d97abbaafce31dc8f69d0590566f08be5a`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; registration p.2; combined keyword pages: 2
+- [ ] 2019-08-31 · mh-egazette-part4b · 132 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/08/31 | 2019/08/31 | Part IV-B Extra No. 307 (31-08-2019) महसूल व वन विभाग, अधिसूचना, क्रमांक मुद्रांक. 2018/प्र.क्र. 88/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम, 1958. | 0 | View
+  - occurrence: `mh-egazette-part4b/af00286e7c6e3daf0c3d8dd33090190467f577474c85eeaa57be3159db61713c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/a2/a2c5dc15fb98267ca4ed541179db32f58e5d83b264721a45191babcddbbd0e95.pdf` (`a2c5dc15fb98267ca4ed541179db32f58e5d83b264721a45191babcddbbd0e95`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2019-08-31 · mh-egazette-part4b · 131 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/08/31 | 2019/08/31 | Part IV-B Extra No. 308 (31-08-2019) महसूल व वन विभाग, अधिसूचना, क्रमांक मुद्रांक. 2017/654/प्र.क्र. 230/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम, 1958. | 0 | View
+  - occurrence: `mh-egazette-part4b/b689de54099eb354197307faebce23e7ed922de1c38493ead361543ca2e06b5b`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/90/90ef9acd255934228980ebd4dfcc9898570e9f14c19e69a9bf8c1262e39bdf88.pdf` (`90ef9acd255934228980ebd4dfcc9898570e9f14c19e69a9bf8c1262e39bdf88`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-09-11 · mh-egazette-part4b · 117 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/11 | 2019/09/11 | Part IV-B Ex. No. 316 dated 11th Spetember 2019 Revenue and Forests Department Notification No. Mudrank-2019/1059/C.R.No.270/M-1 (Dhoran) | 0 | View
+  - occurrence: `mh-egazette-part4b/091fb16baa2841e705102432f49e765af230abeb4a23e6f543e76a9608006db5`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/70/70c547a0e9a1bea7e42a3adc8184d53ab82e9fea38e5182d7b92ba20321be443.pdf` (`70c547a0e9a1bea7e42a3adc8184d53ab82e9fea38e5182d7b92ba20321be443`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-09-11 · mh-egazette-part4b · 119 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/11 | 2019/09/12 | Part IV-B Ext. No. 327, dated 11th September 2019, Revenue And Forests Department, Notification No. No.Mudrank-2019/1124/C.R.No.280/M-1(Dhoran) | 0 | View
+  - occurrence: `mh-egazette-part4b/12baaf23720c208b9b210e6f2d05e6a034e7b0599188c8659c8a16eb0ef51f5f`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f5/f54a8fd7b15a874097045bfb49f1ab2d92d26ad8c88a28d0fd96f0e3ac7dc187.pdf` (`f54a8fd7b15a874097045bfb49f1ab2d92d26ad8c88a28d0fd96f0e3ac7dc187`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.4; combined keyword pages: 4
+- [ ] 2019-09-11 · mh-egazette-part4b · 114 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/11 | 2019/09/11 | Part IV-B, Ex. No. 317 Dated 11th September 2019 Revenue and Forest Department Notification No. No. Mudrank. 2019/2210/C.R. No. 83/M-l(Dhoran) | 0 | View
+  - occurrence: `mh-egazette-part4b/3c18a1b30d6f8cc4b0425e06b2028e98606429f2c2fea546afe43188b7f29287`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/ad/ad39524045671527ef61a82fbbcee520ea2d5171eb4d6b60c0312be96661749b.pdf` (`ad39524045671527ef61a82fbbcee520ea2d5171eb4d6b60c0312be96661749b`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-09-13 · mh-egazette-part4b · 108 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/13 | 2019/09/13 | Part IV-B Ext. 338 (13th Sept. 2019) महसूल व वन विभाग, आदेश क्रमांक मुद्रांक 2019, 1133, प्र.क्र. 294, म-1 (धोरण) बाळासाहेब ठाकरे राष्ट्रीय स्मारकाचे बांधकाम ...... मुद्रांक शुल्क | 0 | View
+  - occurrence: `mh-egazette-part4b/f74408fcee6e2c05b0f8a1c55ee6b73dc2e0d507cdf1d8501b7cbab83d965d96`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/23/2354732c6288aa41ac52094437b90160bfe15b0038d61f0adcfef70b1503ca60.pdf` (`2354732c6288aa41ac52094437b90160bfe15b0038d61f0adcfef70b1503ca60`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2019-09-20 · mh-egazette-part4b · 63 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/20 | 2019/09/20 | Part IV-B Extra No. 374 (20-09-2019) महसूल व वन विभाग, अधिसूचना, क्रमांक मुद्रांक. 2019/अनौ. 23/प्र.क्र. 328/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/856bb0fc0213b6b996db75e4592e42d43539d8748df214e78d6a9f9cf0e1872a`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/be/be6a1811e311dfed6f94c3b71055395c2ab4df019648030de379178eb081acb4.pdf` (`be6a1811e311dfed6f94c3b71055395c2ab4df019648030de379178eb081acb4`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4,5; registration p.5; concession_remission p.4,5; combined keyword pages: 4, 5
+- [ ] 2019-09-20 · mh-egazette-part4b · 62 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/09/20 | 2019/09/20 | Part IV-B Extra No. 373 (20-09-2019) महसूल व वन विभाग, अधिसूचना, क्रमांक मुद्रांक. 2018/अनौ. 39/प्र.क्र. 364/म-1 (धोरण), महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/e1c5374f68fedd74ad2436106b1467fa6bf1a383074fd9ce04fbdb9990e77c9f`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/68/685ab317a9f31923a4d42856e31a26c82939fec0bc0db08f07d216b0cbc3f164.pdf` (`685ab317a9f31923a4d42856e31a26c82939fec0bc0db08f07d216b0cbc3f164`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-12-19 · mh-egazette-part4b · 4 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/12/19 | 2019/12/19 | Part IV-B Extra No. 434 (नागपूर) (19-12-2019) महसूल व वन विभाग, अधिसूचना, नोंदणी अधिनियम, 1908 | 0 | View
+  - occurrence: `mh-egazette-part4b/1555c76c6fef55a1292e7cb5039e4db5d22bb55f26f182d338e5da421e4bcc28`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/84/8420f89b3357bf1eae8fdf5ea9f3fdbc719b89371c2d84d2a72d2374e7bb290a.pdf` (`8420f89b3357bf1eae8fdf5ea9f3fdbc719b89371c2d84d2a72d2374e7bb290a`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: stamp p.6; registration p.3; concession_remission p.3,6; amendment p.2; combined keyword pages: 2, 3, 6
+- [ ] 2019-12-19 · mh-egazette-part4b · 3 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/12/19 | 2019/12/19 | Part VI-B Ext. No. 434, (19 December 2019), महसूल व वन विभाग, अधिसूचना, क्र. नोंदणी-2019/औ-न. 50/प्र. क्र. 780/म-1 (धोरण), महाराष्ट्रा समृद्दी महामार्ग. | 0 | View
+  - occurrence: `mh-egazette-part4b/79d681c51b1c4b477c23e70a1a54ef4386ea3ef7976107fe84c0a04d02d90a39`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/71/71c372a6b104b6b45bc7f22e5d50ec79b0e1866a437cf67383e988bbb0208145.pdf` (`71c372a6b104b6b45bc7f22e5d50ec79b0e1866a437cf67383e988bbb0208145`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2020-02-01 · mh-egazette-part4b · 293 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2020/02/01 | 2020/02/01 | Part IV-B, Extra Ordinary Gazette No. 36, Dated 1st February 2020 Revenue and Forests Department Notification No. Mudrank-2019/1124/C.R.No.280/M-1 (Dhoran) | 0 | View
+  - occurrence: `mh-egazette-part4b/c033658f056ea3754e57e51a1dd98faeea99648b355cf48e515235249e5955b1`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b5/b5a120847ede062bd613edfcac1764ea4bf66dfe3eed2101e0113e20df23594a.pdf` (`b5a120847ede062bd613edfcac1764ea4bf66dfe3eed2101e0113e20df23594a`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; registration p.2,4; concession_remission p.2; combined keyword pages: 2, 4
+- [ ] 2020-08-28 · mh-egazette-part4b · 134 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2020/08/28 | 2020/08/28 | Part IV-B Ext. 195 (R and F Dept.) (28-8-20) Maharashtra Stamp Act. Order No. Mudrank-2020/C.R.136/M-1 (Policy) | 0 | View
+  - occurrence: `mh-egazette-part4b/e95d85256aff9df95740257b59c44f8bcc0e60433bdaab07999a0341e5fa2bf4`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cf/cfee19d561a0639a98ea0b781999bc063b340455468fbf247ed23daee7c560f9.pdf` (`cfee19d561a0639a98ea0b781999bc063b340455468fbf247ed23daee7c560f9`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-03-31 · mh-egazette-part4b · 121 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/03/31 | 2021/03/31 | Part IV-B Extra-Ordinary Gazette No. 88, Dated 31st March 2021 Revenue and Forests Department Notification No. Mudrank-2021/UOR. 12/CR. 107/M-1 (Policy), Stamp Duty | 0 | View
+  - occurrence: `mh-egazette-part4b/8c91485f36db0ab5bb81c70292364fca20126d645bad1885d8dfeabcf130bdd4`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/42/42a09e28314a0a88ec7bbaf97d9d4845b0b6e1f33c59769dbabd289aaca36cb3.pdf` (`42a09e28314a0a88ec7bbaf97d9d4845b0b6e1f33c59769dbabd289aaca36cb3`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; concession_remission p.2,3; combined keyword pages: 2, 3, 4
+- [ ] 2021-09-23 · mh-egazette-part4b · 2513 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/09/23 | 2021/09/23 | चार-ब, असा क्र. 270, दिनांक 23 सप्टेंबर 2021, सार्वजनिक आरोग्य विभाग, अधिसूचना, महाराष्ट्र शुश्रृषागृह नोंदणी नियम, 2021, क्रमांक शुनोंअ.2021/813/प्र.क्र.280/कु.क. | 0 | View
+  - occurrence: `mh-egazette-part4b/83ace22ede266b30fb75561367292d20a67c209f8c38736026b7ab1de431179e`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cf/cf3dc134e4c3ac829a0499430f07596091eb887e91f545e9d3f3d13d835de0d4.pdf` (`cf3dc134e4c3ac829a0499430f07596091eb887e91f545e9d3f3d13d835de0d4`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: registration p.2; amendment p.2; combined keyword pages: 2
+- [ ] 2021-09-23 · mh-egazette-part4b · 2512 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/09/23 | 2021/09/23 | भाग चार-ब, असा क्र. 269, दिनांक 23 सप्टेंबर 2021, महसूल व वन विभाग, अधिसूचना, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक 2021/68/प्र.क्र.69/म-1 (धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/f0ece8ef989f135c7f09b0e09b0e50265bd4939fc49fac2c3bebd1f620bc7b6c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/22/224d198cb00ee1da2b481ca31dd3935999bdcd9c8c397a5e203e8a54d088f259.pdf` (`224d198cb00ee1da2b481ca31dd3935999bdcd9c8c397a5e203e8a54d088f259`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-10-14 · mh-egazette-part4b · 2476 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/10/14 | 2021/10/14 | भाग चार-ब, असा क्र. 303, दिनांक 14 आॅक्टोबर 2021, सार्वजनिक आरोग्य विभाग,अधिसूचना, महाराष्ट्र जन्म व मृत्यू नोंदणी अधिनियम, 1969. क्र.जमृनों/1462/प्र. क्र.646/कु.क. | 0 | View
+  - occurrence: `mh-egazette-part4b/5b8b5d97d7ad3f9bc0147f0183f13418b4b759ac56186e354ba3a3239311ec6f`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/91/919817417ba272d9094c7bc782cf4c2dce57770bd07c31c4a61eba3a185faf87.pdf` (`919817417ba272d9094c7bc782cf4c2dce57770bd07c31c4a61eba3a185faf87`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-10-14 · mh-egazette-part4b · 2475 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/10/14 | 2021/10/14 | भाग चार-ब, असा क्र. 302, दिनांक 14 आॅक्टोबर 2021, सार्वजनिक आरोग्य विभाग,अधिसूचना, विवाह मंडळांचे विनियम आणि विवाह नोंदणी अधिनियम, 1998 (1999 चा महा. अधिनियम क्र. 20), क्र.विनोंका-2019/910/प्र. क्र.251/कु.क. | 0 | View
+  - occurrence: `mh-egazette-part4b/f4fa66b4b83b2bed3b58516dc69a0b18b06598d3e46f48a9d75466d394fd34a7`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/7a/7a8013bed00cb0a7aad4480dc6385f1482547fb2215cbbb181e408c326bbc16e.pdf` (`7a8013bed00cb0a7aad4480dc6385f1482547fb2215cbbb181e408c326bbc16e`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-11-01 · mh-egazette-part4b · 2459 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/11/01 | 2021/11/01 | भाग चार-ब, असाधारण राजपत्र क्र. 323, दिनांकित 1 नोव्हेंबर 2021 महसूल व वन विभाग, आदेश क्रमांक मुद्रांक-2021/अनौ-25/प्र.क्र. 295/म-1(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/1c871691aeaa29fb14c792dfc9db831690107fbba38c42dafee6ba29ea0244d1`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f0/f00507a868553fa13bfecfb7c5dfd5eac41ae00d66e43e0edd458b97dee4d134.pdf` (`f00507a868553fa13bfecfb7c5dfd5eac41ae00d66e43e0edd458b97dee4d134`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-11-12 · mh-egazette-part4b · 2449 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/11/12 | 2021/11/12 | Part IV-B (Ex.333) (Dated 12th November 2021), महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक. मुद्रांक-२०२०/३१०/प्र.क्र.१२७/एम-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/e927cc70aa8fd4e7abe32ead5073b23fec742c9632df405bbb0da6b840afdb56`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f0/f04db306ffc74494dd038ebf048b4da282c513c50789fe5241aa14d748d745d8.pdf` (`f04db306ffc74494dd038ebf048b4da282c513c50789fe5241aa14d748d745d8`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2021-11-24 · mh-egazette-part4b · 2434 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/11/24 | 2021/11/24 | असाधारण क्रमांक ३४८ - सार्वजनिक आरोग्य विभाग यांची अधिसूचना क्रमांक शुनोंअ २०२१/८१३/प्र.क्र. २८०/कु. क., दिनांक २३ नोव्हेंबर २०२१ (महाराष्ट्र शुश्रृषागृह नोंदणी नियम, २०२१) | 0 | View
+  - occurrence: `mh-egazette-part4b/3c95767c0c43ff07245696a8973524e7941312eac37ad32424dd38ade0328903`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/3b/3b42b4e5f80ff5a1c80f69bb454b0ce790918b58c7e4992f492d5e6a0a4f17e3.pdf` (`3b42b4e5f80ff5a1c80f69bb454b0ce790918b58c7e4992f492d5e6a0a4f17e3`)
+  - title categories: registration; specificity: generic_registration_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2022-01-24 · mh-egazette-part4b · 2357 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/01/24 | 2022/01/24 | भाग चार-ब, असा. क्र. १७ (२४-०१-२०२२), महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक २०२०/अनौ.क्र.३३/प्र.क्र.२५३/म-१(धोरण), | 0 | View
+  - occurrence: `mh-egazette-part4b/7047286abc2e322a6b3e4b3f94aebd69df27e34dd017a4be633df2434ad0c7c2`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f1/f13e469333e69a19a20e9b4f161a4fd4e6820875f4cc43c66710592e23c6d539.pdf` (`f13e469333e69a19a20e9b4f161a4fd4e6820875f4cc43c66710592e23c6d539`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4,5; registration p.5; concession_remission p.2,3,4,5; combined keyword pages: 2, 3, 4, 5
+- [ ] 2022-04-19 · mh-egazette-part4b · 2243 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/04/19 | 2022/04/19 | भाग चार-ब, असाधारण क्रमांक १२९, महसूल व वन विभाग आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२२/प्र.क्र.७८/एम-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/7a01b61b0f57ec886af57f12fd2c5c5d23878426f992c561a1a7b9fbba3e24cf`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/9c/9c51a8b781612c9e212037c0d0829de1609a906b983a868067e6f63b528af390.pdf` (`9c51a8b781612c9e212037c0d0829de1609a906b983a868067e6f63b528af390`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.7,8; valuation p.7,8; concession_remission p.7,8; commencement p.7; combined keyword pages: 7, 8
+- [ ] 2022-04-20 · mh-egazette-part4b · 2239 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/04/20 | 2022/04/20 | भाग चार-ब, असाधारण क्रमांक १३३, महसूल व वन विभाग आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक बैठक-२०२०/३७२/प्र.क्र. २११/म-१ (धोरण) बुधवार, एप्रिल २०, २०२२/चैत्र ३०, शके १९४४. | 0 | View
+  - occurrence: `mh-egazette-part4b/5bcc82ebe2678034ba667b5a199fb3f390afd05f639d370acd1f47195dbc98d8`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/08/08e54b8a19d8ed86a9b0b0291abda56a10c76a04d8f5e605238e6e792a836340.pdf` (`08e54b8a19d8ed86a9b0b0291abda56a10c76a04d8f5e605238e6e792a836340`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2022-07-04 · mh-egazette-part4b · 2125 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/07/04 | 2022/07/04 | भाग चार-ब, असा., क्र. २४८, महसूल व वन विभाग, महाराष्ट्र मुद्रांक अधिनियम, अधिसूचना, क्रमांक मुद्रांक-२०२२/प्र.क्र. २७३/म-१(धोरण). अंक ९० सोमवार, ४ जुलै, २०२२/आषाढ १३, शके १९४४ | 0 | View
+  - occurrence: `mh-egazette-part4b/2c4bf8cbbc06307e45c94beb263f25c55031a01d738770504a75b560c9c4c3bf`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/79/79571f465b678ed9ac318e9717952d80c5e3530891bf83b25de60e353cbcc0df.pdf` (`79571f465b678ed9ac318e9717952d80c5e3530891bf83b25de60e353cbcc0df`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; amendment p.2; combined keyword pages: 2
+- [ ] 2022-11-17 · mh-egazette-part4b · 1953 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/11/17 | 2022/11/17 | Part-IV-B, Extra 415, (Dated 17th November 2022) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२२/प्र.क्र.-८०/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/6e5500babb933afb963de30d887478623584d1d86efea42a86945c6650db175d`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/03/03f607717c4cdd65574d366fd372c7d897dfc1f72f174f68540ff976f932449d.pdf` (`03f607717c4cdd65574d366fd372c7d897dfc1f72f174f68540ff976f932449d`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; concession_remission p.2; combined keyword pages: 2
+- [ ] 2022-12-09 · mh-egazette-part4b · 1902 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/12/09 | 2022/12/09 | Part-IV-B, Ext. 464, (Dated 9th December 2022) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम, १९५८. क्रमांक मुद्रांक-२०२१/१६/प्र.क्र.२०/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/24e0bbeb470f9f6cd5775d94e76cb98fe0d58b10312a03bead9846f392bfe23b`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/fb/fb9fd36fed0a9cef2345d4c29b4632aa5faab7093ac13b54de25df3fd49de3b2.pdf` (`fb9fd36fed0a9cef2345d4c29b4632aa5faab7093ac13b54de25df3fd49de3b2`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; concession_remission p.3,4; combined keyword pages: 3, 4
+- [ ] 2022-12-14 · mh-egazette-part4b · 1897 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/12/14 | 2022/12/14 | Part-IV-B, Ext. 468, (Dated 14th December 2022) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम, १९५८. क्रमांक मुद्रांक-२०२१/यु.ओ.आर. क्रमांक २५ /प्र.क्र.२९५ /म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/bddd50179ea2060a80e592ce4bc76666018527c5018218d5f81d70a75000b6ac`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/7d/7d3304100847ccf3c4c2ce29a9475b33ec6f433562dec95b6e00cc2c2b77693f.pdf` (`7d3304100847ccf3c4c2ce29a9475b33ec6f433562dec95b6e00cc2c2b77693f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2023-01-03 · mh-egazette-part4b · 1883 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/01/03 | 2023/01/03 | भाग चार ब, असा. क्रमांक १, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक २०२२/प्र.क्र. ९३/म-१ (धोरण) मंगळवार, ३ जानेवारी २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/da3757c365137ed4558fadf7ca8740940893949532b77045f0fed05f8b42ab60`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/dd/ddf027cd1315da73c87dada4b682701100276f306b96fc04a34c1bfd32cfabbd.pdf` (`ddf027cd1315da73c87dada4b682701100276f306b96fc04a34c1bfd32cfabbd`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2023-01-23 · mh-egazette-part4b · 1869 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/01/23 | 2023/01/23 | Part IV-B (Ex. 17) (Dated 23-1-2023) महसूल व वन विभाग आदेश क्रमांक मुद्रांक-२०१७/अनौ.३०/प्र.क्र.५३४/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/7d95a8e30d597476027d07fe91d1530eaae91396c2acf1dab7b1416e1e4ebe71`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/00/0026609281b7e86cfdd527fd4577fe1011cd37a92457c8d67344b8b372354515.pdf` (`0026609281b7e86cfdd527fd4577fe1011cd37a92457c8d67344b8b372354515`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.1,3; amendment p.2; combined keyword pages: 1, 2, 3
+- [ ] 2023-02-03 · mh-egazette-part4b · 1862 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/02/03 | 2023/02/03 | भाग चार-ब, असा., क्रमांक २४, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२१/प्र.क्र. ४४०/म-१ (धोरण). शुक्रवार, ३ फेब्रुवारी २०२३ | 0 | View
+  - occurrence: `mh-egazette-part4b/f26ceb64a7ad5a7963b125eb26a26152863d34d145b8d716ceafe84951f5c5f6`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/06/06fefe78cb937d9b3f65ec82c776ba85fb8041ca74e6450f127bf6a075bacf1b.pdf` (`06fefe78cb937d9b3f65ec82c776ba85fb8041ca74e6450f127bf6a075bacf1b`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.2,3; combined keyword pages: 2, 3
+- [ ] 2023-03-23 · mh-egazette-part4b · 1793 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/03/23 | 2023/03/23 | भाग चार-ब, असा., क्रमांक ९०,महसूल व वन विभाग, आदेश, क्रमांक मुद्रांक-२०२१/८६५/प्र.क्र. २०३/म-१ (धोरण) गुरुवार, २३ मार्च २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/1d1f32364ee8ee1a7a29fa21a66f5c547e42f4e44613609502ea0c57170a7952`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/87/87045e305ac81417688cd088209f6cea446d8c1fc6b464647caa2603b1ca02bf.pdf` (`87045e305ac81417688cd088209f6cea446d8c1fc6b464647caa2603b1ca02bf`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2023-03-23 · mh-egazette-part4b · 1794 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/03/23 | 2023/03/23 | भाग चार-ब, असा., क्रमांक ९१,महसूल व वन विभाग, आदेश, क्रमांक मुद्रांक-२०२१/८६५/प्र.क्र. २०३/एम-१ (धोरण) गुरुवार, २३ मार्च २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/37357046529cb8ee222660455f57d4eb9ffa3766b5a6f834032c609b2333f1bc`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/11/116c53bb6674e28c08e3b977bf5b1c89a86a794228861934867d5af50b57cd23.pdf` (`116c53bb6674e28c08e3b977bf5b1c89a86a794228861934867d5af50b57cd23`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2023-05-18 · mh-egazette-part4b · 1701 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/05/18 | 2023/05/18 | भाग चार-ब, असा., क्रमांक १८५, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२३/अनौ.सं. क्र. ०३/प्र.क्र. २३९/एम-१ (धोरण), गुरुवार १८ मे २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/1bce949e2fc7f4b765d7c6a8c7848fbbe27bd4c5b68566c7fec907da0ddf70fa`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cc/cc05b48c780c28b819e0db226ddcc1e999e0adb5ae4b0c31283a7238215c0b56.pdf` (`cc05b48c780c28b819e0db226ddcc1e999e0adb5ae4b0c31283a7238215c0b56`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2023-05-18 · mh-egazette-part4b · 1699 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/05/18 | 2023/05/18 | भाग चार-ब, असा., क्रमांक १८३, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२३/अनौ.सं.क्र. ०५/प्र.क्र. २३७/एम-१ (धोरण) गुरुवार १८ मे २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/3656ff893e3141629a604d05025fffda7227a1c55966a245cd841e13587a4695`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/2c/2ce46f7849be5ffb407a1832439ddd43b4b157e9dbbcc453cbc66f106ef8df8c.pdf` (`2ce46f7849be5ffb407a1832439ddd43b4b157e9dbbcc453cbc66f106ef8df8c`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2023-05-18 · mh-egazette-part4b · 1700 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/05/18 | 2023/05/18 | भाग चार-ब, असा., क्रमांक १८४, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२३/अनौ.सं. क्र. ०४/प्र.क्र. २३८/एम-१ (धोरण), गुरुवार १८ मे २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/5f778c8804848cc3c900c7d3c96599908cb0207c148d7bb3062c66cea2af08fe`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/e2/e26194eb6a8dcb5e2e34bc645ff0aef6e492be97211948174efc14594aae0d7e.pdf` (`e26194eb6a8dcb5e2e34bc645ff0aef6e492be97211948174efc14594aae0d7e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2023-05-26 · mh-egazette-part4b · 1676 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/05/26 | 2023/05/26 | भाग चार-ब, असा., क्रमांक २०८, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२१/अ.नौ.सं.क्र. १२/प्र.क्र. १०७/म-१ (धोरण), शुक्रवार, २६ मे २०२३ | 0 | View
+  - occurrence: `mh-egazette-part4b/9373f0897007e5d0333eb9ef1171958040acc52c6b37fff17bc9bafbf024b845`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cb/cbb99f8b07580373100edee653893ef372615b939a8d50c9b02485b8b17c0350.pdf` (`cbb99f8b07580373100edee653893ef372615b939a8d50c9b02485b8b17c0350`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.1,2,3; combined keyword pages: 1, 2, 3
+- [ ] 2023-06-09 · mh-egazette-part4b · 1659 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/06/09 | 2023/06/09 | Part-IV-B, Ext. 225, (Dated 9th June 2023) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम क्रमांक मुद्रांक-२०१८/३६८१/प्र.क्र.३५४/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/d77c7ad0cc2ccf7c892bea5e2e011c729ee4f554c810de57eb3d15d2d21b0e49`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/d0/d07a6ab36cc74a452553d620df96fe993234048c3f95c65247ab3ca98bb9e18e.pdf` (`d07a6ab36cc74a452553d620df96fe993234048c3f95c65247ab3ca98bb9e18e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2023-06-20 · mh-egazette-part4b · 1646 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/06/20 | 2023/06/20 | भाग चार-ब, असा., क्रमांक २३८, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२०/अनी. २०/प्र.क्र. १४८/म-१ (धोरण) मंगळवार, २० जून २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/0962133dbd36f19e529543593333415014b45d8f4db6485938a1c5278b05a55d`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/99/99dadba94279c53e0bed64ce5db59c2de34e98bc2e738799c2fc2729c0feb80b.pdf` (`99dadba94279c53e0bed64ce5db59c2de34e98bc2e738799c2fc2729c0feb80b`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.6,7,8,9; concession_remission p.2,3,5,6,7,8,9; amendment p.1,6; combined keyword pages: 1, 2, 3, 5, 6, 7, 8, 9
+- [ ] 2023-08-17 · mh-egazette-part4b · 1571 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/08/17 | 2023/08/17 | भाग चार-ब, असा., क्रमांक ३१३, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/अनौप.-०१/प्र.क्र. १६३/एम-१ (धोरण). गुरुवार, १७ ऑगस्ट २०२३. | 0 | View
+  - occurrence: `mh-egazette-part4b/65a7644076c29b547c4d9bfa136c2430fd6c0052ffd463dc8163f615cf1693fc`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/dc/dcf07813eecd4c46b9219d131838a831e9681d012888d643ee2ad2063164ef69.pdf` (`dcf07813eecd4c46b9219d131838a831e9681d012888d643ee2ad2063164ef69`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2023-10-11 · mh-egazette-part4b · 1504 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/10/11 | 2023/10/11 | भाग चार-ब. असा., क्रमांक ३७८, (दिनांक ११ ऑक्टोबर २०२३) महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-व्हीआयपी-२०२३/प्र.क्र.१९१/म-१ (धोरण). | 0 | View
+  - occurrence: `mh-egazette-part4b/c08e32bd448f18dfb82d5aef833f488db25367d7cb4ce7ade4e77a87430d8ac2`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f3/f36c4dd9113e7ac808e22c44acb422675c3557eb3c6ca2c07cc8d88a00e20de2.pdf` (`f36c4dd9113e7ac808e22c44acb422675c3557eb3c6ca2c07cc8d88a00e20de2`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.2; combined keyword pages: 2, 3
+- [ ] 2023-10-12 · mh-egazette-part4b · 1498 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/10/12 | 2023/10/12 | Part-IV-B, Ext. 384, (Dated 12th October 2023), REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act., No.Mudrank-2023/698/C.R.436/M-1(Dhoran). | 0 | View
+  - occurrence: `mh-egazette-part4b/faaa844eb7fe680aa2b16995865f20f3f6d10429b46bac0dc162c1b44d42b2bd`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b9/b915b4e28f0cad45c907845cd772d59f60ee3c3df0849beda8d89eed6063d2cc.pdf` (`b915b4e28f0cad45c907845cd772d59f60ee3c3df0849beda8d89eed6063d2cc`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2023-12-04 · mh-egazette-part4b · 1430 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/12/04 | 2023/12/04 | Part-IV-B, Ext. 451, (Dated 4th December 2023) महसूल व वन विभाग अधिसूचना महाराष्ट्र मुद्रांक अधिनियम क्र. मुद्रांक-२०२१/६८/प्र.क्र.६९/म-१(धोरण). | 0 | View
+  - occurrence: `mh-egazette-part4b/c0c63878eabfaca2b61ed991a4c6d42330896cb6f66129c0f6392b61122c8ba6`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/33/33f1425d08892477af3bdfcc4163a2d795baf4ab1888291cb35ce6a5e5cb1190.pdf` (`33f1425d08892477af3bdfcc4163a2d795baf4ab1888291cb35ce6a5e5cb1190`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2023-12-07 · mh-egazette-part4b · 1429 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2023/12/07 | 2023/12/07 | Part IV-B Ext. 453 (7-12-2023) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/प्र.क्र.३४२/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/bab4791afbfc5337f86b90cc0e5610b647e3d52906f62b4f9d3a92388588bab6`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/10/104f7f22080539804b3de139def75fbaa0200e6934640697fa7759640e5c27d1.pdf` (`104f7f22080539804b3de139def75fbaa0200e6934640697fa7759640e5c27d1`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.8,9,10,11,12; registration p.8,11; valuation p.8,12; concession_remission p.3,4,8,9,10,11; combined keyword pages: 3, 4, 8, 9, 10, 11, 12
+- [ ] 2024-02-02 · mh-egazette-part4b · 1350 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/02/02 | 2024/02/02 | Part-IV-B, Ext. 55, (Dated 2nd February 2024) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/प्र.क्र. ३४२/एम-१ (धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/5c97f856f380816931a2f2d5af828ff1456259c60017b3b95b1cdebd35ba269e`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/d3/d3bae6e9daefd101b2b196a66bd6e55d122b46506d1b20476bdc8fbed54996c4.pdf` (`d3bae6e9daefd101b2b196a66bd6e55d122b46506d1b20476bdc8fbed54996c4`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2024-02-02 · mh-egazette-part4b · 1347 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/02/02 | 2024/02/02 | Part-IV-B, Ext. 54, (Dated 2nd February 2024) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/अनौ.संं.क्र.२०/प्र.क्र. ६०२/म-१ (धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/a89b42b466fed454f525445a995c49613a1fecf332e2ad5ba9da945b1f52680a`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/20/2088d85ead0aa608f5a894bbea87ae78c99ce6478a11b90bd1f857910221f00e.pdf` (`2088d85ead0aa608f5a894bbea87ae78c99ce6478a11b90bd1f857910221f00e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.5,6; registration p.6; concession_remission p.5,6,7; commencement p.2,6; combined keyword pages: 2, 5, 6, 7
+- [ ] 2024-02-02 · mh-egazette-part4b · 1348 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/02/02 | 2024/02/02 | Part-IV-B, Ext. 56, (Dated 2nd February 2024) महसूल व वन विभाग आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक २०२३/अनौ.संं.क्र.१३/प्र.क्र. ४३५/म-१ (धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/ac47551ce24507b474b73595539c312900f91f2e41127877cd4ecb32ab336e4f`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/59/59eccd1cd4a2abb91878363361ada5c8492d41e2bf644cce6b3608e92c0f7c13.pdf` (`59eccd1cd4a2abb91878363361ada5c8492d41e2bf644cce6b3608e92c0f7c13`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2024-03-15 · mh-egazette-part4b · 1251 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/03/15 | 2024/03/15 | भाग चार-ब, असा. क्रमांक १४९, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/अनौसं. १५/प्र.क्र. ६२८/म-१. शुक्रवार १५ मार्च २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/411aa2976fe056147f0c5627696ac769933bfa26042305ed25ccffe083fb66a0`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/e0/e07226ed22f96a506f3f7761d5ea1213c8cf481325fc16e473444a71801b526d.pdf` (`e07226ed22f96a506f3f7761d5ea1213c8cf481325fc16e473444a71801b526d`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2024-03-15 · mh-egazette-part4b · 1255 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/03/15 | 2024/03/15 | भाग चार-ब, असा. क्रमांक १५४, REVENUE AND FORESTS DEPARTMENT, ORDER, MAHARASHTRA STAMP ACT. No. Mudrank-2018/U.O.R. No. 11/C.R. 159/M-1 (Policy) Friday, 15th March 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/5efedbf2a87db076234cce1d79d94fc7280b90e58a286930f3fb2876cd7ec021`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/7d/7d8343ecc9c26c2a4805c842b733116b3ca27df7b2926ef797669d2662f91d26.pdf` (`7d8343ecc9c26c2a4805c842b733116b3ca27df7b2926ef797669d2662f91d26`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; concession_remission p.2; combined keyword pages: 1, 2
+- [ ] 2024-03-15 · mh-egazette-part4b · 1250 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/03/15 | 2024/03/15 | भाग चार-ब, असा. क्रमांक १४८, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२४/प्र.क्र. ८६/म-१. शुक्रवार १५ मार्च २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/da2b9a35c836eba2a93ab7d4cd4602fcc96b247ce9b007e74d604c9f5229fd20`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/da/da11fd08bbee1bf48d3d155ea48964e6dd27a31be47bea998aac8b9b9a67fa0f.pdf` (`da11fd08bbee1bf48d3d155ea48964e6dd27a31be47bea998aac8b9b9a67fa0f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; registration p.4; combined keyword pages: 2, 4
+- [ ] 2024-03-15 · mh-egazette-part4b · 1258 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/03/15 | 2024/03/15 | भाग चार-ब, असा. क्रमांक १५०, REVENUE AND FORESTS DEPARTMENT, ORDER, MAHARASHTRA STAMP ACT. No. Mudrank-2023/C.R. No. 342/M-1(Policy) Friday, 15th March 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/ec800f64af2bef650b70a76ee69b69588d491deef657f9d9470f493db332abee`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b7/b7281f9550d56646c2d7ac82ffd539db18833a4f9215cf3009d17fd77a6e9887.pdf` (`b7281f9550d56646c2d7ac82ffd539db18833a4f9215cf3009d17fd77a6e9887`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; amendment p.1; combined keyword pages: 1, 2
+- [ ] 2024-03-16 · mh-egazette-part4b · 1246 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/03/16 | 2024/03/16 | भाग चार-ब, असा. क्रमांक १५६, REVENUE AND FORESTS DEPARTMENT, Order, MAHARASHTRA STAMP ACT, No. Mudrank-2024/UOR. 17/C.R. 89/M-1 (Policy) Saturday, 16th March 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/438299ed33871d5a0c1546af9f61208f2dd93b632676fba1d6d284fed82ca3b9`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/57/57e1dc90b6b8f8c4d2b58fa55e4271cef33622ffaab1a8fde329b11406edbdde.pdf` (`57e1dc90b6b8f8c4d2b58fa55e4271cef33622ffaab1a8fde329b11406edbdde`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1; combined keyword pages: 1
+- [ ] 2024-06-07 · mh-egazette-part4b · 1195 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/06/07 | 2024/06/07 | भाग चार-ब, असा. क्रमांक २०६, महसूल व वन विभाग, अधिसूचना, महाराष्ट्र न्यायालय फी अधिनियम. क्रमांक मुद्रांक-२०२१/६०१/प्र.क्र.-११७/म-१(धोरण) शुक्रवार, ७ जून २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/8f8da9d3d2ff35a43ce1ff41c63ce6b75c2d8cf9f3fbc16a7960674ccc061b79`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/ec/ecdf091fc02873764fe3a0781331916c8fbb0998a13cbc664e6b303e4b8d5982.pdf` (`ecdf091fc02873764fe3a0781331916c8fbb0998a13cbc664e6b303e4b8d5982`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2024-07-01 · mh-egazette-part4b · 1160 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/07/01 | 2024/07/01 | भाग चार-ब, असा. क्रमांक २४३, REVENUE AND FORESTS DEPARTMENT, Order, MAHARASHTRA STAMP ACT No. Mudrank-2024/C.R. 77/M-1 (Policy) Monday, 1st July 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/52ff28517c5ad38af5aeeceab2d7c176838040a12f137d5aca9049d0442060e6`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/9c/9cebb3dd9adac0a1edd9c87ee5dc5a48bc901c9370b21b723cef8999828c2872.pdf` (`9cebb3dd9adac0a1edd9c87ee5dc5a48bc901c9370b21b723cef8999828c2872`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; registration p.1; combined keyword pages: 1, 2
+- [ ] 2024-09-10 · mh-egazette-part4b · 1062 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/09/10 | 2024/09/10 | भाग चार-ब, असा. क्रमांक ३३८, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक २०१९/१४९/प्र.क्र. ५४/म-१ (धोरण) मंगळवार, १० सप्टेंबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/86fa6f1223ff28efd5ad775a39d18a3cd16eb59fc306e0576110d5e27deaa681`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/6d/6d013560ad192116d48df647d5589719d15b72580d5469b8a69388ff3050a26f.pdf` (`6d013560ad192116d48df647d5589719d15b72580d5469b8a69388ff3050a26f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; registration p.2; combined keyword pages: 1, 2
+- [ ] 2024-09-10 · mh-egazette-part4b · 1064 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/09/10 | 2024/09/10 | भाग चार-ब, असा. क्रमांक ३३९, REVENUE AND FORESTS DEPARTMENT, ORDER, MAHARASHTRA STAMP ACT. No. Mudrank-2023/C.R. No. 342/M-1 (Policy) Tuesday, 10th September 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/87a9c723d17b9bb85948ca6ce7174e4db6afba52b45cbd6ed0faca4393bb8368`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/92/92fe8c12f82d4c96c3e1cf89ed83ba4eb1a366555f827631e3a0cb382cc8cc0f.pdf` (`92fe8c12f82d4c96c3e1cf89ed83ba4eb1a366555f827631e3a0cb382cc8cc0f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; registration p.1; combined keyword pages: 1, 2
+- [ ] 2024-09-11 · mh-egazette-part4b · 1061 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/09/11 | 2024/09/11 | भाग चार-ब, असा. क्रमांक ३४३, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२४/अनौ. २०/प्र.क्र. १०६/म-१ (धोरण). बुधवार ११ सप्टेंबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/2ce5c1a10df4126f22990090444f5066f6816883b46b1c8fa9ef3023199a4909`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/de/de2d60c681da3566b75797c8dfdaa27651d37d662df9bfd6d462dfafa0575aa3.pdf` (`de2d60c681da3566b75797c8dfdaa27651d37d662df9bfd6d462dfafa0575aa3`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,3,4; concession_remission p.2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2024-09-11 · mh-egazette-part4b · 1060 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/09/11 | 2024/09/11 | भाग चार-ब, असा. क्रमांक ३४२, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२३/प्र.क्र. ६६१/म-१ (धोरण). बुधवार, ११ सप्टेंबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/41a1e7a33684f30825ea100eb956288ddb3cc011c88cc3d64c4a82020abe9176`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/ed/edd9a0e3f3ea8b01b2933289393bdb50d14b3119c479817b8ff01bebc81b178e.pdf` (`edd9a0e3f3ea8b01b2933289393bdb50d14b3119c479817b8ff01bebc81b178e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,3,4; concession_remission p.4; combined keyword pages: 1, 3, 4
+- [ ] 2024-09-25 · mh-egazette-part4b · 1040 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/09/25 | 2024/09/25 | भाग चार-ब, असा. क्रमांक ३६१, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२४/अनौ.सं. ९/प्र.क्र. १८९/म-१ (धोरण). बुधवार, २५ सप्टेंबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/c3a7f48a7920bddba5d6a63027020448baf985a74c76e1049d2d5495d2f2c205`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/d4/d42cc3364720582315d45d920fa9f439b5a45d5c658adef1cd59d3605e9a898e.pdf` (`d42cc3364720582315d45d920fa9f439b5a45d5c658adef1cd59d3605e9a898e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; registration p.3; concession_remission p.3,4; combined keyword pages: 3, 4
+- [ ] 2024-10-03 · mh-egazette-part4b · 1032 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/03 | 2024/10/03 | भाग चार-ब, असाधारण राजपत्र क्रमांक 371, दिनांकित 3 ऑक्टोबर 2024, महसूल व वन विभाग, आदेश क्रमांक मुद्रांक-2024/अनौसं-05/प्र.क्र. 101/म-1 (धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/e2937f04536b65b909ecd1332ccde65c016a0b3373970914adae24e6b14a9fd1`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/c1/c1bccde99ea0c17e6e0f3cfec179857eb75d44bfb6a185194173953f11d00c7f.pdf` (`c1bccde99ea0c17e6e0f3cfec179857eb75d44bfb6a185194173953f11d00c7f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4,5; registration p.5; concession_remission p.4,5; combined keyword pages: 4, 5
+- [ ] 2024-10-09 · mh-egazette-part4b · 1015 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/09 | 2024/10/09 | भाग चार-ब, असा. क्रमांक ३८४, महसूल व वन विभाग, आदेश, क्रमांक मुद्रांक-२०२१/६०१/प्र.क्र. ११७/म-१ (धोरण). बुधवार, ९ ऑक्टोबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/f9cb87f34a78076b68c3ba140ffd4bd5af0d70ba7a9fb581dd63dd4e59c5ff1f`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/8e/8e0398961c60fa1dc674cab9d710be523d478ce89c28a1aad577259e08924ebf.pdf` (`8e0398961c60fa1dc674cab9d710be523d478ce89c28a1aad577259e08924ebf`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: none (text); combined keyword pages: none
+- [ ] 2024-10-15 · mh-egazette-part4b · 962 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/15 | 2024/10/15 | Part IV-B, Ext No. 428,REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act., No.Mudrank-2024/1031/C.R.No.209/M-1(Policy).Date 15th OCt. 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/2e4401cc89c997320e327c0e31e855c1d754e28cffe1e3cce0b95e9844e9fda4`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/82/8251f6f4b8d62a28f5ad0586b03d4724adfe43f162b7af7d3edb3a36d005dd0a.pdf` (`8251f6f4b8d62a28f5ad0586b03d4724adfe43f162b7af7d3edb3a36d005dd0a`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.1,2; combined keyword pages: 1, 2, 3
+- [ ] 2024-10-15 · mh-egazette-part4b · 959 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/15 | 2024/10/15 | भाग चार-ब, असा. क्रमांक ४२९, REVENUE AND FORESTS DEPARTMENT, ORDER, MAHARASHTRA STAMP ACT. No. Mudrank-2024/U.O.R. No. 42/C.R. 206/M-1 (Policy) Tuesday, 15th October 2024. | 0 | View
+  - occurrence: `mh-egazette-part4b/7dcbb3ea1a2e575df5f59fea3ca881e939538c02852f977cd27fdd4dd3e0d47a`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/c5/c57f894663769bf687be563b8fb62144aeab7bb46bea79821325218f64b0a0c7.pdf` (`c57f894663769bf687be563b8fb62144aeab7bb46bea79821325218f64b0a0c7`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; concession_remission p.1,2; combined keyword pages: 1, 2
+- [ ] 2024-10-15 · mh-egazette-part4b · 963 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/15 | 2024/10/15 | भाग चार-ब, असा. क्र. ४३० (महसूल व वन विभाग) आदेश महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२४/३१२/प्र.क्र १९६/म-१ (धोरण), दिनांक १५ आॅक्टोबर २०२४. | 0 | View
+  - occurrence: `mh-egazette-part4b/cfdee450d696c4d62a550c5fc7865bf421141c7d0bd66cda4361132825e3560c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/75/754c55e00ab1a7a4364fb35071d763368d888d7fc8ee2911ccefd4ef31545615.pdf` (`754c55e00ab1a7a4364fb35071d763368d888d7fc8ee2911ccefd4ef31545615`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2024-12-20 · mh-egazette-part4b · 915 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/12/20 | 2024/12/20 | Part IV-B Extra No.484, Date 20th Dec. 2024,REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act., No.Mudrank 2016/2626/UOR.29/C.R.664 /M-1(Policy). | 0 | View
+  - occurrence: `mh-egazette-part4b/6ecbfb6bc7180e6dd4d78b54fbe891434ca6dc12cc2cbcfedd7873b8576e74be`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/1e/1eacb7b96f7cbc328e7a35193aa68ab93db4f8b1e2adbee154acbd91bc2a112d.pdf` (`1eacb7b96f7cbc328e7a35193aa68ab93db4f8b1e2adbee154acbd91bc2a112d`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2025-02-12 · mh-egazette-part4b · 841 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/02/12 | 2025/02/12 | भाग चार-ब, असा. क्रमांक ६२, महसूल व वन विभाग, अधिसूचना, महाराष्ट्र मुद्राक अधिनियम, क्रमांक मुद्रांक २०२१/६८/प्र.क्र. ६९/म-१(धोरण). १२-२-२०२५ | 0 | View
+  - occurrence: `mh-egazette-part4b/17191b422237d96e36f4dc178b71131e3127fde1586ff2ed81274c3cfda276e2`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cb/cbca9ab4c1085f077053c21f0cee1db446062d47631c8288bd0d87e90fc122fb.pdf` (`cbca9ab4c1085f077053c21f0cee1db446062d47631c8288bd0d87e90fc122fb`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2025-03-26 · mh-egazette-part4b · 777 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/03/26 | 2025/03/26 | भाग चार-ब, असा क्र. १२२, महसूल व वन विभाग, आदेश, महराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२४/अनौ.२०/प्र.क्र.१०६/म-१(धोरण), दिनांक २६ मार्च २०२५ | 0 | View
+  - occurrence: `mh-egazette-part4b/63b784c0768fe832ec7a608d37d6ac380063b41e5fcb985c0dc047ed1bb20f95`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/4d/4d1c702e34e004200137d3365a3404fdec4993b81a18181fca8a1ad2c47f99a0.pdf` (`4d1c702e34e004200137d3365a3404fdec4993b81a18181fca8a1ad2c47f99a0`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2025-04-07 · mh-egazette-part4b · 761 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/04/07 | 2025/04/07 | भाग चार-ब, असा. क्र. १३५, दिनांक ७ एप्रिल २०२५, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम., क्रमांक मुद्रांक-२०२२/प्र.क्र.९३/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/81afd659c1594497d9f3502aaf6dce46477f3dd323a09336a9ed8e44d6e1e5d4`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/7f/7f3ddae47ee6717b041a29e7584ec88b807f4f3a70a263ef52e2cd9b8729059b.pdf` (`7f3ddae47ee6717b041a29e7584ec88b807f4f3a70a263ef52e2cd9b8729059b`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; amendment p.1; combined keyword pages: 1, 2
+- [ ] 2025-05-14 · mh-egazette-part4b · 725 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/05/14 | 2025/05/14 | भाग चार-ब, असा क्र.१७४, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२५/अ.नौ.१५/प्र.क्र.४१/म-१ (धोरण), दिनांक १४ मे २०२५. | 0 | View
+  - occurrence: `mh-egazette-part4b/c5b4e73d1b0ff882ae19010a04c8e0a7c27bf58df966d6d58c7cb265e44c61bf`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/4f/4f495544928e2468d66abb026374377d01e279d6681d6b060ba657bc37b004a7.pdf` (`4f495544928e2468d66abb026374377d01e279d6681d6b060ba657bc37b004a7`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; registration p.3; concession_remission p.2,3,4; combined keyword pages: 2, 3, 4
+- [ ] 2025-06-18 · mh-egazette-part4b · 679 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/06/18 | 2025/06/18 | भाग चार-ब, असा. क्रमांक २१८, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक-२०२४/प्र.क्र. ४५/म-१(धोरण) बुधवार, १८ जून २०२५ | 0 | View
+  - occurrence: `mh-egazette-part4b/038db66fa61a372054736cf5ad331f29910dc39c4220e335f6700e77ec378e4c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/77/770d2f93066f707384f5d90102c1f85dd1335bd75a5cfe7083b04efac570040a.pdf` (`770d2f93066f707384f5d90102c1f85dd1335bd75a5cfe7083b04efac570040a`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2025-07-04 · mh-egazette-part4b · 651 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/07/04 | 2025/07/04 | Part IV-B, Ext No. 247, Dated 4th July 2025, REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act. No. Mudrank-2018/UOR.39/C.R.364/M-1(Policy). | 0 | View
+  - occurrence: `mh-egazette-part4b/24d3f1d92e437dfa49a2b36b3bc362b7a04f4bee5c481fddadc6baf8e4de0e61`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/a7/a7b23e3ed1369a20ea059fd63145f2b06df419331041bb466a61dc7511b9385e.pdf` (`a7b23e3ed1369a20ea059fd63145f2b06df419331041bb466a61dc7511b9385e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2025-07-04 · mh-egazette-part4b · 650 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/07/04 | 2025/07/04 | Part IV-B, Ext No. 248, Dated 4th July, 2025, REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act. No. Mudrank-2025/C.R.55/M-1(Policy). | 0 | View
+  - occurrence: `mh-egazette-part4b/affd1b6f1295100ec3407f7d3d3920e7b06b240642e11c7351c38a96bc48eeff`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/c2/c2214f6e4ef8bfbbc3e6c3e3302425127ad101e6705cf2be533ad68a466f4f30.pdf` (`c2214f6e4ef8bfbbc3e6c3e3302425127ad101e6705cf2be533ad68a466f4f30`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2025-07-07 · mh-egazette-part4b · 649 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/07/07 | 2025/07/07 | Part IV-B Ext No. 249, Dated 7th July 2025, REVENUE AND FORESTS DEPARTMENT, Order, MAHARASHTRA STAMP ACT., No. Mudrank-2025/C.R.72/M-1(Policy). | 0 | View
+  - occurrence: `mh-egazette-part4b/b1130eee13e3786e92c16bec6bebec57f83117f77040e922b6f0ae8d22f9f75d`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b4/b4385243614ef4012b26a6b99d5d16a16cfdbcb1421b5acdc95fc68aa843f6b7.pdf` (`b4385243614ef4012b26a6b99d5d16a16cfdbcb1421b5acdc95fc68aa843f6b7`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2025-09-11 · mh-egazette-part4b · 577 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/09/11 | 2025/09/11 | भाग चार-ब, असा. क्रमांक ३२२, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२५/प्र.क्र. ४८/मुद्रांक-२. गुरुवार, ११ सप्टेंबर २०२५. | 0 | View
+  - occurrence: `mh-egazette-part4b/b0deb9b29699c26b71846f8d051af1dd2cc22066277d384ffcd2c5c98074c444`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/9b/9b3478e632976cf282049cd725433bdf858e823553fe2795102cf2cc62eb3b82.pdf` (`9b3478e632976cf282049cd725433bdf858e823553fe2795102cf2cc62eb3b82`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,3,4; concession_remission p.1,2,3,4; combined keyword pages: 1, 2, 3, 4
+- [ ] 2025-10-10 · mh-egazette-part4b · 519 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/10/10 | 2025/10/10 | भाग चार-ब, असा क्र.३७८, महसूल व वन विभाग, अधिसूचना, महाराष्ट्र मुद्रांक अधिनियम, १९५८., क्रमांक आस्थाप-२०२५/५४८/प्र.क्र.२२१/म-१, दिनांक १० ऑक्टोबर २०२५. | 0 | View
+  - occurrence: `mh-egazette-part4b/7e05f0189d641dcafbd22545add7dee4d46b10963c1c1a20f0671643baf847f9`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b8/b864f46b9cbfe24163c49d12e73d7e31bd697e62b7c43cae03a72d00afc5fe8f.pdf` (`b864f46b9cbfe24163c49d12e73d7e31bd697e62b7c43cae03a72d00afc5fe8f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2025-12-22 · mh-egazette-part4b · 433 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/12/22 | 2025/12/22 | Part IV-B Ex. No. 465, REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act.,No. Mudrank-202/C.R. 297/Mudrank-2 (Policy). | 0 | View
+  - occurrence: `mh-egazette-part4b/1c0385f07f254b583195d34461c385a6bc142478a4c07ec75e8a058efc3a99e4`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/90/90a8bc0b3337c18267a6f6a8b396552a3848800377e143fd1481af193894203b.pdf` (`90a8bc0b3337c18267a6f6a8b396552a3848800377e143fd1481af193894203b`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2026-01-01 · mh-egazette-part4b · 413 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/01/01 | 2026/01/01 | Part IV-B Extra No. 2 (1-1-2026), REVENUE AND FORESTS DEPARTMENT, Order Maharashtra Stamp Act. No. MUDRANK-2024/C.R.No.86/Mudrank-2. | 0 | View
+  - occurrence: `mh-egazette-part4b/e6401ee51caaca355ba9e2fcc81e62d11c5a10601d6ae3d4d4602b06c1c92f64`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/ae/ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266.pdf` (`ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2026-01-09 · mh-egazette-part4b · 397 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/01/09 | 2026/01/09 | Part IV-B, Ext. No. 17, REVENUE AND FORESTS DEPARTMENT, NOTIFICATION, MAHARASHTRA STAMP ACT. No. Mudrank-2024/C.R. 182/Mudrank-2. Friday, 9th January 2026. | 0 | View
+  - occurrence: `mh-egazette-part4b/fcaafec223f3142bd13b2123838e0f9c974378c764cfdd8650360149168dfbaa`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/1d/1d2695a0be9714d2cc94e9218e9ce4fdff28a12e0968fae0dda9aad4e835d07f.pdf` (`1d2695a0be9714d2cc94e9218e9ce4fdff28a12e0968fae0dda9aad4e835d07f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1; amendment p.1; commencement p.1; combined keyword pages: 1
+- [ ] 2026-03-25 · mh-egazette-part4b · 271 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/03/25 | 2026/03/25 | भाग चार-ब, असा. क्रमांक १४१, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२५/प्र.क्र. २५७/मुद्रांक-२. बुधवार, २५ मार्च २०२६. | 0 | View
+  - occurrence: `mh-egazette-part4b/2df7acc9bc24e9550a3a3cabe1ce8f6ee04e7704d23c07940a4ec7f61332c53a`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/df/df9b9e50738289de44e28bb88204d55c0e151e533db8095d5043045fce26afe6.pdf` (`df9b9e50738289de44e28bb88204d55c0e151e533db8095d5043045fce26afe6`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2026-04-10 · mh-egazette-part4b · 241 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/04/10 | 2026/04/10 | Part IV-B, Ext No. 166, Dated 10th April 2026, REVENUE AND FORESTS DEPARTMENT, Order, Maharashtra Stamp Act., No. Mudrank-2025/C.R.No.246/Mudrank-2. | 0 | View
+  - occurrence: `mh-egazette-part4b/0cdda194bfeb05ca243ce3afe517e6e0b02fcde57d6ac6cbfe67f1fe629bc142`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/2c/2cc4ae1bd519d30cd1cc7073b42f95a2d9fd0634b3cb55f1aec22054d6959e58.pdf` (`2cc4ae1bd519d30cd1cc7073b42f95a2d9fd0634b3cb55f1aec22054d6959e58`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; concession_remission p.2; combined keyword pages: 2
+- [ ] 2026-05-19 · mh-egazette-part4b · 153 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/05/19 | 2026/05/19 | भाग चार-ब, असा क्र.२५३, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२३/प्र.क्र.४५६/मुद्रांक-२, दिनांक १९ मे २०२६. | 0 | View
+  - occurrence: `mh-egazette-part4b/af2d6863d7cd21c60fc480ccdfa59559a94d7612344531e9dcebf4dd84288ebf`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/61/61ca27a70b1d9ce27604b1b338f2062a9cf2f4c9c04c4cd30f8ed38e509ea936.pdf` (`61ca27a70b1d9ce27604b1b338f2062a9cf2f4c9c04c4cd30f8ed38e509ea936`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2026-05-22 · mh-egazette-part4b · 147 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/05/22 | 2026/05/22 | Part IV-B, Ext. No. 264 (22-5-2026), REVENUE AND FORESTS DEPARTMENT, ORDER, Maharashtra Stamp Act. No.Mudrank-2025/URO-31/Mudrank-2. | 0 | View
+  - occurrence: `mh-egazette-part4b/7765ae3899def4fddb449f43a8c62f67d89318e943bf7a9f2202598f95daa997`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cc/ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795.pdf` (`ccc89c89bcb8cf960733da6f559c790a6b60644012fc33992840eae551c6e795`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.5,6; registration p.6; concession_remission p.1,3,4,5,6,7; commencement p.2,3,6; combined keyword pages: 1, 2, 3, 4, 5, 6, 7
+- [ ] 2026-06-01 · mh-egazette-part4b · 122 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/06/01 | 2026/06/01 | भाग चार-ब, असा. क्रमांक २८४, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक २०२६/प्र.क्र. ४१/मुद्रांक-२. सोमवार, १ जून २०२६. | 0 | View
+  - occurrence: `mh-egazette-part4b/129922e1b694154c992f75bfe96b3b6ee8e8f98e0d378f8089fa3cdb31a75d6c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/e2/e2cff701baed293a3af31a39e1a7718b29346fd0d6f2f2979f396de091d91434.pdf` (`e2cff701baed293a3af31a39e1a7718b29346fd0d6f2f2979f396de091d91434`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4; registration p.4; concession_remission p.1,2,3,4,5; commencement p.2,4; combined keyword pages: 1, 2, 3, 4, 5
+- [ ] 2026-06-05 · mh-egazette-part4b · 99 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/06/05 | 2026/06/05 | Part IV-B Ext No. 307, dated 5th June 2026, Revenue and Forest Department, Notification No. RGN. 2026/C.R.151/Mudrank 2. | 0 | View
+  - occurrence: `mh-egazette-part4b/5234d0e4d0b5e7892d564e1dd91a6c2f7bf3d4d8930cf7ec415cf86401a761ac`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/a4/a4a210d7e1d36f5031119d1bd0bdd266a89fa02c58d7c848158a5cafb18ecc54.pdf` (`a4a210d7e1d36f5031119d1bd0bdd266a89fa02c58d7c848158a5cafb18ecc54`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2,4; registration p.2; concession_remission p.4; commencement p.3; combined keyword pages: 2, 3, 4
+- [ ] 2026-06-11 · mh-egazette-part4b · 82 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/06/11 | 2026/06/11 | भाग चार-ब, असा. क्रमांक ३२९, महसूल व वन विभाग, आदेश, महाराष्ट्र मुद्रांक अधिनियम. क्रमांक मुद्रांक २०२६/प्र.क्र. ०२/मुद्रांक-२. गुरुवार, ११ जून २०२६. | 0 | View
+  - occurrence: `mh-egazette-part4b/6f8a1f89a873f6a2071be92c66ab3969f562f3c60332ed11cbdbf5945c1e1fd9`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/90/900a4d1f9fa70fc66e0929f61a23ce28bf65b266eb4756543c9abbcc40395d32.pdf` (`900a4d1f9fa70fc66e0929f61a23ce28bf65b266eb4756543c9abbcc40395d32`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; concession_remission p.2; combined keyword pages: 2
+- [ ] 2026-07-10 · mh-egazette-part4b · 12 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/07/10 | 2026/07/10 | भाग चार-ब, असाधारण क्रमांक ३९३, महसूल व वन विभाग यांचे आदेश क्रमांक मुद्रांक-२०२३/अनौ.२१/प्र.क्र. ६९५/मुद्रांक-२, दिनांक १० जुलै २०२६. | 0 | View
+  - occurrence: `mh-egazette-part4b/46de0d6265e2640fa663cef9fea7283ea5dac87fcad3e434254d02751d54d7e0`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/61/61d396c1ea02ea457dff6f18c62404e4ac27b197ebeb73a8afa6e512e2f59b7c.pdf` (`61d396c1ea02ea457dff6f18c62404e4ac27b197ebeb73a8afa6e512e2f59b7c`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; concession_remission p.3,4; combined keyword pages: 3, 4
+
+## Other title candidates (19)
+
+- [ ] 2018-11-16 · mh-egazette-part4b · 61 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2018/11/16 | 2018/11/16 | Part IV-B Ext. 420 (16th November 2018)(महसूल व वन विभाग) महाराष्ट्र मुद्रांक अधिनियम (नागपूर-मुंबई शीघ्रसंचार द्रुतगती महामार्ग) | 0 | View
+  - occurrence: `mh-egazette-part4b/0b5fa4f5a1d520d098a770c22bc9551cc7f90f30b97260c49b7d0546c8a6e723`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/e6/e6a16fe5092a0bdd4e752a06563bc241f39348bdc8adaf888e532ee70217d43c.pdf` (`e6a16fe5092a0bdd4e752a06563bc241f39348bdc8adaf888e532ee70217d43c`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-01-01 · mh-egazette-part4b · 436 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/01/01 | 2019/01/01 | Pt. IV-B (Ext 1) 1st Jan. 2019 Balasaheb Thackeray Smarak (Maharashtra Stamp Duty) | 0 | View
+  - occurrence: `mh-egazette-part4b/fe6c94c72361b3d91f7090fb1850c926a102ff44e990fc68863d84e10def2f4c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/8a/8a549504672db9a40b762f2278f3ef3f21a6a3c414c9809962f2259ee72824f0.pdf` (`8a549504672db9a40b762f2278f3ef3f21a6a3c414c9809962f2259ee72824f0`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2019-02-07 · mh-egazette-part4b · 393 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/02/07 | 2019/02/07 | Part IV-B Ext. 44 (7th February 2019) महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/ee3e2911538d1673a47f818eb01cd4c75a046fd519f73d0b74de2151c0145a4b`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/07/07f3fa976b34d30b93779aeea990484afbd765a73d0931881fbb65278b1b90c5.pdf` (`07f3fa976b34d30b93779aeea990484afbd765a73d0931881fbb65278b1b90c5`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; concession_remission p.3,4; amendment p.3; combined keyword pages: 3, 4
+- [ ] 2019-02-20 · mh-egazette-part4b · 376 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/02/20 | 2019/02/20 | Part IV-B Extra No. 61 (20th Feb. 2019) क्र. मुद्रांक 2015/1745/अनौ. स.क्र. 24/प्र.क्र. 573/म-1 | 0 | View
+  - occurrence: `mh-egazette-part4b/3638cde01a55d1c78723ac0cf6bb440ee7fdc919940532fa1cffa554e9b7f285`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/4d/4dde4eece6f622c86c6ef9f5a11042504cedc932ba1128baa2448eb361fd03d7.pdf` (`4dde4eece6f622c86c6ef9f5a11042504cedc932ba1128baa2448eb361fd03d7`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; amendment p.3; commencement p.3; combined keyword pages: 3
+- [ ] 2019-03-08 · mh-egazette-part4b · 355 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/03/08 | 2019/03/08 | Part IV-B Ext. 82 (8th March 2019) महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/661e31a1782aa29cd8e88e2d8c5406c0ddf6cbee91c2247d73195c38c4beb270`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cb/cb62b694c45e53d84041e7711fc71a0c4de68cfae4c5b3edb73834a8a17f8433.pdf` (`cb62b694c45e53d84041e7711fc71a0c4de68cfae4c5b3edb73834a8a17f8433`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2019-06-20 · mh-egazette-part4b · 250 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/06/20 | 2019/06/20 | Part IV-B Ext. 187 (20th June 2019) महसूल व वन विभाग, महाराष्ट्र मुद्रांक अधिनियम, मुद्रांक शुल्कामध्ये सूट मिळण्याचा लाभ हा केवळ बृहन्मुंबई मनपाच्या मालकीच्या जुन्या इमारती किंवा चाळी यांनाच लागू असेल | 0 | View
+  - occurrence: `mh-egazette-part4b/5a130a996c8262a0cf71836d33a50d379f0d33c129f5dac252fcf6e2cfc9e1ef`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/aa/aaedbe4ba879a1cd587dbc2d39f24a9f8294adf972386a56076e86b394965faa.pdf` (`aaedbe4ba879a1cd587dbc2d39f24a9f8294adf972386a56076e86b394965faa`)
+  - title categories: stamp, concession_remission; specificity: direct_domain_term
+  - content keyword matches: stamp p.3,4; concession_remission p.3,4; combined keyword pages: 3, 4
+- [ ] 2019-11-15 · mh-egazette-part4b · 43 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2019/11/15 | 2019/11/15 | Part IV-B (Ex.395) (Dated 15th November 2019) (महसूल व वन विभाग) क्रमांक मुद्रांक-2018/1680/प्र.क्र.156/म-1(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/fb8078c10d98b39e19655815b3c8ffa98df3e3ffa71711b8e1219601140ec6c2`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/b2/b282af92fe19d924042336ddaaaeee5963cbe221cda4bac86a2c2c0e8790464f.pdf` (`b282af92fe19d924042336ddaaaeee5963cbe221cda4bac86a2c2c0e8790464f`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2020-03-16 · mh-egazette-part4b · 243 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2020/03/16 | 2020/03/16 | Part. IV-B (Ext. 86) (Mar. 16th 2020) महाराष्ट्र मुद्रांक अधिनियम. | 0 | View
+  - occurrence: `mh-egazette-part4b/a08129ef9f675b07d9dd1c01ed3d313a2db50695eeea7a98a91076a15d60cd7a`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/1c/1ca3df8857b2b4d8f6b7a4bd53754b64245772af501111edea840504993d7938.pdf` (`1ca3df8857b2b4d8f6b7a4bd53754b64245772af501111edea840504993d7938`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2020-08-29 · mh-egazette-part4b · 133 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2020/08/29 | 2020/08/29 | Part IV-B (Ex. 196) (29-8-2020)No. Mudrank-2020/CR.No.136/ M-1(Policy) REVENUE AND FORESTS DEPARTMENT | 0 | View
+  - occurrence: `mh-egazette-part4b/27c3919d4fee0b294aa266d7c93a096b9ed3f166940ef72a54f84488212ded2c`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/3d/3d2f8e34632634377e3f52a600f9fd765b362a4a598bce8543da5497600da9a3.pdf` (`3d2f8e34632634377e3f52a600f9fd765b362a4a598bce8543da5497600da9a3`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2021-03-24 · mh-egazette-part4b · 125 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/03/24 | 2021/03/24 | Part IV-B Extra-Ordinary Gazette No. 84 Dated 24th March, 2021 Revenue and Forests Department N0tification No. Mudrank-2020/UOR-31/CR-250/M-1(Policy) | 0 | View
+  - occurrence: `mh-egazette-part4b/f0f92a4a1951741e7c465561d25e7396485555cce4a2e303a865d9e9dec9c7bb`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/84/84cdf35b7aa46c8d3987a28286e6b08a459d199e133439a7e2eaf5a9b03414dd.pdf` (`84cdf35b7aa46c8d3987a28286e6b08a459d199e133439a7e2eaf5a9b03414dd`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.4,5,8,9; registration p.5,9; concession_remission p.2,3,4,5,6,7,8,9; amendment p.2,6; commencement p.2,6; combined keyword pages: 2, 3, 4, 5, 6, 7, 8, 9
+- [ ] 2021-10-09 · mh-egazette-part4b · 2503 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/10/09 | 2021/10/09 | Part IV-B Ext. No. 279 (9th October 2021) महसूल व वन विभाग, क्रमांक मुद्रांक. 2021/अनौ-30/प्र.क्र. 315/एम-1(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/0bdfac05714e0f42ec2e6e68cfc852c7f51a9f684c6f6d60764e52d791e1b4b5`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/7f/7fed149ae68cffbb765bab7c5733acb36a1961b1e58db58694382c10cd5f190e.pdf` (`7fed149ae68cffbb765bab7c5733acb36a1961b1e58db58694382c10cd5f190e`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: none (empty); combined keyword pages: none
+- [ ] 2021-12-02 · mh-egazette-part4b · 2417 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/12/02 | 2021/12/02 | Part IV-B Ext. No. 365 (2nd Deccember 2021) महसूल व वन विभाग, क्र. मुद्रांक-२०१९/2464/प्र.क्र. 41/एम-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/d56f1786b7942988a2f9ee85bc0d8dfc323453222111ab5c10a2102753098c13`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/f1/f13e103bae2f4087ac6f662218745d721f6b7f57eadc183a8bc464ab5c93398a.pdf` (`f13e103bae2f4087ac6f662218745d721f6b7f57eadc183a8bc464ab5c93398a`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; combined keyword pages: 3
+- [ ] 2022-04-20 · mh-egazette-part4b · 2240 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2022/04/20 | 2022/04/20 | भाग चार-ब, असाधारण क्रमांक १३२, महसूल व वन विभाग, क्रमांक मुद्रांक-२०२२/प्र.क्र. ७२/एम-१ (धोरण) महाराष्ट्र मुद्रांक अधिनियम बुधवार एप्रिल २०, २०२२/चैत्र ३०, शके १९४४. | 0 | View
+  - occurrence: `mh-egazette-part4b/f970a6a46adf6866b46ed8a74036a085e93ed4aad9e91904c8a1c7ebe51df142`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/36/3664b42d510da22444246fc18bcb0c35147e665206c40d831b52a33947818c0c.pdf` (`3664b42d510da22444246fc18bcb0c35147e665206c40d831b52a33947818c0c`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2024-10-15 · mh-egazette-part4b · 968 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2024/10/15 | 2024/10/15 | Part IV-B Ext. No. 429 dated the 15th Oct.. 2024 No. Mudrank-2024/U.O.R.No.42/C.R.206/M-1(Policy).— | 0 | View
+  - occurrence: `mh-egazette-part4b/695e528eb0716abaacfe65f7d56dacbc3b7558411f0134224047675da73071a9`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/c5/c57f894663769bf687be563b8fb62144aeab7bb46bea79821325218f64b0a0c7.pdf` (`c57f894663769bf687be563b8fb62144aeab7bb46bea79821325218f64b0a0c7`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.1,2; concession_remission p.1,2; combined keyword pages: 1, 2
+- [ ] 2025-02-14 · mh-egazette-part4b · 836 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/02/14 | 2025/02/14 | महसूल व वन विभाग, असा. क्र. ६२, महाराष्ट्र मुद्रांक अधिनियम, क्रमांक मुद्रांक-२०२१/६८/प्र.क्र. ६९/म-१(धोरण) | 0 | View
+  - occurrence: `mh-egazette-part4b/798c02b1b9f6fcfbecc30e39b1b3b287d7b50ae5367a78a0ad8ec846812aff3d`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/cb/cbca9ab4c1085f077053c21f0cee1db446062d47631c8288bd0d87e90fc122fb.pdf` (`cbca9ab4c1085f077053c21f0cee1db446062d47631c8288bd0d87e90fc122fb`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.2; combined keyword pages: 2
+- [ ] 2025-07-23 · mh-egazette-part4b · 629 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/07/23 | 2025/07/23 | Part IV-B (Ext 268) (23 July 2025) REVENUE AND FORESTS DEPARTMENT No.Mudrank-2024/UOR.20/C.R.106/M-1(Policy) | 0 | View
+  - occurrence: `mh-egazette-part4b/ff05555b58f3188a4a5d4563e01092be9e55fa31a5b284e241d692411fb011cc`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/6f/6f4b3a67476632c261016a4ef87cb7a7e9ed686838cfbbd96828da631c0cd669.pdf` (`6f4b3a67476632c261016a4ef87cb7a7e9ed686838cfbbd96828da631c0cd669`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; registration p.3; concession_remission p.3; amendment p.3; combined keyword pages: 3
+- [ ] 2025-12-22 · mh-egazette-part4b · 432 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2025/12/22 | 2025/12/22 | Part IV-B Ext . No. 464 (22-12-2025) महसूल व वन विभाग क्रमांक मुद्रांक २०२५/प्र.क्र. २२९/ मुद्रांक-२ | 0 | View
+  - occurrence: `mh-egazette-part4b/3b03c22911eac35d4c307b96d239fe9a789039448bdc44306599bf7cf2bb0666`
+  - blob: `watchdog-data/sources/mh-egazette-part4b/blobs/2f/2f012c4035f3f4c1d1c19159669ce3b20cda42d0e3c5fc877a038b187314edf4.pdf` (`2f012c4035f3f4c1d1c19159669ce3b20cda42d0e3c5fc877a038b187314edf4`)
+  - title categories: stamp; specificity: direct_domain_term
+  - content keyword matches: stamp p.3; concession_remission p.3; combined keyword pages: 3
+- [ ] 2015-04-24 · mh-egazette-part8 · 73 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2015/04/24 | 2015/04/24 | Part VIII (Ext. 47) 24 April 2015 | 0 | View
+  - occurrence: `mh-egazette/cc1ffaec3d7f2b32413c08994dadbc492481b61e21e173081172e3e8052b0646`
+  - blob: `watchdog-data/blobs/e0/e0f9303510462e1e557e3fa2acfdd9c3a1b26317c9a7e7094ed54cbab6c91c98.pdf` (`e0f9303510462e1e557e3fa2acfdd9c3a1b26317c9a7e7094ed54cbab6c91c98`)
+  - title categories: ; specificity: curated_dependency_target
+  - content keyword matches: stamp p.1,2,3,4,5; registration p.2,3,4; valuation p.3,8,9; amendment p.1,2,3,4,5; combined keyword pages: 1, 2, 3, 4, 5, 8, 9
+- [ ] 2017-09-07 · mh-egazette-part8 · 17 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2017/09/07 | 2017/09/07 | Part VIII (Ex. 143) (Sept 7th 2017) | 0 | View
+  - occurrence: `mh-egazette/b6f268deb4cfa5eaaa602f6340558329ab888244700f316630173b7ca37b8727`
+  - blob: `watchdog-data/blobs/d6/d6b74b7dd8585dd25ea6eaa7e4346a3e292e19e2dbd8f939597d3dc88869acca.pdf` (`d6b74b7dd8585dd25ea6eaa7e4346a3e292e19e2dbd8f939597d3dc88869acca`)
+  - title categories: ; specificity: curated_dependency_target
+  - content keyword matches: stamp p.1,2; valuation p.2; amendment p.1,2; combined keyword pages: 1, 2

@@ -776,7 +776,7 @@ export function renderMaharashtraReviewQueue(report: MaharashtraTriageReport): s
     }
     lines.push("");
   }
-  return `${lines.join("\n")}\n`;
+  return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 }
 
 function attachCandidateDispositions(

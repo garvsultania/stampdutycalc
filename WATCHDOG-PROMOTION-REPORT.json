@@ -1,0 +1,884 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "schema_version": 1,
+      "source_id": "mh-egazette-part8",
+      "status": "accepted",
+      "eligible": true,
+      "reasons": [],
+      "requested": {
+        "range_from": "2025-04-09",
+        "range_to": "2026-07-16",
+        "rows": 195,
+        "pages": 2,
+        "unique_blobs": 195,
+        "repeat_runs": 2
+      },
+      "observed": {
+        "catalog_document_occurrences": 1368,
+        "document_occurrences": 195,
+        "unique_occurrences": 195,
+        "unique_blobs": 195,
+        "complete_runs": [
+          {
+            "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5",
+            "range_from": "2025-04-09",
+            "range_to": "2026-07-16",
+            "finished_at": "2026-07-17T00:04:31.677Z",
+            "status": "ok",
+            "rows": 195,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 195,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "d7edfaed-607c-4e04-a493-75c057c812a5",
+            "range_from": "2025-04-09",
+            "range_to": "2026-07-16",
+            "finished_at": "2026-07-20T21:36:06.472Z",
+            "status": "ok",
+            "rows": 195,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 0,
+            "recovered": false,
+            "error": null
+          }
+        ],
+        "incomplete_runs": [
+          {
+            "run_id": "f89f6b92-178e-4e84-8f0b-99cc32ab976c",
+            "range_from": "2025-04-09",
+            "range_to": "2026-07-16",
+            "finished_at": "2026-07-17T00:09:15.050Z",
+            "status": "partial",
+            "rows": 195,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 0,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 195 listed documents"
+          },
+          {
+            "run_id": "d9648dbe-fe02-41e0-ad3e-d7d953197f9b",
+            "range_from": "2025-01-01",
+            "range_to": "2025-04-08",
+            "finished_at": "2026-07-21T01:03:54.530Z",
+            "status": "partial",
+            "rows": 34,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 34 listed documents"
+          },
+          {
+            "run_id": "d016b19c-28f6-4763-b3ac-600e47306e5f",
+            "range_from": "2024-01-01",
+            "range_to": "2024-12-31",
+            "finished_at": "2026-07-21T01:05:45.516Z",
+            "status": "partial",
+            "rows": 99,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 99 listed documents"
+          },
+          {
+            "run_id": "4361723d-5d84-4429-99dd-f0cd5ccb01a1",
+            "range_from": "2023-01-01",
+            "range_to": "2023-12-31",
+            "finished_at": "2026-07-21T01:10:37.234Z",
+            "status": "partial",
+            "rows": 119,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 119 listed documents"
+          },
+          {
+            "run_id": "fce0b56b-4411-4690-b6a5-13c8128baa11",
+            "range_from": "2022-01-01",
+            "range_to": "2022-12-31",
+            "finished_at": "2026-07-21T01:16:03.006Z",
+            "status": "partial",
+            "rows": 88,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 88 listed documents"
+          },
+          {
+            "run_id": "38a49e9e-a876-4452-8f73-9beb119ebff9",
+            "range_from": "2021-01-01",
+            "range_to": "2021-12-31",
+            "finished_at": "2026-07-21T01:21:06.986Z",
+            "status": "partial",
+            "rows": 74,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 74 listed documents"
+          },
+          {
+            "run_id": "6dbe969d-223a-4f46-8207-39bd745e35da",
+            "range_from": "2020-01-01",
+            "range_to": "2020-12-31",
+            "finished_at": "2026-07-21T01:30:27.304Z",
+            "status": "partial",
+            "rows": 105,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 105 listed documents"
+          },
+          {
+            "run_id": "906eb69d-c538-4c04-9c02-e4703652d0ec",
+            "range_from": "2019-01-01",
+            "range_to": "2019-12-31",
+            "finished_at": "2026-07-21T01:38:31.278Z",
+            "status": "partial",
+            "rows": 105,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 105 listed documents"
+          },
+          {
+            "run_id": "012a78d3-0cb4-49ef-9112-d2695679d609",
+            "range_from": "2018-01-01",
+            "range_to": "2018-12-31",
+            "finished_at": "2026-07-21T01:45:00.308Z",
+            "status": "partial",
+            "rows": 152,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 152 listed documents"
+          },
+          {
+            "run_id": "98868a8e-b656-445a-b1d9-3d1ad7c9f978",
+            "range_from": "2017-01-01",
+            "range_to": "2017-12-31",
+            "finished_at": "2026-07-21T01:55:02.471Z",
+            "status": "partial",
+            "rows": 161,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 161 listed documents"
+          },
+          {
+            "run_id": "ae5dfc0e-bbf0-4d15-af83-db04b4b5f204",
+            "range_from": "2016-01-01",
+            "range_to": "2016-12-31",
+            "finished_at": "2026-07-21T02:03:34.633Z",
+            "status": "partial",
+            "rows": 116,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 116 listed documents"
+          },
+          {
+            "run_id": "3d7a6344-0f85-4d2a-acb4-eb0fb0061f69",
+            "range_from": "2015-01-01",
+            "range_to": "2015-12-31",
+            "finished_at": "2026-07-21T02:08:19.592Z",
+            "status": "partial",
+            "rows": 120,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 120 listed documents"
+          }
+        ],
+        "other_complete_runs": [
+          {
+            "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+            "range_from": "2025-01-01",
+            "range_to": "2025-04-08",
+            "finished_at": "2026-07-21T01:05:20.925Z",
+            "status": "ok",
+            "rows": 34,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 33,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee",
+            "range_from": "2024-01-01",
+            "range_to": "2024-12-31",
+            "finished_at": "2026-07-21T01:09:26.231Z",
+            "status": "ok",
+            "rows": 99,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 98,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "218c93a3-de85-40e1-8790-cc4f73748deb",
+            "range_from": "2023-01-01",
+            "range_to": "2023-12-31",
+            "finished_at": "2026-07-21T01:15:37.587Z",
+            "status": "ok",
+            "rows": 119,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 118,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "4048d323-497b-4601-aa67-1a54d58368d6",
+            "range_from": "2022-01-01",
+            "range_to": "2022-12-31",
+            "finished_at": "2026-07-21T01:20:37.970Z",
+            "status": "ok",
+            "rows": 88,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 87,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "52854de6-f473-4d34-870b-64b559b4e6f8",
+            "range_from": "2021-01-01",
+            "range_to": "2021-12-31",
+            "finished_at": "2026-07-21T01:29:59.559Z",
+            "status": "ok",
+            "rows": 74,
+            "pages_fetched": 1,
+            "pages_expected": 1,
+            "new_document_occurrences": 73,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "385474f5-fb75-4b11-8ca7-50852d78029f",
+            "range_from": "2020-01-01",
+            "range_to": "2020-12-31",
+            "finished_at": "2026-07-21T01:38:00.999Z",
+            "status": "ok",
+            "rows": 105,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 104,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "f3f0561f-3a93-460f-add0-145211b4c6d1",
+            "range_from": "2019-01-01",
+            "range_to": "2019-12-31",
+            "finished_at": "2026-07-21T01:44:33.101Z",
+            "status": "ok",
+            "rows": 105,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 104,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "2b2e8a6e-98c6-4434-b44f-ef1229a7416f",
+            "range_from": "2018-01-01",
+            "range_to": "2018-12-31",
+            "finished_at": "2026-07-21T01:54:27.875Z",
+            "status": "ok",
+            "rows": 152,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 151,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "c7c4f4d8-c1e8-40c9-b32e-d29697def25f",
+            "range_from": "2017-01-01",
+            "range_to": "2017-12-31",
+            "finished_at": "2026-07-21T02:01:15.456Z",
+            "status": "ok",
+            "rows": 161,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 160,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "6fc54baf-6196-4e1e-8bfb-cb41a3ed6433",
+            "range_from": "2016-01-01",
+            "range_to": "2016-12-31",
+            "finished_at": "2026-07-21T02:07:52.029Z",
+            "status": "ok",
+            "rows": 116,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 115,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "51a2abad-be63-4492-9419-8e34d664387f",
+            "range_from": "2015-01-01",
+            "range_to": "2015-12-31",
+            "finished_at": "2026-07-21T02:12:53.331Z",
+            "status": "ok",
+            "rows": 120,
+            "pages_fetched": 2,
+            "pages_expected": 2,
+            "new_document_occurrences": 119,
+            "recovered": false,
+            "error": null
+          }
+        ],
+        "latest_repeat_additions": 0,
+        "sentinels": [
+          {
+            "id": "mh-act-lxiii-2025",
+            "matched": true,
+            "source_row_id": "ab1dd66839a9d226c621aafff3c434587ae509d4f9121d0d10f1452aa54c6d8a",
+            "sha256": "d88647b0475abef4850293586cbf14d3b2d72e8ede13afe7ebcb863f465271b1",
+            "title": "106 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2025/12/31 | 2025/12/31 | Part VIII, Ext. No. 128, MAHARASHTRA ACT No. LXIII OF 2025 An Act further to amend the Maharashtra Stamp Act. Wednesday, 31st December 2025. Wednesday, 31st December 2025. | 0 | View"
+          },
+          {
+            "id": "mh-act-xiii-2026",
+            "matched": true,
+            "source_row_id": "3d275f4c5fa0b33e29a565889820bee278af10f61acebd4a0d7e3785d4e91e18",
+            "sha256": "9712bff1efbbba5231a53defb1ed4f373d60f2b3994cba4e506af07c27a524b0",
+            "title": "56 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 43, MAHARASHTRA ACT No. XIII OF 2026 An Act further to amend the Maharashtra Stamp Act. Tuesday, 7th April 2026. | 0 | View"
+          },
+          {
+            "id": "mh-act-xvi-2026",
+            "matched": true,
+            "source_row_id": "594d92812a56b21eda372a3d4521cbcb7f18575799f7070cac5607e4d95b8822",
+            "sha256": "4a36cc172a9ec340e378154f0ed4cb09ba892b28d5cc09884de981b8f44e636e",
+            "title": "58 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/04/07 | 2026/04/07 | Part VIII, Ext. No. 46, Dated 7th April 2026, MAHARASHTRA ACT No. XVI OF 2026. | 0 | View"
+          },
+          {
+            "id": "mh-act-xxix-2026",
+            "matched": true,
+            "source_row_id": "8d961b163b9dec4e142958fda64a406ffc397996654af8559b36af7d869fe310",
+            "sha256": "d35351ab370a71c4aea47e76dc482a3c95061528b1392e1051a5552f97228557",
+            "title": "2 | CENTRAL SECTION | Part 8 (English) | Extra - Ordinary | 2026/07/13 | 2026/07/13 | Part VIII, Ext. 98, MAHARASHTRA ACT No. XXIX OF 2026 AN ACT further to amend the Maharashtra Stamp Act. Monday, 13th July 2026. | 0 | View"
+          }
+        ]
+      },
+      "required_fixture_tests": [
+        "packages/watchdog/src/egazette.test.ts (recorded replay and parser fail-closed fixtures)",
+        "packages/watchdog/src/sweep.test.ts (zero-addition replay, interruption, and shape-drift fixtures)",
+        "packages/watchdog/src/evidence.test.ts (sanitized replay sequence)"
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source_id": "mh-egazette-part4b",
+      "status": "accepted",
+      "eligible": true,
+      "reasons": [],
+      "requested": {
+        "range_from": "2021-07-17",
+        "range_to": "2026-07-19",
+        "rows": 2575,
+        "pages": 26,
+        "unique_blobs": 2547,
+        "repeat_runs": 2
+      },
+      "observed": {
+        "catalog_document_occurrences": 5065,
+        "document_occurrences": 2575,
+        "unique_occurrences": 2575,
+        "unique_blobs": 2547,
+        "complete_runs": [
+          {
+            "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+            "range_from": "2021-07-17",
+            "range_to": "2026-07-19",
+            "finished_at": "2026-07-18T23:42:32.419Z",
+            "status": "ok",
+            "rows": 2575,
+            "pages_fetched": 26,
+            "pages_expected": 26,
+            "new_document_occurrences": 2574,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "9fdb4f1b-0201-44fe-bb07-b26bda77dd0b",
+            "range_from": "2021-07-17",
+            "range_to": "2026-07-19",
+            "finished_at": "2026-07-19T01:29:17.282Z",
+            "status": "ok",
+            "rows": 2575,
+            "pages_fetched": 26,
+            "pages_expected": 26,
+            "new_document_occurrences": 179,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "e9f32bb4-a950-4aec-add5-b60498c0245c",
+            "range_from": "2021-07-17",
+            "range_to": "2026-07-19",
+            "finished_at": "2026-07-19T01:52:42.544Z",
+            "status": "ok",
+            "rows": 2575,
+            "pages_fetched": 26,
+            "pages_expected": 26,
+            "new_document_occurrences": 0,
+            "recovered": false,
+            "error": null
+          }
+        ],
+        "incomplete_runs": [
+          {
+            "run_id": "0ae46143-96d1-4e79-965b-e0215df48e61",
+            "range_from": "2021-07-17",
+            "range_to": "2026-07-17",
+            "finished_at": "2026-07-17T12:35:13.502Z",
+            "status": "partial",
+            "rows": 2573,
+            "pages_fetched": 26,
+            "pages_expected": 26,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 2573 listed documents"
+          },
+          {
+            "run_id": "8293b5e4-e021-497d-b0a4-8d01a18a22bb",
+            "range_from": "2021-07-17",
+            "range_to": "2026-07-19",
+            "finished_at": "2026-07-18T21:45:25.888Z",
+            "status": "failed",
+            "rows": 0,
+            "pages_fetched": null,
+            "pages_expected": null,
+            "new_document_occurrences": 0,
+            "recovered": true,
+            "error": "Network failure fetching https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx: This operation was aborted"
+          },
+          {
+            "run_id": "895f8539-ef27-436a-a378-0f2fac23ba98",
+            "range_from": "2021-01-01",
+            "range_to": "2021-07-16",
+            "finished_at": "2026-07-20T22:24:52.664Z",
+            "status": "partial",
+            "rows": 208,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 1,
+            "recovered": false,
+            "error": "Bounded sweep fetched 1 of 208 listed documents"
+          },
+          {
+            "run_id": "aef75612-ba7e-46df-852f-edeea7b5cf4c",
+            "range_from": "2021-01-01",
+            "range_to": "2021-07-16",
+            "finished_at": "2026-07-20T22:56:20.000Z",
+            "status": "partial",
+            "rows": 208,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 0,
+            "recovered": false,
+            "error": "Network failure fetching https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx: This operation was aborted"
+          },
+          {
+            "run_id": "8f1a4076-36be-4b32-802e-ef429efc93e4",
+            "range_from": "2021-01-01",
+            "range_to": "2021-07-16",
+            "finished_at": "2026-07-20T23:12:26.980Z",
+            "status": "partial",
+            "rows": 208,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 141,
+            "recovered": false,
+            "error": "Sweep explicitly skipped row 67 (473c8cdae40e7c93bb8268ad7614c9ed231e8536fb94445cb676f75fbafcf6ed: 67 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2021/05/28 | 2021/05/28 | भाग चार-ब असाधारण क्र. १४१ : सार्वजनिक बांधकाम विभाग यांची अधिसूचना, क्रमांक खाक्षेस-2016/प्र.क्र.417/रस्ते-8, दिनांक दिनांक 28 मे 2021 | 0 | View); covered 207 of 208"
+          },
+          {
+            "run_id": "5f9e2eb9-e9ba-42ac-99f6-126190dd09f7",
+            "range_from": "2020-01-01",
+            "range_to": "2020-12-31",
+            "finished_at": "2026-07-20T23:13:22.257Z",
+            "status": "partial",
+            "rows": 328,
+            "pages_fetched": 4,
+            "pages_expected": 4,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 328 listed documents"
+          },
+          {
+            "run_id": "9911f307-d9f8-4c87-bde5-85f91cd8f5ab",
+            "range_from": "2019-01-01",
+            "range_to": "2019-12-31",
+            "finished_at": "2026-07-20T23:31:54.149Z",
+            "status": "partial",
+            "rows": 436,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 436 listed documents"
+          },
+          {
+            "run_id": "0db05ca9-b842-4f9a-8488-56b896418990",
+            "range_from": "2018-01-01",
+            "range_to": "2018-12-31",
+            "finished_at": "2026-07-20T23:48:33.743Z",
+            "status": "partial",
+            "rows": 473,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 473 listed documents"
+          },
+          {
+            "run_id": "ddb0e61b-388d-450a-992d-ea9e438f57aa",
+            "range_from": "2017-01-01",
+            "range_to": "2017-12-31",
+            "finished_at": "2026-07-21T00:06:42.870Z",
+            "status": "partial",
+            "rows": 428,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 428 listed documents"
+          },
+          {
+            "run_id": "cd1fe679-26db-4a0a-8d63-7fb50fc1a870",
+            "range_from": "2016-01-01",
+            "range_to": "2016-12-31",
+            "finished_at": "2026-07-21T00:25:53.932Z",
+            "status": "partial",
+            "rows": 336,
+            "pages_fetched": 4,
+            "pages_expected": 4,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 336 listed documents"
+          },
+          {
+            "run_id": "c2e0d57b-92df-4a92-a648-216bb38610f9",
+            "range_from": "2015-01-01",
+            "range_to": "2015-12-31",
+            "finished_at": "2026-07-21T00:40:24.726Z",
+            "status": "partial",
+            "rows": 282,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 1,
+            "recovered": true,
+            "error": "Bounded sweep fetched 1 of 282 listed documents"
+          },
+          {
+            "run_id": "1b76411d-08cc-4e3d-ae62-b1998768504b",
+            "range_from": "2021-01-01",
+            "range_to": "2021-07-16",
+            "finished_at": "2026-07-21T01:03:32.871Z",
+            "status": "partial",
+            "rows": 208,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 0,
+            "recovered": false,
+            "error": "Network failure fetching https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx: This operation was aborted"
+          }
+        ],
+        "other_complete_runs": [
+          {
+            "run_id": "ecbbc97f-d899-4466-98ba-e6e492a1e83b",
+            "range_from": "2020-01-01",
+            "range_to": "2020-12-31",
+            "finished_at": "2026-07-20T23:31:23.808Z",
+            "status": "ok",
+            "rows": 328,
+            "pages_fetched": 4,
+            "pages_expected": 4,
+            "new_document_occurrences": 327,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "0c08605b-52aa-49db-9580-b02cd4529eab",
+            "range_from": "2019-01-01",
+            "range_to": "2019-12-31",
+            "finished_at": "2026-07-20T23:47:52.382Z",
+            "status": "ok",
+            "rows": 436,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 435,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "d670de54-9453-4a47-962b-239665f75d98",
+            "range_from": "2018-01-01",
+            "range_to": "2018-12-31",
+            "finished_at": "2026-07-21T00:06:15.888Z",
+            "status": "ok",
+            "rows": 473,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 472,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "2f78a648-8d70-4ba5-8e96-a9b475dfb583",
+            "range_from": "2017-01-01",
+            "range_to": "2017-12-31",
+            "finished_at": "2026-07-21T00:25:21.447Z",
+            "status": "ok",
+            "rows": 428,
+            "pages_fetched": 5,
+            "pages_expected": 5,
+            "new_document_occurrences": 427,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "4a86fb9e-37f2-45bf-b4a3-ce68d8f412a8",
+            "range_from": "2016-01-01",
+            "range_to": "2016-12-31",
+            "finished_at": "2026-07-21T00:39:55.522Z",
+            "status": "ok",
+            "rows": 336,
+            "pages_fetched": 4,
+            "pages_expected": 4,
+            "new_document_occurrences": 335,
+            "recovered": false,
+            "error": null
+          },
+          {
+            "run_id": "95e5fc25-c110-4e94-88b8-21745c9a2909",
+            "range_from": "2015-01-01",
+            "range_to": "2015-12-31",
+            "finished_at": "2026-07-21T00:50:41.939Z",
+            "status": "ok",
+            "rows": 282,
+            "pages_fetched": 3,
+            "pages_expected": 3,
+            "new_document_occurrences": 281,
+            "recovered": false,
+            "error": null
+          }
+        ],
+        "latest_repeat_additions": 0,
+        "sentinels": [
+          {
+            "id": "mh-mudrank-2024-cr182",
+            "matched": true,
+            "source_row_id": "fcaafec223f3142bd13b2123838e0f9c974378c764cfdd8650360149168dfbaa",
+            "sha256": "1d2695a0be9714d2cc94e9218e9ce4fdff28a12e0968fae0dda9aad4e835d07f",
+            "title": "397 | CENTRAL SECTION | Part -4 B | Extra - Ordinary | 2026/01/09 | 2026/01/09 | Part IV-B, Ext. No. 17, REVENUE AND FORESTS DEPARTMENT, NOTIFICATION, MAHARASHTRA STAMP ACT. No. Mudrank-2024/C.R. 182/Mudrank-2. Friday, 9th January 2026. | 0 | View"
+          }
+        ]
+      },
+      "required_fixture_tests": [
+        "packages/watchdog/src/egazette.test.ts (recorded replay and parser fail-closed fixtures)",
+        "packages/watchdog/src/sweep.test.ts (zero-addition replay, interruption, and shape-drift fixtures)",
+        "packages/watchdog/src/mh-part4b-evidence.test.ts (direct evidence audit)"
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source_id": "mh-igr-publications",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "gj-egazette",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "ka-dpal-acts",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "tn-gazette-ordinary",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "tn-gazette-extraordinary",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "up-igrsup-orders",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "dl-revenue-notifications",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    },
+    {
+      "schema_version": 1,
+      "source_id": "tg-goir-revenue",
+      "status": "provisional",
+      "eligible": false,
+      "reasons": [
+        "no machine-checkable promotion requirement is registered"
+      ],
+      "requested": null,
+      "observed": {
+        "catalog_document_occurrences": 0,
+        "document_occurrences": 0,
+        "unique_occurrences": 0,
+        "unique_blobs": 0,
+        "complete_runs": [],
+        "incomplete_runs": [],
+        "other_complete_runs": [],
+        "latest_repeat_additions": null,
+        "sentinels": []
+      },
+      "required_fixture_tests": []
+    }
+  ]
+}

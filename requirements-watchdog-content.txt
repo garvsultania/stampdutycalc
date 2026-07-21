@@ -1,0 +1,4 @@
+# Reproducible, local-only PDF text extraction for Watchdog triage receipts.
+# The ordinary Node CI gate validates the committed receipt against immutable
+# blob/index hashes; it does not need to download or parse the ignored bodies.
+pypdf==6.14.2
