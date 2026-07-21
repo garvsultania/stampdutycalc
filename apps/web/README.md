@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StampDraft web application
 
-## Getting Started
+Next.js interface for deterministic computation, classification, firm-scoped workspace
+filing, archived-snapshot replay, and short-lived memo access.
 
-First, run the development server:
+`/document-check` provides the provider-independent Tier 2 flow: consented PDF/DOCX
+intake, page-referenced field review, mandatory confirmation, deterministic computation,
+audit filing with model version, and lifecycle deletion. It fails closed until a
+compliant production extraction provider is installed.
+
+The memo page supports both browser printing and a standalone multi-page PDF generated
+from the immutable audit output. HTML and PDF paths share the same five-minute,
+firm-scoped capability and require Postgres.
+
+## Local development
+
+From this directory:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The calculator and classification UI work without a database. Workspace filing, replay,
+and memo export require Postgres through `DATABASE_URL`; see `packages/store/README.md`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Local draft execution is disabled by default. To evaluate unverified encodings on a
+loopback host, both explicit settings are required:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+STAMPDRAFT_EXECUTION_POLICY=local-draft
+STAMPDRAFT_LOCAL_DRAFT_ACK=UNVERIFIED_LOCAL_ONLY
+```
 
-## Learn More
+Draft mode is rejected in production and on non-loopback requests. Production defaults
+to founder-verified, current-evidence execution.
 
-To learn more about Next.js, take a look at the following resources:
+## Production configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `DATABASE_URL`: real Postgres; PGlite is test-only.
+- `STAMPDRAFT_MEMO_CAPABILITY_SECRET`: server-only random secret of at least 32 bytes.
+- `STAMPDRAFT_OPERATIONS_SECRET`: a separate 32-byte-or-longer secret for the protected
+  retention-expiry scheduler hook.
+- `STAMPDRAFT_EXECUTION_POLICY`: omit or set `verified-evidence`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The deployment must install a verified `RequestPrincipalAdapter`, a compliant
+`Tier2ExtractionProvider`, and an encrypted off-device `DatabaseBackupProvider` during
+server bootstrap. The default principal adapter denies access; test providers cannot be
+used as production providers. Firm membership is resolved from stable issuer/subject
+identity, and store constraints reject cross-firm matter, computation, and extraction
+access. `/api/health` reports process liveness; `/api/readiness` reports only stable,
+privacy-safe dependency states. Baseline responses deny framing, suppress referrers and
+MIME sniffing, and disable camera, microphone, and geolocation.
 
-## Deploy on Vercel
+## Verification
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run the production build from this directory so Next and Tailwind resolve this app's
+configuration:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+node_modules/.bin/next build
+```
+
+Repository-level typecheck, validators, goldens, Vitest, evidence/blob validation, and
+`git diff --check` remain required. See `BETA-RELEASE-CHECKLIST.md` for the beta go/no-go
+and rollback contract.

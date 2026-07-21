@@ -65,19 +65,19 @@ export function MattersList({ initial }: { initial: MatterRow[] }) {
           <CardContent className="space-y-4">
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="space-y-1.5">
-                <Label>Reference *</Label>
-                <Input value={form.reference} placeholder="M-2026-014" onChange={(e) => setForm({ ...form, reference: e.target.value })} />
+                <Label htmlFor="matter-reference">Reference *</Label>
+                <Input id="matter-reference" value={form.reference} placeholder="M-2026-014" onChange={(e) => setForm({ ...form, reference: e.target.value })} />
               </div>
               <div className="space-y-1.5">
-                <Label>Title *</Label>
-                <Input value={form.title} placeholder="Acme HQ acquisition" onChange={(e) => setForm({ ...form, title: e.target.value })} />
+                <Label htmlFor="matter-title">Title *</Label>
+                <Input id="matter-title" value={form.title} placeholder="Acme HQ acquisition" onChange={(e) => setForm({ ...form, title: e.target.value })} />
               </div>
               <div className="space-y-1.5">
-                <Label>Client</Label>
-                <Input value={form.client} placeholder="Acme Ltd" onChange={(e) => setForm({ ...form, client: e.target.value })} />
+                <Label htmlFor="matter-client">Client</Label>
+                <Input id="matter-client" value={form.client} placeholder="Acme Ltd" onChange={(e) => setForm({ ...form, client: e.target.value })} />
               </div>
             </div>
-            {error && <p className="text-sm text-destructive">{error}</p>}
+            {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
             <div className="flex gap-2">
               <Button onClick={create} disabled={busy || !form.reference.trim() || !form.title.trim()}>
                 {busy && <Loader2 className="animate-spin" />} Create matter
@@ -132,11 +132,11 @@ export interface AuditRow {
   user_email: string;
   engine_version: string;
   extraction_model_version: string | null;
-  memo_payload: string;
 }
 
 type Verdict = {
   verified: boolean;
+  refused?: boolean;
   sameHash: boolean;
   recorded: { total: string; hash: string };
   replayed: { total: string; hash: string } | null;
@@ -155,7 +155,7 @@ export function AuditTrail({ records }: { records: AuditRow[] }) {
       body: JSON.stringify({ recordId: id }),
     });
     const data = await res.json();
-    if (data.ok) setVerdicts((v) => ({ ...v, [id]: data }));
+    if (data.ok || data.refused) setVerdicts((v) => ({ ...v, [id]: data }));
     setBusy(null);
   }
 
@@ -197,7 +197,7 @@ export function AuditTrail({ records }: { records: AuditRow[] }) {
                     {busy === r.id ? <Loader2 className="animate-spin" /> : <ShieldCheck />} Replay
                   </Button>
                   <Button size="sm" variant="ghost" asChild>
-                    <Link href={`/memo?d=${r.memo_payload}`} target="_blank">
+                    <Link href={`/api/computations/memo?recordId=${encodeURIComponent(r.id)}`} target="_blank">
                       <FileText /> Memo
                     </Link>
                   </Button>
@@ -218,12 +218,12 @@ export function AuditTrail({ records }: { records: AuditRow[] }) {
                   )}
                   <div>
                     <p className="font-semibold">
-                      {v.verified ? "Reproduced exactly" : v.sameHash ? "Mismatch — investigate" : "Ruleset has moved on"}
+                      {v.verified ? "Reproduced exactly" : v.refused ? "Replay refused" : "Mismatch — investigate"}
                     </p>
                     <p className="mt-0.5 text-muted-foreground">{v.note}</p>
                     {v.replayed && !v.verified && (
                       <p className="tabular mt-1 text-muted-foreground">
-                        Recorded {inr(v.recorded.total)} · replayed today {inr(v.replayed.total)}
+                        Recorded {inr(v.recorded.total)} · replayed from archive {inr(v.replayed.total)}
                       </p>
                     )}
                   </div>
@@ -242,9 +242,8 @@ export function AuthNotice() {
     <div className="flex items-start gap-2 rounded-md border border-gold/40 bg-gold/5 px-3 py-2 text-xs">
       <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
       <p className="text-muted-foreground">
-        <span className="font-semibold text-foreground">Single-tenant demo.</span> Authentication and team seats are not
-        built yet — every visitor shares one firm. The schema is already multi-tenant (firm-scoped rows, API keys);
-        only sign-in is missing.
+        <span className="font-semibold text-foreground">Firm-scoped workspace.</span> Access is bound to the authenticated
+        identity&apos;s stored firm membership; records from another firm are refused.
       </p>
     </div>
   );

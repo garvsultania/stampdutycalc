@@ -1,9 +1,4 @@
-/**
- * UI manifest: what a lawyer must supply per instrument, per state (PRD Flow A).
- * This mirrors — never replaces — the engine's own escalate-on-missing-fact
- * behaviour: if the manifest misses a required input, the engine still refuses
- * to guess and the UI surfaces the escalation.
- */
+import { inputFieldsForRuleOn, mergedInputFields, type InputField } from "@stampdraft/schema";
 
 export type FieldType = "money" | "months" | "select";
 
@@ -60,12 +55,17 @@ const MH_AREA = fact("area_type", "Area classification", [
   { value: "movable", label: "Movable property" },
 ], "Where the property is situated — determines the Article 25 rate");
 
+const MH_LBT = fact("lbt_status", "Local Body Tax / local levy", [
+  { value: "not_applicable", label: "Confirmed not applicable" },
+  { value: "applies_or_uncertain", label: "May apply / uncertain" },
+], "The draft corpus does not yet calculate omitted Maharashtra local levies");
+
 const KA_AREA_SURCHARGE = fact("ka_area", "Local body", [
   { value: "urban", label: "Urban / BBMP" },
   { value: "rural", label: "Rural / Panchayat" },
 ], "Determines the local-body surcharge on the duty");
 
-export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
+const CATALOG_DEFINITION: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
   DL: [
     {
       slug: "conveyance", name: "Conveyance / Sale deed", article: "Art. 23",
@@ -92,7 +92,10 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
           description: "90% of conveyance duty + transfer duty on 90% of consideration",
           fields: [money("consideration", "Consideration"), TRANSFEREE],
         },
-        { rule_id: "DL-ART5c-agreement-to-sell", label: "Possession NOT delivered", description: "Flat ₹50 under Article 5(c)", fields: [] },
+        {
+          rule_id: "DL-ART5c-agreement-to-sell", label: "Possession NOT delivered", description: "Flat ₹50 only for the verified residual Article 5(c) scope",
+          fields: [],
+        },
       ],
     },
     {
@@ -126,7 +129,17 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
       summary: "With possession: conveyance duty + transfer duty. Without: 2% capped at ₹2 lakh.",
       variants: [
         { rule_id: "DL-ART40a-mortgage-with-possession", label: "Possession given / agreed", fields: [money("amount_secured", "Amount secured")] },
-        { rule_id: "DL-ART40b-mortgage-without-possession", label: "Possession not given", fields: [money("amount_secured", "Amount secured")] },
+        {
+          rule_id: "DL-ART40b-mortgage-without-possession", label: "Possession not given",
+          fields: [
+            money("amount_secured", "Amount secured"),
+            fact("is_collateral_or_auxiliary_security", "Is this collateral or auxiliary security?", [
+              { value: "no", label: "No" },
+              { value: "yes", label: "Yes" },
+              { value: "uncertain", label: "Uncertain" },
+            ]),
+          ],
+        },
       ],
     },
     {
@@ -134,7 +147,22 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
       summary: "Deposit of title deeds, pawn, pledge or hypothecation securing a loan.",
       variants: [{
         rule_id: "DL-ART6-loan-hypothecation", label: "Agreement securing a loan or debt",
-        fields: [money("amount_secured", "Amount secured"), months("repayment_period_months", "Repayment period (months)", "3 months or less attracts half duty")],
+        fields: [
+          money("amount_secured", "Amount secured"),
+          months("repayment_period_months", "Repayment period (months)", "3 months or less attracts half duty"),
+          fact("security_instrument_type", "Security instrument", [
+            { value: "title_deed_deposit", label: "Deposit of title deeds" },
+            { value: "attested_pledge", label: "Attested pawn / pledge" },
+            { value: "hypothecation", label: "Hypothecation" },
+            { value: "unattested_pledge", label: "Unattested pawn / pledge" },
+            { value: "uncertain", label: "Uncertain" },
+          ]),
+          fact("accompanies_bill_of_exchange", "Does it accompany a bill of exchange?", [
+            { value: "no", label: "No" },
+            { value: "yes", label: "Yes" },
+            { value: "uncertain", label: "Uncertain" },
+          ]),
+        ],
       }],
     },
     {
@@ -164,27 +192,76 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
       slug: "poa", name: "Power of attorney", article: "Art. 48",
       summary: "General ₹50; special ₹50. POA-for-consideration-to-sell is charged as a conveyance — classify first.",
       variants: [
-        { rule_id: "DL-ART48-gpa", label: "General POA", fields: [] },
-        { rule_id: "DL-ART48-spa", label: "Special POA (single transaction)", fields: [] },
+        {
+          rule_id: "DL-ART48-gpa", label: "General POA",
+          fields: [
+            fact("poa_authorizes_property_sale", "Does it authorise sale of immovable property?", [
+              { value: "no", label: "No" }, { value: "yes", label: "Yes" }, { value: "uncertain", label: "Uncertain" },
+            ]),
+            fact("poa_registration_only", "Is its sole purpose registration/admitting execution?", [
+              { value: "no", label: "No" }, { value: "yes", label: "Yes" }, { value: "uncertain", label: "Uncertain" },
+            ]),
+            fact("poa_transaction_pattern", "Transactions covered", [
+              { value: "single_transaction", label: "One transaction" },
+              { value: "general_or_multiple", label: "General or multiple transactions" },
+              { value: "uncertain", label: "Uncertain" },
+            ]),
+            { key: "authorized_person_count", label: "Number of persons authorised", kind: "value", type: "months" },
+          ],
+        },
+        {
+          rule_id: "DL-ART48-spa", label: "Special POA (single transaction)",
+          fields: [
+            fact("poa_authorizes_property_sale", "Does it authorise sale of immovable property?", [
+              { value: "no", label: "No" }, { value: "yes", label: "Yes" }, { value: "uncertain", label: "Uncertain" },
+            ]),
+            fact("poa_registration_only", "Is its sole purpose registration/admitting execution?", [
+              { value: "no", label: "No" }, { value: "yes", label: "Yes" }, { value: "uncertain", label: "Uncertain" },
+            ]),
+            fact("poa_transaction_pattern", "Transactions covered", [
+              { value: "single_transaction", label: "One transaction" },
+              { value: "general_or_multiple", label: "General or multiple transactions" },
+              { value: "uncertain", label: "Uncertain" },
+            ]),
+          ],
+        },
       ],
     },
     {
       slug: "affidavit", name: "Affidavit", article: "Art. 4",
       summary: "Flat ₹10. Court, enrolment and pension affidavits are exempt.",
-      variants: [{ rule_id: "DL-ART4-affidavit", label: "Affidavit", fields: [] }],
+      variants: [{
+        rule_id: "DL-ART4-affidavit", label: "Affidavit",
+        fields: [fact("affidavit_purpose", "Affidavit purpose", [
+          { value: "ordinary", label: "Ordinary purpose" },
+          { value: "court_use", label: "Immediate filing/use in court" },
+          { value: "armed_forces_enrolment", label: "Armed-forces enrolment" },
+          { value: "pension_or_charitable_allowance", label: "Pension or charitable allowance" },
+          { value: "uncertain", label: "Uncertain" },
+        ])],
+      }],
     },
     {
       slug: "works-service", name: "Works contract / service agreement", article: "Art. 5",
       summary: "Both are ₹50 agreements in Delhi — but classify for S.6 and multi-state work.",
       variants: [
         { rule_id: "DL-works-contract", label: "Works contract", fields: [] },
-        { rule_id: "DL-service-agreement", label: "Service agreement", fields: [] },
+        {
+          rule_id: "DL-service-agreement", label: "Service agreement",
+          fields: [],
+        },
       ],
     },
     {
       slug: "share-transfer", name: "Share transfer (physical)", article: "Art. 62 / s.9A",
       summary: "Union law: 0.015% of consideration since 1 July 2020; 0.25% before.",
-      variants: [{ rule_id: "DL-ART62-share-transfer", label: "Transfer of shares (SH-4)", fields: [money("consideration", "Consideration")] }],
+      variants: [{
+        rule_id: "DL-ART62-share-transfer", label: "Transfer of shares (SH-4)",
+        fields: [
+          money("share_value", "Share value (executions before 1 July 2020)", undefined, true),
+          money("consideration", "Consideration (executions on/after 1 July 2020)", undefined, true),
+        ],
+      }],
     },
   ],
 
@@ -201,6 +278,7 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
             { value: "yes", label: "Yes — Mumbai/Thane/Navi Mumbai/Pune/Nagpur/Nashik" },
             { value: "no", label: "No" },
           ], "1% metro cess applies in the six metro cities from 1 Apr 2022"),
+          MH_LBT,
           fact("buyer_all_women", "All purchasers women?", [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]),
           fact("property_use", "Property use", [
             { value: "residential", label: "Residential" },
@@ -223,6 +301,11 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
             { value: "other", label: "Other donee" },
           ]),
           MH_AREA,
+          fact("metro_cess_city", "Metro-cess city?", [
+            { value: "yes", label: "Yes / possibly" },
+            { value: "no", label: "No" },
+          ]),
+          MH_LBT,
         ],
       }],
     },
@@ -235,6 +318,9 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
           months("term_months", "Term (months)", "Renewal periods count as part of the term"),
           money("market_value", "Market value incl. premium/deposit", "Explanation I: premium, advances and deposits are treated as consideration"),
           MH_AREA,
+          fact("lease_has_unentered_premium_advance_or_deposit", "Any premium, advance, or deposit absent from market value?", []),
+          fact("lease_has_unentered_renewal_period", "Any renewal period absent from the term?", []),
+          MH_LBT,
         ],
       }],
     },
@@ -248,25 +334,57 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
           money("licence_fee_total", "Total licence fees / rent for the term"),
           money("non_refundable_deposit", "Non-refundable deposit (0 if none)"),
           money("refundable_deposit", "Refundable deposit (0 if none)"),
+          fact("licence_has_unentered_payment", "Any payment not represented above?", []),
           money("market_value", "Market value (only if term exceeds 60 months)", undefined, true),
           { ...MH_AREA, optional: true },
+          { ...fact("lease_has_unentered_premium_advance_or_deposit", "Any premium, advance, or deposit absent from market value?", []), optional: true },
+          { ...fact("lease_has_unentered_renewal_period", "Any renewal period absent from the term?", []), optional: true },
+          { ...MH_LBT, optional: true },
         ],
       }],
     },
     {
       slug: "mortgage", name: "Mortgage deed", article: "Art. 40",
-      summary: "With possession: area conveyance rate on the amount secured. Without: 0.3% capped at ₹20 lakh.",
+      summary: "With possession: area conveyance rate. Without: 0.1% through ₹5 lakh, then 0.3%, with ₹20/50 lakh ceilings.",
       variants: [
-        { rule_id: "MH-ART40a-mortgage-with-possession", label: "Possession given / agreed", fields: [money("amount_secured", "Amount secured"), MH_AREA] },
-        { rule_id: "MH-ART40b-mortgage-without-possession", label: "Possession not given", fields: [money("amount_secured", "Amount secured")] },
+        {
+          rule_id: "MH-ART40a-mortgage-with-possession", label: "Possession given / agreed",
+          fields: [
+            money("amount_secured", "Amount secured"),
+            MH_AREA,
+            fact("mortgage_subtype", "Mortgage subtype", [
+              { value: "non_usufructuary", label: "Non-usufructuary" },
+              { value: "usufructuary_or_uncertain", label: "Usufructuary / uncertain" },
+            ]),
+            fact("metro_cess_city", "Metro-cess city?", [
+              { value: "no", label: "No" },
+              { value: "yes", label: "Yes / possibly" },
+            ]),
+            MH_LBT,
+          ],
+        },
+        {
+          rule_id: "MH-ART40b-mortgage-without-possession", label: "Possession not given",
+          fields: [
+            money("amount_secured", "Amount secured"),
+            { ...fact("mortgagee_bank_scope", "Mortgagee", [
+              { value: "other", label: "Not a consortium of banks" },
+              { value: "consortium_of_banks", label: "Consortium of banks" },
+              { value: "uncertain", label: "Uncertain" },
+            ]), optional: true },
+          ],
+        },
       ],
     },
     {
       slug: "works-service", name: "Works contract / service agreement", article: "Art. 63 / 5(h)(B)",
-      summary: "The ~495× fork: works contracts are ad valorem (capped ₹25 lakh); a pure service agreement is ₹100.",
+      summary: "The current ~298× fork: works contracts are ad valorem (capped ₹25 lakh); a pure residual service agreement is ₹500.",
       variants: [
         { rule_id: "MH-ART63-works-contract", label: "Works contract", fields: [money("contract_value", "Contract value")] },
-        { rule_id: "MH-ART5hB-service-agreement", label: "Service agreement", fields: [] },
+        {
+          rule_id: "MH-ART5hB-service-agreement", label: "Service agreement",
+          fields: [],
+        },
       ],
     },
     {
@@ -290,26 +408,59 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
     },
     {
       slug: "bonds", name: "Indemnity / security bond", article: "Arts. 35 & 54",
-      summary: "Indemnity: flat ₹500. Security/surety bond: 0.5% capped at ₹10 lakh.",
+      summary: "Indemnity: flat ₹500. Current security/surety bond: 0.1% up to ₹5 lakh, then 0.3%, capped at ₹20 lakh.",
       variants: [
         { rule_id: "MH-ART35-indemnity-bond", label: "Indemnity bond", fields: [] },
-        { rule_id: "MH-ART54-security-bond", label: "Security / surety bond", fields: [money("amount_secured", "Amount secured")] },
+        {
+          rule_id: "MH-ART54-security-bond", label: "Security / surety bond",
+          fields: [
+            money("amount_secured", "Amount secured"),
+            fact("security_bond_scope", "Article 54 bond purpose", [
+              { value: "ordinary_non_exempt", label: "Ordinary non-exempt security / surety bond" },
+              { value: "charitable_public_utility_guarantee", label: "Charitable hospital / public-utility subscription guarantee" },
+              { value: "irrigation_section_114", label: "Maharashtra Irrigation Act section 114 instrument" },
+              { value: "agricultural_loan_advance", label: "Land-improvement / agriculturists-loan advance security" },
+              { value: "government_officer_security", label: "Government officer / surety official security" },
+              { value: "uncertain", label: "Uncertain" },
+            ]),
+            fact("principal_art40_duty_status", "Principal's Article 40 duty", [
+              { value: "not_paid", label: "No Article 40 mortgage duty was paid" },
+              { value: "paid", label: "Article 40 mortgage duty was paid" },
+              { value: "uncertain", label: "Uncertain" },
+            ]),
+          ],
+        },
       ],
     },
     {
       slug: "poa", name: "Power of attorney", article: "Art. 48",
       summary: "Flat ₹500. Developer POAs and POA-for-consideration-to-sell take the conveyance rate — classify first.",
-      variants: [{ rule_id: "MH-ART48-poa", label: "POA (clauses a–e, h)", fields: [] }],
+      variants: [{
+        rule_id: "MH-ART48-poa", label: "POA (clauses a–e)", fields: [],
+      }],
     },
     {
       slug: "affidavit", name: "Affidavit", article: "Art. 4",
-      summary: "Flat ₹100.",
-      variants: [{ rule_id: "MH-ART4-affidavit", label: "Affidavit", fields: [] }],
+      summary: "Current rate: flat ₹500 (₹100 before 14 October 2024).",
+      variants: [{
+        rule_id: "MH-ART4-affidavit", label: "Affidavit",
+        fields: [fact("affidavit_scope", "Affidavit purpose", [
+          { value: "ordinary_non_exempt", label: "Ordinary non-exempt affidavit" },
+          { value: "court_or_statutory_exempt", label: "Court/enrolment/pension/allowance purpose" },
+          { value: "uncertain", label: "Uncertain" },
+        ])],
+      }],
     },
     {
       slug: "share-transfer", name: "Share transfer (physical)", article: "Union Art. 62",
       summary: "Union law: 0.015% since 1 July 2020; 0.25% before. Identical in all states.",
-      variants: [{ rule_id: "MH-share-transfer", label: "Transfer of shares (SH-4)", fields: [money("consideration", "Consideration")] }],
+      variants: [{
+        rule_id: "MH-share-transfer", label: "Transfer of shares (SH-4)",
+        fields: [
+          money("share_value", "Share value (executions before 1 July 2020)"),
+          money("consideration", "Consideration (executions on/after 1 July 2020)"),
+        ],
+      }],
     },
   ],
 
@@ -414,6 +565,39 @@ export const CATALOG: Record<"DL" | "MH" | "KA", InstrumentDef[]> = {
     },
   ],
 };
+
+function toManifestFields(fields: InputField[]): Field[] {
+  return fields.map((field) => ({
+    key: field.key,
+    label: field.label,
+    kind: field.kind,
+    type: field.type === "positive_integer" ? "months" : field.type,
+    help: field.help,
+    optional: !field.required,
+    ...(field.kind === "fact" ? { options: field.options } : {}),
+  }));
+}
+
+function contractFields(ruleId: string): Field[] {
+  return toManifestFields(mergedInputFields(ruleId));
+}
+
+export function fieldsForRuleAtDate(ruleId: string, executionDate: string): Field[] {
+  return toManifestFields(inputFieldsForRuleOn(ruleId, executionDate));
+}
+
+export const CATALOG = Object.fromEntries(
+  Object.entries(CATALOG_DEFINITION).map(([state, instruments]) => [
+    state,
+    instruments.map((instrument) => ({
+      ...instrument,
+      variants: instrument.variants.map((variant) => ({
+        ...variant,
+        fields: contractFields(variant.rule_id),
+      })),
+    })),
+  ]),
+) as Record<"DL" | "MH" | "KA", InstrumentDef[]>;
 
 export function findInstrument(state: "DL" | "MH" | "KA", slug: string) {
   return CATALOG[state].find((i) => i.slug === slug);

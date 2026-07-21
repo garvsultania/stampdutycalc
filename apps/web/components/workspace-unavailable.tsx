@@ -5,7 +5,13 @@ import { Database } from "lucide-react";
  * Shown instead of the workspace when there is no reachable Postgres. The
  * calculator itself is unaffected — the engine is pure and needs no database.
  */
-export function WorkspaceUnavailable({ detail }: { detail: string }) {
+export function WorkspaceUnavailable({
+  detail,
+  showLocalSetup = false,
+}: {
+  detail: string;
+  showLocalSetup?: boolean;
+}) {
   return (
     <Card className="border-amber-500/40 bg-amber-50/40 dark:bg-amber-950/10">
       <CardHeader className="flex-row items-center gap-2 space-y-0">
@@ -17,13 +23,13 @@ export function WorkspaceUnavailable({ detail }: { detail: string }) {
           Matters and the audit trail are stored in Postgres. The calculator works without one —
           only filing a computation to a matter requires it.
         </p>
-        <pre className="overflow-x-auto rounded-md border bg-muted/50 p-3 font-mono text-xs">
+        {showLocalSetup && <pre className="overflow-x-auto rounded-md border bg-muted/50 p-3 font-mono text-xs">
 {`docker run -d --name stampdraft-db -p 5432:5432 \\
   -e POSTGRES_PASSWORD=stampdraft postgres:16
 
 echo 'DATABASE_URL=postgres://postgres:stampdraft@127.0.0.1:5432/postgres' \\
   > apps/web/.env.local`}
-        </pre>
+        </pre>}
         <p className="text-muted-foreground">
           The schema, the append-only triggers and the tables are created on first request.
         </p>

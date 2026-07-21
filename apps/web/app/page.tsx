@@ -38,7 +38,7 @@ export default function Home() {
               { icon: Sigma, label: "Zero LLM in the computation path" },
               { icon: BookOpenText, label: "Every figure statute-cited" },
               { icon: GitBranch, label: "Append-only versioned law" },
-              { icon: ShieldCheck, label: `${totalVersions} rule versions · 166 golden tests` },
+              { icon: ShieldCheck, label: `${totalVersions} rule versions · deterministic golden suite` },
             ].map((t) => (
               <div key={t.label} className="flex items-center gap-2 text-muted-foreground">
                 <t.icon className="h-4 w-4 shrink-0 text-gold" />

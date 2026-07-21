@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getStore, WorkspaceUnavailableError } from "@/lib/store-server";
+import { headers } from "next/headers";
+import { WORKSPACE_UNAVAILABLE_PUBLIC_DETAIL, WorkspaceUnavailableError } from "@/lib/store-server";
+import { authorizeWorkspace, WorkspaceAuthorizationError } from "@/lib/api-workspace";
 import { AuditTrail, type AuditRow } from "@/components/workspace-client";
 import { WorkspaceUnavailable } from "@/components/workspace-unavailable";
 import { Button } from "@/components/ui/button";
@@ -12,12 +14,15 @@ export const dynamic = "force-dynamic";
 export default async function MatterPage({ params }: { params: { id: string } }) {
   let workspace;
   try {
-    workspace = await getStore();
+    workspace = await authorizeWorkspace(headers());
   } catch (error: unknown) {
+    if (error instanceof WorkspaceAuthorizationError) {
+      return <div className="container py-8"><p role="alert">Sign in with an authorized firm account to access this matter.</p></div>;
+    }
     if (error instanceof WorkspaceUnavailableError) {
       return (
         <div className="container py-8">
-          <WorkspaceUnavailable detail={error.detail} />
+          <WorkspaceUnavailable detail={WORKSPACE_UNAVAILABLE_PUBLIC_DETAIL} showLocalSetup={process.env.NODE_ENV !== "production"} />
         </div>
       );
     }
@@ -29,7 +34,6 @@ export default async function MatterPage({ params }: { params: { id: string } })
 
   const records = await store.listComputations(firmId, matter.id);
 
-  // The memo route recomputes from these inputs — same reproducibility path as the audit.
   const rows: AuditRow[] = records.map((r) => ({
     id: r.id,
     computed_at: String(r.computed_at),
@@ -41,22 +45,6 @@ export default async function MatterPage({ params }: { params: { id: string } })
     user_email: r.user_email,
     engine_version: r.engine_version,
     extraction_model_version: r.extraction_model_version,
-    memo_payload: Buffer.from(
-      encodeURIComponent(
-        JSON.stringify({
-          input: {
-            jurisdiction: r.jurisdiction,
-            rule_id: r.rule_id,
-            execution_date: r.execution_date,
-            values: r.input_values,
-            facts: r.input_facts,
-            ...(r.duty_paid ? { duty_paid: r.duty_paid } : {}),
-          },
-          ...(r.penalty_months ? { penaltyMonths: r.penalty_months } : {}),
-        }),
-      ),
-      "utf8",
-    ).toString("base64"),
   }));
 
   return (

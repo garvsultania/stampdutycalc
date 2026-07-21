@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { classify, resolveClassificationTree } from "@stampdraft/engine";
 import { getCorpus } from "@/lib/rules-server";
-import { indiaTodayISO } from "@/lib/legal-date";
+import { executionPolicyForRequest } from "@/lib/execution-policy";
 
 export const dynamic = "force-dynamic";
 
@@ -15,9 +15,7 @@ export async function POST(req: NextRequest) {
     const tree = resolveClassificationTree(corpus.trees, tree_id, execution_date);
     const result = classify(tree, answers ?? {}, {
       executionDate: execution_date,
-      requireVerified: process.env.NODE_ENV === "production",
-      requireEvidence: process.env.NODE_ENV === "production",
-      evidenceAsOf: indiaTodayISO(),
+      ...executionPolicyForRequest(req),
     });
     return NextResponse.json({ ok: true, result });
   } catch (e) {

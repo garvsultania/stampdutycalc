@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { BookOpenText, Copy, Check, FileText, ShieldAlert, TriangleAlert } from "lucide-react";
+import type { ComputationRefusal } from "@/lib/computation-refusal";
 
 function HashChip({ hash }: { hash: string }) {
   const [copied, setCopied] = React.useState(false);
@@ -38,18 +39,17 @@ const KIND_LABEL: Record<string, { label: string; cls: string }> = {
   rounding: { label: "Rounding", cls: "bg-muted text-muted-foreground border-border" },
 };
 
-export function EscalationCard({ message }: { message: string }) {
+export function EscalationCard({ refusal }: { refusal: ComputationRefusal }) {
   return (
     <Alert variant="warning" className="animate-fade-up">
       <ShieldAlert />
-      <AlertTitle className="font-serif text-base">Escalation required — the engine will not guess</AlertTitle>
-      <AlertDescription className="space-y-2 text-muted-foreground">
-        <p className="font-medium text-foreground">{message}</p>
-        <p>
-          Either a required input is missing, or this scenario sits outside the verified encoding. Supply the
-          missing detail, or treat this as a genuine grey zone: apply s.6 (highest of the competing duties) and
-          consider adjudication under s.31 before execution.
-        </p>
+      <AlertTitle className="font-serif text-base">{refusal.title} — the engine will not guess</AlertTitle>
+      <AlertDescription className="space-y-3 text-muted-foreground">
+        <p className="font-medium text-foreground">{refusal.message}</p>
+        <div className="rounded-md border border-amber-700/20 bg-background/50 p-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-foreground">Required next step</p>
+          <p className="mt-1">{refusal.nextStep}</p>
+        </div>
       </AlertDescription>
     </Alert>
   );

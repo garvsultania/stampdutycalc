@@ -1,11 +1,22 @@
-import { compute } from "@stampdraft/engine";
-import { getCorpus } from "@/lib/rules-server";
 import { inr, formatDate } from "@/lib/utils";
 import { PrintButton } from "@/components/print-button";
-import { Scale } from "lucide-react";
-import { indiaTodayISO } from "@/lib/legal-date";
+import { Button } from "@/components/ui/button";
+import { Download, Scale } from "lucide-react";
+import { headers } from "next/headers";
+import { WORKSPACE_UNAVAILABLE_PUBLIC_DETAIL, WorkspaceUnavailableError } from "@/lib/store-server";
+import { authorizeWorkspace, WorkspaceAuthorizationError } from "@/lib/api-workspace";
+import { WorkspaceUnavailable } from "@/components/workspace-unavailable";
+import {
+  hostnameFromHostHeader,
+  resolveMemoCapabilitySecret,
+  verifyMemoCapability,
+} from "@/lib/memo-capability";
 
-export const metadata = { title: "Computation memo — StampDraft" };
+export const metadata = {
+  title: "Computation memo — StampDraft",
+  robots: { index: false, follow: false },
+  referrer: "no-referrer" as const,
+};
 export const dynamic = "force-dynamic";
 
 const KIND: Record<string, string> = {
@@ -19,43 +30,58 @@ function labelize(key: string) {
   return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export default function MemoPage({ searchParams }: { searchParams: { d?: string } }) {
-  if (!searchParams.d) {
-    return <div className="container py-20 text-center text-muted-foreground">No computation supplied.</div>;
+export default async function MemoPage({ searchParams }: { searchParams: { token?: string } }) {
+  if (!searchParams.token) {
+    return <MemoAccessDenied message="This memo link is missing its access capability." />;
   }
 
-  let payload: { input: Parameters<typeof compute>[1]; penaltyMonths?: number };
+  let workspace;
   try {
-    payload = JSON.parse(decodeURIComponent(Buffer.from(searchParams.d, "base64").toString("utf8")));
-  } catch {
-    return <div className="container py-20 text-center text-muted-foreground">Malformed memo link.</div>;
+    workspace = await authorizeWorkspace(headers());
+  } catch (error: unknown) {
+    if (error instanceof WorkspaceAuthorizationError) {
+      return <MemoAccessDenied message="Sign in with the authorized firm account to open this memo." />;
+    }
+    if (error instanceof WorkspaceUnavailableError) {
+      return <div className="container py-8"><WorkspaceUnavailable detail={WORKSPACE_UNAVAILABLE_PUBLIC_DETAIL} showLocalSetup={process.env.NODE_ENV !== "production"} /></div>;
+    }
+    throw error;
   }
-
-  // Recomputed server-side from the recorded inputs — the memo IS the reproducibility claim.
-  const { corpus } = getCorpus();
-  let output;
+  let capability;
   try {
-    output = compute(corpus.ruleSet, payload.input, {
-      penaltyMonths: payload.penaltyMonths,
-      requireVerified: process.env.NODE_ENV === "production",
-      requireEvidence: process.env.NODE_ENV === "production",
-      evidenceAsOf: indiaTodayISO(),
+    const secret = resolveMemoCapabilitySecret({
+      configured: process.env.STAMPDRAFT_MEMO_CAPABILITY_SECRET,
+      nodeEnv: process.env.NODE_ENV,
+      hostname: hostnameFromHostHeader(headers().get("host")),
     });
-  } catch (e) {
-    return (
-      <div className="container py-20 text-center text-muted-foreground">
-        This computation now escalates under the current ruleset: {(e as Error).message}
-      </div>
-    );
+    capability = verifyMemoCapability(searchParams.token, {
+      secret,
+      expectedFirmId: workspace.principal.firmId,
+    });
+  } catch {
+    return <MemoAccessDenied message="This memo link is invalid or has expired." />;
   }
 
-  const generatedOn = new Date().toLocaleString("en-IN", { dateStyle: "long", timeStyle: "short" });
+  const record = await workspace.store.getComputation(workspace.principal.firmId, capability.recordId);
+  if (!record) {
+    return <MemoAccessDenied message="This memo record is no longer available." />;
+  }
+  const output = record.output;
+
+  const generatedOn = new Date(record.computed_at).toLocaleString("en-IN", { dateStyle: "long", timeStyle: "short" });
 
   return (
     <div className="bg-muted/40 py-10 print:py-0">
-      <div className="no-print container mb-6 flex max-w-3xl items-center justify-between">
+      <div className="no-print container mb-6 flex max-w-3xl items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground">Print to PDF for the matter file — the memo carries everything needed to reproduce it.</p>
-        <PrintButton />
+        <div className="flex shrink-0 gap-2">
+          <Button asChild variant="outline" size="lg">
+            <a href={`/api/computations/memo/pdf?token=${encodeURIComponent(searchParams.token)}`}>
+              <Download /> Download PDF
+            </a>
+          </Button>
+          <PrintButton />
+        </div>
       </div>
 
       <div className="memo-sheet container max-w-3xl rounded-lg border bg-white p-10 shadow-sm">
@@ -199,13 +225,22 @@ export default function MemoPage({ searchParams }: { searchParams: { d?: string 
             <span className="break-all font-mono">{output.rules_version}</span>
           </p>
           <p className="mt-2 leading-relaxed">
-            This memorandum is a deterministic computation over the versioned rule corpus identified by the hash
-            above: identical inputs and ruleset reproduce it byte for byte. It is a computation report on the law
+            This memorandum is the immutable output filed under the versioned rule corpus identified by the hash
+            above. Historical replay requires the archived snapshot and matching engine artifact. It is a computation report on the law
             as published, not a legal opinion; professional judgment and, where indicated, adjudication under the
             applicable Stamp Act remain with the practitioner.
           </p>
         </section>
       </div>
+    </div>
+  );
+}
+
+function MemoAccessDenied({ message }: { message: string }) {
+  return (
+    <div className="container py-20 text-center">
+      <p className="font-serif text-lg font-semibold">Memo access refused</p>
+      <p className="mt-1 text-sm text-muted-foreground">{message}</p>
     </div>
   );
 }

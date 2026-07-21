@@ -9,17 +9,11 @@ import { connect, migrate, Store } from "@stampdraft/store";
  * against a URL from a different module realm and rejects it. So the web app
  * always speaks to Postgres over the wire, and PGlite stays a test-only dependency.
  */
-let cached: Promise<Workspace> | null = null;
-
-export interface Workspace {
-  store: Store;
-  firmId: string;
-}
+let cached: Promise<Store> | null = null;
 
 export const ENGINE_VERSION = "0.1.0";
-
-/** The signed-in professional. AUTH IS NOT BUILT — see WORKSPACE-AUTH note. */
-export const DEMO_USER = { email: "you@firm.in", name: "Demo User" };
+export const WORKSPACE_UNAVAILABLE_PUBLIC_DETAIL =
+  "The workspace database is not configured or could not be reached. Ask the deployment administrator to check it.";
 
 export class WorkspaceUnavailableError extends Error {
   constructor(readonly detail: string) {
@@ -28,7 +22,7 @@ export class WorkspaceUnavailableError extends Error {
   }
 }
 
-export function getStore(): Promise<Workspace> {
+export function getStore(): Promise<Store> {
   cached ??= (async () => {
     const url = process.env.DATABASE_URL;
     if (!url) {
@@ -39,11 +33,7 @@ export function getStore(): Promise<Workspace> {
     try {
       const db = await connect(url);
       await migrate(db);
-      const store = new Store(db);
-      // Single-tenant bootstrap until real auth lands.
-      const firm = await store.ensureFirm("Demo Firm");
-      await store.addUser(firm.id, DEMO_USER.email, DEMO_USER.name);
-      return { store, firmId: firm.id };
+      return new Store(db);
     } catch (error: unknown) {
       cached = null; // a failed connect must not be cached forever
       const message = error instanceof Error ? error.message : String(error);
