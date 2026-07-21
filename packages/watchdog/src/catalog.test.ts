@@ -52,6 +52,20 @@ describe("Watchdog evidence catalog", () => {
         detail: "one document",
       })}\n`,
     );
+    await writeFile(
+      join(source, "state", "occurrence-history.jsonl"),
+      `${JSON.stringify({
+        history_id: "a".repeat(64),
+        source_id: "test-source",
+        source_row_id: "row-1",
+        run_id: "run-1",
+        observed_at: "2026-07-19T00:01:00.000Z",
+        sha256,
+        transient_form_state_removed: false,
+        before: { title: "Old title", gazette_date: null, retrieval: { url: "https://example.gov.in/document.pdf" } },
+        after: { title: "Official document", gazette_date: "2026/07/19", retrieval: { url: "https://example.gov.in/document.pdf" } },
+      })}\n`,
+    );
     await writeFile(join(source, "state", "probe.jsonl"), `${JSON.stringify({ status: "probe_ok" })}\n`);
     await writeFile(
       join(source, "state", "identity-migrations.jsonl"),
@@ -76,6 +90,7 @@ describe("Watchdog evidence catalog", () => {
     expect(catalog.sweeps).toHaveLength(1);
     expect(catalog.events).toHaveLength(1);
     expect(catalog.identityMigrations).toHaveLength(1);
+    expect(catalog.occurrenceHistory).toHaveLength(1);
     expect(catalog.sources.find((candidate) => candidate.id === "mh-egazette-part8")).toMatchObject({
       status: "provisional",
       evidence_ids: ["mh-egazette"],

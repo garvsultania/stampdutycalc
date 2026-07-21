@@ -100,16 +100,20 @@ export function inspectSearchForm(
 }
 
 export function requirePdf(response: ResponseRecord, description: string): void {
+  requirePdfBody(response.mediaType, response.body, description);
+}
+
+export function requirePdfBody(mediaType: string, body: Uint8Array, description: string): void {
   const hasPdfSignature =
-    response.body.byteLength >= 5 &&
-    response.body[0] === 0x25 &&
-    response.body[1] === 0x50 &&
-    response.body[2] === 0x44 &&
-    response.body[3] === 0x46 &&
-    response.body[4] === 0x2d;
-  if (!response.mediaType.includes("pdf") || !hasPdfSignature) {
+    body.byteLength >= 5 &&
+    body[0] === 0x25 &&
+    body[1] === 0x50 &&
+    body[2] === 0x44 &&
+    body[3] === 0x46 &&
+    body[4] === 0x2d;
+  if (!mediaType.includes("pdf") || !hasPdfSignature) {
     throw new WatchdogError(
-      `${description} returned ${response.mediaType} without a PDF signature`,
+      `${description} returned ${mediaType} without a PDF signature`,
       "shape_drift",
     );
   }

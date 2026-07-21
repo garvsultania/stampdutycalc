@@ -6,7 +6,7 @@ describe("watchdog source registry", () => {
   it("contains only unique first-party HTTPS government sources", () => {
     const sources = listSources();
 
-    expect(sources).toHaveLength(9);
+    expect(sources).toHaveLength(10);
     expect(new Set(sources.map((source) => source.id))).toHaveLength(sources.length);
     expect(new Set(sources.map((source) => source.jurisdiction))).toEqual(
       new Set(["DL", "GJ", "KA", "MH", "TG", "TN", "UP"]),
@@ -19,20 +19,29 @@ describe("watchdog source registry", () => {
     }
   });
 
-  it("declares Maharashtra Part IV-B eligible only for its proven five-year interval", () => {
+  it("registers IGR Maharashtra as provisional departmental publications, not a complete spine", () => {
+    expect(sourceById("mh-igr-publications")).toMatchObject({
+      adapter: "static_index",
+      publication: "department_orders",
+      allowedHosts: ["igrmaharashtra.gov.in"],
+    });
+    expect(sourceById("mh-igr-publications").description).toMatch(/does not establish history or currency/i);
+  });
+
+  it("describes the accepted Part IV-B baseline and exact historical gap without declaring status", () => {
     expect(sourceById("mh-egazette-part4b")).toMatchObject({
       publication: "gazette",
-      status: "accepted",
       allowedHosts: ["egazzete.mahaonline.gov.in"],
     });
+    expect("status" in sourceById("mh-egazette-part4b")).toBe(false);
     expect(sourceById("mh-egazette-part4b").description).toMatch(/2021-07-17 through 2026-07-19/i);
-    expect(sourceById("mh-egazette-part4b").description).toMatch(/earlier history remains outside/i);
+    expect(sourceById("mh-egazette-part4b").description).toMatch(/2015 through 2020/i);
+    expect(sourceById("mh-egazette-part4b").description).toMatch(/one explicitly identified inaccessible document/i);
   });
 
   it("labels Telangana GOIR as orders, not complete gazette coverage", () => {
     expect(sourceById("tg-goir-revenue")).toMatchObject({
       publication: "department_orders",
-      status: "provisional",
     });
     expect(sourceById("tg-goir-revenue").description).toMatch(/does not claim complete gazette coverage/i);
   });
@@ -47,7 +56,6 @@ describe("watchdog source registry", () => {
       allowedHosts: ["example.test"],
       adapter: "static_index",
       publication: "acts",
-      status: "provisional",
       authority: "official_government",
       languages: ["en"],
       ocr: "never",

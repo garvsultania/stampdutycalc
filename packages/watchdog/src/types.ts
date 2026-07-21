@@ -59,7 +59,12 @@ export interface GazettePage {
 }
 
 export type SweepStatus = "ok" | "failed" | "partial";
-export type EventType = "new_document" | "source_unreachable" | "shape_drift" | "sweep_partial";
+export type EventType =
+  | "new_document"
+  | "document_acquired"
+  | "source_unreachable"
+  | "shape_drift"
+  | "sweep_partial";
 
 export interface DocumentRecord {
   sha256: string;
@@ -97,4 +102,22 @@ export interface WatchdogEvent {
   run_id: string;
   documents?: string[];
   detail: string;
+}
+
+export interface OccurrenceHistoryRecord {
+  history_id: string;
+  source_id: SourceId;
+  source_row_id: string;
+  run_id: string;
+  observed_at: string;
+  sha256: string;
+  transient_form_state_removed: boolean;
+  before: OccurrenceMetadata;
+  after: OccurrenceMetadata;
+}
+
+export interface OccurrenceMetadata {
+  title: string;
+  gazette_date: string | null;
+  retrieval: DocumentRecord["retrieval"];
 }

@@ -4,11 +4,14 @@ import type { Fetcher, RequestSpec, ResponseRecord } from "./types.js";
 const USER_AGENT = "StampDraft-Watchdog/0.1 (primary-source archival; contact: watchdog@stampdraft.local)";
 
 export interface HttpFetcherOptions {
+  /** When omitted, requests and redirects are restricted to the initial host. */
+  allowedHosts?: string[];
   minIntervalMs?: number;
   maxAttempts?: number;
   baseBackoffMs?: number;
   requestTimeoutMs?: number;
   maxResponseBytes?: number;
+  maxRedirects?: number;
   fetchImpl?: typeof fetch;
   sleep?: (ms: number) => Promise<void>;
   record?: (response: ResponseRecord) => Promise<void>;
@@ -23,6 +26,8 @@ export class HttpFetcher implements Fetcher {
   private readonly baseBackoffMs: number;
   private readonly requestTimeoutMs: number;
   private readonly maxResponseBytes: number;
+  private readonly maxRedirects: number;
+  private readonly allowedHosts?: ReadonlySet<string>;
   private lastRequestAt = 0;
 
   constructor(private readonly options: HttpFetcherOptions = {}) {
@@ -33,6 +38,8 @@ export class HttpFetcher implements Fetcher {
     this.baseBackoffMs = options.baseBackoffMs ?? 1_000;
     this.requestTimeoutMs = options.requestTimeoutMs ?? 180_000;
     this.maxResponseBytes = options.maxResponseBytes ?? 100 * 1024 * 1024;
+    this.maxRedirects = options.maxRedirects ?? 5;
+    this.allowedHosts = options.allowedHosts ? new Set(options.allowedHosts.map((host) => host.toLowerCase())) : undefined;
   }
 
   async request(spec: RequestSpec): Promise<ResponseRecord> {
@@ -61,14 +68,15 @@ export class HttpFetcher implements Fetcher {
   }
 
   private async fetchOnce(spec: RequestSpec): Promise<ResponseRecord> {
-    const method = spec.method ?? "GET";
+    const initialUrl = new URL(spec.url);
+    const allowedHosts = this.allowedHosts ?? new Set([initialUrl.hostname.toLowerCase()]);
+    assertAllowedUrl(initialUrl, allowedHosts);
+    let currentUrl = initialUrl;
+    let method = spec.method ?? "GET";
     const headers = new Headers({
       "user-agent": USER_AGENT,
       accept: "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.8",
     });
-    const cookie = this.cookieHeader(spec.url);
-    if (cookie) headers.set("cookie", cookie);
-
     let body: string | undefined;
     if (method === "POST") {
       headers.set("content-type", "application/x-www-form-urlencoded");
@@ -78,8 +86,34 @@ export class HttpFetcher implements Fetcher {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), this.requestTimeoutMs);
     try {
-      const response = await this.fetchImpl(spec.url, { method, headers, body, redirect: "follow", signal: controller.signal });
-      this.captureCookies(response.url, response.headers);
+      let response: Response | undefined;
+      for (let redirect = 0; redirect <= this.maxRedirects; redirect++) {
+        const cookie = this.cookieHeader(currentUrl.href);
+        if (cookie) headers.set("cookie", cookie);
+        else headers.delete("cookie");
+        response = await this.fetchImpl(currentUrl, { method, headers, body, redirect: "manual", signal: controller.signal });
+        const responseUrl = response.url ? new URL(response.url) : currentUrl;
+        assertAllowedUrl(responseUrl, allowedHosts);
+        this.captureCookies(responseUrl.href, response.headers);
+        if (!isRedirect(response.status)) break;
+        const location = response.headers.get("location");
+        if (!location) {
+          throw new WatchdogError(`Redirect from ${currentUrl.href} omitted Location`, "shape_drift");
+        }
+        if (redirect === this.maxRedirects) {
+          throw new WatchdogError(`Too many redirects fetching ${spec.url}`, "shape_drift");
+        }
+        const nextUrl = new URL(location, responseUrl);
+        assertAllowedUrl(nextUrl, allowedHosts);
+        await response.body?.cancel();
+        if (response.status === 303 || ((response.status === 301 || response.status === 302) && method === "POST")) {
+          method = "GET";
+          body = undefined;
+          headers.delete("content-type");
+        }
+        currentUrl = nextUrl;
+      }
+      if (!response) throw new WatchdogError(`No response fetching ${spec.url}`, "source_unreachable");
       const responseHeaders = Object.fromEntries(response.headers.entries());
       const declaredBytes = Number(response.headers.get("content-length"));
       if (Number.isFinite(declaredBytes) && declaredBytes > this.maxResponseBytes) {
@@ -88,15 +122,9 @@ export class HttpFetcher implements Fetcher {
           "shape_drift",
         );
       }
-      const responseBody = new Uint8Array(await response.arrayBuffer());
-      if (responseBody.byteLength > this.maxResponseBytes) {
-        throw new WatchdogError(
-          `Response from ${spec.url} contains ${responseBody.byteLength} bytes, exceeding ${this.maxResponseBytes}`,
-          "shape_drift",
-        );
-      }
+      const responseBody = await readBoundedBody(response, spec.url, this.maxResponseBytes);
       return {
-        url: response.url,
+        url: response.url || currentUrl.href,
         status: response.status,
         mediaType: response.headers.get("content-type")?.split(";", 1)[0]?.trim().toLowerCase() ?? "application/octet-stream",
         body: responseBody,
@@ -139,6 +167,43 @@ export class HttpFetcher implements Fetcher {
     if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1_000;
     return this.baseBackoffMs * 2 ** (attempt - 1);
   }
+}
+
+function assertAllowedUrl(url: URL, allowedHosts: ReadonlySet<string>): void {
+  if (url.protocol !== "https:" || !allowedHosts.has(url.hostname.toLowerCase())) {
+    throw new WatchdogError(`Request or redirect leaves the HTTPS host allowlist: ${url.href}`, "shape_drift");
+  }
+}
+
+function isRedirect(status: number): boolean {
+  return status === 301 || status === 302 || status === 303 || status === 307 || status === 308;
+}
+
+async function readBoundedBody(response: Response, requestUrl: string, maxBytes: number): Promise<Uint8Array> {
+  if (!response.body) return new Uint8Array();
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      await reader.cancel();
+      throw new WatchdogError(
+        `Response from ${requestUrl} contains more than ${maxBytes} bytes`,
+        "shape_drift",
+      );
+    }
+    chunks.push(value);
+  }
+  const body = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return body;
 }
 
 function splitSetCookie(value: string | null): string[] {

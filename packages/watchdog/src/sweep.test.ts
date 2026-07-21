@@ -3,8 +3,9 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { EvidenceStore } from "./archive.js";
+import type { SourceAdapter } from "./adapter.js";
 import { WatchdogError } from "./errors.js";
-import { runMhEgazetteSweep, SweepFailedError } from "./sweep.js";
+import { runMhEgazetteSweep, runSweep, SweepFailedError } from "./sweep.js";
 import type { Fetcher, RequestSpec, ResponseRecord } from "./types.js";
 
 const sourceUrl = "https://example.test/GazetteSearch.aspx";
@@ -74,7 +75,16 @@ describe("MH e-Gazette sweep", () => {
     expect(second.newDocuments).toHaveLength(0);
     expect(await jsonLines(join(root, "index", "documents.jsonl"))).toHaveLength(2);
     expect(await jsonLines(join(root, "state", "sweeps.jsonl"))).toHaveLength(2);
-    expect(await jsonLines(join(root, "state", "events.jsonl"))).toHaveLength(1);
+    const events = await jsonLines(join(root, "state", "events.jsonl"));
+    expect(events.map((event) => event.type)).toEqual([
+      "new_document",
+      "document_acquired",
+      "document_acquired",
+    ]);
+    expect(events.filter((event) => event.type === "document_acquired")).toEqual([
+      expect.objectContaining({ run_id: "run-1", documents: expect.arrayContaining(first.newDocuments) }),
+      expect.objectContaining({ run_id: "run-2", documents: expect.arrayContaining(first.newDocuments) }),
+    ]);
   });
 
   it("resumes from integrity-checked archived rows without re-fetching them", async () => {
@@ -102,6 +112,11 @@ describe("MH e-Gazette sweep", () => {
       newBlobs: 1,
     });
     expect(fetcher.documentRequests).toBe(2);
+    const events = await jsonLines(join(root, "state", "events.jsonl"));
+    expect(events.filter((event) => event.type === "document_acquired").at(-1)).toMatchObject({
+      run_id: "resume-run",
+      documents: expect.arrayContaining(resumed.newDocuments),
+    });
   });
 
   it("records a bounded run as partial and emits an event", async () => {
@@ -118,8 +133,31 @@ describe("MH e-Gazette sweep", () => {
     const sweeps = await jsonLines(join(root, "state", "sweeps.jsonl"));
     const events = await jsonLines(join(root, "state", "events.jsonl"));
     expect(sweeps[0]).toMatchObject({ status: "partial", rows_seen: 2 });
-    expect(events.map((event) => event.type)).toEqual(["new_document", "sweep_partial"]);
-    expect(events[1]).toMatchObject({ type: "sweep_partial", run_id: "partial-run" });
+    expect(events.map((event) => event.type)).toEqual([
+      "new_document",
+      "document_acquired",
+      "sweep_partial",
+    ]);
+    expect(events[2]).toMatchObject({ type: "sweep_partial", run_id: "partial-run" });
+  });
+
+  it("records an explicit inaccessible-row skip and receipts every covered neighbour", async () => {
+    const root = await mkdtemp(join(tmpdir(), "stampdraft-sweep-"));
+    const evidence = new EvidenceStore(root);
+    const report = await runMhEgazetteSweep(
+      { from: "2026-07-13", to: "2026-07-13", skipRows: [2] },
+      { fetcher: new FixtureFetcher(), evidence, runId: () => "skip-run", now: () => "2026-07-17T00:00:00.000Z" },
+    );
+
+    expect(report).toMatchObject({ status: "partial", rows: 2, documentsFetched: 1 });
+    const events = await jsonLines(join(root, "state", "events.jsonl"));
+    expect(events.map((event) => event.type)).toEqual([
+      "new_document",
+      "document_acquired",
+      "sweep_partial",
+    ]);
+    expect(events[1]).toMatchObject({ type: "document_acquired", run_id: "skip-run", documents: report.newDocuments });
+    expect(events[2]?.detail).toMatch(/explicitly skipped row 2/);
   });
 
   it("records a mid-sweep network failure as partial, never as a clean zero", async () => {
@@ -158,6 +196,39 @@ describe("MH e-Gazette sweep", () => {
     const events = await jsonLines(join(root, "state", "events.jsonl"));
     expect(sweeps[0]).toMatchObject({ status: "failed", rows_seen: 0 });
     expect(events[0]).toMatchObject({ type: "shape_drift", run_id: "shape-run" });
+  });
+
+  it("never records an adapter's unexplained zero-row result as a successful sweep", async () => {
+    const root = await mkdtemp(join(tmpdir(), "stampdraft-sweep-"));
+    const evidence = new EvidenceStore(root);
+    const adapter: SourceAdapter = {
+      sourceId: "mh-egazette",
+      async begin() {
+        return {
+          firstPage: { rows: [], pageNumber: 1, pagesExpected: 1 },
+          async next() {
+            return undefined;
+          },
+        };
+      },
+      verifyDocument() {},
+    };
+
+    await expect(runSweep(
+      adapter,
+      { from: "2026-07-13", to: "2026-07-13" },
+      {
+        fetcher: new FixtureFetcher(),
+        evidence,
+        runId: () => "zero-run",
+        now: () => "2026-07-17T00:00:00.000Z",
+      },
+    )).rejects.toMatchObject<SweepFailedError>({
+      report: { status: "partial", rows: 0, error: "mh-egazette sweep returned zero document rows" },
+    });
+
+    const sweeps = await jsonLines(join(root, "state", "sweeps.jsonl"));
+    expect(sweeps).toEqual([expect.objectContaining({ run_id: "zero-run", status: "partial", rows_seen: 0 })]);
   });
 });
 

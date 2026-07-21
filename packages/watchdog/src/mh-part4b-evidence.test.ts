@@ -1,11 +1,49 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
+import { loadEvidenceCatalog } from "./catalog.js";
 import type { DocumentRecord, SweepRun } from "./types.js";
 
 const data = (path: string) => fileURLToPath(new URL(`../../../watchdog-data/sources/mh-egazette-part4b/${path}`, import.meta.url));
 
 describe("Maharashtra Part IV-B direct evidence", () => {
+  it("passes the generated promotion contract without a handwritten source status", () => {
+    const catalog = loadEvidenceCatalog(fileURLToPath(new URL("../../../watchdog-data", import.meta.url)));
+    const report = catalog.promotions.find((candidate) => candidate.source_id === "mh-egazette-part4b");
+
+    expect(report).toMatchObject({
+      status: "accepted",
+      eligible: true,
+      reasons: [],
+      requested: {
+        range_from: "2021-07-17",
+        range_to: "2026-07-19",
+        rows: 2575,
+        pages: 26,
+        unique_blobs: 2547,
+        repeat_runs: 2,
+      },
+      observed: {
+        document_occurrences: 2575,
+        unique_occurrences: 2575,
+        unique_blobs: 2547,
+        latest_repeat_additions: 0,
+      },
+    });
+    expect(report?.observed.complete_runs).toHaveLength(3);
+    expect(report?.observed.incomplete_runs.filter((run) =>
+      run.range_from === "2021-07-17" && run.range_to >= "2026-07-17"
+    ).map((run) => [run.status, run.recovered])).toEqual([
+      ["partial", true],
+      ["failed", true],
+    ]);
+    expect(report?.observed.other_complete_runs.filter((run) =>
+      run.range_from >= "2015-01-01" && run.range_to <= "2020-12-31"
+    )).toHaveLength(6);
+    expect(catalog.sources.find((candidate) => candidate.id === "mh-egazette-part4b")?.status).toBe("accepted");
+    expect(catalog.sources.find((candidate) => candidate.id === "mh-egazette-part8")?.status).toBe("accepted");
+  });
+
   it("records complete acquisition, independent re-fetch, and stable-identity audits", async () => {
     const sweeps = await jsonLines<SweepRun>(data("state/sweeps.jsonl"));
     const complete = sweeps.filter((sweep) =>
@@ -27,9 +65,10 @@ describe("Maharashtra Part IV-B direct evidence", () => {
     });
 
     const documents = await jsonLines<DocumentRecord>(data("index/documents.jsonl"));
-    expect(documents).toHaveLength(2575);
-    expect(new Set(documents.map((document) => document.source_row_id))).toHaveLength(2575);
-    expect(new Set(documents.map((document) => document.sha256))).toHaveLength(2547);
+    const baseline = documents.filter((document) => inRange(document.gazette_date, "2021-07-17", "2026-07-19"));
+    expect(baseline).toHaveLength(2575);
+    expect(new Set(documents.map((document) => `${document.source_id}\u0000${document.source_row_id}`))).toHaveLength(documents.length);
+    expect(new Set(baseline.map((document) => document.sha256))).toHaveLength(2547);
     expect(documents.some((document) => "__VIEWSTATE" in (document.retrieval.form_values ?? {}))).toBe(false);
   });
 
@@ -50,4 +89,9 @@ describe("Maharashtra Part IV-B direct evidence", () => {
 
 async function jsonLines<T>(path: string): Promise<T[]> {
   return (await readFile(path, "utf8")).trim().split("\n").filter(Boolean).map((line) => JSON.parse(line) as T);
+}
+
+function inRange(value: string | undefined, from: string, to: string): boolean {
+  const normalized = value?.replaceAll("/", "-");
+  return normalized !== undefined && normalized >= from && normalized <= to;
 }

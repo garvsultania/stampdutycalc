@@ -9,6 +9,9 @@ export interface SweepOptions {
   to: string;
   limit?: number;
   resume?: boolean;
+  /** One-based result positions intentionally bypassed after a recorded,
+   * repeatable per-document source failure. Any skipped run is partial. */
+  skipRows?: number[];
 }
 
 export interface SweepDependencies {
@@ -68,6 +71,9 @@ export async function runSweep(
   if (options.limit !== undefined && (!Number.isSafeInteger(options.limit) || options.limit < 1)) {
     throw new WatchdogError("Sweep limit must be a positive integer", "shape_drift");
   }
+  if (options.skipRows?.some((row) => !Number.isSafeInteger(row) || row < 1)) {
+    throw new WatchdogError("Sweep skip rows must be positive one-based integers", "shape_drift");
+  }
   const now = dependencies.now ?? (() => new Date().toISOString());
   const runId = (dependencies.runId ?? createRunId)();
   const startedAt = now();
@@ -78,6 +84,7 @@ export async function runSweep(
   let documentsReused = 0;
   let newBlobs = 0;
   const newDocuments: string[] = [];
+  const coveredDocuments: string[] = [];
 
   try {
     const session = await adapter.begin(fetcher, options);
@@ -108,6 +115,9 @@ export async function runSweep(
       });
     }
     adapter.finalizeRows?.(rows);
+    if (rows.length === 0) {
+      throw new WatchdogError(`${sourceId} sweep returned zero document rows`, "shape_drift");
+    }
     const uniqueRows = new Set(rows.map((row) => row.sourceRowId));
     if (uniqueRows.size !== rows.length) {
       throw new WatchdogError(
@@ -115,11 +125,18 @@ export async function runSweep(
         "shape_drift",
       );
     }
-    await evidence.refreshDocumentMetadata(rows);
-    const documents = options.limit === undefined ? rows : rows.slice(0, options.limit);
+    const skippedPositions = new Set(options.skipRows ?? []);
+    if ([...skippedPositions].some((position) => position > rows.length)) {
+      throw new WatchdogError(`Sweep skip row exceeds the ${rows.length}-row result set`, "shape_drift");
+    }
+    await evidence.refreshDocumentMetadata(rows, { runId, observedAt: now() });
+    const eligibleRows = rows.filter((_, index) => !skippedPositions.has(index + 1));
+    const documents = options.limit === undefined ? eligibleRows : eligibleRows.slice(0, options.limit);
     for (const [index, row] of documents.entries()) {
-      if (options.resume && await evidence.archivedDocument(row)) {
+      const existing = options.resume ? await evidence.archivedDocument(row) : undefined;
+      if (existing) {
         documentsReused++;
+        coveredDocuments.push(existing.sha256);
         dependencies.onProgress?.({
           phase: "documents",
           documentsTotal: documents.length,
@@ -133,6 +150,7 @@ export async function runSweep(
       const archived = await evidence.archive(row, response.body, response.mediaType, now());
       if (archived.newBlob) newBlobs++;
       if (archived.newDocument) newDocuments.push(archived.document.sha256);
+      coveredDocuments.push(archived.document.sha256);
       documentsFetched++;
       dependencies.onProgress?.({
         phase: "documents",
@@ -142,11 +160,16 @@ export async function runSweep(
       });
     }
     const documentsCovered = documentsFetched + documentsReused;
-    const status = documentsCovered === rowsSeen ? "ok" : "partial";
+    const status = documentsCovered === rowsSeen && skippedPositions.size === 0 ? "ok" : "partial";
     const error = status === "partial"
-      ? documentsReused === 0
-        ? `Bounded sweep fetched ${documentsFetched} of ${rowsSeen} listed documents`
-        : `Resumed sweep covered ${documentsCovered} of ${rowsSeen} listed documents (${documentsFetched} fetched, ${documentsReused} reused)`
+      ? skippedPositions.size > 0
+        ? `Sweep explicitly skipped ${[...skippedPositions].sort((left, right) => left - right).map((position) => {
+            const row = rows[position - 1]!;
+            return `row ${position} (${row.sourceRowId}: ${row.title})`;
+          }).join(", ")}; covered ${documentsCovered} of ${rowsSeen}`
+        : documentsReused === 0
+          ? `Bounded sweep fetched ${documentsFetched} of ${rowsSeen} listed documents`
+          : `Resumed sweep covered ${documentsCovered} of ${rowsSeen} listed documents (${documentsFetched} fetched, ${documentsReused} reused)`
       : undefined;
     await evidence.recordSweep({
       run_id: runId,
@@ -164,6 +187,17 @@ export async function runSweep(
     if (newDocuments.length > 0) {
       await evidence.emitEvent(
         createEvent(runId, "new_document", `${newDocuments.length} new documents archived`, newDocuments, sourceId),
+      );
+    }
+    if (coveredDocuments.length > 0) {
+      await evidence.emitEvent(
+        createEvent(
+          runId,
+          "document_acquired",
+          `${coveredDocuments.length} document occurrences integrity-checked by ${status} acquisition`,
+          coveredDocuments,
+          sourceId,
+        ),
       );
     }
     if (error) await evidence.emitEvent(createEvent(runId, "sweep_partial", error, undefined, sourceId));

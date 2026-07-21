@@ -46,10 +46,58 @@ describe("HTTP fetcher", () => {
 
     await expect(fetcher.request({ url })).rejects.toThrow(/exceeding 100/);
   });
+
+  it("cancels an undeclared streaming body as soon as it crosses the byte limit", async () => {
+    let cancelled = false;
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new Uint8Array(60));
+        controller.enqueue(new Uint8Array(60));
+      },
+      cancel() {
+        cancelled = true;
+      },
+    });
+    const response = new Response(body, { status: 200, headers: { "content-type": "application/pdf" } });
+    Object.defineProperty(response, "url", { value: url });
+    const fetcher = new HttpFetcher({
+      fetchImpl: vi.fn<typeof fetch>().mockResolvedValue(response),
+      minIntervalMs: 0,
+      maxResponseBytes: 100,
+    });
+
+    await expect(fetcher.request({ url })).rejects.toThrow(/more than 100 bytes/);
+    expect(cancelled).toBe(true);
+  });
+
+  it("blocks a redirect before fetching a host outside the source allowlist", async () => {
+    const redirect = makeResponse("", 302, "text/plain");
+    redirect.headers.set("location", "https://outside.test/document.pdf");
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(redirect);
+    const fetcher = new HttpFetcher({
+      fetchImpl,
+      allowedHosts: ["example.test"],
+      minIntervalMs: 0,
+    });
+
+    await expect(fetcher.request({ url })).rejects.toThrow(/leaves the HTTPS host allowlist/);
+    expect(fetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it("follows a relative redirect on an allowlisted host", async () => {
+    const redirect = makeResponse("", 302, "text/plain");
+    redirect.headers.set("location", "/final");
+    const final = makeResponse("ok", 200, "text/html", "https://example.test/final");
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValueOnce(redirect).mockResolvedValueOnce(final);
+    const fetcher = new HttpFetcher({ fetchImpl, allowedHosts: ["example.test"], minIntervalMs: 0 });
+
+    await expect(fetcher.request({ url })).resolves.toMatchObject({ status: 200, url: "https://example.test/final" });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
 });
 
-function makeResponse(body: string, status: number, contentType: string): Response {
+function makeResponse(body: string, status: number, contentType: string, responseUrl = url): Response {
   const value = new Response(body, { status, headers: { "content-type": contentType } });
-  Object.defineProperty(value, "url", { value: url });
+  Object.defineProperty(value, "url", { value: responseUrl });
   return value;
 }

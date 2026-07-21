@@ -12,12 +12,13 @@ const acceptanceActs = [
 ];
 
 describe("committed MH e-Gazette evidence", () => {
-  it("indexes 195 unique, reproducible PDF records including every acceptance Act", async () => {
+  it("retains the 195-row accepted range while permitting stable historical backfill", async () => {
     const documents = await jsonLines<DocumentRecord>(data("index/documents.jsonl"));
+    const baseline = documents.filter((document) => inRange(document.gazette_date, "2025-04-09", "2026-07-16"));
 
-    expect(documents).toHaveLength(195);
-    expect(new Set(documents.map((document) => document.sha256))).toHaveLength(195);
-    expect(new Set(documents.map((document) => document.source_row_id))).toHaveLength(195);
+    expect(baseline).toHaveLength(195);
+    expect(new Set(baseline.map((document) => document.sha256))).toHaveLength(195);
+    expect(new Set(documents.map((document) => `${document.source_id}\u0000${document.source_row_id}`))).toHaveLength(documents.length);
     for (const document of documents) {
       expect(document).toMatchObject({
         source_id: "mh-egazette",
@@ -30,7 +31,7 @@ describe("committed MH e-Gazette evidence", () => {
       expect(document.retrieval.form_values?.__EVENTTARGET).toBeTruthy();
     }
     for (const act of acceptanceActs) {
-      expect(documents.filter((document) => act.test(document.title))).toHaveLength(1);
+      expect(baseline.filter((document) => act.test(document.title))).toHaveLength(1);
     }
   });
 
@@ -38,9 +39,15 @@ describe("committed MH e-Gazette evidence", () => {
     const documents = await jsonLines<DocumentRecord>(data("index/documents.jsonl"));
     const sweeps = await jsonLines<SweepRun>(data("state/sweeps.jsonl"));
     const events = await jsonLines<WatchdogEvent>(data("state/events.jsonl"));
-    const successful = sweeps.find((sweep) => sweep.status === "ok");
+    const successful = sweeps.filter((sweep) =>
+      sweep.status === "ok" &&
+      sweep.range_from === "2025-04-09" &&
+      sweep.range_to === "2026-07-16"
+    );
+    const baseline = documents.filter((document) => inRange(document.gazette_date, "2025-04-09", "2026-07-16"));
 
-    expect(successful).toMatchObject({
+    expect(successful).toHaveLength(2);
+    expect(successful.at(-1)).toMatchObject({
       source_id: "mh-egazette",
       range_from: "2025-04-09",
       range_to: "2026-07-16",
@@ -48,9 +55,14 @@ describe("committed MH e-Gazette evidence", () => {
       pages_expected: 2,
       pages_fetched: 2,
     });
-    const event = events.find((candidate) => candidate.type === "new_document" && candidate.run_id === successful?.run_id);
-    expect(event?.documents).toHaveLength(195);
-    expect(new Set(event?.documents)).toEqual(new Set(documents.map((document) => document.sha256)));
+    const acquisitionEvent = events.find(
+      (candidate) => candidate.type === "new_document" && candidate.run_id === successful[0]?.run_id,
+    );
+    expect(acquisitionEvent?.documents).toHaveLength(195);
+    expect(new Set(acquisitionEvent?.documents)).toEqual(new Set(baseline.map((document) => document.sha256)));
+    expect(events.some(
+      (candidate) => candidate.type === "new_document" && candidate.run_id === successful.at(-1)?.run_id,
+    )).toBe(false);
     expect(events.some((candidate) => candidate.type === "sweep_partial")).toBe(true);
   });
 
@@ -69,10 +81,18 @@ describe("committed MH e-Gazette evidence", () => {
       expect(names).not.toContain("cookie");
       expect(names).not.toContain("authorization");
       expect(entry.response.status).toBe(200);
+      expect(Object.keys(entry.request.formValues ?? {})).not.toEqual(
+        expect.arrayContaining([expect.stringMatching(/viewstate|eventvalidation|hiddenfield|token|password|secret/i)]),
+      );
     }
   });
 });
 
 async function jsonLines<T>(path: string): Promise<T[]> {
   return (await readFile(path, "utf8")).trim().split("\n").filter(Boolean).map((line) => JSON.parse(line) as T);
+}
+
+function inRange(value: string | undefined, from: string, to: string): boolean {
+  const normalized = value?.replaceAll("/", "-");
+  return normalized !== undefined && normalized >= from && normalized <= to;
 }

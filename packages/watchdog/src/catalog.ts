@@ -3,16 +3,22 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { WatchdogError } from "./errors.js";
 import { assessSourcePromotion, type SourcePromotionReport } from "./promotion.js";
-import { listSources, type SourceDefinition } from "./sources.js";
-import type { DocumentRecord, SweepRun, WatchdogEvent } from "./types.js";
+import { listSources, type SourceDefinition, type SourceStatus } from "./sources.js";
+import type { DocumentRecord, OccurrenceHistoryRecord, SweepRun, WatchdogEvent } from "./types.js";
 
 export interface WatchdogEvidenceCatalog {
   documents: DocumentRecord[];
   sweeps: SweepRun[];
   events: WatchdogEvent[];
   identityMigrations: IdentityMigrationRecord[];
+  occurrenceHistory: OccurrenceHistoryRecord[];
   promotions: SourcePromotionReport[];
-  sources: readonly SourceDefinition[];
+  sources: readonly CatalogSourceDefinition[];
+}
+
+export interface CatalogSourceDefinition extends SourceDefinition {
+  /** Generated exclusively from the machine-checkable promotion report. */
+  status: SourceStatus;
 }
 
 export interface IdentityMigrationRecord {
@@ -43,6 +49,7 @@ export function loadEvidenceCatalog(rawRoot: string): WatchdogEvidenceCatalog {
   const sweeps: SweepRun[] = [];
   const events: WatchdogEvent[] = [];
   const identityMigrations: IdentityMigrationRecord[] = [];
+  const occurrenceHistory: OccurrenceHistoryRecord[] = [];
   for (const file of walk(root)) {
     if (file.endsWith("/index/documents.jsonl")) {
       documents.push(...readJsonLines(file, isDocumentRecord));
@@ -52,6 +59,8 @@ export function loadEvidenceCatalog(rawRoot: string): WatchdogEvidenceCatalog {
       events.push(...readJsonLines(file, isWatchdogEvent));
     } else if (file.endsWith("/state/identity-migrations.jsonl")) {
       identityMigrations.push(...readIdentityMigrations(file));
+    } else if (file.endsWith("/state/occurrence-history.jsonl")) {
+      occurrenceHistory.push(...readJsonLines(file, isOccurrenceHistoryRecord));
     }
   }
 
@@ -65,16 +74,14 @@ export function loadEvidenceCatalog(rawRoot: string): WatchdogEvidenceCatalog {
   assertUnique(sweeps, (sweep) => sweep.run_id, "sweep run_id");
   assertUnique(events, (event) => event.event_id, "event_id");
   assertUnique(identityMigrations, (migration) => migration.migration_id, "identity migration_id");
+  assertUnique(occurrenceHistory, (record) => record.history_id, "occurrence history_id");
   const declaredSources = listSources();
   const promotions = declaredSources.map((source) => assessSourcePromotion(source, documents, sweeps, events));
   const sources = declaredSources.map((source, index) => ({
     ...source,
-    status:
-      source.status === "accepted" && promotions[index]!.eligible
-        ? ("accepted" as const)
-        : ("provisional" as const),
+    status: promotions[index]!.status,
   }));
-  return { documents, sweeps, events, identityMigrations, promotions, sources };
+  return { documents, sweeps, events, identityMigrations, occurrenceHistory, promotions, sources };
 }
 
 function readIdentityMigrations(file: string): IdentityMigrationRecord[] {
@@ -194,6 +201,23 @@ function isIdentityMigrationRecord(value: unknown): value is IdentityMigrationRe
     typeof value.backup_retained === "boolean" &&
     (value.audit_note === undefined || typeof value.audit_note === "string") &&
     typeof value.migrated_at === "string"
+  );
+}
+
+function isOccurrenceHistoryRecord(value: unknown): value is OccurrenceHistoryRecord {
+  return (
+    isRecord(value) &&
+    typeof value.history_id === "string" &&
+    /^[a-f0-9]{64}$/.test(value.history_id) &&
+    typeof value.source_id === "string" &&
+    typeof value.source_row_id === "string" &&
+    typeof value.run_id === "string" &&
+    typeof value.observed_at === "string" &&
+    typeof value.sha256 === "string" &&
+    /^[a-f0-9]{64}$/.test(value.sha256) &&
+    typeof value.transient_form_state_removed === "boolean" &&
+    isRecord(value.before) &&
+    isRecord(value.after)
   );
 }
 

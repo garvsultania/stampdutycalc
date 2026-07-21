@@ -2,7 +2,7 @@ import { mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { createEvent, EvidenceStore } from "./archive.js";
+import { createEvent, EvidenceStore, sanitizeOccurrenceHistoryRecord } from "./archive.js";
 import { WatchdogError } from "./errors.js";
 import type { GazetteRow } from "./types.js";
 
@@ -39,14 +39,51 @@ describe("watchdog evidence store", () => {
     expect(await store.emitEvent(failureOne)).toBe(true);
     expect(await store.emitEvent(failureTwo)).toBe(true);
 
-    expect(await store.refreshDocumentMetadata([{ ...row, gazetteDate: "2026/07/14" }])).toBe(1);
-    expect(await store.refreshDocumentMetadata([{ ...row, gazetteDate: "2026/07/14" }])).toBe(0);
+    const observation = { runId: "run-2", observedAt: "2026-07-18T00:00:00.000Z" };
+    expect(await store.refreshDocumentMetadata([{ ...row, gazetteDate: "2026/07/14" }], observation)).toBe(1);
+    expect(await store.refreshDocumentMetadata([{ ...row, gazetteDate: "2026/07/14" }], observation)).toBe(0);
 
     const index = (await readFile(join(root, "index", "documents.jsonl"), "utf8")).trim().split("\n");
     const events = (await readFile(join(root, "state", "events.jsonl"), "utf8")).trim().split("\n");
     expect(index).toHaveLength(1);
     expect(JSON.parse(index[0]!).gazette_date).toBe("2026/07/14");
     expect(events).toHaveLength(3);
+    const history = (await readFile(join(root, "state", "occurrence-history.jsonl"), "utf8")).trim().split("\n");
+    expect(history).toHaveLength(1);
+    expect(JSON.parse(history[0]!)).toMatchObject({
+      source_id: "mh-egazette",
+      source_row_id: "row-1",
+      run_id: "run-2",
+      transient_form_state_removed: false,
+      before: { gazette_date: "2026/07/13" },
+      after: { gazette_date: "2026/07/14" },
+    });
+  });
+
+  it("redacts transient form state from occurrence history while preserving the audit fact", () => {
+    const safe = sanitizeOccurrenceHistoryRecord({
+      history_id: "0".repeat(64),
+      source_id: "mh-egazette",
+      source_row_id: "row-1",
+      run_id: "run-2",
+      observed_at: "2026-07-18T00:00:00.000Z",
+      sha256: "a".repeat(64),
+      transient_form_state_removed: false,
+      before: {
+        title: "Title",
+        gazette_date: null,
+        retrieval: { url: row.pdfRequest.url, form_values: { __VIEWSTATE: "secret", __EVENTTARGET: "document-1" } },
+      },
+      after: {
+        title: "Title",
+        gazette_date: null,
+        retrieval: { url: row.pdfRequest.url, form_values: { __EVENTTARGET: "document-1" } },
+      },
+    });
+
+    expect(safe.transient_form_state_removed).toBe(true);
+    expect(safe.before.retrieval.form_values).toEqual({ __EVENTTARGET: "document-1" });
+    expect(safe.history_id).toMatch(/^[a-f0-9]{64}$/);
   });
 
   it("refuses to target the rules corpus", () => {

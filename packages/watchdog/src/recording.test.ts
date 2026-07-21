@@ -10,7 +10,7 @@ describe("response recorder", () => {
     const root = await mkdtemp(join(tmpdir(), "stampdraft-recording-"));
     const recorder = new ResponseRecorder(root);
     const response: ResponseRecord = {
-      url: "https://example.test/search",
+      url: "https://user:password@example.test/search?query=public&access_token=secret",
       status: 200,
       mediaType: "text/html",
       body: new TextEncoder().encode("<html>fixture</html>"),
@@ -20,7 +20,16 @@ describe("response recorder", () => {
         authorization: "Bearer secret",
         "x-request-id": "request-1",
       },
-      request: { method: "GET", url: "https://example.test/search" },
+      request: {
+        method: "POST",
+        url: "https://user:password@example.test/search?query=public&access_token=secret",
+        formValues: {
+          query: "public",
+          __VIEWSTATE: "transient-state",
+          csrf_token: "secret",
+          password: "secret",
+        },
+      },
     };
 
     await recorder.record(response);
@@ -35,6 +44,9 @@ describe("response recorder", () => {
       "content-type": "text/html",
       "x-request-id": "request-1",
     });
+    expect(meta.request.formValues).toEqual({ query: "public" });
+    expect(meta.request.url).toBe("https://example.test/search?query=public");
+    expect(meta.response.url).toBe("https://example.test/search?query=public");
   });
 
   it("uses a PDF extension when the response media type identifies a PDF", async () => {

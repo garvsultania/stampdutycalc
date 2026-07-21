@@ -19,9 +19,9 @@ export class ResponseRecorder {
 
     const meta: RecordedResponseMeta = {
       sequence,
-      request: response.request,
+      request: sanitizedRequest(response.request),
       response: {
-        url: response.url,
+        url: sanitizedUrl(response.url),
         status: response.status,
         media_type: response.mediaType,
         headers: sanitizedHeaders(response.headers),
@@ -33,6 +33,42 @@ export class ResponseRecorder {
       flag: "wx",
     });
   }
+}
+
+export function sanitizedRequest(request: ResponseRecord["request"]): ResponseRecord["request"] {
+  const url = sanitizedUrl(request.url);
+  if (!request.formValues) return { ...request, url };
+  const formValues = Object.fromEntries(
+    Object.entries(request.formValues).filter(([name]) => !isSensitiveFormField(name)),
+  );
+  return {
+    method: request.method,
+    url,
+    ...(Object.keys(formValues).length > 0 ? { formValues } : {}),
+  };
+}
+
+function isSensitiveFormField(name: string): boolean {
+  return (
+    /^__(?:VIEWSTATE|EVENTVALIDATION)/i.test(name) ||
+    /(?:authorization|cookie|csrf|hiddenfield|password|passwd|requestverification|secret|session|token)/i.test(name)
+  );
+}
+
+export function sanitizedUrl(value: string): string {
+  const url = new URL(value);
+  let changed = false;
+  if (url.username || url.password) {
+    url.username = "";
+    url.password = "";
+    changed = true;
+  }
+  for (const name of [...url.searchParams.keys()]) {
+    if (!isSensitiveFormField(name)) continue;
+    url.searchParams.delete(name);
+    changed = true;
+  }
+  return changed ? url.href : value;
 }
 
 function extensionFor(response: ResponseRecord): string {

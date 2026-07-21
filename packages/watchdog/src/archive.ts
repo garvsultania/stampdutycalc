@@ -2,12 +2,26 @@ import { createHash, randomUUID } from "node:crypto";
 import { appendFile, mkdir, readFile, rename, stat, writeFile } from "node:fs/promises";
 import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { WatchdogError } from "./errors.js";
-import { SOURCE_ID, type DocumentRecord, type GazetteRow, type SourceId, type SweepRun, type WatchdogEvent } from "./types.js";
+import {
+  SOURCE_ID,
+  type DocumentRecord,
+  type GazetteRow,
+  type OccurrenceHistoryRecord,
+  type OccurrenceMetadata,
+  type SourceId,
+  type SweepRun,
+  type WatchdogEvent,
+} from "./types.js";
 
 export interface ArchiveResult {
   document: DocumentRecord;
   newBlob: boolean;
   newDocument: boolean;
+}
+
+export interface OccurrenceObservation {
+  runId: string;
+  observedAt: string;
 }
 
 export class EvidenceStore {
@@ -84,21 +98,27 @@ export class EvidenceStore {
     return document;
   }
 
-  async refreshDocumentMetadata(rows: GazetteRow[]): Promise<number> {
+  async refreshDocumentMetadata(rows: GazetteRow[], observation: OccurrenceObservation): Promise<number> {
     const path = join(this.root, "index", "documents.jsonl");
     const documents = await this.documents();
     if (documents.length === 0) return 0;
     const rowsById = new Map(rows.map((row) => [row.sourceRowId, row]));
     let updated = 0;
+    const history: OccurrenceHistoryRecord[] = [];
     const refreshed = documents.map((document) => {
+      if (document.source_id !== this.sourceId) return document;
       const row = rowsById.get(document.source_row_id);
       if (!row) return document;
       const next = documentRecord(this.sourceId, row, document.sha256, document.media_type, document.fetched_at);
       next.ocr = document.ocr;
-      if (JSON.stringify(next) !== JSON.stringify(document)) updated++;
+      if (JSON.stringify(next) !== JSON.stringify(document)) {
+        updated++;
+        history.push(occurrenceHistory(document, next, observation));
+      }
       return next;
     });
     if (updated > 0) {
+      await appendUniqueMany(join(this.root, "state", "occurrence-history.jsonl"), "history_id", history);
       await writeJsonLinesAtomically(path, refreshed);
       this.documentsCache = refreshed;
     }
@@ -117,6 +137,78 @@ export class EvidenceStore {
     this.documentsCache ??= await readJsonLines<DocumentRecord>(join(this.root, "index", "documents.jsonl"));
     return this.documentsCache;
   }
+}
+
+function occurrenceHistory(
+  before: DocumentRecord,
+  after: DocumentRecord,
+  observation: OccurrenceObservation,
+): OccurrenceHistoryRecord {
+  const beforeMetadata = occurrenceMetadata(before);
+  const afterMetadata = occurrenceMetadata(after);
+  const transientFormStateRemoved =
+    JSON.stringify(before.retrieval) !== JSON.stringify(beforeMetadata.retrieval) ||
+    JSON.stringify(after.retrieval) !== JSON.stringify(afterMetadata.retrieval);
+  const record = {
+    source_id: before.source_id,
+    source_row_id: before.source_row_id,
+    run_id: observation.runId,
+    observed_at: observation.observedAt,
+    sha256: before.sha256,
+    transient_form_state_removed: transientFormStateRemoved,
+    before: beforeMetadata,
+    after: afterMetadata,
+  };
+  return { history_id: occurrenceHistoryId(record), ...record };
+}
+
+function occurrenceMetadata(document: DocumentRecord): OccurrenceMetadata {
+  return {
+    title: document.title,
+    gazette_date: document.gazette_date ?? null,
+    retrieval: sanitizedRetrieval(document.retrieval),
+  };
+}
+
+function sanitizedRetrieval(retrieval: DocumentRecord["retrieval"]): DocumentRecord["retrieval"] {
+  return {
+    url: retrieval.url,
+    ...(retrieval.form_values ? { form_values: archivalFormValues(retrieval.form_values) } : {}),
+  };
+}
+
+export function sanitizeOccurrenceHistoryRecord(record: OccurrenceHistoryRecord): OccurrenceHistoryRecord {
+  const before = { ...record.before, retrieval: sanitizedRetrieval(record.before.retrieval) };
+  const after = { ...record.after, retrieval: sanitizedRetrieval(record.after.retrieval) };
+  const transientFormStateRemoved =
+    record.transient_form_state_removed ||
+    JSON.stringify(before) !== JSON.stringify(record.before) ||
+    JSON.stringify(after) !== JSON.stringify(record.after);
+  const safe = {
+    source_id: record.source_id,
+    source_row_id: record.source_row_id,
+    run_id: record.run_id,
+    observed_at: record.observed_at,
+    sha256: record.sha256,
+    transient_form_state_removed: transientFormStateRemoved,
+    before,
+    after,
+  };
+  return { history_id: occurrenceHistoryId(safe), ...safe };
+}
+
+function occurrenceHistoryId(
+  record: Omit<OccurrenceHistoryRecord, "history_id">,
+): string {
+  const identity = JSON.stringify({
+    source_id: record.source_id,
+    source_row_id: record.source_row_id,
+    sha256: record.sha256,
+    transient_form_state_removed: record.transient_form_state_removed,
+    before: record.before,
+    after: record.after,
+  });
+  return createHash("sha256").update(identity).digest("hex");
 }
 
 function documentRecord(
@@ -199,6 +291,21 @@ async function appendUnique<T extends object>(path: string, identityKey: keyof T
   if (existing.some((entry) => entry[identityKey] === value[identityKey])) return false;
   await appendFileJson(path, value);
   return true;
+}
+
+async function appendUniqueMany<T extends object>(path: string, identityKey: keyof T, values: T[]): Promise<number> {
+  const existing = await readJsonLines<T>(path);
+  const identities = new Set(existing.map((entry) => entry[identityKey]));
+  const additions = values.filter((value) => {
+    const identity = value[identityKey];
+    if (identities.has(identity)) return false;
+    identities.add(identity);
+    return true;
+  });
+  if (additions.length === 0) return 0;
+  await mkdir(dirname(path), { recursive: true });
+  await appendFile(path, additions.map((value) => `${JSON.stringify(value)}\n`).join(""), "utf8");
+  return additions.length;
 }
 
 function duplicateOccurrence(

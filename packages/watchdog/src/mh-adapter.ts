@@ -5,13 +5,13 @@ import {
   fetchNextPage,
   MH_PART4B_SELECTION,
   MH_PART8_SELECTION,
-  requirePdf,
+  requirePdfBody,
   type MaharashtraGazetteSelection,
 } from "./egazette.js";
 import type { GazettePage, GazetteRow } from "./types.js";
 
 export function mhPart8Adapter(): SourceAdapter {
-  return mhGazetteAdapter("mh-egazette-part8", MH_PART8_SELECTION, false);
+  return mhGazetteAdapter("mh-egazette-part8", MH_PART8_SELECTION, true);
 }
 
 export function mhPart4bAdapter(): SourceAdapter {
@@ -34,14 +34,7 @@ function mhGazetteAdapter(
     },
     ...(stableRowIdentity ? { finalizeRows: stabilizeMhGazetteRows } : {}),
     verifyDocument(mediaType, body, description) {
-      requirePdf({
-        url: "https://egazzete.mahaonline.gov.in/",
-        status: 200,
-        mediaType,
-        body,
-        headers: {},
-        request: { method: "GET", url: "https://egazzete.mahaonline.gov.in/" },
-      }, description);
+      requirePdfBody(mediaType, body, description);
     },
   };
 }

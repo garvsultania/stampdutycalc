@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { inspectSearchForm, MH_PART4B_SELECTION, parseResultsPage, requirePdf } from "./egazette.js";
-import { mhPart4bAdapter, stabilizeMhGazetteRows } from "./mh-adapter.js";
+import { mhPart4bAdapter, mhPart8Adapter, stabilizeMhGazetteRows } from "./mh-adapter.js";
 import { WatchdogError } from "./errors.js";
 import type { ResponseRecord } from "./types.js";
 
@@ -92,7 +92,7 @@ describe("Maharashtra e-Gazette result fixtures", () => {
     expect(request.formValues?.["ctl00$CPH$btnSearch"]).toBeUndefined();
   });
 
-  it("gives Part IV-B rows stable identities when portal positions change", () => {
+  it("gives both Maharashtra adapters stable identities when portal positions change", () => {
     const first = fixtureRow("1", "ctl00$CPH$GridView2$ctl02$LinkButton1", "First subject");
     const second = fixtureRow("2", "ctl00$CPH$GridView2$ctl03$LinkButton1", "Second subject");
     const reorderedFirst = fixtureRow("4", "ctl00$CPH$GridView2$ctl05$LinkButton1", "First subject");
@@ -103,6 +103,8 @@ describe("Maharashtra e-Gazette result fixtures", () => {
 
     expect(reorderedFirst.sourceRowId).toBe(first.sourceRowId);
     expect(reorderedSecond.sourceRowId).toBe(second.sourceRowId);
+    expect(mhPart8Adapter().finalizeRows).toBe(stabilizeMhGazetteRows);
+    expect(mhPart4bAdapter().finalizeRows).toBe(stabilizeMhGazetteRows);
   });
 
   it("fails loudly when a document postback returns HTML with status 200", () => {
