@@ -1,0 +1,35 @@
+{
+  "modifier_id": "MH-agricultural-loan-remission",
+  "jurisdiction": "MH",
+  "kind": "concession",
+  "applies_when": {
+    "eq": { "field": "mh_agricultural_loan_remission_scope", "value": "eligible_or_uncertain" }
+  },
+  "effect": {
+    "op": "duty_reduce_pct",
+    "pct": 0,
+    "label": "Agricultural/crop-loan remission — legal review required"
+  },
+  "order": 6,
+  "requires_facts": ["mh_agricultural_loan_remission_scope"],
+  "pending_verification": [
+    {
+      "reason": "From 1 January 2026 Maharashtra remits the whole stamp duty on listed instruments executed by an agriculturist for an agricultural or crop loan up to Rs 2 lakh. The current calculator does not yet encode the complete instrument/person/loan eligibility test, so a possibly eligible instrument must refuse rather than return duty."
+    }
+  ],
+  "version": {
+    "effective_from": "2026-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "order",
+      "ref": "Maharashtra R&FD Order No. MUDRANK-2024/C.R.No.86/Mudrank-2 dated 1-Jan-2026, pp.1-2",
+      "gazette_date": "2026-01-01",
+      "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+      "quoted_text": "The Government remits in whole, from 1 January 2026 until further orders, stamp duty on acknowledgements, cash-credit agreements, deposit of title deeds, pawn, pledge and hypothecation, letters of guarantee, mortgage deeds, guarantees of debt, notices of intimation, declarations and related instruments executed by an agriculturist for an agricultural or crop loan up to Rs 2,00,000."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "This no-op modifier is a shared eligibility gate. Encode a 100% reduction only after the agriculturist, loan-purpose, amount-threshold, instrument-list, and continuing-currency facts are represented and reviewed."
+}

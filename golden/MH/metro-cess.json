@@ -1,0 +1,90 @@
+[
+  {
+    "name": "MH Conveyance — metro city, post-1-Apr-2022: 5% + 1% metro cess = 6%",
+    "suite": "arithmetic",
+    "source_note": "Municipal Corp 5% + 1% metro cess (Mumbai/Pune/etc., from 1-Apr-2022). 1cr → 5,00,000 + 1,00,000 = 6,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "total_duty": "600000" }
+  },
+  {
+    "name": "MH Conveyance — metro city but BEFORE 1-Apr-2022: no cess (was in abeyance)",
+    "source_note": "Cess in abeyance until 31-Mar-2022. Execution 2021 → 5% only = 5,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2021-06-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — non-metro city, post-2022: no metro cess",
+    "source_note": "Metro cess only in the six metro cities. Elsewhere → 5% = 5,00,000.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "no", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — metro city, woman residential: −1% concession + 1% cess net to 5%",
+    "suite": "arithmetic",
+    "source_note": "5% base − 1% women (order 10) + 1% metro cess (order 15) = 5%. 1cr → 5,00,000. Shows deterministic ordered composition.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable", "buyer_all_women": "yes", "property_use": "residential" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — user-facing computation refuses unresolved metro-cess scope",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable" } },
+    "expect": { "error": "CITY LIST, INSTRUMENT SCOPE, AND STACKING" }
+  },
+  {
+    "name": "MH Conveyance — user-facing computation refuses unresolved concession and cess stacking",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2024-06-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable", "buyer_all_women": "yes", "property_use": "residential" } },
+    "expect": { "error": "all-women purchaser condition" }
+  },
+  {
+    "name": "MH Conveyance — day before first metro-surcharge commencement remains bare Schedule duty",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2019-02-07", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — first metro-surcharge commencement day refuses the omitted historical levy",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2019-02-08", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "error": "active from 8-Feb-2019 through 31-Mar-2020" }
+  },
+  {
+    "name": "MH Conveyance — final day before surcharge suspension still refuses",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2020-03-31", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "error": "active from 8-Feb-2019 through 31-Mar-2020" }
+  },
+  {
+    "name": "MH Conveyance — first suspension day returns the bare Schedule duty",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2020-04-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — final suspension day remains bare Schedule duty",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2022-03-31", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "total_duty": "500000" }
+  },
+  {
+    "name": "MH Conveyance — revival day refuses unresolved city list and stacking",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2022-04-01", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "yes", "lbt_status": "not_applicable" } },
+    "expect": { "error": "CITY LIST, INSTRUMENT SCOPE, AND STACKING" }
+  },
+  {
+    "name": "MH Conveyance — current LBT-uncertain location refuses omitted local levy",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "no", "lbt_status": "applies_or_uncertain", "mh_gcc_remission_scope": "not_applicable" } },
+    "expect": { "error": "Local Body Tax or another omitted local surcharge" }
+  },
+  {
+    "name": "MH Conveyance — missing metro locality answer refuses before computation",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable" } },
+    "expect": { "error": "metro_cess_city" }
+  },
+  {
+    "name": "MH Conveyance — possibly eligible GCC-policy transaction refuses unreduced duty",
+    "source_note": "The 22-May-2026 order grants 50–100% relief across Article 25 branches for eligible GCC-policy transactions.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "no", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "eligible_or_uncertain" } },
+    "expect": { "error": "GCC Policy 2025 order can remit 50%, 75%, or 100%" }
+  },
+  {
+    "name": "MH Conveyance — claimed or possible section 9 project remission refuses unreduced duty",
+    "source_note": "The Part IV-B archive contains targeted and policy remissions for Article 25 instruments; the exact applicable order must be reviewed before returning the unreduced Schedule amount.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART25-conveyance", "execution_date": "2026-07-21", "values": { "market_value": "10000000" }, "facts": { "mh_section9_remission_claim": "claimed_or_uncertain", "area_type": "municipal_corporation", "metro_cess_city": "no", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable" } },
+    "expect": { "error": "instrument-, party-, project-, policy-, and period-specific reductions or remissions" }
+  }
+]

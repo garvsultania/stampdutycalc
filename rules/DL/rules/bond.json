@@ -1,0 +1,31 @@
+{
+  "rule_id": "DL-ART15-bond",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "15",
+  "instrument": "bond",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 15 (Delhi)",
+      "article": "15",
+      "quoted_text": "Sch I-A Art. 15 (both columns): 'BOND as defined by section 2(5) not being a DEBENTURE (No.27) and not being otherwise provided for by this Act or by the Court Fees Act, 1870' — duty column: '2% and 0.5% on bond issued by the local authority'. Founder ruling (Q2, 2026-07-16): this text is correct and parses as — general bonds → 2% of the amount secured; bonds issued by a local authority → 0.5%. No cap in the article text. Sanity reconciliation: lease under one year = 'same duty as Bond No. 15 on whole amount payable' = 2% of the rent, matching the universally-quoted Delhi 11-month rent-agreement figure."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "ad_valorem",
+    "base": { "var": "amount_secured" },
+    "pct": {
+      "by": "obligor_category",
+      "cases": [{ "when": "local_authority", "pct": 0.5 }],
+      "default": 2
+    }
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (founder-ruled parse + independent practitioner corroboration + cross-ref chain reconciles with observed 2% rent-agreement practice). This is the cross-ref hub for indemnity/security-bond/short-term-lease/settlement. Input: amount_secured; cross-refs re-base it as needed (e.g. lease re-bases onto rent)."
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "rule_id": "KA-share-transfer",
+    "jurisdiction": "KA",
+    "act": "Indian Stamp Act, 1899 (Union law — Sch. I Art. 62(a), pre-amendment)",
+    "article": "62(a)",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": "2020-07-01",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I Art. 62(a) + S.O. 130(E) dated 28-1-2004 (corrected by S.O. 522(E) dated 7-4-2005)",
+        "article": "62(a)",
+        "quoted_text": "Central Sch. I Art. 62: 'TRANSFER (whether with or without consideration) — (a) of shares in an incorporated company or other body corporate — [Twenty-five paise] for hundred rupees or part thereof of the value of the share' = 0.25%, with the 2004 order's 'rounded off to the next five paise' proviso. NOTE: transfer of SHARES is Union law — the Karnataka Schedule Art 52 'Transfer' has NO shares clause (it covers only debentures, interest secured by a bond/mortgage-deed/policy, Administrator-General property, and trust property), so the Union Art 62(a) applies directly. Governs transfers executed BEFORE 1 July 2020."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.25
+    },
+    "rounding": {
+      "mode": "ceil",
+      "nearest": 0.05
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH. Historical version for Flow D. effective_from is the KA 2016-04-01 coverage floor (see KA back-catalogue note), not a rate-change date — the 0.25% central rate ran from 1-3-2004."
+  },
+  {
+    "rule_id": "KA-share-transfer",
+    "jurisdiction": "KA",
+    "act": "Indian Stamp Act, 1899 (Union law — Part AA / s.9A-9B uniform regime)",
+    "article": "62 / s.9A",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2020-07-01",
+      "effective_to": null,
+      "supersedes": "KA-share-transfer@2016-04-01",
+      "source": {
+        "type": "notification",
+        "ref": "Finance Act 2019 (Part I, Ch. IV) amendments to the Indian Stamp Act + MoF notifications dated 10-12-2019 and 30-03-2020 (regime effective 1-7-2020)",
+        "gazette_date": "2020-03-30",
+        "quoted_text": "Founder ruling (Q4, 2026-07-16): physical share transfers (Form SH-4) attract 0.015% of consideration under the amended Art 62, uniform across India from 1 July 2020; no state deviation is permitted. Gifts (nil consideration) attract nil duty per the DEA FAQs. Corroborated structurally: the Karnataka Schedule Art 52 has no competing share-transfer entry."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.015
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "STALE — Karnataka Stamp (Amendment) Act 04 of 2024, assented and in force at once on 03-02-2024, rewrote this Article. Our source PDF (sources/KA/karnataka-stamp-act-1957_dpal-karnataka.pdf) is a stale print whose newest amendment footnote is Act 55 of 2020, so this encoding faithfully followed a text that was already superseded. Founder to re-source from DPAL and encode the new era. Dates before 03-02-2024 remain correct and still compute. Art 52(b)(ii) and (c): \"one hundred rupees\" -> \"two hundred rupees\".",
+        "when": {
+          "date_within": {
+            "from": "2024-02-03"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH. 0.015%, identical to DL/MH by design (uniform Union regime). Payer under amended s.29 PENDING (amount is confident)."
+  }
+]

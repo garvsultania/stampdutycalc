@@ -1,0 +1,45 @@
+{
+  "rules_id": "DL-charging",
+  "jurisdiction": "DL",
+  "s4": {
+    "nominal_duty": "1",
+    "transaction_types": ["sale", "mortgage", "settlement"],
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), s.4",
+      "quoted_text": "s.4(1): 'Where, in the case of any sale, mortgage or settlement, several instruments are employed for completing the transaction, the principal instrument only shall be chargeable with the duty prescribed in Schedule I for the conveyance, mortgage or settlement, and each of the other instruments shall be chargeable with a duty of ONE RUPEE instead of the duty (if any) prescribed for it in that Schedule.' s.4(2): 'The parties may determine for themselves which of the instruments so employed shall ... be deemed to be the principal instrument: Provided that the duty chargeable on the instrument so determined shall be the highest duty which would be chargeable in respect of any of the said instruments employed.' Note (Finance Act 2019): for any issue, sale or transfer of SECURITIES the instrument chargeable under s.9A is the principal instrument and no duty is charged on any other instrument of that transaction."
+    },
+    "pending_verification": [
+      {
+        "reason": "The Rs 1 ancillary-instrument duty is taken from the unamended central s.4 text. A current Delhi primary source has not yet established that no Delhi amendment or notification changed it. Because this amount is used for every non-principal instrument, s.4 must refuse until the Delhi-applicable text is archived and founder-verified."
+      }
+    ]
+  },
+  "s5": {
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), s.5",
+      "quoted_text": "s.5: 'Any instrument comprising or relating to several distinct matters shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters, would be chargeable under this Act.'"
+    }
+  },
+  "s6": {
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), s.6",
+      "quoted_text": "s.6: 'Subject to the provisions of the last preceding section, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
+    }
+  },
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899 (as applicable to Delhi), ss.4-6",
+      "quoted_text": "General charging rules of the Indian Stamp Act 1899 as applicable to the NCT of Delhi. Delhi's state amendments operate on Schedule I-A (the rates); ss.4-6 are applied here in their central form."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "PENDING_VERIFICATION (s.4 nominal duty): encoded as Rs 1 — the UN-AMENDED central s.4 figure. Karnataka raised its equivalent to Rs 100 (Act 8 of 1995) and Maharashtra to Rs 500, so Rs 1 is conspicuously an 1899 relic and Delhi may well have amended s.4 (or a notification may have). CONFIRM before relying: an under-stated nominal duty on every ancillary instrument in a transaction is a real (if small) exposure. s.4 transaction list is sale/mortgage/settlement ONLY — a set of instruments completing a LEASE or development agreement gets NO s.4 relief in Delhi (contrast Maharashtra), so each bears full duty."
+}

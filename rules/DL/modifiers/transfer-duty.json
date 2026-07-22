@@ -1,0 +1,682 @@
+[
+  {
+    "modifier_id": "DL-transfer-duty-sale",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "always": true
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "fn": "max",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "var": "market_value"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2023-07-10",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Delhi Municipal Corporation Act, 1957, s.147; historical MCD transfer-duty rates",
+        "quoted_text": "Founder ruling (Q5, 2026-07-16): '2015 → 9 July 2023: 3% (M) / 2% (F) all values.' Transfer duty is a municipal levy under DMC Act 1957 s.147, chargeable only on the s.147 instrument list (sale of immovable property, exchange, gift, mortgage with possession, lease in perpetuity, contract for transfer), separate from and in addition to Stamp Act duty. JOINT (male+female) component split 2.5+2.5 is PENDING_VERIFICATION — only the combined 5% total is verified (founder Q5: 'the joint composition of the 5% total isn't stated in any primary source — encode the verified 5% combined total, mark the component split PENDING_VERIFICATION against DORIS output')."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "The combined pre-hike joint total is verified at 5%, but the 2.5% transfer-duty component is an unsourced allocation of that total. Preserve the total and warn that the component breakup is provisional.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        },
+        "severity": "warn"
+      }
+    ],
+    "notes_for_reviewer": "Applies to conveyance/sale. Base: higher-of(consideration, market value) — Q5 says 'registered sale value'; encoded as the same higher-of base used for stamp duty, flag if the SR practice differs. Superseded on 2023-07-10 by the threshold-split versions below."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-sale",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "fn": "max",
+          "args": [
+            {
+              "var": "consideration"
+            },
+            {
+              "var": "market_value"
+            }
+          ]
+        },
+        "op": "lte",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "fn": "max",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "var": "market_value"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": "DL-transfer-duty-sale@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "Founder ruling (Q5, 2026-07-16): notification of 10 July 2023 increased MCD transfer duty from 2% to 3% (women, incl. third gender) and 3% to 4% (men and other entities), effective from publication, applying only to properties valued ABOVE Rs 25 lakh; 'no change for properties with a registered value below ₹25 lakh'. The threshold is a cliff (flat-slab on value), not marginal. This version carries the UNCHANGED 3%/2% rates for values ≤ Rs 25,00,000."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "At or below Rs 25 lakh the combined joint total remains the verified 5%, but the 2.5% transfer-duty component is an unsourced allocation. Preserve the total and warn that the component breakup is provisional.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        },
+        "severity": "warn"
+      }
+    ],
+    "notes_for_reviewer": "Post-hike, at-or-below the Rs 25L threshold: rates unchanged (3% M / 2% F). Boundary encoded as lte 2,500,000 — i.e. a property valued exactly Rs 25,00,000 keeps the old rate ('above ₹25 lakh' triggers the hike). Joint 2.5 PENDING_VERIFICATION as in v1."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-sale-hike",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "fn": "max",
+          "args": [
+            {
+              "var": "consideration"
+            },
+            {
+              "var": "market_value"
+            }
+          ]
+        },
+        "op": "gt",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 3
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 4
+      },
+      "of": {
+        "fn": "max",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "var": "market_value"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD — post-10-Jul-2023 rate)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "Founder ruling (Q5, 2026-07-16): from 10 July 2023, for properties valued above Rs 25 lakh — transfer duty 4% (men and other entities) / 3% (women incl. third gender). Combined with 3%/2% stamp duty this yields 7%/5%, matching the post-hike official framing."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "The 10-Jul-2023 hike's treatment of a JOINT male+female purchase above Rs 25L is not stated in any primary source reached. The 2.5%+2.5% split encoded here is a pre-hike assumption carried forward, not sourced law. Founder to verify against DORIS output. Male and female purchasers on this same modifier ARE verified — only the joint cell refuses.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "PENDING_VERIFICATION (joint): whether and how the 10-Jul-2023 hike applies to a JOINT male+female purchase above Rs 25L is not stated in any primary source reached; kept at 2.5 (pre-hike split assumption) so sub-25L totals stay verified — DO NOT trust joint >25L outputs until founder verifies against DORIS. No golden case asserts that cell."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-gift",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "always": true
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "var": "market_value"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2023-07-10",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Delhi Municipal Corporation Act, 1957, s.147",
+        "quoted_text": "Gift of immovable property is in the DMC s.147 instrument list. Rates per founder ruling (Q5): 3% (M) / 2% (F) through 9 July 2023. Base: value of the property (the gift stamp base). Reconciles with the official Dept. of Revenue combined framing: 'stamp duty and transfer duty @ 4% if the donee is a woman and @ 6% if the donee is a man.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Gift transfer duty on property value (market_value)."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-gift",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "market_value"
+        },
+        "op": "lte",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "var": "market_value"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": "DL-transfer-duty-gift@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "Per founder ruling (Q5): the 10-Jul-2023 hike applies to transfer duty on the s.147 instruments for properties valued above Rs 25 lakh; unchanged 3%/2% below. This version carries the unchanged rates for values ≤ Rs 25,00,000."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "ASSUMPTION FLAG: the notification's application to gifts (vs sale only) follows from it amending transfer duty generally under s.147 — confirm."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-gift-hike",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "market_value"
+        },
+        "op": "gt",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 3
+          },
+          {
+            "when": "joint",
+            "pct": 2.5
+          }
+        ],
+        "default": 4
+      },
+      "of": {
+        "var": "market_value"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD — post-10-Jul-2023 rate)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "From 10 July 2023: 4% (men/other entities) / 3% (women) for properties valued above Rs 25 lakh (founder ruling Q5)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "The 10-Jul-2023 hike's treatment of a JOINT male+female purchase above Rs 25L is not stated in any primary source reached. The 2.5%+2.5% split encoded here is a pre-hike assumption carried forward, not sourced law. Founder to verify against DORIS output. Male and female purchasers on this same modifier ARE verified — only the joint cell refuses.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "Same joint-split PENDING_VERIFICATION caveat as the sale hike."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-mwp",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "always": true
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "var": "amount_secured"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2023-07-10",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Delhi Municipal Corporation Act, 1957, s.147",
+        "quoted_text": "Founder ruling (Q1, 2026-07-16): s.147 authorizes transfer duty on 'sale of immovable property, exchange, gift, MORTGAGE WITH POSSESSION, lease in perpetuity, and contract for transfer of immovable property' — 'a mortgage-with-possession gets 3% stamp plus transfer duty'."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "PENDING_VERIFICATION: base assumed = amount secured (the stamp base for Art 40(a)); the s.147 base for mortgage-with-possession was not quoted in a primary source. Gender split for a mortgagor is also assumed to follow the standard transfer-duty rates — verify both against DORIS before relying."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-mwp",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "amount_secured"
+        },
+        "op": "lte",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "var": "amount_secured"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": "DL-transfer-duty-mwp@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "Unchanged 3%/2% at or below the Rs 25 lakh value threshold (founder ruling Q5)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Same PENDING_VERIFICATION caveats as v1."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-mwp-hike",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "amount_secured"
+        },
+        "op": "gt",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 3
+          }
+        ],
+        "default": 4
+      },
+      "of": {
+        "var": "amount_secured"
+      },
+      "label": "Transfer duty (DMC Act s.147, MCD — post-10-Jul-2023 rate)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "4%/3% above the Rs 25 lakh value threshold from 10 July 2023 (founder ruling Q5)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "The 10-Jul-2023 hike's treatment of a JOINT male+female purchase above Rs 25L is not stated in any primary source reached. The 2.5%+2.5% split encoded here is a pre-hike assumption carried forward, not sourced law. Founder to verify against DORIS output. Male and female purchasers on this same modifier ARE verified — only the joint cell refuses.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "Same PENDING_VERIFICATION caveats as v1."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-ats",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "always": true
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "op": "*",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "lit": "0.9"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147 — contract for transfer, base 90% of consideration)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2023-07-10",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Delhi Municipal Corporation Act, 1957, s.147; Delhi Towers Ltd. v. GNCTD (Del HC)",
+        "quoted_text": "Founder ruling (Q1, 2026-07-16): 'the transfer-duty base can differ from the stamp base on the same instrument' — for a CONTRACT FOR TRANSFER the transfer-duty base is 90% of the consideration. Rates per Q5 timeline: 3% (M) / 2% (F) through 9 July 2023."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Applies to agreement-to-sell WITH possession (part performance = contract for transfer in the s.147 list). Base = 0.9 × consideration, per founder Q1."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-ats",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "consideration"
+        },
+        "op": "lte",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 2
+          }
+        ],
+        "default": 3
+      },
+      "of": {
+        "op": "*",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "lit": "0.9"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147 — contract for transfer, base 90% of consideration)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": "DL-transfer-duty-ats@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "Unchanged 3%/2% at or below the Rs 25 lakh threshold (founder ruling Q5)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Threshold tested on consideration (whether it should test 90% of consideration is PENDING_VERIFICATION)."
+  },
+  {
+    "modifier_id": "DL-transfer-duty-ats-hike",
+    "jurisdiction": "DL",
+    "kind": "surcharge_cess",
+    "applies_when": {
+      "cmp": {
+        "expr": {
+          "var": "consideration"
+        },
+        "op": "gt",
+        "value": 2500000
+      }
+    },
+    "effect": {
+      "op": "pct_add",
+      "pct": {
+        "by": "transferee_category",
+        "cases": [
+          {
+            "when": "female",
+            "pct": 3
+          }
+        ],
+        "default": 4
+      },
+      "of": {
+        "op": "*",
+        "args": [
+          {
+            "var": "consideration"
+          },
+          {
+            "lit": "0.9"
+          }
+        ]
+      },
+      "label": "Transfer duty (DMC Act s.147 — contract for transfer, post-10-Jul-2023 rate)"
+    },
+    "order": 20,
+    "version": {
+      "effective_from": "2023-07-10",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "notification",
+        "ref": "MCD transfer-duty notification dated 10 July 2023",
+        "gazette_date": "2023-07-10",
+        "quoted_text": "4%/3% above the Rs 25 lakh threshold from 10 July 2023 (founder ruling Q5)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "pending_verification": [
+      {
+        "reason": "The 10-Jul-2023 hike's treatment of a JOINT male+female purchase above Rs 25L is not stated in any primary source reached. The 2.5%+2.5% split encoded here is a pre-hike assumption carried forward, not sourced law. Founder to verify against DORIS output. Male and female purchasers on this same modifier ARE verified — only the joint cell refuses.",
+        "when": {
+          "eq": {
+            "field": "transferee_category",
+            "value": "joint"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "Same caveats as the ats std version."
+  }
+]

@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
 import {
+  ChargingRulesSchema,
   ClassificationTreeSchema,
+  ModifierSchema,
+  PenaltyRegimeSchema,
   RuleSchema,
   type Rule,
   type ClassificationTree,
@@ -9,7 +12,10 @@ import {
   buildSnapshot,
   classify,
   compute,
+  computeWithTrace,
   computePenalty,
+  computeInterStateDifferential,
+  resolveClassificationTree,
   EngineError,
   num,
   canonical,
@@ -107,6 +113,232 @@ describe("temporal & snapshot-scoped cross-refs (PRD §5.3, §5.4)", () => {
   });
 });
 
+describe("transitive safety gates", () => {
+  it("propagates a pending-verification refusal from a cross-ref target", () => {
+    const staleTarget = makeRule({
+      rule_id: "STALE-TARGET",
+      charge: { kind: "fixed", amount: "200" },
+      pending_verification: [{ reason: "target rate was superseded" }],
+    });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "STALE-TARGET" },
+    });
+    const ruleSet: RuleSet = { rules: [staleTarget, wrapper], modifiers: [], penaltyRegimes: [] };
+
+    expect(() =>
+      compute(ruleSet, {
+        jurisdiction: "DL",
+        rule_id: "WRAPPER",
+        execution_date: "2021-01-01",
+        values: {},
+        facts: {},
+      }),
+    ).toThrow(/STALE-TARGET: target rate was superseded/);
+  });
+
+  it("allows draft evaluation by default but verified-only mode checks every cross-ref target", () => {
+    const unverifiedTarget = makeRule({ rule_id: "TARGET", charge: { kind: "fixed", amount: "100" } });
+    const verifiedWrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "wrapper", quoted_text: "same duty as target" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const ruleSet: RuleSet = { rules: [unverifiedTarget, verifiedWrapper], modifiers: [], penaltyRegimes: [] };
+    const input = {
+      jurisdiction: "DL" as const,
+      rule_id: "WRAPPER",
+      execution_date: "2021-01-01",
+      values: {},
+      facts: {},
+    };
+
+    expect(compute(ruleSet, input).total_duty).toBe("100");
+    expect(() => compute(ruleSet, input, { requireVerified: true })).toThrow(
+      /unverified dependencies: rule TARGET/,
+    );
+  });
+
+  it("derives verified_as_of and citations from the complete verified rule chain", () => {
+    const target = makeRule({
+      rule_id: "TARGET",
+      charge: { kind: "fixed", amount: "100" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "target", quoted_text: "target rate" },
+        verified_by: "founder",
+        verified_on: "2026-07-01",
+      },
+    });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "wrapper", quoted_text: "same duty as target" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const ruleSet: RuleSet = { rules: [target, wrapper], modifiers: [], penaltyRegimes: [] };
+    const out = compute(
+      ruleSet,
+      { jurisdiction: "DL", rule_id: "WRAPPER", execution_date: "2021-01-01", values: {}, facts: {} },
+      { requireVerified: true },
+    );
+
+    expect(out.verified_as_of).toBe("2026-07-01");
+    expect(out.citations.map((citation) => citation.ref)).toEqual(["wrapper", "target"]);
+  });
+
+  it("exports the exact cross-ref, applied-modifier, and penalty dependency graph", () => {
+    const target = makeRule({ rule_id: "TARGET", charge: { kind: "fixed", amount: "100" } });
+    const wrapper = makeRule({
+      rule_id: "WRAPPER",
+      charge: { kind: "cross_ref", rule_id: "TARGET" },
+      modifiers: ["APPLIED", "INACTIVE"],
+    });
+    const applied = ModifierSchema.parse({
+      modifier_id: "APPLIED",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "10", label: "applied" },
+      order: 1,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "applied modifier", quoted_text: "add ten" },
+      },
+    });
+    const inactive = ModifierSchema.parse({
+      modifier_id: "INACTIVE",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { eq: { field: "special_case", value: "yes" } },
+      effect: { op: "flat_add", amount: "20", label: "inactive" },
+      order: 2,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "inactive modifier", quoted_text: "add twenty" },
+      },
+    });
+    const penalty = PenaltyRegimeSchema.parse({
+      regime_id: "PENALTY",
+      jurisdiction: "DL",
+      penalty: { type: "discretionary_range", min_multiple: 0, max_multiple: 10 },
+      adjudication_path: "Test Act s.1",
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "act", ref: "penalty", quoted_text: "up to ten times" },
+      },
+    });
+    const ruleSet: RuleSet = {
+      rules: [target, wrapper],
+      modifiers: [applied, inactive],
+      penaltyRegimes: [penalty],
+    };
+    const input = {
+      jurisdiction: "DL" as const,
+      rule_id: "WRAPPER",
+      execution_date: "2021-01-01",
+      values: {},
+      facts: { special_case: "no" },
+      duty_paid: "50",
+    };
+
+    const traced = computeWithTrace(ruleSet, input);
+
+    expect(traced.output).toEqual(compute(ruleSet, input));
+    expect(traced.dependencies.map(({ kind, id }) => `${kind}:${id}`)).toEqual([
+      "rule:WRAPPER",
+      "rule:TARGET",
+      "modifier:APPLIED",
+      "penalty:PENALTY",
+    ]);
+    expect(traced.dependencies.find((dependency) => dependency.id === "INACTIVE")).toBeUndefined();
+    expect(traced.dependencies.map((dependency) => dependency.citation.ref)).toEqual([
+      "T",
+      "T",
+      "applied modifier",
+      "penalty",
+    ]);
+  });
+
+  it("verified-only mode checks applied modifiers and a requested penalty regime", () => {
+    const verifiedRule = makeRule({
+      rule_id: "R",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: ["M"],
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "act", ref: "rule", quoted_text: "fixed duty" },
+        verified_by: "founder",
+        verified_on: "2026-07-10",
+      },
+    });
+    const unverifiedModifier = ModifierSchema.parse({
+      modifier_id: "M",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "10", label: "test surcharge" },
+      order: 1,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "modifier", quoted_text: "add ten" },
+      },
+    });
+    const unverifiedPenalty = PenaltyRegimeSchema.parse({
+      regime_id: "P",
+      jurisdiction: "DL",
+      penalty: { type: "discretionary_range", min_multiple: 0, max_multiple: 10 },
+      adjudication_path: "Test Act s.1",
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        source: { type: "act", ref: "penalty", quoted_text: "up to ten times" },
+      },
+    });
+    const ruleSet: RuleSet = {
+      rules: [verifiedRule],
+      modifiers: [unverifiedModifier],
+      penaltyRegimes: [unverifiedPenalty],
+    };
+
+    expect(() =>
+      compute(
+        ruleSet,
+        {
+          jurisdiction: "DL",
+          rule_id: "R",
+          execution_date: "2021-01-01",
+          values: {},
+          facts: {},
+          duty_paid: "50",
+        },
+        { requireVerified: true },
+      ),
+    ).toThrow(/modifier M, penalty regime P/);
+  });
+});
+
 describe("cross-ref cycle detection (never loops silently)", () => {
   const a = makeRule({ rule_id: "A", charge: { kind: "cross_ref", rule_id: "B" } });
   const b = makeRule({ rule_id: "B", charge: { kind: "cross_ref", rule_id: "A" } });
@@ -155,6 +387,106 @@ describe("ruleset validator (append-only + references)", () => {
     const r = makeRule({ rule_id: "R", charge: { kind: "fixed", amount: "100" }, modifiers: ["NOPE"] });
     const issues = validateRuleSet({ rules: [r], modifiers: [], penaltyRegimes: [] });
     expect(issues.some((i) => i.level === "error" && i.message.includes("never defined"))).toBe(true);
+  });
+
+  it("fails when a required modifier is inactive, but permits an explicit future attachment", () => {
+    const futureModifier = ModifierSchema.parse({
+      modifier_id: "FUTURE",
+      jurisdiction: "DL",
+      kind: "surcharge_cess",
+      applies_when: { always: true },
+      effect: { op: "flat_add", amount: "25", label: "Future surcharge" },
+      order: 10,
+      version: {
+        effective_from: "2020-01-01",
+        effective_to: null,
+        source: { type: "notification", ref: "future", quoted_text: "future surcharge" },
+      },
+    });
+    const required = makeRule({
+      rule_id: "REQUIRED",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: ["FUTURE"],
+    });
+    const explicit = makeRule({
+      rule_id: "EXPLICIT",
+      charge: { kind: "fixed", amount: "100" },
+      modifiers: [{ modifier_id: "FUTURE", required_from: "2020-01-01" }],
+    });
+    const requiredSet = { rules: [required], modifiers: [futureModifier], penaltyRegimes: [] };
+    const explicitSet = { rules: [explicit], modifiers: [futureModifier], penaltyRegimes: [] };
+
+    expect(validateRuleSet(requiredSet).some((issue) => issue.message.includes("not active throughout"))).toBe(true);
+    expect(() => compute(requiredSet, {
+      jurisdiction: "DL", rule_id: "REQUIRED", execution_date: "2019-01-01", values: {}, facts: {},
+    })).toThrow(/requires modifier "FUTURE".*not active/);
+    expect(validateRuleSet(explicitSet).filter((issue) => issue.level === "error")).toEqual([]);
+    expect(compute(explicitSet, {
+      jurisdiction: "DL", rule_id: "EXPLICIT", execution_date: "2019-01-01", values: {}, facts: {},
+    }).total_duty).toBe("100");
+    expect(compute(explicitSet, {
+      jurisdiction: "DL", rule_id: "EXPLICIT", execution_date: "2021-01-01", values: {}, facts: {},
+    }).total_duty).toBe("125");
+  });
+
+  it("checks cross-reference availability across the full referring era", () => {
+    const target = makeRule({
+      rule_id: "TARGET",
+      charge: { kind: "fixed", amount: "100" },
+      version: {
+        effective_from: "2015-01-01", effective_to: "2020-01-01", supersedes: null,
+        source: { type: "act", ref: "target", quoted_text: "target" }, verified_by: null, verified_on: null,
+      },
+    });
+    const wrapper = makeRule({ rule_id: "WRAPPER", charge: { kind: "cross_ref", rule_id: "TARGET" } });
+    const issues = validateRuleSet({ rules: [target, wrapper], modifiers: [], penaltyRegimes: [] });
+    expect(issues.some((issue) => issue.message.includes('cross_ref target "TARGET" is not active throughout'))).toBe(true);
+  });
+
+  it("applies append-only overlap checks to modifiers, penalties, charging rules, and trees", () => {
+    const source = { type: "act" as const, ref: "x", quoted_text: "x" };
+    const modifierBase = {
+      modifier_id: "M", jurisdiction: "DL" as const, kind: "surcharge_cess" as const,
+      applies_when: { always: true as const },
+      effect: { op: "flat_add" as const, amount: "1", label: "x" }, order: 1,
+    };
+    const modifiers = [
+      ModifierSchema.parse({ ...modifierBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ModifierSchema.parse({ ...modifierBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const penaltyBase = {
+      regime_id: "P", jurisdiction: "DL" as const,
+      penalty: { type: "discretionary_range" as const, min_multiple: 0, max_multiple: 1 },
+      adjudication_path: "s.1",
+    };
+    const penalties = [
+      PenaltyRegimeSchema.parse({ ...penaltyBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      PenaltyRegimeSchema.parse({ ...penaltyBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const chargingBase = {
+      rules_id: "C", jurisdiction: "DL" as const,
+      s4: { nominal_duty: "1", transaction_types: ["sale"], source },
+      s5: { source }, s6: { source },
+    };
+    const chargingRules = [
+      ChargingRulesSchema.parse({ ...chargingBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ChargingRulesSchema.parse({ ...chargingBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const treeBase = {
+      tree_id: "T", jurisdiction: "DL" as const, instrument_class: "x", root: "stop",
+      nodes: { stop: { type: "escalate" as const, reason: "stop" } },
+    };
+    const trees = [
+      ClassificationTreeSchema.parse({ ...treeBase, version: { effective_from: "2015-01-01", effective_to: null, source } }),
+      ClassificationTreeSchema.parse({ ...treeBase, version: { effective_from: "2020-01-01", effective_to: null, source } }),
+    ];
+    const issues = validateRuleSet(
+      { rules: [], modifiers, penaltyRegimes: penalties, chargingRules },
+      trees,
+    );
+    for (const family of ["modifier", "penalty regime", "charging rules", "classification tree"]) {
+      expect(issues.some((issue) => issue.where.startsWith(family) && issue.message.includes("open-ended version"))).toBe(true);
+    }
   });
 });
 
@@ -205,9 +537,144 @@ describe("classification tree walk (Flow B, PRD §6.2)", () => {
     expect(r).toMatchObject({ status: "incomplete", node: "q_possession" });
   });
 
+  it("enforces date-scoped pending flags on classification trees", () => {
+    const pendingTree = ClassificationTreeSchema.parse({
+      ...tree,
+      pending_verification: [
+        { reason: "current classification consequence is stale", when: { date_within: { from: "2024-10-14" } } },
+      ],
+    });
+
+    expect(() => classify(pendingTree, {})).toThrow(/executionDate is required/);
+    expect(classify(pendingTree, {}, { executionDate: "2024-10-13" }).status).toBe("incomplete");
+    expect(() => classify(pendingTree, {}, { executionDate: "2024-10-14" })).toThrow(
+      /current classification consequence is stale/,
+    );
+  });
+
+  it("verified-only mode rejects an unverified classification tree", () => {
+    expect(() => classify(tree, {}, { requireVerified: true })).toThrow(
+      /classification tree lease-vs-license/,
+    );
+  });
+
+  it("resolves the classification-tree version active on the execution date", () => {
+    const oldTree = ClassificationTreeSchema.parse({
+      ...tree,
+      version: { ...tree.version, effective_to: "2020-01-01" },
+    });
+    const newTree = ClassificationTreeSchema.parse({
+      ...tree,
+      nodes: {
+        ...tree.nodes,
+        t_lease: { type: "terminal", instrument: "lease", article: "35-new", rule_id: "DL-lease-new" },
+      },
+      version: {
+        ...tree.version,
+        effective_from: "2020-01-01",
+        effective_to: null,
+        source: { type: "amendment_act", ref: "new tree", quoted_text: "new classification consequence" },
+      },
+    });
+
+    expect(resolveClassificationTree([oldTree, newTree], tree.tree_id, "2019-12-31")).toBe(oldTree);
+    expect(resolveClassificationTree([oldTree, newTree], tree.tree_id, "2020-01-01")).toBe(newTree);
+  });
+
   it("treats an unmatched answer as an escalation", () => {
     const r = classify(tree, { q_possession: "maybe" });
     expect(r.status).toBe("escalate");
+  });
+});
+
+describe("inter-state differential duty (PRD §5.4)", () => {
+  const conv = (jur: "DL" | "MH", pct: number) =>
+    RuleSchema.parse({
+      rule_id: `${jur}-conv`,
+      jurisdiction: jur,
+      act: "Test",
+      article: "23",
+      instrument: "conveyance_sale_deed",
+      version: { effective_from: "2015-01-01", effective_to: null, source: { type: "act", ref: "x", quoted_text: "y" } },
+      charge: { kind: "ad_valorem", base: { var: "consideration" }, pct },
+      rounding: { mode: "none", nearest: 1 },
+    });
+  const ruleSet: RuleSet = { rules: [conv("DL", 3), conv("MH", 5)], modifiers: [], penaltyRegimes: [] };
+  const inp = (jur: "DL" | "MH") => ({
+    jurisdiction: jur,
+    rule_id: `${jur}-conv`,
+    execution_date: "2021-01-01",
+    values: { consideration: "10000000" },
+    facts: {},
+  });
+
+  it("charges the differential in the property state (executed low, property high)", () => {
+    const r = computeInterStateDifferential(ruleSet, inp("DL"), inp("MH"));
+    expect(r.duty_execution_state).toBe("300000");
+    expect(r.duty_property_state).toBe("500000");
+    expect(r.differential_payable).toBe("200000");
+    expect(r.excess_note).toBeNull();
+  });
+
+  it("does not refund when execution-state duty exceeds property-state duty", () => {
+    const r = computeInterStateDifferential(ruleSet, inp("MH"), inp("DL"));
+    expect(r.differential_payable).toBe("0");
+    expect(r.excess_note).toContain("does not refund");
+  });
+});
+
+describe("penalty regime auto-resolution from the ruleset (PRD §5.6)", () => {
+  const regime = {
+    regime_id: "DL-penalty",
+    jurisdiction: "DL" as const,
+    penalty: { type: "per_month" as const, pct_per_month: 2, cap_multiple: 4, min_penalty: null },
+    adjudication_path: "S.31",
+    pending_verification: [],
+    version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
+    notes_for_reviewer: "",
+  };
+  const ruleSet: RuleSet = {
+    rules: [makeRule({ rule_id: "R", charge: { kind: "ad_valorem", base: { var: "consideration" }, pct: 5 } })],
+    modifiers: [],
+    penaltyRegimes: [regime],
+  };
+
+  it("attaches the active regime automatically when duty_paid is present", () => {
+    const out = compute(
+      ruleSet,
+      { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { consideration: "1000000" }, facts: {}, duty_paid: "30000" },
+      { penaltyMonths: 5 },
+    );
+    // dutyThen 50000, paid 30000, deficit 20000; 2%/mo × 5 = 2000.
+    expect(out.penalty?.deficit).toBe("20000");
+    expect(out.penalty?.penalty_point).toBe("2000");
+    expect(out.penalty?.total_payable_point).toBe("22000");
+  });
+
+  it("leaves penalty null when no duty_paid is given", () => {
+    const out = compute(ruleSet, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { consideration: "1000000" }, facts: {} });
+    expect(out.penalty).toBeNull();
+  });
+
+  it("refuses an applicable pending flag carried by the penalty regime", () => {
+    const blockedRuleSet: RuleSet = {
+      ...ruleSet,
+      penaltyRegimes: [{ ...regime, pending_verification: [{ reason: "penalty route is unresolved" }] }],
+    };
+    expect(() =>
+      compute(
+        blockedRuleSet,
+        {
+          jurisdiction: "DL",
+          rule_id: "R",
+          execution_date: "2021-01-01",
+          values: { consideration: "1000000" },
+          facts: {},
+          duty_paid: "30000",
+        },
+        { penaltyMonths: 5 },
+      ),
+    ).toThrow(/DL-penalty: penalty route is unresolved/);
   });
 });
 
@@ -218,12 +685,301 @@ describe("penalty edge cases (PRD §5.6)", () => {
       jurisdiction: "DL" as const,
       penalty: { type: "discretionary_range" as const, min_multiple: 1, max_multiple: 10 },
       adjudication_path: "S.31",
+      pending_verification: [],
       version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
       notes_for_reviewer: "",
     };
     const r = computePenalty(regime, { dutyThen: num("50000"), dutyPaid: num("50000") });
     expect(r.deficit).toBe("0");
     expect(r.penalty_range).toBeNull();
+  });
+});
+
+describe("D9 extensions: switch, cross_ref scale, expr-based cess, cmp condition", () => {
+  const conveyance = makeRule({
+    rule_id: "CONV",
+    charge: {
+      kind: "ad_valorem",
+      base: { fn: "max", args: [{ var: "consideration" }, { var: "market_value" }] },
+      pct: { by: "transferee_category", cases: [{ when: "female", pct: 2 }], default: 3 },
+    },
+  });
+
+  it("switch selects a sub-charge by numeric band and errors beyond all cases", () => {
+    const lease = makeRule({
+      rule_id: "LEASE",
+      charge: {
+        kind: "switch",
+        on: { var: "term_months" },
+        cases: [
+          { upto: 60, charge: { kind: "fixed", amount: "100" } },
+          { upto: 120, charge: { kind: "cross_ref", rule_id: "CONV", on: { var: "avg_annual_rent" } } },
+        ],
+      },
+    });
+    const rs: RuleSet = { rules: [lease, conveyance], modifiers: [], penaltyRegimes: [] };
+    const at = (months: string) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "LEASE",
+        execution_date: "2021-01-01",
+        values: { term_months: months, avg_annual_rent: "600000", consideration: "0", market_value: "0" },
+        facts: {},
+      });
+    expect(at("36").total_duty).toBe("100");
+    expect(at("72").total_duty).toBe("18000"); // 3% of 6L via rebased cross-ref
+    expect(() => at("1300")).toThrow(/matches no switch case/);
+  });
+
+  it("cross_ref scale computes a fraction of the target's duty (Art 23A: 90%)", () => {
+    const ats = makeRule({
+      rule_id: "ATS",
+      charge: { kind: "cross_ref", rule_id: "CONV", on: { var: "consideration" }, scale: 0.9 },
+    });
+    const rs: RuleSet = { rules: [ats, conveyance], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, {
+      jurisdiction: "DL",
+      rule_id: "ATS",
+      execution_date: "2021-01-01",
+      values: { consideration: "5000000" },
+      facts: {},
+    });
+    expect(out.total_duty).toBe("135000"); // 90% of 3% of 50L
+  });
+
+  it("select picks a sub-charge by a categorical fact (MH gift: Rs 200 / 3% / conveyance)", () => {
+    const gift = makeRule({
+      rule_id: "GIFT",
+      charge: {
+        kind: "select",
+        by: "gift_relation",
+        cases: [
+          { when: "close_family", charge: { kind: "fixed", amount: "200" } },
+          { when: "family", charge: { kind: "ad_valorem", base: { var: "market_value" }, pct: 3 } },
+        ],
+        default: { kind: "ad_valorem", base: { var: "market_value" }, pct: 5 },
+      },
+    });
+    const rs: RuleSet = { rules: [gift], modifiers: [], penaltyRegimes: [] };
+    const at = (gift_relation?: string) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "GIFT",
+        execution_date: "2021-01-01",
+        values: { market_value: "5000000" },
+        facts: gift_relation ? { gift_relation } : {},
+      }).total_duty;
+    expect(at("close_family")).toBe("200");
+    expect(at("family")).toBe("150000");
+    expect(at()).toBe("250000"); // default
+  });
+
+  it("category-selected rate resolves from facts (female 2%)", () => {
+    const rs: RuleSet = { rules: [conveyance], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, {
+      jurisdiction: "DL",
+      rule_id: "CONV",
+      execution_date: "2021-01-01",
+      values: { consideration: "1000000", market_value: "1000000" },
+      facts: { transferee_category: "female" },
+    });
+    expect(out.total_duty).toBe("20000");
+  });
+
+  it("cmp condition gates a modifier on a value threshold; pct_add uses an expr base and RateSpec", () => {
+    const hikeModifier = {
+      modifier_id: "TD-HIKE",
+      jurisdiction: "DL" as const,
+      kind: "surcharge_cess" as const,
+      applies_when: {
+        cmp: {
+          expr: { fn: "max" as const, args: [{ var: "consideration" }, { var: "market_value" }] },
+          op: "gt" as const,
+          value: 2500000,
+        },
+      },
+      effect: {
+        op: "pct_add" as const,
+        pct: { by: "transferee_category", cases: [{ when: "female", pct: 3 }], default: 4 },
+        of: { fn: "max" as const, args: [{ var: "consideration" }, { var: "market_value" }] },
+        label: "Transfer duty (DMC s.147)",
+      },
+      order: 20,
+      version: {
+        effective_from: "2015-01-01",
+        effective_to: null,
+        supersedes: null,
+        source: { type: "notification" as const, ref: "TD", quoted_text: "test" },
+        verified_by: null,
+        verified_on: null,
+      },
+      notes_for_reviewer: "",
+    };
+    const rule = makeRule({ rule_id: "SALE", charge: conveyance.charge, modifiers: ["TD-HIKE"] });
+    const rs: RuleSet = { rules: [rule], modifiers: [hikeModifier], penaltyRegimes: [] };
+    const at = (consideration: string, facts: Record<string, string>) =>
+      compute(rs, {
+        jurisdiction: "DL",
+        rule_id: "SALE",
+        execution_date: "2024-01-01",
+        values: { consideration, market_value: consideration },
+        facts,
+      });
+    // Above threshold: stamp 3% + transfer 4% = 7%.
+    expect(at("10000000", {}).total_duty).toBe("700000");
+    // Female above threshold: 2% + 3% = 5%.
+    expect(at("10000000", { transferee_category: "female" }).total_duty).toBe("500000");
+    // At/below threshold: modifier inapplicable → stamp only.
+    expect(at("2500000", {}).total_duty).toBe("75000");
+  });
+});
+
+describe("audit-review regressions (2026-07-16)", () => {
+  const regime = (pct: number) => ({
+    regime_id: "P",
+    jurisdiction: "DL" as const,
+    penalty: { type: "per_month" as const, pct_per_month: pct, cap_multiple: 4, min_penalty: null },
+    adjudication_path: "S.31",
+    pending_verification: [],
+    version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "act" as const, ref: "p", quoted_text: "x" }, verified_by: null, verified_on: null },
+    notes_for_reviewer: "",
+  });
+
+  it("#2 rules_version hash CHANGES when only the penalty regime changes", () => {
+    const rules = [makeRule({ rule_id: "R", charge: { kind: "fixed", amount: "100" } })];
+    const a = buildSnapshot({ rules, modifiers: [], penaltyRegimes: [regime(2)] }, "DL", "2021-01-01").hash;
+    const b = buildSnapshot({ rules, modifiers: [], penaltyRegimes: [regime(3)] }, "DL", "2021-01-01").hash;
+    // Flow D output differs between these rulesets, so {inputs, hash} must differ too.
+    expect(a).not.toBe(b);
+  });
+
+  it("#3 a RateSpec with no declared default ESCALATES on a missing fact", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: {
+        kind: "ad_valorem",
+        base: { var: "market_value" },
+        pct: { by: "area_type", cases: [{ when: "urban", pct: 5 }, { when: "rural", pct: 4 }] },
+      },
+    });
+    const rs: RuleSet = { rules: [r], modifiers: [], penaltyRegimes: [] };
+    const run = (facts: Record<string, string>) =>
+      compute(rs, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts });
+    expect(run({ area_type: "rural" }).total_duty).toBe("40000");
+    expect(() => run({})).toThrow(/required fact "area_type" was not provided/);
+    expect(() => run({ area_type: "moon" })).toThrow(/matches no rate case/);
+  });
+
+  it("#3 a RateSpec WITH a declared default still uses it (legitimate residual case)", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: {
+        kind: "ad_valorem",
+        base: { var: "market_value" },
+        pct: { by: "transferee_category", cases: [{ when: "female", pct: 2 }], default: 3 },
+      },
+    });
+    const rs: RuleSet = { rules: [r], modifiers: [], penaltyRegimes: [] };
+    const out = compute(rs, { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts: {} });
+    expect(out.total_duty).toBe("30000"); // general rate — the statute's residual case
+  });
+
+  it("#6 a concession expressed as a negative pct_add renders as a CONCESSION line", () => {
+    const concession = {
+      modifier_id: "C",
+      jurisdiction: "DL" as const,
+      kind: "concession" as const,
+      applies_when: { always: true as const },
+      effect: { op: "pct_add" as const, pct: -1, of: { var: "market_value" }, label: "Women concession (−1%)" },
+      order: 10,
+      version: { effective_from: "2015-01-01", effective_to: null, supersedes: null, source: { type: "order" as const, ref: "c", quoted_text: "x" }, verified_by: null, verified_on: null },
+      notes_for_reviewer: "",
+    };
+    const r = makeRule({
+      rule_id: "R",
+      charge: { kind: "ad_valorem", base: { var: "market_value" }, pct: 5 },
+      modifiers: ["C"],
+    });
+    const out = compute(
+      { rules: [r], modifiers: [concession], penaltyRegimes: [] },
+      { jurisdiction: "DL", rule_id: "R", execution_date: "2021-01-01", values: { market_value: "1000000" }, facts: {} },
+    );
+    const line = out.breakup.find((l) => l.label.startsWith("Women concession"));
+    expect(line?.kind).toBe("concession"); // not "surcharge_cess"
+    expect(line?.amount).toBe("-10000");
+    expect(out.total_duty).toBe("40000");
+  });
+
+  it("#5 the validator flags a classification terminal pointing at a missing rule", () => {
+    const tree: ClassificationTree = ClassificationTreeSchema.parse({
+      tree_id: "t",
+      jurisdiction: "DL",
+      instrument_class: "x",
+      root: "t_bad",
+      nodes: { t_bad: { type: "terminal", instrument: "lease", article: "35", rule_id: "GHOST" } },
+      version: { effective_from: "2015-01-01", effective_to: null, source: { type: "act", ref: "t", quoted_text: "x" } },
+    });
+    const issues = validateRuleSet({ rules: [], modifiers: [], penaltyRegimes: [] }, [tree]);
+    expect(issues.some((i) => i.level === "error" && i.message.includes('rule_id "GHOST"'))).toBe(true);
+  });
+
+  it("#7 the validator flags a cap below its own min_duty", () => {
+    const r = makeRule({
+      rule_id: "R",
+      charge: { kind: "ad_valorem", base: { var: "consideration" }, pct: 5, min_duty: "500", cap: "100" },
+    });
+    const issues = validateRuleSet({ rules: [r], modifiers: [], penaltyRegimes: [] });
+    expect(issues.some((i) => i.level === "error" && i.message.includes("unsatisfiable"))).toBe(true);
+  });
+});
+
+describe("ceil_div + expr: the 'or part thereof' statutory idiom", () => {
+  // MH Art 63 pre-2015: "Rs 100 plus Rs 100 for every Rs 1,00,000 OR PART THEREOF
+  // above Rs 10 lakh, subject to a maximum of Rs 5 lakh."
+  const stepped = makeRule({
+    rule_id: "STEP",
+    charge: {
+      kind: "switch",
+      on: { var: "contract_value" },
+      cases: [
+        { upto: 1000000, charge: { kind: "fixed", amount: "100" } },
+        {
+          upto: null,
+          charge: {
+            kind: "formula",
+            let: {
+              slabs: {
+                op: "ceil_div",
+                args: [{ op: "-", args: [{ var: "contract_value" }, { lit: 1000000 }] }, { lit: 100000 }],
+              },
+            },
+            components: [
+              { kind: "fixed", amount: "100" },
+              { kind: "expr", value: { op: "*", args: [{ var: "slabs" }, { lit: 100 }] } },
+            ],
+            cap: "500000",
+          },
+        },
+      ],
+    },
+  });
+  const rs: RuleSet = { rules: [stepped], modifiers: [], penaltyRegimes: [] };
+  const at = (contract_value: string) =>
+    compute(rs, { jurisdiction: "DL", rule_id: "STEP", execution_date: "2021-01-01", values: { contract_value }, facts: {} }).total_duty;
+
+  it("counts a PARTIAL slab in full (ceil), not pro-rata", () => {
+    // excess 50,000 → ceil(0.5) = 1 slab → 100 + 100. A plain division gives 150 and under-charges.
+    expect(at("1050000")).toBe("200");
+  });
+  it("counts exact slabs exactly (no off-by-one at the boundary)", () => {
+    expect(at("1100000")).toBe("200"); // excess 1,00,000 → exactly 1 slab
+    expect(at("1100001")).toBe("300"); // one rupee over → 2 slabs
+  });
+  it("charges the flat amount at or below the threshold", () => {
+    expect(at("1000000")).toBe("100");
+  });
+  it("still honours the cap over the stepped total", () => {
+    expect(at("3000000000")).toBe("500000");
   });
 });
 

@@ -1,0 +1,115 @@
+# Encoding Guidelines (standing instructions — founder-mandated)
+
+Rules for turning statute/notification text into rules-as-data. These exist because
+the failure modes below have already happened once. Violating them is a review-blocking
+defect regardless of whether the number happens to be right.
+
+## 1. Two-column PDFs: quote BOTH columns, raw
+Any schedule entry extracted from a two-column PDF (description | duty) must quote
+**both columns' raw text** in `notes_for_reviewer`/`quoted_text` — not a fused
+paraphrase. Origin: Delhi Sch I-A Art 46 (Partnership), where the duty column had
+slipped one row in every online copy, producing a fluent, plausible, **wrong** rule
+("capital ≤ ₹500 → 1% with ₹5,000 ceiling"). A fused paraphrase hides the slip; raw
+two-column quotes expose it.
+
+## 2. Economic absurdity = auto-escalate
+Any entry whose rate is economically absurd (a percentage of a tiny bounded base
+carrying a large ceiling; a cap below the obvious minimum computation; a rate 10×
+out of line with neighbouring entries) is an **auto-escalate** — encode a
+`PENDING_VERIFICATION` stub or omit the clause, never a best-guess. "1% of ≤₹500
+subject to a ₹5,000 ceiling" should never have survived to a draft encoding.
+
+## 3. PENDING_VERIFICATION convention
+When a sub-clause / split / boundary is unverified but the enclosing figure is
+verified: encode the verified total, mark the unverified component
+`PENDING_VERIFICATION` in `notes_for_reviewer`, ensure **no golden case asserts the
+unverified cell**, and list it in the state sourcing dossier. Example: Delhi joint
+(M+F) conveyance — combined 5% verified; 2.5+2.5 stamp/transfer split pending.
+
+## 4. Escalate-by-error boundaries are deliberate
+A `switch`/`band` without a terminal case is a **feature** when the tail of the
+statute is unverified (Delhi lease > 100y / perpetuity). The engine throws instead of
+approximating. Document the deliberate gap in `notes_for_reviewer` and cover it with
+an `expect.error` golden case.
+
+## 4b. Never declare a `default` without a statutory residual case
+`RateSpec.default` / `select.default` are OPTIONAL — and omitting them is a correctness
+feature. Supply a default ONLY where the statute genuinely has a residual/general case
+(Delhi `transferee_category`: anyone not female/joint pays the general rate; KA
+`first_sale_flat`: not-a-first-sale is the general case). Where the classes are
+exhaustive and a value must be supplied (MH `area_type`, KA `ka_area` — a property sits
+in exactly one area class), **omit the default** so a missing/unknown fact throws.
+
+Origin: an MH gram-panchayat mortgage without `area_type` silently charged 5% instead of
+4% — a ₹1 lakh error from a mandatory default. A default is a legal claim that the
+statute has a fallback; don't make that claim casually.
+
+## 5. Canonical fact vocabulary
+- `transferee_category`: `male` | `female` | `joint` | (anything else → default rate).
+  Used for buyer, donee, lessee, mortgagor — one key across instruments so modifiers
+  compose.
+- `obligor_category`: `local_authority` | default.
+- Lease/L&L terms are **integer `term_months`** (11-month L&L = 11; 1 year = 12).
+  Fractional months are out of contract — the questionnaire must collect integers.
+
+## 6. Cross-ref semantics (founder ruling Q1)
+"Same duty as X" imports **X's charge only** — never X's modifiers. Municipal
+transfer duty (DMC Act 1957 s.147) attaches per-instrument as its own modifier, with
+its own (base, rate) pair, which can differ from the stamp base on the same
+instrument. The engine enforces this structurally.
+
+## 7. Dates and eras
+Every rate change is a new version with the notification's own effective date
+(`effective_from` = date of publication where the notification says so). Golden
+suites must include boundary cases: the day before, the day itself.
+
+## 8. Sources hierarchy
+Official dept. pages / gazette / hosted Acts > case law quotes (with citation) >
+practitioner reproductions (mark MEDIUM confidence) > commercial websites (never a
+sole source — many still recite pre-amendment law, e.g. 0.25% share transfer).
+Back up every source document into `sources/<STATE>/` in the same PR.
+
+## 9. The two-VERSION trap (generalises §1)
+
+§1 says a two-column PDF must be quoted in both columns. The same PDF also prints
+BOTH the operative text and the superseded text, the latter inside a footnote
+reading "Prior to substitution, it read as under-". `MH-ART54-security-bond` was
+encoded from the footnote: it shipped 0.5% / cap ₹10 lakh, which is the law Mah. 7
+of 2022 REPLACED on 20-1-2022, while the operative column two lines up said
+0.1% / 0.3% / max ₹20 lakh.
+
+Rule: when a hosted Act shows a footnote marker on a rate, the footnote is the
+history and the column is the law. Quote both and say which is which.
+
+## 10. Open eras are claims, and they expire
+
+`effective_to: null` asserts "nothing has changed since". Nobody had checked that
+for MH since 2022-04-01 or KA since 2020-07-01. Six amending Acts had landed in
+Maharashtra in the meantime, one of which (Mah. 9 of 2025, in force 14-10-2024)
+moved rates we had already shipped.
+
+Two rules follow:
+- An "official department page" is not evidence of currency. IGR Maharashtra
+  serves a Schedule I "as modified upto 01-06-2022" at one URL and one "upto
+  15-01-2018" at another, and both are live today. India Code's consolidated Act
+  is the better spine — and even it lagged by ~15 months.
+- **Golden suites must anchor to today, not only to history.** Every MH golden was
+  dated 2024-06-01, so 166/166 stayed green while the engine was ~3x wrong for
+  every works contract executed now. A suite that only asserts historical dates
+  cannot see the present.
+
+## 11. Secondary trackers cannot see a gazette sweep
+
+Maharashtra published TWO different Stamp Acts on the same day — Mah. XIII of 2026
+and Mah. XVI of 2026, both assented 7 April 2026. Every commercial tracker checked
+(TeamLease, SCC Online, Mondaq, JSA) caught the first and missed the second. A
+third, Mah. XXIX of 2026, landed 13 July 2026 with zero secondary coverage at all.
+
+India Code's consolidated Act — our best spine — was four Acts stale within the
+same window.
+
+Rule: for currency, sweep the state's own e-Gazette by part and date range. A
+tracker's silence is not evidence that nothing happened. Also: AI search summaries
+were actively wrong in this sweep (attributing s.53B to the wrong Act, dating the
+women's lock-in deletion to 2026 when it was 2023) — quote only from a document
+actually fetched.

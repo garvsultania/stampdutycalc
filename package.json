@@ -11,11 +11,15 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "test:watch": "vitest",
+    "watchdog": "tsc -b packages/watchdog && node packages/watchdog/dist/cli.js",
     "validate:rules": "tsx scripts/validate-rules.ts",
+    "validate:evidence": "tsx scripts/validate-evidence.ts --check-report",
+    "validate:proposals": "tsx scripts/validate-evidence-proposals.ts --check-report",
     "golden": "tsx scripts/run-golden.ts",
-    "check": "pnpm typecheck && pnpm validate:rules && pnpm golden && pnpm test"
+    "check": "pnpm typecheck && pnpm validate:rules && pnpm validate:evidence && pnpm validate:proposals && pnpm golden && pnpm test"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.2.12",
     "@stampdraft/engine": "workspace:*",
     "@stampdraft/schema": "workspace:*",
     "@types/node": "^20.14.15",

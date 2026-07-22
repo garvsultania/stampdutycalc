@@ -1,0 +1,41 @@
+{
+  "rule_id": "DL-ART48-spa",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "48",
+  "instrument": "special_poa",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 48 (Delhi)",
+      "article": "48",
+      "quoted_text": "Schedule I-A Art. 48 (Power of Attorney): (a) 'When executed for sole purpose of procuring the registration of one or more documents in relation to a single transaction or for admitting execution of one or more such documents — Twenty rupees'; (c) 'When authorizing one person or more to act in a single transaction ... — Fifty rupees'."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "fixed",
+    "amount": "50"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "pending_verification": [
+    {
+      "reason": "Article 48(a) charges a different amount for registration-only authority and sale powers may reach conveyance duty. The observable answers do not establish an ordinary single-transaction Article 48(c) power.",
+      "when": {
+        "any": [
+          { "not": { "eq": { "field": "poa_registration_only", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_authorizes_property_sale", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_transaction_pattern", "value": "single_transaction" } } }
+        ]
+      }
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). A special/single-transaction POA is encoded as Rs 50 (clause c). NOTE: a POA whose SOLE purpose is procuring registration/admitting execution (clause a) is Rs 20 — a lower, distinct case; not modelled separately here. Confirm whether special_poa should default to Rs 50 (act in a single transaction) or Rs 20 (registration-only), or be split by a questionnaire question. Confirm effective_from."
+}

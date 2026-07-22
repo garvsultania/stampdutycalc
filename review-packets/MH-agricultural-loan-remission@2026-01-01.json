@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "target": {
+    "jurisdiction": "MH",
+    "kind": "modifier",
+    "id": "MH-agricultural-loan-remission",
+    "effective_from": "2026-01-01",
+    "citation_ref": "Maharashtra R&FD Order No. MUDRANK-2024/C.R.No.86/Mudrank-2 dated 1-Jan-2026, pp.1-2"
+  },
+  "evidence_as_of": "2026-07-19",
+  "proposed_evidence": {
+    "documents": [
+      {
+        "sha256": "ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266",
+        "source_id": "mh-egazette-part4b",
+        "source_row_id": "e6401ee51caaca355ba9e2fcc81e62d11c5a10601d6ae3d4d4602b06c1c92f64",
+        "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+        "published_on": "2026-01-01",
+        "role": "order",
+        "locator": {
+          "kind": "page",
+          "value": "pp.1-2; p.2 contains the English order, instrument list, Rs 2 lakh ceiling and effective date"
+        }
+      }
+    ],
+    "audits": [
+      {
+        "source_id": "mh-egazette-part4b",
+        "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+        "audited_through": "2026-07-19"
+      }
+    ],
+    "amendment_chain": {
+      "checked_from": "2026-01-01",
+      "checked_through": "2026-07-19",
+      "source_ids": ["mh-egazette-part4b"],
+      "documents": ["ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266"]
+    },
+    "commencement_chain": {
+      "checked_from": "2026-01-01",
+      "checked_through": "2026-07-19",
+      "source_ids": ["mh-egazette-part4b"],
+      "documents": ["ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266"]
+    }
+  },
+  "source_text_receipts": [
+    {
+      "sha256": "ae5c7a68fd56f11193be7cdb6cc1a0b31ba7ffde3cef447d57986f32eee7d266",
+      "pages": [1, 2],
+      "text_sha256": "e18b22df7140de6fe64c80de4c5001a5d739b0f69a047e1f7316769d9af090c4",
+      "detail": "Two-page PDF with text on every page; p.2 contains the English order remitting all duty from 1 January 2026 on the listed agriculturist agricultural/crop-loan instruments up to Rs 2 lakh."
+    }
+  ],
+  "review_context": {
+    "encoded_diff": {
+      "base_revision": "e64a13b",
+      "candidate_revision": "working-tree-evidence-proposal",
+      "changed_paths": [
+        "rules/MH/modifiers/agricultural-loan-remission.json",
+        "review-packets/MH-agricultural-loan-remission@2026-01-01.json",
+        "golden/MH/bonds-affidavit.json"
+      ],
+      "summary": "Propose exact Watchdog evidence for the agricultural/crop-loan remission screen without inferring eligibility or changing founder verification metadata."
+    },
+    "tests": {
+      "present_day": [
+        "MH Security bond — possible agricultural/crop-loan eligibility refuses unreduced duty"
+      ],
+      "boundaries": [
+        "MH Security bond — day before agricultural remission ignores future screen",
+        "MH Security bond — agricultural remission start date activates refusal"
+      ],
+      "negative_cases": [
+        "MH Security bond — current lower branch is 0.1% through Rs 5 lakh"
+      ]
+    },
+    "canary": {
+      "id": null,
+      "status": "not_applicable",
+      "detail": "The encoded modifier is a fail-closed eligibility screen, not an arithmetic remission calculator, so no computed remission amount exists to compare against a portal canary."
+    },
+    "open_refusals": [
+      "Agriculturist status, loan purpose, Rs 2 lakh ceiling and complete instrument-list eligibility remain unencoded.",
+      "Possible eligibility remains a typed refusal; a 100% remission is never inferred."
+    ]
+  },
+  "human_review": {
+    "status": "pending_human_review",
+    "questions": [
+      "Confirm the listed instruments, agriculturist and agricultural/crop-loan scope, Rs 2 lakh ceiling, and 1 January 2026 commencement.",
+      "Confirm that the current no-op modifier must remain only a refusal screen until the complete eligibility test and continuing currency are encoded.",
+      "Supply reviewed_by and reviewed_on only in the separately approved merge."
+    ]
+  }
+}

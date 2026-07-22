@@ -1,0 +1,181 @@
+[
+  {
+    "rule_id": "MH-ART25-conveyance",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958 (Bom. Act LX of 1958), Schedule I",
+    "article": "25",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2017-09-07",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 25(b) as it stood BEFORE Mah. Act 59 of 2017 (i.e. 2012-04-25 to 2017-09-06)",
+        "article": "25",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 25(b) PRIOR to Mah. 59 of 2017 (per the IGR amendment footnotes): (i) Municipal Corporation / urban — 5%; (ii) Municipal Council / Nagar Panchayat / MMRDA rural / Influence Areas — 4% (raised to 5% by Mah. 59 of 2017 s.2(a)(i) w.e.f. 7-9-2017); (iii) Gram Panchayat — 3% (raised to 4% by Mah. 59 of 2017 s.2(a)(ii) w.e.f. 7-9-2017); (a) movable — 3%. Back-catalogue version for historical/adjudication mode (Flow D)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "market_value"
+      },
+      "pct": {
+        "by": "area_type",
+        "cases": [
+          {
+            "when": "movable",
+            "pct": 3
+          },
+          {
+            "when": "gram_panchayat",
+            "pct": 3
+          },
+          {
+            "when": "municipal_council",
+            "pct": 4
+          },
+          {
+            "when": "nagar_panchayat",
+            "pct": 4
+          },
+          {
+            "when": "mmrda_rural",
+            "pct": 4
+          },
+          {
+            "when": "influence_area",
+            "pct": 4
+          },
+          {
+            "when": "municipal_corporation",
+            "pct": 5
+          },
+          {
+            "when": "urban",
+            "pct": 5
+          },
+          {
+            "when": "cantonment",
+            "pct": 5
+          }
+        ]
+      }
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "modifiers": ["MH-section9-remission-screen"],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (IGR amendment footnotes give the pre-2017 rates). Back-catalogue version (2015-01-01 → 2017-09-06): council/MMRDA/influence 4%, gram 3% (both raised by Mah. 59/2017). No women/metro modifiers (those post-date this window). Effective_from set to the 2015 coverage floor (PRD §13); the true prior-substitution date is 2012-04-25 (Mah. 8 of 2012) — extend backward if pre-2015 coverage is later needed. Demonstrates append-only temporal versioning with real historical rates; the post-2017 version supersedes contiguously at 2017-09-07."
+  },
+  {
+    "rule_id": "MH-ART25-conveyance",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958 (Bom. Act LX of 1958), Schedule I",
+    "article": "25",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2017-09-07",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 25(b) (as amended by Mah. Act 59 of 2017, w.e.f. 7-9-2017)",
+        "article": "25",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 25 (both columns, IGR text as modified to 1-Jun-2022): 'CONVEYANCE ... On the true market value of the property which is the subject matter of the Conveyance — (a) if relating to movable property — 3 per cent of the market value; (b) if relating to immovable property situated — (i) within the limits of any municipal Corporation or any cantonment area annexed to it or any urban area not mentioned in sub clause (ii) — 5 per cent of the market value; (ii) within the limits of any Municipal council or Nagar Panchayat or Cantonment area annexed to it, or any rural area within the limits of the MMRDA, or the Influence Areas ... — 5 per cent [subst. for 4 per cent by Mah. 59 of 2017 w.e.f. 7-9-2017] of the market value; (iii) within the limits of any Gram Panchayat area or any such area not mentioned in sub-clause (ii) — 4 per cent [subst. for 3 per cent by Mah. 59 of 2017] of the market value; (c) if relating to both movable and immovable property — the same duty as is payable under clauses (a) and (b).' STAMP DUTY ONLY — Maharashtra metro cess (1%) and Local Body Tax are separate surcharges (see PENDING note). Base is TRUE MARKET VALUE (MH uses market value, not higher-of-consideration; user supplies it, ready-reckoner DB out of scope)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "market_value"
+      },
+      "pct": {
+        "by": "area_type",
+        "cases": [
+          {
+            "when": "movable",
+            "pct": 3
+          },
+          {
+            "when": "gram_panchayat",
+            "pct": 4
+          },
+          {
+            "when": "municipal_council",
+            "pct": 5
+          },
+          {
+            "when": "nagar_panchayat",
+            "pct": 5
+          },
+          {
+            "when": "mmrda_rural",
+            "pct": 5
+          },
+          {
+            "when": "influence_area",
+            "pct": 5
+          },
+          {
+            "when": "municipal_corporation",
+            "pct": 5
+          },
+          {
+            "when": "urban",
+            "pct": 5
+          },
+          {
+            "when": "cantonment",
+            "pct": 5
+          }
+        ]
+      }
+    },
+    "modifiers": [
+      "MH-section9-remission-screen",
+      { "modifier_id": "MH-women-residential-concession", "required_from": "2021-04-01" },
+      { "modifier_id": "MH-metro-cess", "required_from": "2022-04-01" },
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      }
+    ],
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "Local Body Tax or another omitted local surcharge may change the total. Return the Schedule rate only after the caller confirms that no LBT/local levy applies.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "lbt_status",
+              "value": "not_applicable"
+            }
+          }
+        }
+      },
+      {
+        "reason": "The transport surcharge was active from 8-Feb-2019 through 31-Mar-2020, but this historical conveyance version has no matching surcharge modifier. Refuse metro-area totals in that interval instead of returning the bare Schedule rate.",
+        "when": {
+          "all": [
+            { "date_within": { "from": "2019-02-08", "to": "2020-03-31" } },
+            { "eq": { "field": "metro_cess_city", "value": "yes" } }
+          ]
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH for the Schedule stamp rate (official IGR text quoted in full). area_type is REQUIRED and fully enumerated (municipal_corporation/urban/cantonment/municipal_council/nagar_panchayat/mmrda_rural/influence_area → 5%; gram_panchayat → 4%; movable → 3%). NO default: a property sits in exactly one area class, so a missing/unknown area_type ESCALATES rather than silently charging the corporation rate (audit fix #3). PENDING_VERIFICATION (surcharges): Maharashtra levies (a) a 1% Metro Cess / transport surcharge in MMR, Pune, Nagpur, Nashik etc., and (b) 1% Local Body Tax (LBT) in some corporations, ON TOP of the Schedule rate — NOT yet encoded (need the specific surcharge notifications and their area lists); the effective Mumbai rate is ~6-7%, not 5%. Encode these as separate modifiers once sourced, mirroring the Delhi transfer-duty pattern. effective_from 2017-09-07 = the Act 59/2017 rate change; the pre-2017 version (council 4% / gram 3%) is a back-catalogue version to add for historical mode (M2 batched-by-year)."
+  }
+]

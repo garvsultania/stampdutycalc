@@ -2,11 +2,14 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 import {
+  ChargingRulesSchema,
   ClassificationTreeSchema,
   ModifierSchema,
   PenaltyRegimeSchema,
   RuleSchema,
+  resolveMvpInputContract,
   type ClassificationTree,
+  type Rule,
 } from "@stampdraft/schema";
 import type { RuleSet } from "./snapshot.js";
 
@@ -31,12 +34,44 @@ export interface LoadResult {
  */
 export function loadStateDir(stateDir: string): LoadResult {
   const parseErrors: Array<{ file: string; message: string }> = [];
-  const rules = loadDir(join(stateDir, "rules"), RuleSchema, parseErrors);
+  const parsedRules = loadDir(join(stateDir, "rules"), RuleSchema, parseErrors);
+  const rules = parsedRules.map((rule) => attachInputContract(rule, parseErrors));
   const modifiers = loadDir(join(stateDir, "modifiers"), ModifierSchema, parseErrors);
   const trees = loadDir(join(stateDir, "classification"), ClassificationTreeSchema, parseErrors);
   const penaltyRegimes = loadFile(join(stateDir, "penalty.json"), PenaltyRegimeSchema, parseErrors);
+  const chargingRules = loadFile(join(stateDir, "charging.json"), ChargingRulesSchema, parseErrors);
 
-  return { ruleSet: { rules, modifiers, penaltyRegimes }, trees, parseErrors };
+  return { ruleSet: { rules, modifiers, penaltyRegimes, chargingRules }, trees, parseErrors };
+}
+
+function attachInputContract(
+  rule: Rule,
+  parseErrors: Array<{ file: string; message: string }>,
+): Rule {
+  const contract = resolveMvpInputContract(rule.jurisdiction, rule.rule_id, rule.version.effective_from);
+  if (!contract) {
+    if (isMvpRuleId(rule.rule_id)) {
+      parseErrors.push({
+        file: `input contract ${rule.jurisdiction}/${rule.rule_id}@${rule.version.effective_from}`,
+        message: "missing per-rule input contract",
+      });
+    }
+    return rule;
+  }
+  const ruleTo = rule.version.effective_to;
+  if (contract.effective_from > rule.version.effective_from ||
+      (contract.effective_to !== null && (ruleTo === null || contract.effective_to < ruleTo))) {
+    parseErrors.push({
+      file: `input contract ${rule.jurisdiction}/${rule.rule_id}@${rule.version.effective_from}`,
+      message: "input contract does not cover the full rule version",
+    });
+    return rule;
+  }
+  return { ...rule, input_contract: contract };
+}
+
+function isMvpRuleId(ruleId: string): boolean {
+  return /^(DL|MH|KA)-/.test(ruleId);
 }
 
 /** Merge multiple state LoadResults into one corpus (for cross-state validation). */
@@ -46,6 +81,7 @@ export function mergeLoads(results: LoadResult[]): LoadResult {
       rules: results.flatMap((r) => r.ruleSet.rules),
       modifiers: results.flatMap((r) => r.ruleSet.modifiers),
       penaltyRegimes: results.flatMap((r) => r.ruleSet.penaltyRegimes),
+      chargingRules: results.flatMap((r) => r.ruleSet.chargingRules ?? []),
     },
     trees: results.flatMap((r) => r.trees),
     parseErrors: results.flatMap((r) => r.parseErrors),

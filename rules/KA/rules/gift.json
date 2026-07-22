@@ -1,0 +1,48 @@
+{
+  "rule_id": "KA-ART28-gift",
+  "jurisdiction": "KA",
+  "act": "Karnataka Stamp Act, 1957, Schedule",
+  "article": "28",
+  "instrument": "gift_deed",
+  "version": {
+    "effective_from": "2016-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, Sch. Art. 28 (family gift amounts subst. by Act 07 of 2016 w.e.f. 1-4-2016)",
+      "article": "28",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "Sch Art. 28 (both columns, official DPAL text): 'Gift-instrument of, not being a settlement (No.48) or will or transfer (No.52) — (a) Where the donee is NOT a family member of the donor — The same duty as a Conveyance (Article No. 20) for a market value equal to the market value of the property. (b) Where the donee IS a member of the family of the donor — (i) if the property is situated within the limits of Bangalore Metropolitan Regional Development Authority or Bruhat Bangalore Mahanagara Palike or City Corporation — Rupees five thousand; (ii) if within City or Town Municipal Council or Town Panchayat area — Rupees three thousand; (iii) if within limits other than (i) and (ii) — Rupees one thousand; Provided that, if the property is situated in any combination of the said limits, the duty shall be the maximum of those.' Explanation: 'Family in relation to the donor for this purpose means father, mother, husband, wife, son, daughter, daughter-in-law, brothers, sisters and grand children.'"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "select",
+    "by": "gift_relation_ka",
+    "cases": [
+      {
+        "when": "family",
+        "charge": {
+          "kind": "select",
+          "by": "area_type",
+          "cases": [
+            { "when": "bbmp_bmrda_city_corp", "charge": { "kind": "fixed", "amount": "5000" } },
+            { "when": "town_municipal_town_panchayat", "charge": { "kind": "fixed", "amount": "3000" } }
+          ],
+          "default": { "kind": "fixed", "amount": "1000" }
+        }
+      }
+    ],
+    "default": { "kind": "cross_ref", "rule_id": "KA-ART20-rate" }
+  },
+  "modifiers": ["KA-infra-cess-gift"],
+  "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "Karnataka gift totals have unresolved surcharge scope: the 10% infrastructure duty may also apply to fixed family-gift duty, and the local-body surcharge instrument scope has not been established. Refuse both family and non-family gift totals until those primary provisions are sourced."
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text, both columns). The PRD §5.5 per-state relative-list showcase — and DELIBERATELY DIFFERENT from Maharashtra's: KA family gift is a FIXED area-based amount (Rs 5,000 BBMP/BMRDA/City Corp; Rs 3,000 Town Municipal/Panchayat; Rs 1,000 elsewhere), and KA's family list (father/mother/husband/wife/son/daughter/DAUGHTER-IN-LAW/brothers/sisters/grand children) differs from MH's — proof that generalizing a 'family' list would be a silent correctness bug. gift_relation_ka: 'family' → area-based fixed; else → conveyance rate (5% via cross-ref) + s.3B cess. The cross_ref to conveyance imports Art 20's CHARGE only (not its cess modifier); this rule's own KA-infra-cess-gift adds the 10% cess for non-family gifts. Family-gift cess treatment PENDING (see cess modifier notes). area_type shared with conveyance."
+}

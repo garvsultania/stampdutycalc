@@ -1,0 +1,57 @@
+{
+  "rule_id": "DL-ART48-gpa",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "48",
+  "instrument": "general_poa",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 48 (Delhi)",
+      "article": "48",
+      "quoted_text": "Schedule I-A Art. 48 (Power of Attorney): (c) 'When authorizing one person or more to act in a single transaction other than the case mentioned in clause (a) — Fifty rupees'; (d) 'When authorizing not more than five persons to act jointly and severally — Fifty rupees'; (e) 'When authorizing more than five but not more than ten persons ... — Fifty rupees'; (f) 'When given for consideration and authorizing the attorney to sell an immovable property — Same duty as Conveyance No.23 as levied by this Act for the amount of consideration'; (g) 'In any other case — Fifty rupees for each person authorized.'"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "fixed",
+    "amount": "50"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "pending_verification": [
+    {
+      "reason": "Rs 50 covers only the common non-sale, non-registration-only Article 48(c)-(e) cases represented here. The observable answers do not establish that safe branch.",
+      "when": {
+        "any": [
+          { "not": { "eq": { "field": "poa_authorizes_property_sale", "value": "no" } } },
+          { "not": { "eq": { "field": "poa_registration_only", "value": "no" } } },
+          {
+            "not": {
+              "in": {
+                "field": "poa_transaction_pattern",
+                "values": ["single_transaction", "general_or_multiple"]
+              }
+            }
+          },
+          {
+            "not": {
+              "cmp": {
+                "expr": { "var": "authorized_person_count" },
+                "op": "lte",
+                "value": 10
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction). Encoded as fixed Rs 50 (the common general-POA case, clauses c/d/e). IMPORTANT ESCALATION: clause (f) — a POA given for consideration authorizing sale of immovable property is charged as a CONVEYANCE (No.23) on the consideration, NOT Rs 50. This is a classification-sensitive fork (a GPA-for-sale is a common stamp-duty-avoidance pattern the Delhi authorities charge as conveyance). It should be routed via the classification questionnaire, not this flat rule. Confirm whether to add a 'GPA authorizing sale for consideration' branch that cross-refs DL-ART23-conveyance. Also clause (g) is Rs 50 PER PERSON authorized — flat Rs 50 assumes a single grantee. Confirm effective_from."
+}

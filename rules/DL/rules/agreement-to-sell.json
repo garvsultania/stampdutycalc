@@ -1,0 +1,67 @@
+[
+  {
+    "rule_id": "DL-ART23A-ats-part-performance",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899, Schedule I Art. 23A (as applicable to the NCT of Delhi)",
+    "article": "23A",
+    "instrument": "agreement_to_sell",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I Art. 23A (ins. Act 48 of 2001, w.e.f. 24-9-2001)",
+        "article": "23A",
+        "quoted_text": "Central Sch. I Art. 23A (both columns, from the Delhi-Revenue-hosted Act text): 'CONVEYANCE IN THE NATURE OF PART PERFORMANCE — Contracts for the transfer of immovable property in the nature of part performance in any union territory under section 53A of the Transfer of Property Act, 1882' — 'Ninety per cent of the duty as a Conveyance (No. 23)'. Applies to an agreement to sell WHERE POSSESSION IS DELIVERED (s.53A part performance). Transfer duty: a 'contract for transfer of immovable property' is in the DMC s.147 list with base 90% of consideration (founder Q1)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "cross_ref",
+      "rule_id": "DL-ART23-conveyance",
+      "on": { "var": "consideration" },
+      "scale": 0.9
+    },
+    "modifiers": [
+      "DL-transfer-duty-ats",
+      { "modifier_id": "DL-transfer-duty-ats-hike", "required_from": "2023-07-10" }
+    ],
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The municipal transfer-duty scope, 90% base, post-2023 threshold test, and set-off treatment for an agreement to sell in part performance have not been established from the primary MCD material. Refuse this route until that chain is sourced."
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH for the stamp leg (Art 23A text is clean: 90% of conveyance duty; encoded as cross_ref scale 0.9 on consideration). Art 23A speaks of 'any union territory' — Delhi (NCT) treatment as UT for this article is settled practice but note it. Central Sch I fn: duty paid under 23A is excluded when computing duty on the completing conveyance (SET-OFF) — the set-off itself is a Flow-D/memo feature, not a charge change; flagged for M3. ROUTE VIA QUESTIONNAIRE: possession delivered → this rule; no possession → DL-ART5c-agreement-to-sell (Rs 50)."
+  },
+  {
+    "rule_id": "DL-ART5c-agreement-to-sell",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+    "article": "5(c)",
+    "instrument": "agreement_to_sell",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 5(c) (Delhi)",
+        "article": "5(c)",
+        "quoted_text": "Sch I-A Art. 5 (both columns): 'AGREEMENT OR MEMORANDUM OF AN AGREEMENT ... (c) If not otherwise provided for — Fifty rupees.' An agreement to sell immovable property WITHOUT delivery of possession is not separately provided for in Sch I-A and is stamped as an Art 5(c) agreement (Rs 50). (Where possession is delivered it is instead chargeable as a conveyance in part performance under Art 23A — see DL-ART23A-ats-part-performance.)"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "50" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The supported observable fact pattern for a no-possession agreement has not yet been derived from current Delhi primary material. A caller cannot opt into the residual Article 5(c) result by asserting a legal conclusion; refuse until the questionnaire and registrar scope are sourced."
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM. The possession fork (Rs 50 vs 90%-of-conveyance + transfer duty) is enormous and classification-sensitive — MUST be routed by the questionnaire, never defaulted. NOTE the Sch I-A women-reduction text mentions 'Agreement to sale' alongside conveyance — if Delhi practice charges ad valorem duty on certain no-possession ATS variants, this Rs 50 reading is too generous; founder to confirm registrar practice."
+  }
+]

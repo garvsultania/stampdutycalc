@@ -1,0 +1,325 @@
+[
+  {
+    "rule_id": "MH-ART63-works-contract",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "63",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2015-04-24",
+      "effective_to": "2024-10-14",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 63 (added by Mah. 12 of 2006 w.e.f. 1-5-2006; rates subst. by Mah. 20 of 2015 s.20(34) w.e.f. 24-4-2015)",
+        "article": "63",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 63 (both columns): 'Works Contract, that is to say, a contract for works and labour or services involving transfer of property in goods (whether as goods or in some other form) in its execution and includes a sub-contract — (a) where the amount or value set forth in such contract does not exceed rupees ten lakh — Five hundred rupees; (b) where it exceeds rupees ten lakh — Five hundred rupees plus 0.1 per cent of the amount above rupees ten lakh subject to maximum of rupees twenty-five lakhs.' [Rates subst. by Mah. 20 of 2015; prior: Rs 100 + Rs 100 per Rs 1,00,000 above Rs 10 lakh, max Rs 5 lakh.]"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": {
+        "var": "contract_value"
+      },
+      "cases": [
+        {
+          "upto": 1000000,
+          "charge": {
+            "kind": "fixed",
+            "amount": "500"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": {
+              "excess_over_10L": {
+                "op": "-",
+                "args": [
+                  {
+                    "var": "contract_value"
+                  },
+                  {
+                    "lit": 1000000
+                  }
+                ]
+              }
+            },
+            "components": [
+              {
+                "kind": "fixed",
+                "amount": "500"
+              },
+              {
+                "kind": "ad_valorem",
+                "base": {
+                  "var": "excess_over_10L"
+                },
+                "pct": 0.1
+              }
+            ],
+            "cap": "2500000"
+          }
+        }
+      ]
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "The source wording does not yet establish whether the Rs 25 lakh cap applies to the entire Rs 500-plus-percentage duty or only the percentage component. Refuse only once the encoded total cap can bind.",
+        "when": {
+          "cmp": {
+            "expr": { "var": "contract_value" },
+            "op": "gt",
+            "value": 2500500000
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR, both columns). Historical 2015-04-24 through 2024-10-13 formula: ≤ Rs 10 lakh → Rs 500; above → Rs 500 + 0.1% of the excess over Rs 10 lakh, TOTAL capped at Rs 25,00,000. The cap is read as applying to the whole duty — confirm."
+  },
+  {
+    "rule_id": "MH-ART63-works-contract",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "63",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART63-works-contract@2015-04-24",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(16), p.3",
+        "article": "63",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 14 October 2024. Section 2(16): in Schedule I, in article 63, in column 1, for 'ten lakh' substitute 'five lakh'; and in column 2, for '0.1 per cent.' substitute '0.3 per cent.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": { "var": "contract_value" },
+      "cases": [
+        {
+          "upto": 500000,
+          "charge": { "kind": "fixed", "amount": "500" }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": {
+              "excess_over_5L": {
+                "op": "-",
+                "args": [
+                  { "var": "contract_value" },
+                  { "lit": 500000 }
+                ]
+              }
+            },
+            "components": [
+              { "kind": "fixed", "amount": "500" },
+              {
+                "kind": "ad_valorem",
+                "base": { "var": "excess_over_5L" },
+                "pct": 0.3
+              }
+            ],
+            "cap": "2500000"
+          }
+        }
+      ]
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The source wording does not yet establish whether the Rs 25 lakh cap applies to the entire Rs 500-plus-percentage duty or only the percentage component. Refuse only once the encoded total cap can bind.",
+        "when": {
+          "cmp": {
+            "expr": { "var": "contract_value" },
+            "op": "gt",
+            "value": 833666666
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "From 14 October 2024 Article 63 charges Rs 500 up to Rs 5 lakh and Rs 500 plus 0.3% of the excess above Rs 5 lakh, subject to the existing Rs 25 lakh ceiling."
+  },
+  {
+    "rule_id": "MH-ART5hB-service-agreement",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "5(h)(B)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2024-10-14",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 5(h)(B)",
+        "article": "5",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 5 (AGREEMENT OR ITS RECORDS OR MEMORANDUM OF AN AGREEMENT), clause (h)(B) (both columns): '(B) if not otherwise provided for — One hundred rupees.' Cross-heading in Sch I: 'HIRING AGREEMENT or agreement for service, see Agreement (Article 5).'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "The Article 5(h)(B) residual applies only after the high-consequence works-contract and specific Article 5 branches have been ruled out. The engine derives this classification from observable document answers and refuses every affirmative or uncertain path.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "agreement_scope",
+              "value": "residual_no_specific_article"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH. Historical 2015 coverage-floor through 2024-10-13 Art 5(h)(B) residual = Rs 100. Specific Article 5 clauses override it. The shared input contract derives agreement_scope from observable answers. Exact pre-floor amendment history remains to confirm."
+  },
+  {
+    "rule_id": "MH-ART5hB-service-agreement",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "5(h)(B)",
+    "instrument": "service_agreement",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART5hB-service-agreement@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(2), p.2",
+        "article": "5",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2) deems the Act in force on 14 October 2024. Section 2(2): in Schedule I, in article 5, in clause (h), in sub-clause (B), in column 2, for the words 'One hundred rupees' the words 'Five hundred rupees' shall be substituted."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": { "kind": "fixed", "amount": "500" },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "pending_verification": [
+      {
+        "reason": "The Article 5(h)(B) residual applies only after the high-consequence works-contract and specific Article 5 branches have been ruled out. The engine derives this classification from observable document answers and refuses every affirmative or uncertain path.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "agreement_scope",
+              "value": "residual_no_specific_article"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "From 14 October 2024 the Article 5(h)(B) residual amount is Rs 500. The observable-answer eligibility guard remains unchanged."
+  },
+  {
+    "rule_id": "MH-ART63-works-contract",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "63",
+    "instrument": "works_contract",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2015-04-24",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 63 as it stood before Mah. Act 20 of 2015 s.20(34)",
+        "article": "63",
+        "quoted_text": "Sch I Art. 63 PRIOR to Mah. 20 of 2015 (IGR footnotes 7 & 8, verbatim): '(a) ... does not exceed rupees ten lakh — One hundred rupees'; '(b) where it exceeds rupees ten lakh — One hundred rupees plus one hundred rupees for every rupees 1,00,000 or part thereof, above rupees ten lakh, subject to the maximum of rupees five lakh.' Substituted w.e.f. 24-4-2015 by the current Rs 500 + 0.1% / Rs 25 lakh structure."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "switch",
+      "on": {
+        "var": "contract_value"
+      },
+      "cases": [
+        {
+          "upto": 1000000,
+          "charge": {
+            "kind": "fixed",
+            "amount": "100"
+          }
+        },
+        {
+          "upto": null,
+          "charge": {
+            "kind": "formula",
+            "let": {
+              "slabs_above_10L": {
+                "op": "ceil_div",
+                "args": [
+                  {
+                    "op": "-",
+                    "args": [
+                      {
+                        "var": "contract_value"
+                      },
+                      {
+                        "lit": 1000000
+                      }
+                    ]
+                  },
+                  {
+                    "lit": 100000
+                  }
+                ]
+              }
+            },
+            "components": [
+              {
+                "kind": "fixed",
+                "amount": "100"
+              },
+              {
+                "kind": "expr",
+                "value": {
+                  "op": "*",
+                  "args": [
+                    {
+                      "var": "slabs_above_10L"
+                    },
+                    {
+                      "lit": 100
+                    }
+                  ]
+                }
+              }
+            ],
+            "cap": "500000"
+          }
+        }
+      ]
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2015-04-23): Rs 100 + Rs 100 for every Rs 1,00,000 OR PART THEREOF above Rs 10 lakh, total capped at Rs 5,00,000. 'Or part thereof' is a CEILING step, modelled exactly with ceil_div — a plain division would under-charge every partial slab (e.g. Rs 10,50,000 → 1 full slab = Rs 200, not Rs 150)."
+  }
+]

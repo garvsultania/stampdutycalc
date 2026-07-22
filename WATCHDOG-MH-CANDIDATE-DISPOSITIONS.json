@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "MH",
+  "policy": {
+    "effect": "engineering_scope_triage_only",
+    "citation_eligible": false,
+    "human_legal_review_required": true,
+    "product_scope": "Current StampDraft output computes original instrument duty and the encoded statutory penalty flows; it does not compute administrative appeal fees, refund allowances, or refund entitlement.",
+    "limitation": "These entries only record an engineering comparison between extracted text and the current computation graph. They do not establish legal effect, completeness, non-applicability, or approval. A human legal reviewer must still review each instrument and may reopen any dependency."
+  },
+  "entries": [
+    {
+      "candidate_id": "135803791e8d9e569b361cbbf145664d083469d3f4d842cb2a31faa73a0c2ad6",
+      "source_id": "mh-egazette-part8",
+      "source_row_id": "ab1dd66839a9d226c621aafff3c434587ae509d4f9121d0d10f1452aa54c6d8a",
+      "blob_sha256": "d88647b0475abef4850293586cbf14d3b2d72e8ede13afe7ebcb863f465271b1",
+      "text_sha256": "80c4786d060dd35c18feea70fcc6f403edc87032dac48523d2128107e33fa696",
+      "status": "no_direct_current_calculator_dependency_identified",
+      "instrument_summary": "Maharashtra Act LXIII of 2025 amends sections 32C, 53 and 53A and inserts section 53B, including an administrative appeal route and Rs 1,000 application fee; commencement requires a separate Gazette notification.",
+      "engineering_rationale": "No current rule, modifier, charging section, penalty regime, or classification tree computes an appeal application fee or the amended adjudication/appeal procedure. The unlocated commencement notification remains a distinct source-chain item.",
+      "revisit_if": "StampDraft adds adjudication or appeal-fee workflows, a commencement notification is acquired, or legal review identifies a transitive effect on an enabled computation."
+    },
+    {
+      "candidate_id": "61741bf3ae7f1d2567a436286aaafdfab6606f5c6e970c74a4a8aa71ff148c61",
+      "source_id": "mh-egazette-part8",
+      "source_row_id": "3d275f4c5fa0b33e29a565889820bee278af10f61acebd4a0d7e3785d4e91e18",
+      "blob_sha256": "9712bff1efbbba5231a53defb1ed4f373d60f2b3994cba4e506af07c27a524b0",
+      "text_sha256": "554df9cafe1e1739bdb5a9e19a08477cfa01771fd6914d1f5320f533baf37431",
+      "status": "no_direct_current_calculator_dependency_identified",
+      "instrument_summary": "Maharashtra Act XIII of 2026 amends section 52A thresholds and the authorities deciding stamp-refund allowance applications.",
+      "engineering_rationale": "The current computation graph calculates duty and encoded penalty outputs, not section 52A refund allowance or administrative decision authority. No current numeric rule references section 52A.",
+      "revisit_if": "StampDraft adds refund or allowance workflows, or legal review identifies an effect on an enabled duty or penalty dependency."
+    },
+    {
+      "candidate_id": "2e1b8b7c6f4b68479e23a5eed385d1a76bc1bd60285629ae10b1b41b1808887a",
+      "source_id": "mh-egazette-part8",
+      "source_row_id": "8d961b163b9dec4e142958fda64a406ffc397996654af8559b36af7d869fe310",
+      "blob_sha256": "d35351ab370a71c4aea47e76dc482a3c95061528b1392e1051a5552f97228557",
+      "text_sha256": "a62a52fd277bda11fc6e9212ce509d1ccf4e10b9090f46515d19be1719edefcc",
+      "status": "no_direct_current_calculator_dependency_identified",
+      "instrument_summary": "Maharashtra Act XXIX of 2026 adds an explanation to section 48(1)'s proviso concerning refund treatment for other instruments, including development agreements charged like agreements for sale.",
+      "engineering_rationale": "The current computation graph does not calculate section 48 refunds. This disposition does not conclude that the amendment is irrelevant to future refund, development-agreement, or agreement-for-sale product work.",
+      "revisit_if": "StampDraft adds refund or development-agreement workflows, changes agreement-for-sale scope, or legal review identifies a transitive effect on an enabled computation."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "tree_id": "MH-lease-vs-leave-license",
+  "jurisdiction": "MH",
+  "instrument_class": "lease_vs_leave_and_license",
+  "root": "q_exclusive_possession",
+  "nodes": {
+    "q_exclusive_possession": {
+      "type": "question",
+      "text": "Is exclusive possession of the premises granted to the grantee — the right to exclude all others, including the grantor?",
+      "legal_test": "Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262: exclusive possession is the decisive test. In Maharashtra the distinction is doubly load-bearing because lease (Art 36, ad valorem on a %-of-market-value) and leave & licence (Art 36A, 0.25% of rent+deposit+interest) are SEPARATE articles with very different duty.",
+      "edges": [
+        { "answer": "yes", "to": "q_interest" },
+        { "answer": "no", "to": "q_indicia" }
+      ]
+    },
+    "q_interest": {
+      "type": "question",
+      "text": "Is the grant intended to create an interest in the property (a term/periodic tenancy, heritable/transferable), rather than a purely personal permission?",
+      "legal_test": "Section 105, Transfer of Property Act 1882; and Maharashtra Rent Control Act context — intention to create an interest confirms a lease (Art 36).",
+      "edges": [
+        { "answer": "yes", "to": "t_lease" },
+        { "answer": "no", "to": "grey" }
+      ]
+    },
+    "q_indicia": {
+      "type": "question",
+      "text": "Despite a 'leave & licence' label, are there exclusive-possession indicia (grantor excluded, grantee controls access, long fixed term, permanent structures permitted)?",
+      "legal_test": "Substance over form (Associated Hotels). A licence with exclusive-possession indicia may in substance be a lease chargeable under Art 36, not Art 36A.",
+      "edges": [
+        { "answer": "yes", "to": "grey" },
+        { "answer": "no", "to": "t_leave_license" }
+      ]
+    },
+    "t_lease": { "type": "terminal", "instrument": "lease", "article": "36", "rule_id": "MH-ART36-lease" },
+    "t_leave_license": { "type": "terminal", "instrument": "leave_and_license", "article": "36A", "rule_id": "MH-ART36A-leave-license" },
+    "grey": {
+      "type": "escalate",
+      "reason": "Exclusive-possession indicia conflict with the licence label (or intention to create an interest is unclear). Apply s.6 (highest of the competing duties — here Art 36 lease typically exceeds Art 36A) and recommend adjudication (s.31) rather than guessing between two separate Maharashtra articles."
+    }
+  },
+  "version": {
+    "effective_from": "2017-09-07",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Transfer of Property Act 1882 s.105; Associated Hotels of India Ltd. v. R.N. Kapoor, AIR 1959 SC 1262; Maharashtra Stamp Act 1958 Arts 36 & 36A, s.6",
+      "quoted_text": "Lease (transfer of exclusive possession creating an interest) is charged under Art 36; leave & licence (bare permission to occupy) under Art 36A. Where indicia conflict, s.6 charges the highest of the competing duties."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH on the legal tests. Unlike Delhi/Karnataka (which have no separate L&L article), Maharashtra's Art 36 vs 36A split makes this classification directly duty-determinative — the escalation on grey-zone indicia matters most here."
+}

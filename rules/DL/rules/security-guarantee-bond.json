@@ -1,0 +1,30 @@
+{
+  "rule_id": "DL-ART57-security-bond",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "57",
+  "instrument": "guarantee_bond",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 57 (Delhi)",
+      "article": "57",
+      "quoted_text": "Sch I-A Art. 57 (both columns): 'SECURITY-BOND OR MORTGAGE DEED, executed by way of security for the due execution of an office, or to account for money or other property received by virtue thereof, or executed by a surety to secure the due performance of a contract' — '(a) When the amount secured does not exceed Rs.1000: The same duty as a Bond No.15 for the amount of the loan secured. (b) In other case: One hundred rupees.' Exemptions include bonds by government officers/sureties for due execution of office."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "switch",
+    "on": { "var": "amount_secured" },
+    "cases": [
+      { "upto": 1000, "charge": { "kind": "cross_ref", "rule_id": "DL-ART15-bond" } },
+      { "upto": null, "charge": { "kind": "fixed", "amount": "100" } }
+    ]
+  },
+  "rounding": { "mode": "none", "nearest": 1 },
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM-HIGH (clean two-column quote; Bond 15 leg founder-ruled in Q2). A surety bond securing due performance of a contract (the commercial guarantee-bond case) lands here: ≤ Rs 1,000 → 2% via Bond 15; above → flat Rs 100. Instrument key guarantee_bond because Art 57's 'executed by a surety to secure the due performance of a contract' is the guarantee case; the same rule serves office-security bonds."
+}

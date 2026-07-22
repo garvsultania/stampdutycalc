@@ -1,0 +1,119 @@
+[
+{
+  "tree_id": "MH-works-vs-service",
+  "jurisdiction": "MH",
+  "instrument_class": "works_vs_service",
+  "root": "q_goods_transfer",
+  "nodes": {
+    "q_goods_transfer": {
+      "type": "question",
+      "text": "Will any goods or materials supplied or incorporated by the provider become the customer's property during performance?",
+      "legal_test": "Maharashtra Stamp Act Sch. I Art. 63 defines a works contract in exactly these terms ('a contract for works and labour or services involving transfer of property in goods (whether as goods or in some other form) in its execution and includes a sub-contract'), tracking State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560 and Art. 366(29A) of the Constitution.",
+      "edges": [
+        { "answer": "yes", "to": "q_additional_transaction_works" },
+        { "answer": "no", "to": "q_additional_transaction_service" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "q_additional_transaction_works": {
+      "type": "question",
+      "text": "Besides the services and goods/materials, does the document grant or transfer development, construction, sale, lease/licence, security, agency, or any other transaction right?",
+      "legal_test": "Art 63 applies to works contracts 'not otherwise provided for'; a specific Art 5 sub-clause displaces both Art 63 and the Art 5(h)(B) residual. Section 6 also charges the highest of competing descriptions where an instrument falls within two.",
+      "edges": [
+        { "answer": "no", "to": "t_works" },
+        { "answer": "yes", "to": "grey_specific_article" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "q_additional_transaction_service": {
+      "type": "question",
+      "text": "Besides supplying services, does the document grant or transfer development, construction, sale, lease/licence, security, agency, or any other transaction right?",
+      "legal_test": "Art 5 routes 'agreement for service' to Article 5; clause (h)(B) is the residual ('if not otherwise provided for').",
+      "edges": [
+        { "answer": "no", "to": "t_service" },
+        { "answer": "yes", "to": "grey_specific_article" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "t_works": { "type": "terminal", "instrument": "works_contract", "article": "63", "rule_id": "MH-ART63-works-contract" },
+    "t_service": { "type": "terminal", "instrument": "service_agreement", "article": "5(h)(B)", "rule_id": "MH-ART5hB-service-agreement" },
+    "grey_specific_article": {
+      "type": "escalate",
+      "reason": "A more specific Article 5 sub-clause may apply (development agreement (g-a) → conveyance rate; (h)(A) → 0.1%/0.2% of the amount agreed), which displaces both Art 63 and the Art 5(h)(B) residual. In Maharashtra this fork is worth up to ~495× the duty (Rs 49,500 vs Rs 100 on a Rs 5 crore contract), so escalate and apply s.6 (highest of the competing descriptions) / seek adjudication (s.31) rather than guessing."
+    }
+  },
+  "pending_verification": [],
+  "version": {
+    "effective_from": "2015-04-24",
+    "effective_to": "2024-10-14",
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act 1958 Sch. I Arts 63 & 5(h)(B), s.6; State of Madras v. Gannon Dunkerley & Co., AIR 1958 SC 560; Constitution Art. 366(29A)",
+      "quoted_text": "Art 63 charges a works contract (works/labour/services involving transfer of property in goods) ad valorem — Rs 500, plus 0.1% above Rs 10 lakh, capped at Rs 25 lakh. A pure service agreement falls to Art 5(h)(B) — Rs 100. Where an instrument falls within two descriptions, s.6 charges the highest."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH on the classification tests. Historical 2015-04-24 through 2024-10-13 consequence: works duty up to Rs 25 lakh versus the Rs 100 residual service amount."
+},
+{
+  "tree_id": "MH-works-vs-service",
+  "jurisdiction": "MH",
+  "instrument_class": "works_vs_service",
+  "root": "q_goods_transfer",
+  "nodes": {
+    "q_goods_transfer": {
+      "type": "question",
+      "text": "Will any goods or materials supplied or incorporated by the provider become the customer's property during performance?",
+      "legal_test": "Maharashtra Stamp Act Sch. I Art. 63 defines a works contract as a contract for works and labour or services involving transfer of property in goods in its execution, and includes a sub-contract.",
+      "edges": [
+        { "answer": "yes", "to": "q_additional_transaction_works" },
+        { "answer": "no", "to": "q_additional_transaction_service" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "q_additional_transaction_works": {
+      "type": "question",
+      "text": "Besides the services and goods/materials, does the document grant or transfer development, construction, sale, lease/licence, security, agency, or any other transaction right?",
+      "legal_test": "Art 63 applies to works contracts not otherwise provided for; a specific Art 5 sub-clause displaces both Art 63 and the Art 5(h)(B) residual. Section 6 charges the highest of competing descriptions where an instrument falls within two.",
+      "edges": [
+        { "answer": "no", "to": "t_works" },
+        { "answer": "yes", "to": "grey_specific_article" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "q_additional_transaction_service": {
+      "type": "question",
+      "text": "Besides supplying services, does the document grant or transfer development, construction, sale, lease/licence, security, agency, or any other transaction right?",
+      "legal_test": "Art 5 routes an agreement for service to Article 5; clause (h)(B) is the residual if not otherwise provided for.",
+      "edges": [
+        { "answer": "no", "to": "t_service" },
+        { "answer": "yes", "to": "grey_specific_article" },
+        { "answer": "uncertain", "to": "grey_specific_article" }
+      ]
+    },
+    "t_works": { "type": "terminal", "instrument": "works_contract", "article": "63", "rule_id": "MH-ART63-works-contract" },
+    "t_service": { "type": "terminal", "instrument": "service_agreement", "article": "5(h)(B)", "rule_id": "MH-ART5hB-service-agreement" },
+    "grey_specific_article": {
+      "type": "escalate",
+      "reason": "A more specific Article 5 sub-clause may apply and displace both Article 63 and the Article 5(h)(B) residual. On a Rs 5 crore contract the current fork is Rs 1,49,000 as works versus Rs 500 as residual service, about 298 times the duty, so apply section 6 or seek adjudication rather than guessing."
+    }
+  },
+  "pending_verification": [],
+  "version": {
+    "effective_from": "2024-10-14",
+    "effective_to": null,
+    "supersedes": "MH-works-vs-service@2015-04-24",
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act 1958 Sch. I Arts 63 & 5(h)(B), s.6, as amended by Maharashtra Act IX of 2025 ss.1(2), 2(2), 2(16)",
+      "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+      "quoted_text": "From 14 October 2024 Article 63 uses a Rs 5 lakh threshold and 0.3% marginal rate, while Article 5(h)(B) charges Rs 500 if the agreement is not otherwise provided for. Section 6 charges the highest applicable description."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "Current classification remains observable-fact driven. The amended Rs 5 crore consequence is Rs 1,49,000 as works versus Rs 500 as residual service."
+}
+]

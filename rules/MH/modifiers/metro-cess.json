@@ -1,0 +1,51 @@
+{
+  "modifier_id": "MH-metro-cess",
+  "jurisdiction": "MH",
+  "kind": "surcharge_cess",
+  "applies_when": {
+    "all": [
+      {
+        "date_within": {
+          "from": "2022-04-01"
+        }
+      },
+      {
+        "eq": {
+          "field": "metro_cess_city",
+          "value": "yes"
+        }
+      }
+    ]
+  },
+  "effect": {
+    "op": "pct_add",
+    "pct": 1,
+    "of": {
+      "var": "market_value"
+    },
+    "label": "Metro cess / transport surcharge (1%)"
+  },
+  "order": 15,
+  "version": {
+    "effective_from": "2022-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Mumbai Municipal Corporation Act 1888 s.144F (ins. Mah. 73 of 2018 s.2) for Mumbai; Maharashtra Municipal Corporations Act 1949 s.149B (ins. Mah. 34 of 2015 s.2) for other corporations. Commenced 8-2-2019; suspended 1-4-2020 to 31-3-2022 by statutory proviso (Mah. 33 of 2020); revived automatically 1-4-2022.",
+      "gazette_date": "2022-04-01",
+      "quoted_text": "s.149B(1) (India Code consolidated, [Text as on 2nd May 2025]): 'Without prejudice to the provisions of section 149A, the stamp duty leviable under the Maharashtra Stamp Act (LX of 1958), on the instruments of sale, gift and usufructuary mortgage, respectively, of immovable property ... situated in the City in which one or more Vital Important Urban Transport Projects ... be increased by a surcharge at the rate of one per cent., in case of instrument of sale or gift, on the value of the property so situated and in case of an instrument of usufructuary mortgage, on the amount secured ...' Proviso: '(a) for the period commencing from the 1st April 2020 and ending on the 31st March 2022, not be increased by any surcharge, under this sub-section ; (b) with effect from the 1st April 2022 ...'. s.144F(1) of the MMC Act 1888 is materially identical for Mumbai."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "requires_facts": [
+    "metro_cess_city"
+  ],
+  "pending_verification": [
+    {
+      "reason": "CITY LIST, INSTRUMENT SCOPE, AND STACKING ARE UNRESOLVED. The binary metro_cess_city fact cannot distinguish Mumbai's apparent 1% structure from possible 2% s.149A+s.149B stacking in other corporations, and official project notifications are incomplete. This changes the amount, so a metro cell must refuse rather than warn."
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (multiple corroborating sources incl. a law firm + the abeyance-notification reference, but NOT read from a .gov primary PDF — PENDING the exact notification number/text). 1% of market value, in the six metro cities, from 1-Apr-2022 → makes a Municipal-Corporation conveyance 5%+1% = 6%. fact metro_cess_city='yes' (property in Mumbai/Thane/Navi Mumbai/Pune/Nagpur/Nashik). Currently attached to CONVEYANCE only; the cess also applies to GIFT and MORTGAGE (attach when those are metro-city-tested — note it should NOT inflate a fixed family-gift stamp figure but IS charged on the property value, a modelling point to confirm). LBT, where separately levied, may be additional — PENDING."
+}

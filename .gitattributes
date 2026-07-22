@@ -1,0 +1,2 @@
+# Recorded government responses are immutable byte-for-byte fixtures.
+watchdog-data/recordings/**/bodies/* binary

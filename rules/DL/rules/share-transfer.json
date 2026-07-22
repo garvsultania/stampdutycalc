@@ -1,0 +1,72 @@
+[
+  {
+    "rule_id": "DL-ART62-share-transfer",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (Union law — Art. 62(a), pre-amendment)",
+    "article": "62(a)",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2020-07-01",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Indian Stamp Act, 1899, Sch. I Art. 62(a) + S.O. 130(E) dated 28-1-2004 (as corrected by S.O. 522(E) dated 7-4-2005)",
+        "article": "62(a)",
+        "quoted_text": "Central Sch. I Art. 62 (both columns, Delhi-Revenue-hosted text): 'TRANSFER (whether with or without consideration) — (a) of shares in an incorporated company or other body corporate — [Twenty-five paise] for hundred rupees or part thereof of the value of the share' [rate as substituted by S.O. 130(E) w.e.f. 1-3-2004] = 0.25% of the value. Rounding proviso from the same 2004 order: 'The duty chargeable shall, wherever necessary, be rounded off to the next five paise.' This pre-amendment regime governs physical transfers executed BEFORE 1 July 2020."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "share_value"
+      },
+      "pct": 0.25
+    },
+    "rounding": {
+      "mode": "ceil",
+      "nearest": 0.05
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (article text + 2004 order both in the committed source PDF). Historical version for Flow D / as-of computations. Base: value of the share (consideration; for no-consideration transfers the pre-2020 base was the share VALUE — flag for adjudication-mode inputs). The ceil-to-5-paise rounding is the Q6 micro-exception, encoded ONLY here."
+  },
+  {
+    "rule_id": "DL-ART62-share-transfer",
+    "jurisdiction": "DL",
+    "act": "Indian Stamp Act, 1899 (Union law — Part AA / s.9A-9B uniform regime)",
+    "article": "62 / s.9A",
+    "instrument": "share_transfer_physical",
+    "version": {
+      "effective_from": "2020-07-01",
+      "effective_to": null,
+      "supersedes": "DL-ART62-share-transfer@2015-01-01",
+      "source": {
+        "type": "notification",
+        "ref": "Finance Act 2019 (Part I, Ch. IV) amendments to the Indian Stamp Act + MoF notifications dated 10-12-2019 and 30-03-2020 (regime effective 1-7-2020)",
+        "gazette_date": "2020-03-30",
+        "quoted_text": "Founder ruling (Q4, 2026-07-16): 'Physical share transfers on Form SH-4 attract stamp duty at 0.015% of consideration under Article 62 of the Indian Stamp Act as amended, uniform across India — effective 1 July 2020 via the Finance Act 2019 amendments and MoF notifications of 10 December 2019 and 30 March 2020; no state deviation is permitted; documents still citing 0.25% are outdated.' Per the DEA FAQs on the amended Act, off-market transfers WITHOUT consideration (gifts) attract nil duty, since the base is consideration."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "consideration"
+      },
+      "pct": 0.015
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "WHO pays is contested: transferor vs transferee under amended s.29 is disputed in practitioner literature and the founder has not adjudicated it. The DUTY AMOUNT is confident and verified — this is a warning, not a refusal, because refusing would overstate our doubt: the figure is right, the incidence is open.",
+        "severity": "warn"
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (founder-ruled, statutory chain quoted). PENDING_VERIFICATION (payer): the amount is confident; WHO pays (transferor vs transferee under amended s.29) is contested in practitioner literature — founder to verify from the bare act; payer does not affect the computed amount. Gift of shares (consideration 0) → duty 0, per DEA FAQ. Keep ISSUE of share certificates (Delhi Art 19: Re 1 per Rs 1,000 = 0.1%) as a SEPARATE instrument — do not conflate; the Delhi revenue site still displaying old certificate-rate guidance in a share-transfer context is a live canary-divergence specimen (M5). Rounding under the amended regime not specified in sources reached — none pending confirmation."
+  }
+]

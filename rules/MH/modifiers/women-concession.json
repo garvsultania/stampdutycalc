@@ -1,0 +1,38 @@
+{
+  "modifier_id": "MH-women-residential-concession",
+  "jurisdiction": "MH",
+  "kind": "concession",
+  "applies_when": {
+    "all": [
+      { "date_within": { "from": "2021-04-01" } },
+      { "eq": { "field": "buyer_all_women", "value": "yes" } },
+      { "eq": { "field": "property_use", "value": "residential" } }
+    ]
+  },
+  "effect": {
+    "op": "pct_add",
+    "pct": -1,
+    "of": { "var": "market_value" },
+    "label": "Women concession (−1% on residential, Order 31-Mar-2021)"
+  },
+  "order": 10,
+  "version": {
+    "effective_from": "2021-04-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "order",
+      "ref": "Maharashtra R&FD Order No. Mudrank-2021/UOR/UOR12/CR.107/M-1 (Policy) dated 31-Mar-2021",
+      "gazette_date": "2021-03-31",
+      "quoted_text": "IGR Editor's Note to Art 25: 'As per Order ... dated 31st March 2021, Maharashtra Government reduced the stamp duty from 1st of April 2021 by one percent as otherwise chargeable under clause (b) of Article 25 of Schedule-1, on the document or instrument of conveyance or agreement to sell of any type of residential unit ... executed ... between the women/women purchaser/s and any seller or other executant.' Implemented here as −1% of market value (a percentage-POINT reduction, exact), gated to residential + all-women purchasers + on/after 1-Apr-2021."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "pending_verification": [
+    {
+      "reason": "The all-women purchaser condition, continuing currency, and complete instrument scope of the 31-Mar-2021 concession order have not been established from the archived primary order. Refuse any cell in which the concession would reduce duty."
+    }
+  ],
+  "notes_for_reviewer": "Applies ONLY to clause (b) immovable residential conveyance, all-women purchasers, from 1-Apr-2021. Modelled as a −1 percentage-point reduction via pct_add(-1% of market_value) so it composes exactly with the 5%/4% base (avoids the non-exact 'percentage-off-duty' problem). PENDING_VERIFICATION: (1) whether the concession requires ALL purchasers to be women (assumed yes, per 'women purchaser/s') vs any woman co-owner — fact buyer_all_women; (2) whether it extends to agreement-to-sell (order text says 'conveyance or agreement to sell' — yes, attach to that rule too when encoded); (3) any re-notification/expiry after the initial period."
+}

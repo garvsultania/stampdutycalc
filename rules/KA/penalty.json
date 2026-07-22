@@ -1,0 +1,25 @@
+{
+  "regime_id": "KA-penalty",
+  "jurisdiction": "KA",
+  "penalty": { "type": "discretionary_range", "min_multiple": 0, "max_multiple": 10 },
+  "adjudication_path": "Karnataka Stamp Act 1957 s.34 (admission on payment of duty + penalty up to 10× deficiency) / s.39 (Collector) / s.46A",
+  "pending_verification": [
+    {
+      "reason": "One discretionary [0, 10x] range conflates two materially different statutory routes: s.34 admission in evidence can impose a mandatory 10x penalty (subject to the Rs 5 wording), while the Collector path under s.39 is discretionary up to 10x. Refuse until the output contract represents the selected route explicitly."
+    }
+  ],
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Karnataka Stamp Act, 1957, s.34 & s.39",
+      "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+      "quoted_text": "s.34 (verbatim, official DPAL text): '... the same may ... be admitted in evidence on payment of the duty ... together with a penalty of five rupees, or, when ten times the amount of the proper duty or deficient portion thereof exceeds five rupees, of a sum equal to ten times such duty or portion'. s.39 (Collector): '... if he thinks fit, an amount not exceeding ten times the ...' deficient duty. Modelled as a DISCRETIONARY range up to 10× (PRD §5.6 — never a false point estimate); the s.34 court-admission route is a fixed 10× (documented below)."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "notes_for_reviewer": "CONFIDENCE: HIGH (primary text). Karnataka penalty is 'up to ten times' the deficient duty — modelled as discretionary_range [0, 10×], so the engine outputs a RANGE, not a fake point figure. NUANCE for the memo: on ADMISSION IN EVIDENCE (s.34) the penalty is a MANDATORY 10× (or Rs 5 if higher); the discretion (lower amounts) is the Collector's on adjudication (s.39/s.46A). The product should present both: the s.39 adjudication range [deficit, up to 11× total] and the s.34 worst case (11× total). min_multiple 0 reflects the Collector's full discretion; set to a higher floor if the founder prefers to model the practical minimum."
+}

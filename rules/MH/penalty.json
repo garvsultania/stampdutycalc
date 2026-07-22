@@ -1,0 +1,52 @@
+[
+  {
+    "regime_id": "MH-penalty",
+    "jurisdiction": "MH",
+    "penalty": { "type": "per_month", "pct_per_month": 2, "cap_multiple": 4, "min_penalty": null },
+    "adjudication_path": "Maharashtra Stamp Act 1958 s.31/s.32 (adjudication) & s.34 (admission on payment of duty + penalty); distinct s.39 impounding route; s.53A revision",
+    "pending_verification": [
+      {
+        "reason": "Deficit-and-penalty output cannot choose the applicable statutory route. The encoded 2% per month, maximum four-times formula is the section 31(4)/section 34 route, while section 39 used a distinct 2% penalty before 31 July 2024. Refuse until the product collects and models the procedural route."
+      }
+    ],
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2024-07-31",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.34 proviso, s.31(4) proviso, and historical s.39(1)(b)",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/22026/1/the_maharashtra_stamp_act,_1958.pdf",
+        "quoted_text": "MSA s.34: a penalty at 2% of the deficient duty for every month or part thereof from execution, capped at four times the deficiency; the same rate and cap appear in the s.31(4) proviso. Before Maharashtra Act XXXII of 2024, s.39(1)(b) separately used an amount equal to 2% rather than the per-month formula."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "The stored arithmetic is limited to sections 31(4) and 34. Section 39 is a separate procedural route, so one route-free deficit form cannot safely emit a figure."
+  },
+  {
+    "regime_id": "MH-penalty",
+    "jurisdiction": "MH",
+    "penalty": { "type": "per_month", "pct_per_month": 2, "cap_multiple": 4, "min_penalty": null },
+    "adjudication_path": "Maharashtra Stamp Act 1958 s.31/s.32 (adjudication) & s.34 (admission on payment of duty + penalty); distinct s.39 impounding route as amended from 31-Jul-2024; s.53A revision",
+    "pending_verification": [
+      {
+        "reason": "Deficit-and-penalty output cannot choose the applicable statutory route. The encoded 2% per month, maximum four-times formula is the section 31(4)/section 34 route, while section 39(1)(b) charges 1% for a registered instrument and 2% otherwise from 31 July 2024. Refuse until the product collects instrument registration and procedural-route facts and models the correct branch."
+      }
+    ],
+    "version": {
+      "effective_from": "2024-07-31",
+      "effective_to": null,
+      "supersedes": "MH-penalty@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act XXXII of 2024, ss.1(2) and 2(3), p.2",
+        "gazette_date": "2024-07-31",
+        "quoted_text": "Section 1(2) brings sections 2, 3 and 4 into force on publication. Section 2(3) substitutes in s.39(1)(b), for 'an amount equal to 2 per cent.', 'in case of registered instrument an amount equal to 1 per cent. and in other cases an amount equal to 2 per cent.'. The s.31(4)/s.34 per-month formula is not altered by this Act."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "From 31 July 2024 the distinct section 39 route branches on registration status. The stored arithmetic remains limited to sections 31(4) and 34, so route-free output stays closed."
+  }
+]

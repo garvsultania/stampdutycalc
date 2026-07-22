@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "target": {
+    "jurisdiction": "MH",
+    "kind": "rule",
+    "id": "MH-ART54-security-bond",
+    "effective_from": "2022-01-20",
+    "citation_ref": "Maharashtra Act VII of 2022, s.2(5), pp.3-4 (first published 20-Jan-2022)"
+  },
+  "evidence_as_of": "2026-07-16",
+  "proposed_evidence": {
+    "documents": [
+      {
+        "sha256": "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1",
+        "source_id": "mh-egazette",
+        "source_row_id": "78eba1eda656979c0e4dc2d8d87d1c088518fc1be65433bcdaa34bdf870fac1a",
+        "run_id": "4048d323-497b-4601-aa67-1a54d58368d6",
+        "published_on": "2022-01-20",
+        "role": "amendment",
+        "locator": {
+          "kind": "page",
+          "value": "p.1 (assent/publication); pp.3-4 (complete substituted Article 54, Article 40 proviso and four exemptions)"
+        }
+      }
+    ],
+    "audits": [
+      {
+        "source_id": "mh-egazette",
+        "run_id": "4048d323-497b-4601-aa67-1a54d58368d6",
+        "audited_through": "2022-12-31"
+      },
+      {
+        "source_id": "mh-egazette",
+        "run_id": "218c93a3-de85-40e1-8790-cc4f73748deb",
+        "audited_through": "2023-12-31"
+      },
+      {
+        "source_id": "mh-egazette",
+        "run_id": "e13bf2ce-3c76-4090-83c5-4fb0f6b1c5ee",
+        "audited_through": "2024-12-31"
+      },
+      {
+        "source_id": "mh-egazette",
+        "run_id": "9215ed47-cfb1-4df7-9c4a-edd137fbf29b",
+        "audited_through": "2025-04-08"
+      },
+      {
+        "source_id": "mh-egazette",
+        "run_id": "b0146a92-8121-4195-9f44-8cff06a702d5",
+        "audited_through": "2026-07-16"
+      },
+      {
+        "source_id": "mh-egazette-part4b",
+        "run_id": "733e0685-4826-499c-bc91-6a1803c69392",
+        "audited_through": "2026-07-19"
+      }
+    ],
+    "amendment_chain": {
+      "checked_from": "2022-01-20",
+      "checked_through": "2026-07-16",
+      "source_ids": [
+        "mh-egazette",
+        "mh-egazette-part4b"
+      ],
+      "documents": [
+        "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"
+      ]
+    },
+    "commencement_chain": {
+      "checked_from": "2022-01-20",
+      "checked_through": "2026-07-16",
+      "source_ids": [
+        "mh-egazette",
+        "mh-egazette-part4b"
+      ],
+      "documents": [
+        "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1"
+      ]
+    }
+  },
+  "source_text_receipts": [
+    {
+      "sha256": "75e79d9e0328d6df2af370f582750c16f8b5867be159bb7db74cf452eb477db1",
+      "pages": [1, 3, 4],
+      "text_sha256": "70f54ae7e2156288ed21e6189a257f3af053c82c7d39f7ad3febc8f7d63aa3b8",
+      "detail": "Four-page PDF with text on every page; p.1 identifies Maharashtra Act VII of 2022 and first publication after assent on 20 January 2022; pp.3-4 contain the complete substituted Article 54."
+    }
+  ],
+  "review_context": {
+    "encoded_diff": {
+      "base_revision": "e64a13b",
+      "candidate_revision": "working-tree-evidence-proposal",
+      "changed_paths": [
+        "rules/MH/rules/bonds-affidavit.json",
+        "review-packets/MH-ART54-security-bond@2022-01-20.json",
+        "golden/MH/bonds-affidavit.json"
+      ],
+      "summary": "Propose exact Watchdog evidence for the complete Article 54 substitution without changing the encoded rate, scope, or founder verification metadata."
+    },
+    "tests": {
+      "present_day": [
+        "MH Security bond — current lower branch is 0.1% through Rs 5 lakh",
+        "MH Security bond — current upper branch is 0.3%",
+        "MH Security bond — current Rs 20 lakh cap binds",
+        "MH Security bond — Article 40-paid principal invokes Rs 100 proviso",
+        "MH Security bond — specified Government officer security is exempt"
+      ],
+      "boundaries": [
+        "MH Security bond — day before substitution retains historical 0.5%",
+        "MH Security bond — amendment day minimum is Rs 100"
+      ],
+      "negative_cases": [
+        "MH Security bond — uncertain exemption scope refuses",
+        "MH Security bond — ordinary bond with uncertain Article 40 status refuses",
+        "MH Security bond — possible GCC Policy eligibility refuses unreduced duty",
+        "MH Security bond — possible agricultural/crop-loan eligibility refuses unreduced duty"
+      ]
+    },
+    "canary": {
+      "id": null,
+      "status": "not_applicable",
+      "detail": "No fixed official portal calculator for Maharashtra Article 54 security bonds has been identified; primary text, not a third-party calculator, controls this packet."
+    },
+    "open_refusals": [
+      "Possible GCC Policy 2025 eligibility remains a typed refusal; no remission percentage is inferred.",
+      "Possible agricultural/crop-loan remission eligibility remains a typed refusal; no remission percentage is inferred.",
+      "Uncertain Article 54 exemption or Article 40-paid status remains a typed refusal."
+    ]
+  },
+  "human_review": {
+    "status": "pending_human_review",
+    "questions": [
+      "Confirm that first publication after assent on 20 January 2022 is the operative commencement date where the Act states no delayed commencement clause.",
+      "Confirm the pp.3-4 transcription, threshold, minimum, maximum, Article 40 proviso, and four exemption mappings before copying this proposal into citation.evidence.",
+      "Supply reviewed_by and reviewed_on only in the separately approved merge."
+    ]
+  }
+}

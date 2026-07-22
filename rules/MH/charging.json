@@ -1,0 +1,88 @@
+[
+  {
+    "rules_id": "MH-charging",
+    "jurisdiction": "MH",
+    "s4": {
+      "nominal_duty": "100",
+      "transaction_types": ["development_agreement", "sale", "lease", "mortgage", "settlement"],
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.4(1), before Maharashtra Act XX of 2025, s.2",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Maharashtra Act XX of 2025, section 2: in section 4(1), for the words 'one hundred rupees' the words 'five hundred rupees' shall be substituted. This identifies the immediately preceding nominal duty as one hundred rupees."
+      }
+    },
+    "s5": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.5",
+        "quoted_text": "s.5 'Instruments relating to several distinct matters or transactions': 'Any instrument comprising or relating to several distinct matters or transactions shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters or transactions, would be chargeable under this Act.'"
+      }
+    },
+    "s6": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.6",
+        "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule I': 'Subject to the provisions of section 5, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
+      }
+    },
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2025-04-01",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, ss.4-6, before Maharashtra Act XX of 2025",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "The Maharashtra Act-level charging rules before 1 April 2025, with the section 4(1) non-principal-instrument amount identified as one hundred rupees by the express substitution in Maharashtra Act XX of 2025, section 2."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Historical 2015-floor era: section 4 non-principal instruments bear Rs 100. Maharashtra Act XX of 2025 supplies the closing boundary."
+  },
+  {
+    "rules_id": "MH-charging",
+    "jurisdiction": "MH",
+    "s4": {
+      "nominal_duty": "500",
+      "transaction_types": ["development_agreement", "sale", "lease", "mortgage", "settlement"],
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act XX of 2025, s.2, p.1",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "gazette_date": "2025-04-01",
+        "quoted_text": "Section 2: in section 4(1) of the Maharashtra Stamp Act, for the words 'one hundred rupees' the words 'five hundred rupees' shall be substituted. The Act was first published after Governor's assent on 1 April 2025."
+      }
+    },
+    "s5": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.5",
+        "quoted_text": "s.5 'Instruments relating to several distinct matters or transactions': 'Any instrument comprising or relating to several distinct matters or transactions shall be chargeable with the aggregate amount of the duties with which separate instruments, each comprising or relating to one of such matters or transactions, would be chargeable under this Act.'"
+      }
+    },
+    "s6": {
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, s.6",
+        "quoted_text": "s.6 'Instruments coming within several descriptions in Schedule I': 'Subject to the provisions of section 5, an instrument so framed as to come within two or more of the descriptions in Schedule I shall, where the duties chargeable thereunder are different, be chargeable only with the highest of such duties.'"
+      }
+    },
+    "version": {
+      "effective_from": "2025-04-01",
+      "effective_to": null,
+      "supersedes": "MH-charging@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act XX of 2025, short title and s.2, p.1",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "gazette_date": "2025-04-01",
+        "quoted_text": "Maharashtra Act XX of 2025 was first published after Governor's assent on 1 April 2025. Section 2 substitutes 'five hundred rupees' for 'one hundred rupees' in section 4(1) of the Maharashtra Stamp Act."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "notes_for_reviewer": "Current era: section 4 non-principal instruments bear Rs 500 from the 1 April 2025 publication of Maharashtra Act XX of 2025. Sections 5 and 6 are unchanged by that Act."
+  }
+]

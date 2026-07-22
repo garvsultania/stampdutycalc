@@ -1,0 +1,161 @@
+[
+  {
+    "rule_id": "KA-ART20-rate",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957, Schedule",
+    "article": "20(1)",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 20(1) (subst. by Act 07 of 2016 w.e.f. 1-4-2016)",
+        "article": "20(1)",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 20(1) (both columns): 'For Conveyance — as defined by clause (d) of section 2, not being a transfer charged or exempted under No.52, on the market value of the property which is the subject matter of conveyance — five percent of the value.' This is the BARE Art 20(1) rate (5% of market value), the canonical cross-ref target for 'same duty as a conveyance under Article 20(1)' (gift non-family, lease clause (vi), exchange, etc.). It carries NO s.3B cess — cross-refs import the charge only; each referring rule adds its own cess where the s.3B list applies."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "ad_valorem",
+      "base": {
+        "var": "market_value"
+      },
+      "pct": 5
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "CURRENT SOURCE GAP — the accepted Karnataka source spine ends with a consolidation whose newest amendment footnote is Act 55 of 2020. The required DPAL annual Act and commencement sweep for 2021 onward is incomplete, so the current bare Article 20(1) rate cannot be returned merely because no later amendment has yet been archived.",
+        "when": {
+          "date_within": {
+            "from": "2021-01-01"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official DPAL text). The bare 5% Art 20(1) rate. Rebaseable via cross_ref `on` (it is a plain ad_valorem), so lease (vi) can apply it to max(lease_base, market_value) and gift to property value. Kept separate from KA-ART20-conveyance (which adds the first-sale concession + s.3B cess) so the cross-ref chain is clean — mirrors Delhi's stamp-only conveyance-rate pattern."
+  },
+  {
+    "rule_id": "KA-ART20-conveyance",
+    "jurisdiction": "KA",
+    "act": "Karnataka Stamp Act, 1957 (Kar. Act 34 of 1957), Schedule",
+    "article": "20",
+    "instrument": "conveyance_sale_deed",
+    "version": {
+      "effective_from": "2016-04-01",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Karnataka Stamp Act, 1957, Sch. Art. 20(1) & (2A) (subst. by Act 07 of 2016 w.e.f. 1-4-2016)",
+        "article": "20",
+        "url": "https://dpal.karnataka.gov.in/storage/pdf-files/34%20of%201957(E).pdf",
+        "quoted_text": "Sch Art. 20 (both columns, official DPAL text): '20(1) ... five percent of the [market] value. (2A) where an instrument of conveyance relating to the FIRST SALE of flat or apartment — (i) where the market value is rupees twenty lakhs or less — two percent of the value; (ii) where above rupees twenty lakhs but upto and inclusive of thirty five lakhs — three percent of the value.' Plus s.3B additional infrastructure duty (10% of the stamp duty) — see modifier."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "first_sale_flat",
+      "cases": [
+        {
+          "when": "yes",
+          "charge": {
+            "kind": "switch",
+            "on": {
+              "var": "market_value"
+            },
+            "cases": [
+              {
+                "upto": 2000000,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": {
+                    "var": "market_value"
+                  },
+                  "pct": 2
+                }
+              },
+              {
+                "upto": 3500000,
+                "charge": {
+                  "kind": "ad_valorem",
+                  "base": {
+                    "var": "market_value"
+                  },
+                  "pct": 3
+                }
+              },
+              {
+                "upto": null,
+                "charge": {
+                  "kind": "cross_ref",
+                  "rule_id": "KA-ART20-rate"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "default": {
+        "kind": "cross_ref",
+        "rule_id": "KA-ART20-rate"
+      }
+    },
+    "modifiers": [
+      "KA-infra-cess",
+      "KA-local-surcharge"
+    ],
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "MISSING BAND — Act 26 of 2021 (in force at once, 05-10-2021) inserted Art 20(2A)(iii): \"where the market value of which is above rupees thirty five lakhs but upto and inclusive of forty five lakhs | three percent of the value\". We encode bands only to 35 lakh, so a first-sale flat between 35L and 45L falls through to the 5% residual and is OVERCHARGED by two percentage points — the most common retail transaction in the state, wrong since Oct 2021. Untouched by Act 04 of 2024, so the band is live today. KA-SOURCING.md logged this as a DISCREPANCY resolved in favour of our primary; the secondaries were right and the primary was stale.",
+        "when": {
+          "all": [
+            {
+              "date_within": {
+                "from": "2021-10-05"
+              }
+            },
+            {
+              "eq": {
+                "field": "first_sale_flat",
+                "value": "yes"
+              }
+            },
+            {
+              "cmp": {
+                "expr": {
+                  "var": "market_value"
+                },
+                "op": "gt",
+                "value": 3500000
+              }
+            },
+            {
+              "cmp": {
+                "expr": {
+                  "var": "market_value"
+                },
+                "op": "lte",
+                "value": 4500000
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH for the stamp rate (official DPAL); MEDIUM for the surcharge (secondary, corroborated). Conveyance = 5% + s.3B 10%-of-duty cess (0.5%) + local surcharge (2% urban / 3% rural of duty) = 5.6% urban / 5.65% rural. FIRST-SALE flat (fact first_sale_flat=yes): ≤Rs 20L → 2%; >20L≤35L → 3%; >35L → 5%. DISCREPANCY (primary followed): some secondary sources call 2/3/5 a general value slab capped at Rs 45L, but Art 20(2A) confines 2%/3% to FIRST SALE of a flat, capped at Rs 35L. Reg fee (1%) is a separate adjunct (M3)."
+  }
+]

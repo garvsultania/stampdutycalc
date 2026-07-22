@@ -18,6 +18,9 @@ export const GoldenCaseSchema = z
     name: z.string().min(1),
     /** free-text pointer to statute/notification backing the expected number */
     source_note: z.string().optional(),
+    /** Eligibility is the user-facing fail-closed suite. Arithmetic cases bypass
+     * pending refusals only to keep the encoded formula under regression. */
+    suite: z.enum(["eligibility", "arithmetic"]).default("eligibility"),
     input: ComputeInputSchema,
     penalty_regime_id: z.string().optional(),
     penalty_months: z.number().optional(),
@@ -46,7 +49,7 @@ export function runCase(ruleSet: RuleSet, c: GoldenCase): CaseResult {
 
   if (c.expect.error !== undefined) {
     try {
-      compute(ruleSet, c.input, resolvePenaltyOpts(ruleSet, c));
+      compute(ruleSet, c.input, resolveComputeOpts(ruleSet, c));
       failures.push(`expected an error containing "${c.expect.error}" but computation succeeded`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -59,7 +62,7 @@ export function runCase(ruleSet: RuleSet, c: GoldenCase): CaseResult {
 
   let out;
   try {
-    out = compute(ruleSet, c.input, resolvePenaltyOpts(ruleSet, c));
+    out = compute(ruleSet, c.input, resolveComputeOpts(ruleSet, c));
   } catch (e) {
     return { name: c.name, pass: false, failures: [`unexpected error: ${(e as Error).message}`] };
   }
@@ -80,13 +83,23 @@ export function runCase(ruleSet: RuleSet, c: GoldenCase): CaseResult {
   return { name: c.name, pass: failures.length === 0, failures };
 }
 
-function resolvePenaltyOpts(ruleSet: RuleSet, c: GoldenCase) {
-  if (!c.penalty_regime_id) return {};
-  const regime = ruleSet.penaltyRegimes.find(
-    (p) => p.jurisdiction === c.input.jurisdiction && p.regime_id === c.penalty_regime_id,
-  );
-  if (!regime) throw new EngineError(`golden case "${c.name}" references unknown penalty regime "${c.penalty_regime_id}"`);
-  return { penaltyRegime: regime, penaltyMonths: c.penalty_months };
+function resolveComputeOpts(ruleSet: RuleSet, c: GoldenCase) {
+  const opts: {
+    penaltyRegime?: (typeof ruleSet.penaltyRegimes)[number];
+    penaltyMonths?: number;
+    pendingPolicy?: "arithmetic-test-only";
+  } = {};
+  if (c.suite === "arithmetic") opts.pendingPolicy = "arithmetic-test-only";
+  if (c.penalty_months !== undefined) opts.penaltyMonths = c.penalty_months;
+  // Only override the auto-resolved regime when a specific id is named.
+  if (c.penalty_regime_id) {
+    const regime = ruleSet.penaltyRegimes.find(
+      (p) => p.jurisdiction === c.input.jurisdiction && p.regime_id === c.penalty_regime_id,
+    );
+    if (!regime) throw new EngineError(`golden case "${c.name}" references unknown penalty regime "${c.penalty_regime_id}"`);
+    opts.penaltyRegime = regime;
+  }
+  return opts;
 }
 
 function diffBreakup(expected: Partial<LineItem>[], actual: LineItem[], failures: string[]): void {

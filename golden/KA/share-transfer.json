@@ -1,0 +1,18 @@
+[
+  {
+    "name": "KA Share transfer — 2019: pre-amendment 0.25% + 5-paise ceil",
+    "source_note": "1,23,450 × 0.25% = 308.625 → next 5 paise = 308.65 (2004 order proviso).",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-share-transfer", "execution_date": "2019-06-01", "values": { "consideration": "123450" } },
+    "expect": { "total_duty": "308.65" }
+  },
+  {
+    "name": "KA Share transfer — 2021: uniform 0.015%",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-share-transfer", "execution_date": "2021-06-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "150" }
+  },
+  {
+    "name": "KA Share transfer — boundary: 1-Jul-2020 is the new regime",
+    "input": { "jurisdiction": "KA", "rule_id": "KA-share-transfer", "execution_date": "2020-07-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "150" }
+  }
+]

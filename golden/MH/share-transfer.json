@@ -1,0 +1,24 @@
+[
+  {
+    "name": "MH Share transfer — 2019: pre-amendment 0.25% (central Art 62a)",
+    "source_note": "10,00,000 × 0.25% = 2,500. MH Schedule has no share entry → Union law applies.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2019-06-01", "values": { "share_value": "1000000" } },
+    "expect": { "total_duty": "2500" }
+  },
+  {
+    "name": "MH Share transfer — 2021: uniform 0.015% (identical to DL/KA)",
+    "source_note": "Same input, post-1-Jul-2020 → 150. Uniform Union regime, no state deviation.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2021-06-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "150" }
+  },
+  {
+    "name": "MH Share transfer — boundary: 30-Jun-2020 still 0.25%",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2020-06-30", "values": { "share_value": "1000000" } },
+    "expect": { "total_duty": "2500" }
+  },
+  {
+    "name": "MH Share transfer — gift of shares (nil consideration): nil duty",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-share-transfer", "execution_date": "2021-06-01", "values": { "consideration": "0" } },
+    "expect": { "total_duty": "0" }
+  }
+]

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { InstrumentSchema, JurisdictionSchema } from "./primitives.js";
 import { VersionMetaSchema } from "./provenance.js";
+import { PendingVerificationSchema } from "./pending.js";
 
 /**
  * Classification tree node (PRD §6.2, Flow B). Stored as data, versioned like
@@ -49,6 +50,7 @@ export const ClassificationTreeSchema = z
     instrument_class: z.string().min(1),
     root: z.string().min(1),
     nodes: z.record(ClassificationNodeSchema),
+    pending_verification: z.array(PendingVerificationSchema).default([]),
     version: VersionMetaSchema,
     notes_for_reviewer: z.string().default(""),
   })

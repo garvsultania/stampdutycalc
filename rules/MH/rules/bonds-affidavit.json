@@ -1,0 +1,327 @@
+[
+  {
+    "rule_id": "MH-ART4-affidavit",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "4",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2024-10-14",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 4",
+        "article": "4",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 4 (both columns): 'AFFIDAVIT, that is to say, a statement in writing purporting to be a statement of facts, signed by the person making it and confirmed by him on oath or ... by affirmation — One hundred rupees.' Exemptions: enrolment under the Air Force/Army/Navy Act; for immediate purpose of being filed/used in any Court; or solely to enable receipt of a pension or charitable allowance."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "Court-use, armed-forces-enrolment, pension, and charitable-allowance affidavits are exempt. Return a fixed amount only after the caller positively identifies an ordinary non-exempt affidavit.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "affidavit_scope",
+              "value": "ordinary_non_exempt"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Historical 2015-01-01 through 2024-10-13 rate: Rs 100. Court/enrolment/pension affidavits are exempt."
+  },
+  {
+    "rule_id": "MH-ART4-affidavit",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "4",
+    "instrument": "affidavit",
+    "version": {
+      "effective_from": "2024-10-14",
+      "effective_to": null,
+      "supersedes": "MH-ART4-affidavit@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act IX of 2025, ss.1(2), 2(1), p.2",
+        "article": "4",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 1(2): 'It shall be deemed to have come into force on the 14th October 2024.' Section 2(1): in Schedule I, in article 4, in column 2, for the words 'One hundred rupees' the words 'Five hundred rupees' shall be substituted."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "Court-use, armed-forces-enrolment, pension, and charitable-allowance affidavits are exempt. Return a fixed amount only after the caller positively identifies an ordinary non-exempt affidavit.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "affidavit_scope",
+              "value": "ordinary_non_exempt"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "Maharashtra Act IX of 2025 raises the Article 4 amount to Rs 500 from 14 October 2024; the statutory exemptions remain fact-gated."
+  },
+  {
+    "rule_id": "MH-ART35-indemnity-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "35",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2015-04-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 35 (Rs 500, subst. by Mah. 20 of 2015)",
+        "article": "35",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 35 (both columns): 'INDEMNITY BOND — Five hundred rupees.' [subst. for 'Two Hundred rupees' by Mah. Act 20 of 2015, s.20(19), w.e.f. 24-4-2015]."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Flat Rs 500. Unlike Delhi (Art 34 → security bond → Bond 15 ad valorem) and Karnataka (Art 29 → security bond 47), Maharashtra fixes indemnity at Rs 500 — a good three-state contrast."
+  },
+  {
+    "rule_id": "MH-ART54-security-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "54",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2022-01-20",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 54",
+        "article": "54",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 54 (both columns): 'SECURITY BOND OR MORTGAGE DEED, where such security bond or mortgage deed is executed by way of security for the due execution of an office, or to account for money or other property received by virtue thereof, or by a surety to secure the due performance of a contract ... — 0.5 per cent for the amount secured by such deed subject to the maximum of ten lakh rupees: Provided that, where ... duty has been paid under article 40, then the duty payable shall be one hundred rupees.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "principal_art40_duty_status",
+      "cases": [
+        {
+          "when": "paid",
+          "charge": { "kind": "fixed", "amount": "100" }
+        },
+        {
+          "when": "not_paid",
+          "charge": {
+            "kind": "ad_valorem",
+            "base": { "var": "amount_secured" },
+            "pct": 0.5,
+            "cap": "1000000"
+          }
+        }
+      ],
+      "default": {
+        "kind": "ad_valorem",
+        "base": { "var": "amount_secured" },
+        "pct": 0.5,
+        "cap": "1000000"
+      }
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "The historical Article 40 proviso returns Rs 100 only when the principal instrument paid Article 40 duty. Refuse if that status is uncertain.",
+        "when": {
+          "not": {
+            "in": {
+              "field": "principal_art40_duty_status",
+              "values": ["paid", "not_paid"]
+            }
+          }
+        }
+      },
+      {
+        "reason": "The historical exemption branches are outside this encoded formula. Return the historical amount only for an ordinary non-exempt security bond.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "security_bond_scope",
+              "value": "ordinary_non_exempt"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR). Historical ordinary bond: 0.5% of amount secured, cap Rs 10 lakh; the Article 40-paid proviso is Rs 100. This era ends before Maharashtra Act VII of 2022."
+  },
+  {
+    "rule_id": "MH-ART54-security-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "54",
+    "instrument": "guarantee_bond",
+    "version": {
+      "effective_from": "2022-01-20",
+      "effective_to": null,
+      "supersedes": "MH-ART54-security-bond@2015-01-01",
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Act VII of 2022, s.2(5), pp.3-4 (first published 20-Jan-2022)",
+        "article": "54",
+        "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+        "quoted_text": "Section 2(5) substitutes Article 54: (i) where the amount secured does not exceed rupees five lakhs, 0.1 per cent subject to a minimum of one hundred rupees; (ii) in any other case, 0.3 per cent subject to a maximum of twenty lakh rupees. If Article 40 duty was paid on the principal's instrument, duty is one hundred rupees. Page 4 retains four specified exemption classes."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "security_bond_scope",
+      "cases": [
+        {
+          "when": "ordinary_non_exempt",
+          "charge": {
+            "kind": "select",
+            "by": "principal_art40_duty_status",
+            "cases": [
+              {
+                "when": "paid",
+                "charge": { "kind": "fixed", "amount": "100" }
+              },
+              {
+                "when": "not_paid",
+                "charge": {
+                  "kind": "switch",
+                  "on": { "var": "amount_secured" },
+                  "cases": [
+                    {
+                      "upto": 500000,
+                      "charge": {
+                        "kind": "ad_valorem",
+                        "base": { "var": "amount_secured" },
+                        "pct": 0.1,
+                        "min_duty": "100"
+                      }
+                    },
+                    {
+                      "upto": null,
+                      "charge": {
+                        "kind": "ad_valorem",
+                        "base": { "var": "amount_secured" },
+                        "pct": 0.3,
+                        "cap": "2000000"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "default": { "kind": "fixed", "amount": "0" }
+          }
+        },
+        { "when": "charitable_public_utility_guarantee", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "irrigation_section_114", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "agricultural_loan_advance", "charge": { "kind": "fixed", "amount": "0" } },
+        { "when": "government_officer_security", "charge": { "kind": "fixed", "amount": "0" } }
+      ],
+      "default": { "kind": "fixed", "amount": "0" }
+    },
+    "rounding": { "mode": "none", "nearest": 1 },
+    "modifiers": [
+      {
+        "modifier_id": "MH-gcc-policy-remission",
+        "required_from": "2025-11-03",
+        "required_to": "2030-11-04"
+      },
+      { "modifier_id": "MH-agricultural-loan-remission", "required_from": "2026-01-01" }
+    ],
+    "pending_verification": [
+      {
+        "reason": "The document's Article 54 exemption status is uncertain. Select the exact ordinary or statutory exemption fact pattern before computing.",
+        "when": { "eq": { "field": "security_bond_scope", "value": "uncertain" } }
+      },
+      {
+        "reason": "For an ordinary Article 54 bond, whether Article 40 duty was paid on the principal instrument changes the result. Select paid or not paid before computing.",
+        "when": {
+          "all": [
+            { "eq": { "field": "security_bond_scope", "value": "ordinary_non_exempt" } },
+            {
+              "not": {
+                "in": {
+                  "field": "principal_art40_duty_status",
+                  "values": ["paid", "not_paid"]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "notes_for_reviewer": "Maharashtra Act VII of 2022 substitutes the complete Article 54 rate table and retains the Article 40 proviso and four exemption classes."
+  },
+  {
+    "rule_id": "MH-ART35-indemnity-bond",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "35",
+    "instrument": "indemnity_bond",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2015-04-24",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 35 as it stood before Mah. Act 20 of 2015 s.20(19)",
+        "article": "35",
+        "quoted_text": "Sch I Art. 35 (INDEMNITY BOND) PRIOR to Mah. 20 of 2015: 'Two Hundred rupees' — substituted by Rs 500 w.e.f. 24-4-2015 (IGR footnote 20(19))."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "200"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "notes_for_reviewer": "BACK-CATALOGUE (2015-01-01 → 2015-04-23): indemnity bond Rs 200 before Mah. 20 of 2015 raised it to Rs 500 w.e.f. 24-4-2015."
+  }
+]

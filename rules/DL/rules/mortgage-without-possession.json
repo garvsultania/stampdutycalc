@@ -1,0 +1,46 @@
+{
+  "rule_id": "DL-ART40b-mortgage-without-possession",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "40",
+  "instrument": "mortgage_without_possession",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 40(b) (Delhi)",
+      "article": "40",
+      "quoted_text": "Schedule I-A Art. 40 (Mortgage Deed), clause (b): 'when possession is not given or agreed to be given as aforesaid — 2% with a monetary ceiling of Rs. 2 lacs [Rs 2,00,000].' (Clause (a), where possession IS given, is charged as a Conveyance No.23 on the amount secured; clause (c) collateral security is Rs 2 per Rs 1,000.)"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "ad_valorem",
+    "base": {
+      "var": "amount_secured"
+    },
+    "pct": 2,
+    "cap": "200000"
+  },
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "pending_verification": [
+    {
+      "reason": "Collateral or auxiliary security can fall under Article 40(c) at a different rate. The caller must answer the observable collateral-security question; only a direct 'no' reaches this principal-mortgage branch.",
+      "when": {
+        "not": {
+          "eq": {
+            "field": "is_collateral_or_auxiliary_security",
+            "value": "no"
+          }
+        }
+      }
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: MEDIUM (Schedule I-A reproduction; both columns coherent). 2% of the amount secured, capped at Rs 2,00,000. Self-contained (no cross-ref). Mortgage WITHOUT possession is NOT in the DMC s.147 transfer-duty list (founder Q1) — no transfer-duty modifier, correctly. The companion mortgage WITH possession is now encoded separately (DL-ART40a) per the resolved Q1 ruling. Clause (c) collateral/auxiliary security (Rs 2 per Rs 1,000) not yet encoded — questionnaire fork."
+}

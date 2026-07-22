@@ -9,11 +9,18 @@ export default defineConfig({
     alias: {
       "@stampdraft/schema": r("./packages/schema/src/index.ts"),
       "@stampdraft/engine": r("./packages/engine/src/index.ts"),
+      "@stampdraft/store": r("./packages/store/src/index.ts"),
+      "@": r("./apps/web"),
     },
   },
   test: {
     globals: false,
-    include: ["packages/**/*.test.ts", "scripts/**/*.test.ts"],
+    include: [
+      "packages/**/*.test.ts",
+      "scripts/**/*.test.ts",
+      "apps/web/lib/**/*.test.ts",
+      "apps/web/app/api/**/*.test.ts",
+    ],
     environment: "node",
   },
 });

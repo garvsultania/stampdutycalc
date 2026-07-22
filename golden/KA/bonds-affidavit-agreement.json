@@ -1,0 +1,97 @@
+[
+  {
+    "name": "KA Affidavit — Rs 20",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART4-affidavit",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA Security/guarantee bond — ≤ Rs 1,000: 0.5%",
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: 800 × 0.5% = 4.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART47-security-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "800"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
+  },
+  {
+    "name": "KA Security/guarantee bond — > Rs 1,000: flat Rs 200",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART47-security-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "500000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA Indemnity bond (Art 29 → 47) — REFUSES stale cross-ref target",
+    "source_note": "Art 29 imports Art 47. Act 04 of 2024 rewrote Art 47, so the target's refusal must propagate through the cross-reference instead of returning the superseded amount.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART29-indemnity-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "900"
+      }
+    },
+    "expect": { "error": "not verified yet" }
+  },
+  {
+    "name": "KA Indemnity bond — REFUSES stale Art 47 fixed amount",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART29-indemnity-bond",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "1000000"
+      }
+    },
+    "expect": { "error": "not verified yet" },
+    "source_note": "The top-level Art 29 rule has no local flag, but its Art 47 target is stale from 03-02-2024. Transitive dependency checks must refuse this path."
+  },
+  {
+    "name": "KA Works contract — Art 5(j) Rs 200",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART5j-works-contract",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA Service agreement — Art 5(j) Rs 200",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART5j-service-agreement",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  }
+]

@@ -29,5 +29,7 @@ jobs:
       # typecheck also emits dist/ that the validate + golden scripts import.
       - run: pnpm typecheck
       - run: pnpm validate:rules
+      - run: pnpm validate:evidence
+      - run: pnpm validate:proposals
       - run: pnpm golden
       - run: pnpm test

@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Lease — 11 months (band i): 2% of whole rent payable",
+    "source_note": "Founder Q2 sanity anchor: '<1 year = Bond 15 on whole amount payable = 2% of the rent' — the universally-quoted Delhi 11-month figure. 11 × 50,000 = 5,50,000 × 2% = 11,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "11", "total_rent_payable": "550000", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "11000" }
+  },
+  {
+    "name": "Lease — 12 months = 1 year (band ii): 2% of average annual rent",
+    "source_note": "'Not less than one year but not more than five years' → Bond 15 on AAR. 6,00,000 × 2% = 12,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "12", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "12000" }
+  },
+  {
+    "name": "Lease — 3 years (band ii): 2% of AAR",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "36", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "12000" }
+  },
+  {
+    "name": "Lease — 6 years (band iii): Conveyance (3%) on 1× AAR, no transfer duty",
+    "source_note": "Founder Q1 exemplar: 'a 6-year lease gets 3% stamp and no transfer duty.' 6,00,000 × 3% = 18,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "72", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "18000" }
+  },
+  {
+    "name": "Lease — 15 years (band iv): Conveyance on 2× AAR",
+    "source_note": "2 × 6,00,000 = 12,00,000 × 3% = 36,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "180", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "36000" }
+  },
+  {
+    "name": "Lease — 25 years (band v): Conveyance on 3× AAR",
+    "source_note": "3 × 6,00,000 = 18,00,000 × 3% = 54,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "300", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "54000" }
+  },
+  {
+    "name": "Lease — 50 years (band vi, OCR-flagged): Conveyance on 4× AAR",
+    "suite": "arithmetic",
+    "source_note": "Band boundary >30≤100y is OCR-AMBIGUOUS in source — founder to verify. 4 × 6,00,000 = 24,00,000 × 3% = 72,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "600", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "total_duty": "72000" }
+  },
+  {
+    "name": "Lease — 6 years + Rs 10L premium (clause c): rent duty + Conveyance on premium",
+    "source_note": "18,000 (rent leg) + 10,00,000 × 3% = 30,000 (premium as Conveyance) = 48,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "72", "avg_annual_rent": "600000", "premium": "1000000" } },
+    "expect": { "total_duty": "48000" }
+  },
+  {
+    "name": "Lease — premium only, no rent (clause b): Conveyance on premium",
+    "source_note": "3-year term, zero rent: rent leg 2% of 0 = 0; premium 20,00,000 × 3% = 60,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "36", "avg_annual_rent": "0", "premium": "2000000" } },
+    "expect": { "total_duty": "60000" }
+  },
+  {
+    "name": "Lease — perpetuity/>100y deliberately escalates (base text unverified)",
+    "source_note": "No switch case beyond 1200 months by design: perpetuity base text truncated in source + s.147 transfer duty (1/6 of first-50y rent) unencoded. Must throw, never approximate.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "1300", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "error": "matches no switch case" }
+  },
+  {
+    "name": "Leave & license — 11 months at Rs 30,000/month: 2% of whole licence fee",
+    "suite": "arithmetic",
+    "source_note": "Charged as Art 35 'agreement to let' (PENDING practice verification). 11 × 30,000 = 3,30,000 × 2% = 6,600.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-leave-and-license", "execution_date": "2024-06-01", "values": { "term_months": "11", "total_rent_payable": "330000", "avg_annual_rent": "360000", "premium": "0" } },
+    "expect": { "total_duty": "6600" }
+  },
+  {
+    "name": "Lease — user-facing computation refuses the OCR-ambiguous >30-year band",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "600", "avg_annual_rent": "600000", "premium": "0" } },
+    "expect": { "error": "band after 30 years" }
+  },
+  {
+    "name": "Leave & license — user-facing computation refuses unproved registrar practice",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-leave-and-license", "execution_date": "2024-06-01", "values": { "term_months": "11", "total_rent_payable": "330000", "avg_annual_rent": "360000", "premium": "0" } },
+    "expect": { "error": "registrar practice" }
+  },
+  {
+    "name": "Lease — a women/joint conveyance reduction cannot leak through a non-purchase cross-reference",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART35-lease", "execution_date": "2024-06-01", "values": { "term_months": "72", "avg_annual_rent": "600000", "premium": "0" }, "facts": { "transferee_category": "female" } },
+    "expect": { "error": "unknown input fact" }
+  }
+]

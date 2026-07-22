@@ -62,7 +62,11 @@ export interface ComputeOutput {
   breakup: LineItem[];
   total_duty: string;
   citations: Citation[];
-  escalations: string[];
+  /**
+   * Caveats that do not undermine the figure — populated from `warn`-severity
+   * pending flags. Doubt that DOES undermine the figure is thrown as an
+   * EngineError instead of being reported here, so a caller cannot ignore it.
+   */
   warnings: string[];
   penalty: PenaltyResult | null;
   inputs_echo: ComputeInput;

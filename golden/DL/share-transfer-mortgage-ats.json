@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Share transfer (physical) — 2019 execution: pre-amendment 0.25%",
+    "source_note": "Art 62(a) as amended by S.O. 130(E) of 2004: 0.25%. 10,00,000 × 0.25% = 2,500. Historical-mode showcase.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2019-06-01", "values": { "share_value": "1000000" } },
+    "expect": { "total_duty": "2500" }
+  },
+  {
+    "name": "Share transfer — 2019, odd value: ceil-to-5-paise rounding (Q6 micro-exception)",
+    "source_note": "1,23,450 × 0.25% = 308.625 → rounded to next 5 paise = 308.65 (2004 order proviso).",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2019-06-01", "values": { "share_value": "123450" } },
+    "expect": { "total_duty": "308.65" }
+  },
+  {
+    "name": "Share transfer — 2021 execution: uniform 0.015% (Finance Act 2019 regime)",
+    "source_note": "Founder Q4: 0.015% uniform from 1-Jul-2020, incl. physical SH-4; 0.25% citations are outdated law. 10,00,000 × 0.015% = 150. Same input, different date, different law — the product thesis in one pair of cases.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2021-06-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "150" }
+  },
+  {
+    "name": "Share transfer — boundary: 30-Jun-2020 still 0.25%",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2020-06-30", "values": { "share_value": "1000000" } },
+    "expect": { "total_duty": "2500" }
+  },
+  {
+    "name": "Share transfer — boundary: 1-Jul-2020 is new regime (0.015%)",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2020-07-01", "values": { "consideration": "1000000" } },
+    "expect": { "total_duty": "150" }
+  },
+  {
+    "name": "Share transfer — gift of shares (nil consideration) post-2020: nil duty",
+    "source_note": "DEA FAQ per founder Q4: off-market transfers without consideration attract nil duty (base is consideration).",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2021-06-01", "values": { "consideration": "0" } },
+    "expect": { "total_duty": "0" }
+  },
+  {
+    "name": "Mortgage with possession — Rs 50L secured, pre-hike: 3% stamp + 3% transfer",
+    "suite": "arithmetic",
+    "source_note": "Founder Q1: 'a mortgage-with-possession gets 3% stamp plus transfer duty.' PENDING: transfer base/gender for mortgages. 50,00,000 × 6% = 3,00,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2023-07-01", "values": { "amount_secured": "5000000" } },
+    "expect": { "total_duty": "300000" }
+  },
+  {
+    "name": "Mortgage with possession — Rs 50L secured, post-hike >25L: 3% + 4%",
+    "suite": "arithmetic",
+    "source_note": "PENDING-flagged (hike application to mortgages assumed via s.147). 50,00,000 × 7% = 3,50,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2024-06-01", "values": { "amount_secured": "5000000" } },
+    "expect": { "total_duty": "350000" }
+  },
+  {
+    "name": "Agreement to sell WITH possession (Art 23A): 90% of conveyance + transfer duty on 90% base, pre-hike",
+    "suite": "arithmetic",
+    "source_note": "Stamp: 90% × (3% of 50,00,000) = 1,35,000. Transfer (contract for transfer, base 90% of consideration per founder Q1): 3% × 45,00,000 = 1,35,000. Total 2,70,000.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23A-ats-part-performance", "execution_date": "2023-07-01", "values": { "consideration": "5000000" }, "facts": { "transferee_category": "male" } },
+    "expect": {
+      "total_duty": "270000",
+      "breakup": [
+        { "kind": "base_duty", "amount": "135000" },
+        { "kind": "surcharge_cess", "amount": "135000" }
+      ]
+    }
+  },
+  {
+    "name": "Agreement to sell WITHOUT possession — Art 5(c) agreement, Rs 50",
+    "suite": "arithmetic",
+    "source_note": "The possession fork is enormous (Rs 50 vs lakhs) — questionnaire-routed, never defaulted.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART5c-agreement-to-sell", "execution_date": "2024-06-01", "values": {}, "facts": {} },
+    "expect": { "total_duty": "50" }
+  },
+  {
+    "name": "Mortgage with possession — user-facing computation refuses the unsourced municipal base",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" } },
+    "expect": { "error": "DMC transfer-duty base" }
+  },
+  {
+    "name": "Agreement to sell WITH possession — user-facing computation refuses municipal assumptions",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23A-ats-part-performance", "execution_date": "2026-07-21", "values": { "consideration": "5000000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "error": "municipal transfer-duty scope" }
+  },
+  {
+    "name": "Share transfer — pre-2020 requires the distinct share-value input",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART62-share-transfer", "execution_date": "2019-06-01", "values": {} },
+    "expect": { "error": "share_value" }
+  },
+  {
+    "name": "Agreement to sell WITHOUT possession — user-facing computation refuses until observable scope is sourced",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART5c-agreement-to-sell", "execution_date": "2026-07-21", "values": {} },
+    "expect": { "error": "supported observable fact pattern" }
+  },
+  {
+    "name": "Mortgage with possession — amendment day at Rs 25L keeps encoded old-rate arithmetic",
+    "suite": "arithmetic",
+    "source_note": "Formula regression only: the legal base and hike scope remain refused. At the threshold, encoded stamp and transfer components are 3% each.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2023-07-10", "values": { "amount_secured": "2500000" } },
+    "expect": { "total_duty": "150000" }
+  },
+  {
+    "name": "Mortgage with possession — amendment day above Rs 25L selects encoded hike arithmetic",
+    "suite": "arithmetic",
+    "source_note": "Formula regression only: 3% stamp plus encoded 4% transfer duty; user-facing eligibility remains closed.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2023-07-10", "values": { "amount_secured": "3000000" } },
+    "expect": { "total_duty": "210000" }
+  },
+  {
+    "name": "Mortgage with possession — missing amount secured refuses before legal evaluation",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": {} },
+    "expect": { "error": "amount_secured" }
+  },
+  {
+    "name": "Mortgage without possession — current principal branch remains the safe neighbour",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "is_collateral_or_auxiliary_security": "no" } },
+    "expect": { "total_duty": "100000" }
+  },
+  {
+    "name": "Mortgage without possession — collateral neighbour refuses the principal formula",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART40b-mortgage-without-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "is_collateral_or_auxiliary_security": "yes" } },
+    "expect": { "error": "Collateral or auxiliary security" }
+  },
+  {
+    "name": "Agreement to sell WITH possession — amendment-day threshold arithmetic",
+    "suite": "arithmetic",
+    "source_note": "Formula regression only: at Rs 25L the encoded threshold uses 3% transfer duty on the 90% base; eligibility remains closed.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23A-ats-part-performance", "execution_date": "2023-07-10", "values": { "consideration": "2500000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "135000" }
+  },
+  {
+    "name": "Agreement to sell WITH possession — ambiguous consideration-vs-90%-base threshold arithmetic",
+    "suite": "arithmetic",
+    "source_note": "Formula regression only: consideration is above Rs 25L while its 90% transfer base is below; the parent refusal prevents this assumption from reaching users.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23A-ats-part-performance", "execution_date": "2023-07-10", "values": { "consideration": "2600000" }, "facts": { "transferee_category": "male" } },
+    "expect": { "total_duty": "163800" }
+  },
+  {
+    "name": "Agreement to sell WITH possession — missing transferee category refuses before legal evaluation",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23A-ats-part-performance", "execution_date": "2026-07-21", "values": { "consideration": "5000000" } },
+    "expect": { "error": "transferee_category" }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "KA Partnership — capital ≤ Rs 50k: Rs 500",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40-partnership",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "50000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA Partnership — capital > Rs 50k: flat Rs 2,000",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40-partnership",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "10000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  }
+]

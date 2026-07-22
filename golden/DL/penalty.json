@@ -1,0 +1,10 @@
+[
+  {
+    "name": "DL Penalty (Flow D) — refuses until the Delhi-applicable range is verified",
+    "source_note": "The draft [0, 10×] range must not escape while Delhi-specific amendments and the statutory minimum remain unverified.",
+    "input": { "jurisdiction": "DL", "rule_id": "DL-ART23-conveyance", "execution_date": "2024-06-01", "values": { "consideration": "10000000", "market_value": "10000000" }, "facts": { "transferee_category": "male" }, "duty_paid": "400000" },
+    "expect": {
+      "error": "DL-penalty: Delhi-specific amendments"
+    }
+  }
+]

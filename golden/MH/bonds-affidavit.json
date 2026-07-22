@@ -1,0 +1,313 @@
+[
+  {
+    "name": "MH Affidavit — Rs 100",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART4-affidavit",
+      "execution_date": "2024-06-01",
+      "values": {},
+      "facts": {
+        "affidavit_scope": "ordinary_non_exempt"
+      }
+    },
+    "expect": {
+      "total_duty": "100"
+    }
+  },
+  {
+    "name": "MH Affidavit — amendment boundary becomes Rs 500 on 14 October 2024",
+    "source_note": "Maharashtra Act IX of 2025 ss.1(2), 2(1): deemed effective 14-10-2024; Article 4 substitutes Rs 500 for Rs 100.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART4-affidavit",
+      "execution_date": "2024-10-14",
+      "values": {},
+      "facts": {
+        "affidavit_scope": "ordinary_non_exempt"
+      }
+    },
+    "expect": {
+      "total_duty": "500"
+    }
+  },
+  {
+    "name": "MH Affidavit — current exempt or uncertain purpose refuses",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART4-affidavit",
+      "execution_date": "2026-07-21",
+      "values": {},
+      "facts": {
+        "affidavit_scope": "court_or_statutory_exempt"
+      }
+    },
+    "expect": {
+      "error": "ordinary non-exempt affidavit"
+    }
+  },
+  {
+    "name": "MH Indemnity bond — flat Rs 500",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART35-indemnity-bond",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "total_duty": "500"
+    }
+  },
+  {
+    "name": "MH Security bond — day before substitution retains historical 0.5%",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2022-01-19",
+      "values": {
+        "amount_secured": "5000000"
+      },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": {
+      "total_duty": "25000"
+    }
+  },
+  {
+    "name": "MH Security bond — amendment day minimum is Rs 100",
+    "source_note": "Maharashtra Act VII of 2022 s.2(5): up to Rs 5 lakh, 0.1% subject to a Rs 100 minimum.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2022-01-20",
+      "values": {
+        "amount_secured": "50000"
+      },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": {
+      "total_duty": "100"
+    }
+  },
+  {
+    "name": "MH Security bond — current lower branch is 0.1% through Rs 5 lakh",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "500000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "500" }
+  },
+  {
+    "name": "MH Security bond — current upper branch is 0.3%",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "15000" }
+  },
+  {
+    "name": "MH Security bond — current Rs 20 lakh cap binds",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "1000000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "2000000" }
+  },
+  {
+    "name": "MH Security bond — Article 40-paid principal invokes Rs 100 proviso",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "100" }
+  },
+  {
+    "name": "MH Security bond — specified Government officer security is exempt",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "government_officer_security",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "0" }
+  },
+  {
+    "name": "MH Security bond — uncertain exemption scope refuses",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "uncertain",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "error": "exemption status is uncertain" }
+  },
+  {
+    "name": "MH Security bond — ordinary bond with uncertain Article 40 status refuses",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "uncertain",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "error": "paid or not paid" }
+  },
+  {
+    "name": "MH Security bond — day before GCC Policy period ignores future remission screen",
+    "source_note": "The GCC Policy 2025 remission period begins on 3-Nov-2025, so the screen is not a temporal dependency on 2-Nov-2025.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2025-11-02",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "eligible_or_uncertain",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "15000" }
+  },
+  {
+    "name": "MH Security bond — GCC Policy start date activates remission refusal",
+    "source_note": "The 22-May-2026 order states that GCC Policy 2025 relief runs from 3-Nov-2025 through 3-Nov-2030.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2025-11-03",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "eligible_or_uncertain",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "error": "GCC Policy 2025 order can remit" }
+  },
+  {
+    "name": "MH Security bond — day before agricultural remission ignores future screen",
+    "source_note": "The agricultural/crop-loan remission begins on 1-Jan-2026, so the screen is not a temporal dependency on 31-Dec-2025.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2025-12-31",
+      "values": { "amount_secured": "200000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "eligible_or_uncertain"
+      }
+    },
+    "expect": { "total_duty": "200" }
+  },
+  {
+    "name": "MH Security bond — agricultural remission start date activates refusal",
+    "source_note": "The 1-Jan-2026 order fully remits listed agriculturist agricultural/crop-loan instruments up to Rs 2 lakh from that date.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-01-01",
+      "values": { "amount_secured": "200000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "eligible_or_uncertain"
+      }
+    },
+    "expect": { "error": "agricultural or crop loan" }
+  },
+  {
+    "name": "MH Security bond — possible GCC Policy eligibility refuses unreduced duty",
+    "source_note": "The 22-May-2026 GCC Policy order can remit 50%, 75%, or 100% for Article 54 instruments; the eligibility branches are deliberately not inferred.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "5000000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "eligible_or_uncertain",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "error": "GCC Policy 2025 order can remit" }
+  },
+  {
+    "name": "MH Security bond — possible agricultural/crop-loan eligibility refuses unreduced duty",
+    "source_note": "The 1-Jan-2026 order fully remits listed agriculturist agricultural/crop-loan instruments up to Rs 2 lakh; the complete eligibility test remains closed.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART54-security-bond",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "200000" },
+      "facts": {
+        "security_bond_scope": "ordinary_non_exempt",
+        "principal_art40_duty_status": "not_paid",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "eligible_or_uncertain"
+      }
+    },
+    "expect": { "error": "agricultural or crop loan" }
+  }
+]

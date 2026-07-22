@@ -1,0 +1,62 @@
+[
+  {
+    "name": "KA LLP (Art 40A) — capital ≤ Rs 10 lakh: Rs 1,000",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40A-llp",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "1000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA LLP — ceiling step: Rs 12L capital → a PART slab counts in full",
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: excess 2,00,000 → ceil(2,00,000/5,00,000) = 1 full slab → 1,000 + 500 = 1,500. Plain division would give 1,200",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40A-llp",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "1200000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
+  },
+  {
+    "name": "KA LLP — Rs 35L capital: 5 exact slabs",
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: excess 25,00,000 / 5,00,000 = 5 slabs → 1,000 + 2,500 = 3,500.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40A-llp",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "3500000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
+  },
+  {
+    "name": "KA LLP — cap binds at Rs 10 lakh",
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: 1000 cr: 1,000 + ceil(999,00,00,000/5,00,000)×500 = 1,000 + 19,980×500 = 99,91,000 → capped at Rs 10,00,000.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART40A-llp",
+      "execution_date": "2024-06-01",
+      "values": {
+        "capital": "10000000000"
+      }
+    },
+    "expect": {
+      "error": "not verified yet"
+    }
+  }
+]

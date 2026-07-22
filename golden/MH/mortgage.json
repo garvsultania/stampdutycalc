@@ -1,0 +1,172 @@
+[
+  {
+    "name": "MH Mortgage with possession — area conveyance rate (5%) on amount secured",
+    "source_note": "Art 40(a) = Conveyance Art 25 on amount secured; Municipal Corp 5%. 50,00,000 × 5% = 2,50,000 (no women/metro modifiers via cross-ref).",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40a-mortgage-with-possession",
+      "execution_date": "2026-07-21",
+      "values": {
+        "amount_secured": "5000000"
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "area_type": "municipal_corporation",
+        "metro_cess_city": "no",
+        "mortgage_subtype": "non_usufructuary",
+        "lbt_status": "not_applicable",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": {
+      "total_duty": "250000"
+    }
+  },
+  {
+    "name": "MH Mortgage without possession — 0.3% (below the cap)",
+    "source_note": "Current Art 40(b) upper branch: 50,00,000 × 0.3% = 15,000.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "mortgagee_bank_scope": "other"
+      }
+    },
+    "expect": {
+      "total_duty": "15000"
+    }
+  },
+  {
+    "name": "MH Mortgage without possession — cap binds at Rs 20 lakh",
+    "source_note": "100,00,00,000 × 0.3% = 30,00,000 → capped at Rs 20,00,000.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "1000000000"
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "mortgagee_bank_scope": "other"
+      }
+    },
+    "expect": {
+      "total_duty": "2000000"
+    }
+  },
+  {
+    "name": "MH Mortgage without possession — minimum Rs 100 binds",
+    "source_note": "The current lower branch applies through Rs 5 lakh: 10,000 × 0.1% = 10 → floored at Rs 100.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "10000"
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "mortgagee_bank_scope": "other"
+      }
+    },
+    "expect": {
+      "total_duty": "100"
+    }
+  },
+  {
+    "name": "MH Mortgage without possession — uncertain consortium scope refuses",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2024-06-01",
+      "values": {
+        "amount_secured": "5000000"
+      },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "mortgagee_bank_scope": "uncertain"
+      }
+    },
+    "expect": {
+      "error": "Select consortium of banks or other"
+    }
+  },
+  {
+    "name": "MH Mortgage without possession — day before Act III retains 0.5%",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2021-02-08",
+      "values": { "amount_secured": "5000000" },
+      "facts": { "mh_section9_remission_claim": "none_identified" }
+    },
+    "expect": { "total_duty": "25000" }
+  },
+  {
+    "name": "MH Mortgage without possession — Act III upper branch starts 9 February 2021",
+    "source_note": "Maharashtra Act III of 2021 ss.1(2), 3(b): Rs 50 lakh moves from historical 0.5% to 0.3%, producing Rs 15,000.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2021-02-09",
+      "values": { "amount_secured": "5000000" },
+      "facts": { "mh_section9_remission_claim": "none_identified" }
+    },
+    "expect": { "total_duty": "15000" }
+  },
+  {
+    "name": "MH Mortgage without possession — Rs 10 lakh ceiling remains through 19 January 2022",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2022-01-19",
+      "values": { "amount_secured": "1000000000" },
+      "facts": { "mh_section9_remission_claim": "none_identified" }
+    },
+    "expect": { "total_duty": "1000000" }
+  },
+  {
+    "name": "MH Mortgage without possession — current consortium ceiling is Rs 50 lakh",
+    "source_note": "Maharashtra Act VII of 2022 s.2(3): 0.3% of Rs 200 crore is Rs 60 lakh, capped at Rs 50 lakh for a consortium of banks.",
+    "input": {
+      "jurisdiction": "MH",
+      "rule_id": "MH-ART40b-mortgage-without-possession",
+      "execution_date": "2026-07-21",
+      "values": { "amount_secured": "2000000000" },
+      "facts": { "mh_section9_remission_claim": "none_identified",
+        "mortgagee_bank_scope": "consortium_of_banks",
+        "mh_gcc_remission_scope": "not_applicable",
+        "mh_agricultural_loan_remission_scope": "not_applicable"
+      }
+    },
+    "expect": { "total_duty": "5000000" }
+  },
+  {
+    "name": "MH Mortgage with possession — usufructuary or uncertain subtype refuses omitted surcharge",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "mortgage_subtype": "usufructuary_or_uncertain", "metro_cess_city": "no", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable", "mh_agricultural_loan_remission_scope": "not_applicable" } },
+    "expect": { "error": "transport surcharge reaches usufructuary mortgages" }
+  },
+  {
+    "name": "MH Mortgage with possession — metro location refuses without sourced subtype/city modifier",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "mortgage_subtype": "non_usufructuary", "metro_cess_city": "yes", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable", "mh_agricultural_loan_remission_scope": "not_applicable" } },
+    "expect": { "error": "transport surcharge reaches usufructuary mortgages" }
+  },
+  {
+    "name": "MH Mortgage with possession — LBT-uncertain location refuses through conveyance dependency",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "mortgage_subtype": "non_usufructuary", "metro_cess_city": "no", "lbt_status": "applies_or_uncertain", "mh_gcc_remission_scope": "not_applicable", "mh_agricultural_loan_remission_scope": "not_applicable" } },
+    "expect": { "error": "Local Body Tax or another omitted local surcharge" }
+  },
+  {
+    "name": "MH Mortgage with possession — missing subtype refuses before computation",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40a-mortgage-with-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "5000000" }, "facts": { "mh_section9_remission_claim": "none_identified", "area_type": "municipal_corporation", "metro_cess_city": "no", "lbt_status": "not_applicable", "mh_gcc_remission_scope": "not_applicable", "mh_agricultural_loan_remission_scope": "not_applicable" } },
+    "expect": { "error": "mortgage_subtype" }
+  },
+  {
+    "name": "MH Mortgage — possibly eligible agricultural/crop loan refuses unreduced duty",
+    "source_note": "The 1-Jan-2026 order fully remits listed agriculturist agricultural/crop-loan instruments up to Rs 2 lakh.",
+    "input": { "jurisdiction": "MH", "rule_id": "MH-ART40b-mortgage-without-possession", "execution_date": "2026-07-21", "values": { "amount_secured": "200000" }, "facts": { "mh_section9_remission_claim": "none_identified", "mortgagee_bank_scope": "other", "mh_gcc_remission_scope": "not_applicable", "mh_agricultural_loan_remission_scope": "eligible_or_uncertain" } },
+    "expect": { "error": "remits the whole stamp duty" }
+  }
+]

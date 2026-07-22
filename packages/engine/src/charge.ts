@@ -1,4 +1,4 @@
-import type { Charge, Slab } from "@stampdraft/schema";
+import type { Charge, RateSpec, Rule, Slab } from "@stampdraft/schema";
 import { canonical, num, ZERO, type Num } from "./money.js";
 import { evalExpr } from "./value-expr.js";
 import { EngineError } from "./errors.js";
@@ -7,10 +7,39 @@ import type { Snapshot } from "./snapshot.js";
 export interface ChargeCtx {
   /** Named numeric inputs + any `let` bindings introduced by enclosing formulas. */
   values: Record<string, Num>;
+  /** Named categorical facts — read by category-selected rates (RateSpec). */
+  facts: Record<string, string | number>;
   /** The active snapshot — cross-refs resolve ONLY here (PRD §5.3). */
   snapshot: Snapshot;
   /** rule_ids currently being resolved, for cross-ref cycle detection. */
   resolving: Set<string>;
+  /**
+   * Every rule whose charge contributed to this evaluation. `compute()` uses
+   * this to apply pending/verification gates transitively. Optional so callers
+   * using the low-level evaluator directly are not forced to collect metadata.
+   */
+  ruleDependencies?: Map<string, Rule>;
+}
+
+/**
+ * Resolve an ad valorem rate: a plain number, or a rate selected by a categorical
+ * fact. If no case matches and the encoding declares no `default`, this THROWS —
+ * the rule has no residual case, so a missing/unknown fact must escalate rather
+ * than silently charge some other class's rate (PRD §15).
+ */
+export function resolveRate(pct: RateSpec, facts: Record<string, string | number>): number {
+  if (typeof pct === "number") return pct;
+  const value = facts[pct.by];
+  const hit = pct.cases.find((c) => c.when === value);
+  if (hit) return hit.pct;
+  if (pct.default !== undefined) return pct.default;
+  const known = pct.cases.map((c) => String(c.when)).join(", ");
+  throw new EngineError(
+    value === undefined
+      ? `required fact "${pct.by}" was not provided, and this rule declares no default rate (expected one of: ${known})`
+      : `fact "${pct.by}" = "${String(value)}" matches no rate case and this rule declares no default (expected one of: ${known})`,
+    "INPUT_REQUIRED",
+  );
 }
 
 /** Clamp a computed duty to its optional [min_duty, cap] window. */
@@ -33,9 +62,13 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
     case "fixed":
       return num(charge.amount);
 
+    case "expr":
+      // The duty is the computed amount itself (stepped schedule entries).
+      return evalExpr(charge.value, ctx.values);
+
     case "ad_valorem": {
       const base = evalExpr(charge.base, ctx.values);
-      const raw = base.times(charge.pct).div(100);
+      const raw = base.times(resolveRate(charge.pct, ctx.facts)).div(100);
       return clamp(raw, charge.min_duty, charge.cap);
     }
 
@@ -63,6 +96,32 @@ export function evalCharge(charge: Charge, ctx: ChargeCtx): Num {
 
     case "cross_ref":
       return evalCrossRef(charge, ctx);
+
+    case "switch": {
+      const on = evalExpr(charge.on, ctx.values);
+      for (const c of charge.cases) {
+        if (c.upto === null || on.lessThanOrEqualTo(c.upto)) {
+          return evalCharge(c.charge, ctx);
+        }
+      }
+      throw new EngineError(
+        `value ${on.toFixed()} matches no switch case (add a terminal case with upto: null, or this is a deliberate escalate-by-error boundary)`,
+      );
+    }
+
+    case "select": {
+      const value = ctx.facts[charge.by];
+      const hit = charge.cases.find((c) => c.when === value);
+      if (hit) return evalCharge(hit.charge, ctx);
+      if (charge.default) return evalCharge(charge.default, ctx);
+      const known = charge.cases.map((c) => String(c.when)).join(", ");
+      throw new EngineError(
+        value === undefined
+          ? `required fact "${charge.by}" was not provided, and this rule declares no default charge (expected one of: ${known})`
+          : `fact "${charge.by}" = "${String(value)}" matches no case and this rule declares no default charge (expected one of: ${known})`,
+        "INPUT_REQUIRED",
+      );
+    }
   }
 }
 
@@ -111,6 +170,7 @@ function evalCrossRef(charge: Extract<Charge, { kind: "cross_ref" }>, ctx: Charg
   if (ctx.resolving.has(charge.rule_id)) {
     throw new EngineError(`cyclic cross_ref detected at "${charge.rule_id}"`);
   }
+  ctx.ruleDependencies?.set(target.rule_id, target);
   const nextResolving = new Set(ctx.resolving);
   nextResolving.add(charge.rule_id);
 
@@ -119,7 +179,10 @@ function evalCrossRef(charge: Extract<Charge, { kind: "cross_ref" }>, ctx: Charg
     const rebasedValue = evalExpr(charge.on, ctx.values);
     targetCharge = rebase(targetCharge, rebasedValue);
   }
-  return evalCharge(targetCharge, { ...ctx, resolving: nextResolving });
+  const result = evalCharge(targetCharge, { ...ctx, resolving: nextResolving });
+  // "Ninety per cent of the duty as a Conveyance (No. 23)" — Art 23A-style
+  // scaling of the TARGET'S DUTY (not its base).
+  return charge.scale !== undefined ? result.times(charge.scale) : result;
 }
 
 /**

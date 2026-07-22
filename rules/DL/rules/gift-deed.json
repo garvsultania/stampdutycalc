@@ -1,0 +1,37 @@
+{
+  "rule_id": "DL-ART33-gift",
+  "jurisdiction": "DL",
+  "act": "Indian Stamp Act, 1899 (as applicable to Delhi), Schedule I-A",
+  "article": "33",
+  "instrument": "gift_deed",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Indian Stamp Act, 1899, Sch. I-A Art. 33 (Delhi)",
+      "article": "33",
+      "url": "https://revenue.delhi.gov.in/revenue/property-registration",
+      "quoted_text": "Sch I-A Art. 33 (both columns): 'GIFT - Instrument of, not being a settlement (No.58), or will or transfer (No. 62)' — 'The same duty as Conveyance (No.23) on the value of property.' So the STAMP component = Art 23 rate (3%, 2% women) on property value; transfer duty (gift is in the DMC s.147 list) rides as a separate modifier. Reconciles with the official Dept. of Revenue combined framing: 'Stamp & Transfer Duty @ 4% if the donee is a woman and @ 6% if the donee is a man'; property must be valued by an approved valuer."
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "cross_ref",
+    "rule_id": "DL-ART23-conveyance",
+    "on": { "var": "market_value" }
+  },
+  "modifiers": [
+    "DL-transfer-duty-gift",
+    { "modifier_id": "DL-transfer-duty-gift-hike", "required_from": "2023-07-10" }
+  ],
+  "rounding": { "mode": "none", "nearest": 1 },
+  "pending_verification": [
+    {
+      "reason": "The primary 10-Jul-2023 MCD notification has not yet established that the transfer-duty hike applies to gifts, and joint-donee and family-concession treatment remain unresolved. Refuse gift totals until that municipal scope is proved."
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official combined totals + Sch I-A structure). Now encoded exactly as the statute reads: a CROSS-REF to Conveyance (No.23) re-based on property value — the engine imports only the Art 23 charge (3/2 by transferee_category of the DONEE), then this rule's own transfer-duty modifiers apply. Donee gender uses the same transferee_category fact (female → 2% stamp + 2%/3% transfer). Joint-donee treatment NOT stated on the official page — 'joint' resolves via the Art 23 RateSpec (2.5 PENDING) but no golden asserts it; confirm. Family-relation concessions for gifts: none encoded — Delhi has no general relative concession in the sources reached; confirm (PRD §5.5 requires the per-state relative list be explicit)."
+}

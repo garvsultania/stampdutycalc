@@ -1,0 +1,95 @@
+{
+  "rule_id": "MH-ART36A-leave-license",
+  "jurisdiction": "MH",
+  "act": "Maharashtra Stamp Act, 1958, Schedule I",
+  "article": "36A",
+  "instrument": "leave_and_license",
+  "version": {
+    "effective_from": "2015-01-01",
+    "effective_to": null,
+    "supersedes": null,
+    "source": {
+      "type": "act",
+      "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 36A(a) (subst. by Mah. Act 8 of 2013, w.e.f. 1-5-2013)",
+      "article": "36A",
+      "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+      "quoted_text": "Sch I Art. 36A (both columns, IGR text, clause (a) subst. by Mah. 8 of 2013 w.e.f. 1-5-2013): 'Leave and Licence Agreement — (a) Where the leave and licence agreement purports to be for a term not exceeding sixty months with or without renewal clause — 0.25 per cent of the total sum of, (i) the licence fees or rent payable under the agreement; plus (ii) the amount of non-refundable deposit or money advanced or to be advanced or premium, by whatever name called; plus (iii) the interest calculated at the rate of 10 per cent per annum on the refundable security deposit or money advanced or to be advanced, by whatever name called. (b) Where such leave and license agreement purports to be for a period exceeding sixty months with or without renewal clause — Same duty as is leviable on lease, under clause (ii), (iii) or (iv), as the case may be, of Article 36.'"
+    },
+    "verified_by": null,
+    "verified_on": null
+  },
+  "charge": {
+    "kind": "switch",
+    "on": {
+      "var": "term_months"
+    },
+    "cases": [
+      {
+        "upto": 60,
+        "charge": {
+          "kind": "ad_valorem",
+          "base": {
+            "op": "+",
+            "args": [
+              {
+                "op": "+",
+                "args": [
+                  {
+                    "var": "licence_fee_total"
+                  },
+                  {
+                    "var": "non_refundable_deposit"
+                  }
+                ]
+              },
+              {
+                "op": "*",
+                "args": [
+                  {
+                    "var": "refundable_deposit"
+                  },
+                  {
+                    "lit": "0.10"
+                  }
+                ]
+              }
+            ]
+          },
+          "pct": 0.25
+        }
+      },
+      {
+        "upto": null,
+        "charge": {
+          "kind": "cross_ref",
+          "rule_id": "MH-ART36-lease"
+        }
+      }
+    ]
+  },
+  "modifiers": [
+    {
+      "modifier_id": "MH-gcc-policy-remission",
+      "required_from": "2025-11-03",
+      "required_to": "2030-11-04"
+    }
+  ],
+  "rounding": {
+    "mode": "none",
+    "nearest": 1
+  },
+  "pending_verification": [
+    {
+      "reason": "Every fee, rent, premium, advance, and deposit in the document must be represented by the entered Article 36A payment fields. The engine derives the safe payment scope from an observable completeness answer and refuses any unentered or uncertain payment.",
+      "when": {
+        "not": {
+          "eq": {
+            "field": "licence_payment_scope",
+            "value": "statutory_inputs_confirmed"
+          }
+        }
+      }
+    }
+  ],
+  "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text; the current post-2013 Art 36A). The Maharashtra differentiator: for term ≤60 months, 0.25% of [licence_fee_total + non_refundable_deposit + 10% × refundable_deposit]. Inputs: term_months, licence_fee_total (total rent/licence fees over the whole term), non_refundable_deposit, refundable_deposit. The shared contract asks whether the document contains any other payment and derives licence_payment_scope internally only from an explicit 'no'. NOTE the 10% is a flat interest factor for the WHOLE agreement as the statute reads (not annualised per year) — confirm registrar practice on multi-year terms (Explanation absent). For >60 months, cross-refs the lease (Art 36); optional observable lease-completeness answers derive the target's safe scope only when this branch is used. EFFECTIVE-DATE: the 0.25% formula is from Mah 8/2013 (w.e.f. 1-5-2013); effective_from is the 2015 coverage floor (PRD §13)."
+}

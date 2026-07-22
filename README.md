@@ -44,7 +44,15 @@ node packages/cli/dist/index.js compute  --rules rules/DL --input matter.json
 
 ## Status
 
-**M0 (Foundations) complete.** Schema + validators, deterministic engine core
-(all base/rate/modifier types, formula lease bases, slabs, caps, min-duty,
-snapshot-scoped cross-refs, penalty ranges, classification trees), and a golden-test
-harness wired into CI. Next gate: **M1 — Delhi end-to-end.**
+M0–M3 foundations, the three-state draft corpus, frontend, and workspace are present.
+The recovered branch also contains transitive fail-closed safety gates, Watchdog-backed
+citation evidence contracts, and a Maharashtra Part IV-B archive awaiting focused
+review. Provider-independent tenant isolation, Tier 2 document confirmation,
+forward-only migrations, readiness, retention, and backup/restore contracts are also
+implemented; production providers and deployment drills remain external requirements.
+
+This is not production-ready law: every rule remains founder-unverified and current
+Watchdog evidence coverage is 0/115. Thirteen Maharashtra evidence-link proposals are
+mechanically valid but deliberately await human review. Resume from
+[`PHASED-EXECUTION-PLAN.md`](./PHASED-EXECUTION-PLAN.md); do not infer readiness from
+green draft goldens alone.

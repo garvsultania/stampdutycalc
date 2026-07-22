@@ -1,0 +1,32 @@
+{
+  "sequence": 116,
+  "request": {
+    "method": "POST",
+    "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+    "formValues": {
+      "ctl00$CPH$ddldivision": "1",
+      "ctl00$CPH$ddlSection": "15",
+      "ctl00$CPH$ddlGazetteType": "1",
+      "ctl00$CPH$txtfromDate": "09/04/2025",
+      "ctl00$CPH$txtToDate": "16/07/2026",
+      "__EVENTTARGET": "ctl00$CPH$GridView2$ctl14$LinkButton1",
+      "__EVENTARGUMENT": ""
+    }
+  },
+  "response": {
+    "url": "https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx",
+    "status": 200,
+    "media_type": "application/pdf",
+    "headers": {
+      "cache-control": "private",
+      "content-length": "223878",
+      "content-type": "application/pdf",
+      "date": "Fri, 17 Jul 2026 00:01:43 GMT",
+      "server": "Microsoft-IIS/10.0",
+      "x-aspnet-version": "4.0.30319",
+      "x-powered-by": "ASP.NET"
+    },
+    "body_file": "bodies/0116.pdf",
+    "bytes": 223878
+  }
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "name": "KA Lease — ≤1yr residential: 0.5%, capped at Rs 500",
+    "source_note": "The encoded arithmetic is 0.5% capped at Rs 500, but the current annual Act graph, family proviso, and long-term cess model are incomplete, so the user-facing path refuses.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "12",
+        "avg_annual_rent": "240000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "residential"
+      }
+    },
+    "expect": {
+      "error": "Current lease totals must refuse"
+    }
+  },
+  {
+    "name": "KA Lease — ≤1yr residential below the cap",
+    "suite": "arithmetic",
+    "source_note": "base 80,000 × 0.5% = 400 (< Rs 500 cap).",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "12",
+        "avg_annual_rent": "80000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "residential"
+      }
+    },
+    "expect": {
+      "total_duty": "400"
+    }
+  },
+  {
+    "name": "KA Lease — ≤1yr commercial: 0.5%, NO cap",
+    "suite": "arithmetic",
+    "source_note": "Art 30(ii): commercial has no Rs 500 cap. 2,40,000 × 0.5% = 1,200.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "12",
+        "avg_annual_rent": "240000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "commercial"
+      }
+    },
+    "expect": {
+      "total_duty": "1200"
+    }
+  },
+  {
+    "name": "KA Lease — >1 ≤10 years: 1%",
+    "suite": "arithmetic",
+    "source_note": "Art 30(iii). base 5,00,000 × 1% = 5,000.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "60",
+        "avg_annual_rent": "500000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "commercial"
+      }
+    },
+    "expect": {
+      "total_duty": "5000"
+    }
+  },
+  {
+    "name": "KA Lease — >10 ≤20 years: 2%",
+    "suite": "arithmetic",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "180",
+        "avg_annual_rent": "500000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "commercial"
+      }
+    },
+    "expect": {
+      "total_duty": "10000"
+    }
+  },
+  {
+    "name": "KA Lease — >20 ≤30 years: 3%",
+    "suite": "arithmetic",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "300",
+        "avg_annual_rent": "500000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0"
+      },
+      "facts": {
+        "property_use": "commercial"
+      }
+    },
+    "expect": {
+      "total_duty": "15000"
+    }
+  },
+  {
+    "name": "KA Lease — >30 years: conveyance rate on max(lease base, market value)",
+    "suite": "arithmetic",
+    "source_note": "Art 30(vi): 5% of max(5,00,000; 1,00,00,000) = 5% × 1,00,00,000 = 5,00,000. (Perpetuity s.3B cess PENDING, not attached.)",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART30-lease",
+      "execution_date": "2024-06-01",
+      "values": {
+        "term_months": "400",
+        "avg_annual_rent": "500000",
+        "premium": "0",
+        "fine": "0",
+        "money_advanced": "0",
+        "market_value": "10000000"
+      },
+      "facts": {
+        "property_use": "commercial"
+      }
+    },
+    "expect": {
+      "total_duty": "500000"
+    }
+  },
+  {
+    "name": "KA POA — Rs 100 (general)",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART41-poa",
+      "execution_date": "2024-06-01",
+      "values": {}
+    },
+    "expect": {
+      "error": "not verified yet"
+    },
+    "source_note": "Asserted a figure from the pre-Act-04-of-2024 text; that Act came into force 03-02-2024 and rewrote this Article, and our source PDF predates it. Until the current text is encoded and verified the engine must refuse rather than return superseded law. Prior note: "
+  },
+  {
+    "name": "KA Penalty (Flow D) — refuses until the statutory route is explicit",
+    "source_note": "One [0, 10×] range cannot safely represent both the discretionary Collector path under s.39 and the potentially mandatory 10× admission consequence under s.34.",
+    "input": {
+      "jurisdiction": "KA",
+      "rule_id": "KA-ART20-conveyance",
+      "execution_date": "2020-06-01",
+      "values": {
+        "market_value": "10000000"
+      },
+      "duty_paid": "300000",
+      "facts": {
+        "first_sale_flat": "no",
+        "ka_area": "urban"
+      }
+    },
+    "expect": {
+      "error": "KA-penalty: One discretionary [0, 10x] range"
+    }
+  }
+]

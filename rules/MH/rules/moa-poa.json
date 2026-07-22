@@ -1,0 +1,156 @@
+[
+  {
+    "rule_id": "MH-ART39-moa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "39",
+    "instrument": "memorandum_of_association",
+    "version": {
+      "effective_from": "2015-05-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 39 (amended by Mah. Act 20 of 2015)",
+        "article": "39",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 39 (both columns, IGR text): 'MEMORANDUM OF ASSOCIATION OF A COMPANY — (a) if accompanied by articles of association under section 26 of the Companies Act, 1956 — One thousand rupees; (b) if not so accompanied — 0.2 per cent according to the share capital of the company, subject to minimum of rupees one thousand and maximum of rupees 50,00,000.'"
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "select",
+      "by": "accompanied_by_aoa",
+      "cases": [
+        {
+          "when": "yes",
+          "charge": {
+            "kind": "fixed",
+            "amount": "1000"
+          }
+        }
+      ],
+      "default": {
+        "kind": "ad_valorem",
+        "base": {
+          "var": "share_capital"
+        },
+        "pct": 0.2,
+        "min_duty": "1000",
+        "cap": "5000000"
+      }
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "Whether the memorandum is accompanied by articles of association changes the charge from a flat amount to an ad-valorem amount. Require an explicit yes/no answer; a missing fact cannot default to the higher branch silently.",
+        "when": {
+          "not": {
+            "in": {
+              "field": "accompanied_by_aoa",
+              "values": ["yes", "no"]
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH (official IGR text). The Maharashtra CAP showcase (PRD §5.2 — caps are load-bearing and a differentiator): MOA not accompanied by AoA → 0.2% of share_capital, floor Rs 1,000, CAP Rs 50,00,000. accompanied_by_aoa='yes' → flat Rs 1,000. Instrument key memorandum_of_association is outside the MVP-15 but encoded to exercise the cap primitive; harmless (validator warns, non-blocking). Could be dropped if the founder prefers strict MVP-15 scope."
+  },
+  {
+    "rule_id": "MH-ART48-poa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "48",
+    "instrument": "general_poa",
+    "version": {
+      "effective_from": "2015-05-24",
+      "effective_to": null,
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 48(a)-(e),(h) (Rs 500 subst. for Rs 100 by Mah. 20 of 2015)",
+        "article": "48",
+        "url": "https://igrmaharashtra.gov.in/pdf/documents/The_Maharashtra_Act_Schedule_1_and_2.pdf",
+        "quoted_text": "Sch I Art. 48 (both columns, IGR text): 'POWER OF ATTORNEY not being a Proxy — (a) sole purpose of procuring registration ... single transaction — Five hundred rupees; (b) suits under Presidency Small Cause Courts Act — Five hundred rupees; (c) authorising one or more persons to act in a single transaction other than (a) — Five hundred rupees; (d) authorising one person to act in more than one transaction or generally — Five hundred rupees; (e) authorising more than one person ... jointly or severally or generally — Five hundred rupees; (h) in any other case — Five hundred rupees for each person authorised.' Maharashtra Act XX of 2015 s.20(25) substitutes Rs 500 for Rs 100 and was first published on 24-Apr-2015; the IGR consolidated footnote separately states 24-May-2015, so the exact boundary remains pending human legal review. Clause (f)(i): for consideration authorising sale of immovable property — same duty as Conveyance (Art 25) on market value. Clause (f)(ii)(a): to sell/transfer without consideration to father/mother/brother/sister/wife/husband/daughter/son/grandson/granddaughter or spouse's such relatives — Rs 500; else (f)(ii)(b) — Conveyance rate. Clause (g): to a promoter/developer for construction/development/sale/transfer — Conveyance rate (s.32A applies; Rs 100 if proper duty paid under Art 5(g-a) agreement between same parties)."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "500"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "The flat Article 48 amount is returned only for clauses (a)-(e), derived from observable document-purpose answers. Sale/transfer powers, developer/promoter powers, clause (h), another purpose, or uncertainty remain outside this flat rule.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "poa_scope",
+              "value": "fixed_clauses_a_to_e"
+            }
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "CONFIDENCE: HIGH for clauses (a)-(e) = Rs 500 (official IGR). The shared input contract derives the fixed scope from document purpose and explicit absence of immovable-transfer and developer/promoter powers; callers cannot assert the legal conclusion. Clause (h) is deliberately refused because its Rs 500-per-person arithmetic is not represented by this flat rule. ESCALATIONS: clause (f) POA for consideration to sell immovable → Conveyance rate on market value; (f)(ii)(a) family gift-POA → Rs 500; (g) developer/promoter POA → Conveyance rate. effective_from 2015-05-24 = the Rs 100→Rs 500 change; the pre-2015 Rs 100 version is a back-catalogue item (M2)."
+  },
+  {
+    "rule_id": "MH-ART48-poa",
+    "jurisdiction": "MH",
+    "act": "Maharashtra Stamp Act, 1958, Schedule I",
+    "article": "48",
+    "instrument": "general_poa",
+    "version": {
+      "effective_from": "2015-01-01",
+      "effective_to": "2015-05-24",
+      "supersedes": null,
+      "source": {
+        "type": "act",
+        "ref": "Maharashtra Stamp Act, 1958, Sch. I Art. 48(a)-(e),(h) as they stood before Mah. Act 20 of 2015 s.20(25)",
+        "article": "48",
+        "quoted_text": "Sch I Art. 48 clauses (a)-(e) and (h) PRIOR to Mah. 20 of 2015: 'One hundred rupees' each. Maharashtra Act XX of 2015 s.20(25) substitutes 'Five hundred rupees' and was first published on 24-Apr-2015; the IGR consolidated footnote separately states 24-May-2015, leaving that one-month boundary unresolved pending human legal review."
+      },
+      "verified_by": null,
+      "verified_on": null
+    },
+    "charge": {
+      "kind": "fixed",
+      "amount": "100"
+    },
+    "rounding": {
+      "mode": "none",
+      "nearest": 1
+    },
+    "pending_verification": [
+      {
+        "reason": "The historical flat Article 48 amount is returned only for clauses (a)-(e), derived from observable document-purpose answers. Sale/developer, clause (h), other, and uncertain paths remain refused.",
+        "when": {
+          "not": {
+            "eq": {
+              "field": "poa_scope",
+              "value": "fixed_clauses_a_to_e"
+            }
+          }
+        }
+      },
+      {
+        "reason": "Maharashtra Act XX of 2015 was first published on 24-Apr-2015, while the IGR consolidated footnote states the Article 48 substitutions took effect on 24-May-2015. Refuse the disputed 24-Apr through 23-May interval instead of returning the old Rs 100 amount.",
+        "when": {
+          "date_within": {
+            "from": "2015-04-24"
+          }
+        }
+      }
+    ],
+    "notes_for_reviewer": "BACK-CATALOGUE: Article 48(a)-(e) POA Rs 100 before Mah. 20 of 2015. The official Act was first published 24-Apr-2015 but the IGR consolidated footnote states 24-May-2015; 24-Apr through 23-May is now refused rather than assigned either amount. Observable contract answers derive the fixed scope; all other branches refuse."
+  }
+]
